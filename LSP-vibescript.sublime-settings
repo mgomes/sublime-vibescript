@@ -1,0 +1,9 @@
+// Packages/User/LSP-vibescript.sublime-settings
+{
+  "command": [
+    "vibes",
+    "lsp"
+  ],
+  "selector": "source.vibescript",
+  "settings": {}
+}
