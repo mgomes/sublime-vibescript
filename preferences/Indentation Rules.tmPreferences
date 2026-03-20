@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plist version="1.0">
+<dict>
+	<key>name</key>
+	<string>Indentation Rules</string>
+	<key>scope</key>
+	<string>source.vibescript</string>
+	<key>settings</key>
+	<dict>
+		<key>decreaseIndentPattern</key>
+		<string>^\s*(?:[}\]]\s*$|(end|elsif|else|when|rescue|ensure)\b)</string>
+		<key>increaseIndentPattern</key>
+		<string>(?x)^\s*(?:(export\s+)?(private\s+)?def|class|if|elsif|else|unless|while|until|for|case|when|begin|rescue|ensure)\b|.*\bdo\b.*$</string>
+	</dict>
+</dict>
+</plist>

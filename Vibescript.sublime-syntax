@@ -1,0 +1,241 @@
+%YAML 1.2
+---
+name: Vibescript
+scope: source.vibescript
+
+file_extensions:
+  - vibe
+
+first_line_match: '^#!.*\bvibes\b'
+
+variables:
+  identifier: '[a-z_][a-zA-Z0-9_]*[?!]?'
+  constant: '[A-Z][a-zA-Z0-9_]*'
+
+contexts:
+  prototype:
+    - include: comments
+
+  main:
+    - include: definitions
+    - include: declarations
+    - include: control-keywords
+    - include: block-parameters
+    - include: strings
+    - include: numbers
+    - include: symbols
+    - include: variables
+    - include: calls
+    - include: constants
+    - include: operators
+    - include: punctuation
+
+  comments:
+    - match: '#'
+      scope: punctuation.definition.comment.vibescript
+      push: line-comment
+
+  line-comment:
+    - meta_scope: comment.line.number-sign.vibescript
+    - match: '\b(vibe)(:)\s+([0-9]+\.[0-9]+)\b'
+      captures:
+        1: keyword.other.directive.vibescript
+        2: punctuation.separator.key-value.vibescript
+        3: constant.numeric.version.vibescript
+    - match: '\b(uses)(:)\s+([a-z_, ]+)'
+      captures:
+        1: keyword.other.directive.vibescript
+        2: punctuation.separator.key-value.vibescript
+        3: support.other.capability.vibescript
+    - match: $\n?
+      pop: 1
+
+  definitions:
+    - match: '\b(export)\b'
+      scope: keyword.declaration.export.vibescript
+    - match: '\b(private)(?=\s+def\b)'
+      scope: keyword.declaration.visibility.vibescript
+    - match: '\b(def)\b'
+      scope: keyword.declaration.function.vibescript
+      push: function-declaration
+    - match: '\b(class)\b'
+      scope: keyword.declaration.class.vibescript
+      push: class-declaration
+
+  class-declaration:
+    - meta_scope: meta.class.vibescript
+    - match: '{{constant}}'
+      scope: entity.name.class.vibescript
+      pop: 1
+    - match: '(?=\S)'
+      pop: 1
+
+  function-declaration:
+    - meta_scope: meta.function.signature.vibescript
+    - match: '(self)(\.)(?={{identifier}})'
+      captures:
+        1: variable.language.self.vibescript
+        2: punctuation.accessor.dot.vibescript
+      set: function-name-after-self
+    - match: '{{identifier}}'
+      scope: entity.name.function.vibescript
+      set: function-signature-tail
+    - match: '(?=\S)'
+      pop: 1
+
+  function-name-after-self:
+    - match: '{{identifier}}'
+      scope: entity.name.function.vibescript
+      set: function-signature-tail
+    - match: '(?=\S)'
+      pop: 1
+
+  function-signature-tail:
+    - match: '\('
+      scope: punctuation.section.group.begin.vibescript
+      push: parameters
+    - match: '(->)'
+      scope: punctuation.separator.annotation.return-type.vibescript
+      push: type-expression
+    - match: $\n?
+      pop: 1
+
+  parameters:
+    - meta_scope: meta.group.parameters.vibescript
+    - match: '\)'
+      scope: punctuation.section.group.end.vibescript
+      pop: 1
+    - match: ','
+      scope: punctuation.separator.parameter.vibescript
+    - match: '@[a-zA-Z_][a-zA-Z0-9_]*'
+      scope: variable.parameter.instance.vibescript
+    - match: '{{identifier}}'
+      scope: variable.parameter.vibescript
+    - match: ':'
+      scope: punctuation.separator.annotation.type.vibescript
+      push: type-expression
+    - match: '='
+      scope: keyword.operator.assignment.vibescript
+
+  type-expression:
+    - meta_scope: meta.annotation.type.vibescript
+    - match: '(?=[,)=\n])'
+      pop: 1
+    - match: '\|'
+      scope: keyword.operator.union.vibescript
+    - match: '\?'
+      scope: keyword.operator.optional.vibescript
+    - match: '\bnil\b'
+      scope: constant.language.null.vibescript
+    - match: '{{constant}}'
+      scope: support.class.vibescript
+    - match: '{{identifier}}'
+      scope: support.type.vibescript
+    - match: '\s+'
+    - match: '(?=\S)'
+      pop: 1
+
+  declarations:
+    - match: '\b(property|getter|setter)\b'
+      scope: keyword.declaration.member.vibescript
+      push: member-declaration
+    - match: '\b(require|as)\b'
+      scope: keyword.control.import.vibescript
+
+  member-declaration:
+    - meta_scope: meta.declaration.member.vibescript
+    - match: '{{identifier}}'
+      scope: variable.other.member.vibescript
+    - match: ','
+      scope: punctuation.separator.sequence.vibescript
+    - match: $\n?
+      pop: 1
+
+  control-keywords:
+    - match: '\b(if|elsif|else|unless|case|when)\b'
+      scope: keyword.control.conditional.vibescript
+    - match: '\b(while|until|for|in|do)\b'
+      scope: keyword.control.loop.vibescript
+    - match: '\b(begin|rescue|ensure)\b'
+      scope: keyword.control.exception.vibescript
+    - match: '\b(return|yield|raise|break|next)\b'
+      scope: keyword.control.flow.vibescript
+    - match: '\b(end)\b'
+      scope: keyword.control.block.vibescript
+    - match: '\b(and|or)\b'
+      scope: keyword.operator.logical.vibescript
+    - match: '\b(true|false)\b'
+      scope: constant.language.boolean.vibescript
+    - match: '\b(nil)\b'
+      scope: constant.language.null.vibescript
+    - match: '\b(self)\b'
+      scope: variable.language.self.vibescript
+
+  block-parameters:
+    - match: '\|'
+      scope: punctuation.separator.block-parameters.begin.vibescript
+      push: block-parameter-list
+
+  block-parameter-list:
+    - meta_scope: meta.block.parameters.vibescript
+    - match: '\|'
+      scope: punctuation.separator.block-parameters.end.vibescript
+      pop: 1
+    - match: '{{identifier}}'
+      scope: variable.parameter.vibescript
+    - match: ','
+      scope: punctuation.separator.parameter.vibescript
+
+  strings:
+    - match: '"'
+      scope: punctuation.definition.string.begin.vibescript
+      push: double-quoted-string
+
+  double-quoted-string:
+    - meta_include_prototype: false
+    - meta_scope: string.quoted.double.vibescript
+    - match: '\\[nrt\\"]'
+      scope: constant.character.escape.vibescript
+    - match: '"'
+      scope: punctuation.definition.string.end.vibescript
+      pop: 1
+
+  numbers:
+    - match: '\b\d[\d_]*\.\d[\d_]*\b'
+      scope: constant.numeric.float.vibescript
+    - match: '\b\d[\d_]*\b'
+      scope: constant.numeric.integer.vibescript
+
+  symbols:
+    - match: ':[a-zA-Z_][a-zA-Z0-9_]*'
+      scope: constant.other.symbol.vibescript
+
+  variables:
+    - match: '@@[a-zA-Z_][a-zA-Z0-9_]*'
+      scope: variable.other.class.vibescript
+    - match: '@[a-zA-Z_][a-zA-Z0-9_]*'
+      scope: variable.other.member.vibescript
+
+  calls:
+    - match: '(\.)({{identifier}})'
+      captures:
+        1: punctuation.accessor.dot.vibescript
+        2: variable.function.vibescript
+    - match: '\b{{identifier}}(?=\s*\()'
+      scope: variable.function.vibescript
+    - match: '\b{{identifier}}(?=\s+do\b)'
+      scope: variable.function.vibescript
+
+  constants:
+    - match: '{{constant}}'
+      scope: support.class.vibescript
+
+  operators:
+    - match: '\+=|-=|==|!=|<=|>=|&&|\|\||\.\.|->|[+\-*/%=!<>]'
+      scope: keyword.operator.vibescript
+
+  punctuation:
+    - match: '[\[\]{}()]'
+      scope: punctuation.section.brackets.vibescript
+    - match: '[,:]'
+      scope: punctuation.separator.vibescript

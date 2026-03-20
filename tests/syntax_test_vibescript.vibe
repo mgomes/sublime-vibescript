@@ -1,0 +1,58 @@
+# SYNTAX TEST "Vibescript.sublime-syntax"
+
+class Greeter
+#^^^^ keyword.declaration.class.vibescript
+#      ^^^^^^^ entity.name.class.vibescript
+  property name
+# ^^^^^^^^ keyword.declaration.member.vibescript
+#          ^^^^ variable.other.member.vibescript
+
+  def self.build(name: String?) -> Greeter
+# ^^^ keyword.declaration.function.vibescript
+#     ^^^^ variable.language.self.vibescript
+#         ^ punctuation.accessor.dot.vibescript
+#          ^^^^^ entity.name.function.vibescript
+#                ^^^^ variable.parameter.vibescript
+#                    ^ punctuation.separator.annotation.type.vibescript
+#                      ^^^^^^ support.class.vibescript
+#                            ^ keyword.operator.optional.vibescript
+#                               ^^ punctuation.separator.annotation.return-type.vibescript
+#                                  ^^^^^^^ support.class.vibescript
+    @name = :read
+#   ^^^^^ variable.other.member.vibescript
+#           ^^^^^ constant.other.symbol.vibescript
+    @@count += 1
+#   ^^^^^^^ variable.other.class.vibescript
+#           ^^ keyword.operator.vibescript
+#              ^ constant.numeric.integer.vibescript
+    "line\nnext"
+#   ^ punctuation.definition.string.begin.vibescript
+#        ^^ constant.character.escape.vibescript
+#             ^ punctuation.definition.string.end.vibescript
+  end
+# ^^^ keyword.control.block.vibescript
+end
+
+helpers = require("./helpers")
+#         ^^^^^^^ keyword.control.import.vibescript
+
+values.each do |value|
+#     ^ punctuation.accessor.dot.vibescript
+#      ^^^^ variable.function.vibescript
+#           ^^ keyword.control.loop.vibescript
+#              ^ punctuation.separator.block-parameters.begin.vibescript
+#               ^^^^^ variable.parameter.vibescript
+#                    ^ punctuation.separator.block-parameters.end.vibescript
+  if done and true
+# ^ keyword.control.conditional.vibescript
+#         ^^^ keyword.operator.logical.vibescript
+#             ^^^^ constant.language.boolean.vibescript
+    yield(value)
+#   ^^^^^ keyword.control.flow.vibescript
+#         ^ punctuation.section.group.begin.vibescript
+  end
+end
+
+# vibe: 1.2
+# ^ punctuation.definition.comment.vibescript
+#  ^^^^ keyword.other.directive.vibescript
