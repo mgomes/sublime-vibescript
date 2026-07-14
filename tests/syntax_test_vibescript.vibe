@@ -1,4 +1,4 @@
-# SYNTAX TEST "Vibescript.sublime-syntax"
+# SYNTAX TEST "Packages/Vibescript/Vibescript.sublime-syntax"
 
 class Greeter
 # <- keyword.declaration.class.vibescript
