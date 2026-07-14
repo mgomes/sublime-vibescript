@@ -300,3 +300,68 @@ cap = 1E6
 #     ^^^ constant.numeric.float.vibescript
 sep = 1e1_0
 #     ^^^^^ constant.numeric.float.vibescript
+
+enum Color
+# <- keyword.declaration.enum.vibescript
+#^^^ keyword.declaration.enum.vibescript
+#    ^^^^^ entity.name.enum.vibescript
+  Red
+# ^^^ constant.other.enum.vibescript
+  Green
+# ^^^^^ constant.other.enum.vibescript
+end
+# <- keyword.control.block.vibescript
+
+class Ops
+  def +(other)
+#     ^ entity.name.function.vibescript
+    other
+  end
+
+  def <=>(other)
+#     ^^^ entity.name.function.vibescript
+    0
+  end
+
+  def [](key)
+#     ^^ entity.name.function.vibescript
+    key
+  end
+
+  def []=(key, value)
+#     ^^^ entity.name.function.vibescript
+    value
+  end
+
+  def balance=(value)
+#     ^^^^^^^^ entity.name.function.vibescript
+    value
+  end
+
+  def self.total=(value)
+#     ^^^^ variable.language.self.vibescript
+#         ^ punctuation.accessor.dot.vibescript
+#          ^^^^^^ entity.name.function.vibescript
+    value
+  end
+end
+
+alias hi hello
+# <- keyword.declaration.alias.vibescript
+#     ^^ entity.name.function.vibescript
+#        ^^^^^ entity.name.function.vibescript
+
+alias_method :"how-dy", :hello
+# <- keyword.declaration.alias.vibescript
+#            ^^^^^^^^^ constant.other.symbol.double-quoted.vibescript
+#                       ^^^^^^ constant.other.symbol.vibescript
+
+alias_method :plus, :+
+#            ^^^^^ constant.other.symbol.vibescript
+#                   ^^ constant.other.symbol.operator.vibescript
+
+private :+, :"weird name"
+# <- keyword.declaration.visibility.vibescript
+#       ^^ constant.other.symbol.operator.vibescript
+#           ^^^^^^^^^^^^^ constant.other.symbol.double-quoted.vibescript
+

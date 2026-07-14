@@ -63,7 +63,10 @@ contexts:
   definitions:
     - match: '\b(export)\b'
       scope: keyword.declaration.export.vibescript
-    - match: '\b(private)(?=\s+def\b)'
+    - match: '\b(private|public|protected)(?=\s+(?:def|property|getter|setter)\b)'
+      scope: keyword.declaration.visibility.vibescript
+    # Retroactive visibility: bare `private` or `public :name, :"quoted", :+`.
+    - match: '\b(private|public|protected)\b(?=\s*$|\s+:)'
       scope: keyword.declaration.visibility.vibescript
     - match: '\b(def)\b'
       scope: keyword.declaration.function.vibescript
@@ -71,6 +74,26 @@ contexts:
     - match: '\b(class)\b'
       scope: keyword.declaration.class.vibescript
       push: class-declaration
+    - match: '\b(enum)\b(?=\s+[A-Za-z_])'
+      scope: keyword.declaration.enum.vibescript
+      push: enum-declaration
+
+  enum-declaration:
+    - meta_scope: meta.enum.vibescript
+    - match: '{{constant}}|{{plain_identifier}}'
+      scope: entity.name.enum.vibescript
+      set: enum-body
+    - match: '(?=\S)'
+      pop: 1
+
+  # Members are bare words (constant or identifier), one or more, until end.
+  enum-body:
+    - meta_scope: meta.enum.vibescript
+    - match: '\bend\b'
+      scope: keyword.control.block.vibescript
+      pop: 1
+    - match: '{{constant}}|{{identifier}}'
+      scope: constant.other.enum.vibescript
 
   class-declaration:
     - meta_scope: meta.class.vibescript
@@ -87,6 +110,14 @@ contexts:
         1: variable.language.self.vibescript
         2: punctuation.accessor.dot.vibescript
       set: function-name-after-self
+    # Setter definitions: the `=` sits flush against the name.
+    - match: '{{plain_identifier}}=(?![=~>])'
+      scope: entity.name.function.vibescript
+      set: function-signature-tail
+    # Operator definitions: def +, def <=>, def [], def []=, ...
+    - match: '\[\]=|\[\]|<=>|<=|>=|==|!=|<<|\*\*|[+\-*/%<>&]'
+      scope: entity.name.function.vibescript
+      set: function-signature-tail
     - match: '{{identifier}}'
       scope: entity.name.function.vibescript
       set: function-signature-tail
@@ -94,6 +125,9 @@ contexts:
       pop: 1
 
   function-name-after-self:
+    - match: '{{plain_identifier}}=(?![=~>])'
+      scope: entity.name.function.vibescript
+      set: function-signature-tail
     - match: '{{identifier}}'
       scope: entity.name.function.vibescript
       set: function-signature-tail
@@ -182,6 +216,20 @@ contexts:
       push: member-declaration
     - match: '\b(require|as)\b'
       scope: keyword.control.import.vibescript
+    - match: '\b(alias_method)\b'
+      scope: keyword.declaration.alias.vibescript
+    - match: '\b(alias)\b'
+      scope: keyword.declaration.alias.vibescript
+      push: alias-arguments
+
+  # `alias new_name old_name` takes bare identifiers, symbols, or quoted
+  # symbols, space separated, on one line.
+  alias-arguments:
+    - include: symbols
+    - match: '{{identifier}}'
+      scope: entity.name.function.vibescript
+    - match: $\n?
+      pop: 1
 
   member-declaration:
     - meta_scope: meta.declaration.member.vibescript
