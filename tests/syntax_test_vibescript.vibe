@@ -35,7 +35,7 @@ class Greeter
 #        ^^ constant.character.escape.vibescript
 #              ^ punctuation.definition.string.end.vibescript
     "oops\q"
-#        ^^ invalid.illegal.escape.vibescript
+#        ^^ constant.character.escape.vibescript
   end
 # ^^^ keyword.control.block.vibescript
 end
@@ -200,3 +200,72 @@ flag = not done or not ready
 #          ^^^^ source.vibescript - variable.function
 #               ^^ keyword.operator.logical.vibescript
 #                  ^^^ keyword.operator.logical.vibescript
+
+msg = "sum #{count + 1} done"
+#     ^ punctuation.definition.string.begin.vibescript
+#      ^^^^ string.quoted.double.vibescript
+#          ^^ punctuation.section.interpolation.begin.vibescript
+#            ^^^^^ meta.interpolation.vibescript - string
+#                  ^ keyword.operator.arithmetic.vibescript
+#                    ^ constant.numeric.integer.vibescript
+#                     ^ punctuation.section.interpolation.end.vibescript
+#                      ^^^^^ string.quoted.double.vibescript
+#                           ^ punctuation.definition.string.end.vibescript
+
+nest = "a#{"b#{c}d"}e"
+#          ^ punctuation.definition.string.begin.vibescript
+#           ^ string.quoted.double.vibescript
+#            ^^ punctuation.section.interpolation.begin.vibescript
+#              ^ meta.interpolation.vibescript
+#               ^ punctuation.section.interpolation.end.vibescript
+#                ^ string.quoted.double.vibescript
+#                 ^ punctuation.definition.string.end.vibescript
+#                  ^ punctuation.section.interpolation.end.vibescript
+#                   ^ string.quoted.double.vibescript
+
+raw = "price #5 and \#{skip}"
+#            ^ string.quoted.double.vibescript - punctuation.section.interpolation
+#                   ^^ constant.character.escape.vibescript
+#                     ^ string.quoted.double.vibescript - meta.interpolation
+#                           ^ punctuation.definition.string.end.vibescript
+
+pick = "v#{if ok then 1 else 2 end}"
+#          ^^ keyword.control.conditional.vibescript
+#                ^^^^ keyword.control.conditional.vibescript
+#                     ^ constant.numeric.integer.vibescript
+#                       ^^^^ keyword.control.conditional.vibescript
+#                              ^^^ keyword.control.block.vibescript
+#                                 ^ punctuation.section.interpolation.end.vibescript
+
+lit = 'no #{interp} \n raw'
+#     ^ punctuation.definition.string.begin.vibescript
+#      ^^^ string.quoted.single.vibescript
+#         ^^ string.quoted.single.vibescript - punctuation.section.interpolation
+#                   ^^ string.quoted.single.vibescript - constant.character.escape
+#                         ^ punctuation.definition.string.end.vibescript
+
+esc = 'don\'t \\ ok'
+#         ^^ constant.character.escape.vibescript
+#             ^^ constant.character.escape.vibescript
+#                  ^ punctuation.definition.string.end.vibescript
+paths = %W[/tmp #{base}/log]
+#       ^^^ punctuation.definition.string.begin.vibescript
+#          ^^^^ string.quoted.other.percent-array.vibescript
+#               ^^ punctuation.section.interpolation.begin.vibescript
+#                 ^^^^ meta.interpolation.vibescript - string
+#                     ^ punctuation.section.interpolation.end.vibescript
+#                      ^^^^ string.quoted.other.percent-array.vibescript
+#                          ^ punctuation.definition.string.end.vibescript
+
+tags = %I(#{prefix}_id raw)
+#      ^^^ punctuation.definition.string.begin.vibescript
+#         ^^ punctuation.section.interpolation.begin.vibescript
+#                 ^ punctuation.section.interpolation.end.vibescript
+#                  ^^^ string.quoted.other.percent-array.vibescript
+#                         ^ punctuation.definition.string.end.vibescript
+
+plain = %w[#{x} y]
+#          ^^ string.quoted.other.percent-array.vibescript - punctuation.section.interpolation
+
+ratio = a / b
+#         ^ keyword.operator.arithmetic.vibescript - string.regexp
