@@ -304,14 +304,27 @@ contexts:
     - match: '\b\d[\d_]*\b'
       scope: constant.numeric.integer.vibescript
 
+  # Quoted symbols use the matching string quote's escapes, so an escaped
+  # quote stays inside the symbol (:'don\'t'). Symbols may also name
+  # operators (used by alias_method, retroactive visibility, block-pass).
   symbols:
-    - match: '(?<!:)(:)(")[^"]*(")'
+    - match: '(?<!:)(:)(")(?:[^"\\]|\\.)*(")'
       scope: constant.other.symbol.double-quoted.vibescript
       captures:
         1: punctuation.definition.constant.vibescript
         2: punctuation.definition.constant.begin.vibescript
         3: punctuation.definition.constant.end.vibescript
-    - match: '(?<!:)(:)[a-zA-Z_][a-zA-Z0-9_]*'
+    - match: '(?<!:)(:)('')(?:[^''\\]|\\.)*('')'
+      scope: constant.other.symbol.single-quoted.vibescript
+      captures:
+        1: punctuation.definition.constant.vibescript
+        2: punctuation.definition.constant.begin.vibescript
+        3: punctuation.definition.constant.end.vibescript
+    - match: '(?<!:)(:)(\[\]=|\[\]|===|<=>|\*\*|<<|<=|>=|==|!=|&&|\|\||[+\-*/%<>&|!])'
+      scope: constant.other.symbol.operator.vibescript
+      captures:
+        1: punctuation.definition.constant.vibescript
+    - match: '(?<!:)(:)[a-zA-Z_][a-zA-Z0-9_]*[?!]?'
       scope: constant.other.symbol.vibescript
       captures:
         1: punctuation.definition.constant.vibescript

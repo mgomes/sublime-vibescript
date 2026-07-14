@@ -269,3 +269,17 @@ plain = %w[#{x} y]
 
 ratio = a / b
 #         ^ keyword.operator.arithmetic.vibescript - string.regexp
+
+sq = :'hello world'
+#    ^^^^^^^^^^^^^^ constant.other.symbol.single-quoted.vibescript
+
+ops = [:+, :<=>, :[]=, :&&, :!]
+#      ^^ constant.other.symbol.operator.vibescript
+#          ^^^^ constant.other.symbol.operator.vibescript
+#                ^^^^ constant.other.symbol.operator.vibescript
+#                      ^^^ constant.other.symbol.operator.vibescript
+#                           ^^ constant.other.symbol.operator.vibescript
+
+flags = [:valid?, :save!]
+#        ^^^^^^^ constant.other.symbol.vibescript
+#                 ^^^^^^ constant.other.symbol.vibescript
