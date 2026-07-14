@@ -189,3 +189,14 @@ end
 # uses: net, fs
 # ^^^^ keyword.other.directive.vibescript
 #       ^^^ support.other.capability.vibescript
+
+puts not ok
+# <- variable.function.vibescript
+#    ^^^ keyword.operator.logical.vibescript
+#        ^^ source.vibescript - keyword
+
+flag = not done or not ready
+#      ^^^ keyword.operator.logical.vibescript
+#          ^^^^ source.vibescript - variable.function
+#               ^^ keyword.operator.logical.vibescript
+#                  ^^^ keyword.operator.logical.vibescript

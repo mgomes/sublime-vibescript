@@ -13,8 +13,10 @@ variables:
   plain_identifier: '[a-z_][a-zA-Z0-9_]*'
   constant: '[A-Z][a-zA-Z0-9_]*'
   # Keywords that follow an expression instead of starting a paren-less
-  # command argument, mirroring the grammar's external scanner.
-  trailing_keyword: 'do|end|then|else|elsif|when|rescue|ensure|if|unless|while|until|and|or|in|not'
+  # command argument, mirroring the grammar's external scanner. `not` is
+  # deliberately absent: it is a prefix operator, so `puts not x` is a
+  # command call with a negated argument.
+  trailing_keyword: 'do|end|then|else|elsif|when|rescue|ensure|if|unless|while|until|and|or|in'
 
 contexts:
   prototype:
@@ -191,7 +193,7 @@ contexts:
       pop: 1
 
   control-keywords:
-    - match: '\b(if|elsif|else|unless|case|when)\b'
+    - match: '\b(if|elsif|else|unless|case|when|then)\b'
       scope: keyword.control.conditional.vibescript
     - match: '\bdo\b'
       scope: keyword.control.loop.vibescript
@@ -204,7 +206,7 @@ contexts:
       scope: keyword.control.flow.vibescript
     - match: '\b(end)\b'
       scope: keyword.control.block.vibescript
-    - match: '\b(and|or)\b'
+    - match: '\b(and|or|not)\b'
       scope: keyword.operator.logical.vibescript
     - match: '\b(true|false)\b'
       scope: constant.language.boolean.vibescript
