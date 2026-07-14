@@ -283,3 +283,20 @@ ops = [:+, :<=>, :[]=, :&&, :!]
 flags = [:valid?, :save!]
 #        ^^^^^^^ constant.other.symbol.vibescript
 #                 ^^^^^^ constant.other.symbol.vibescript
+
+hex = 0xFF_ab
+#     ^^^^^^^ constant.numeric.integer.hexadecimal.vibescript
+bin = 0b10_10
+#     ^^^^^^^ constant.numeric.integer.binary.vibescript
+oct = 0o755
+#     ^^^^^ constant.numeric.integer.octal.vibescript
+dec = 0d1_000
+#     ^^^^^^^ constant.numeric.integer.decimal.vibescript
+exp = 1e3
+#     ^^^ constant.numeric.float.vibescript
+neg = 1.5e-2
+#     ^^^^^^ constant.numeric.float.vibescript
+cap = 1E6
+#     ^^^ constant.numeric.float.vibescript
+sep = 1e1_0
+#     ^^^^^ constant.numeric.float.vibescript
