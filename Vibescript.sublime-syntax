@@ -13,8 +13,10 @@ variables:
   plain_identifier: '[a-z_][a-zA-Z0-9_]*'
   constant: '[A-Z][a-zA-Z0-9_]*'
   # Keywords that follow an expression instead of starting a paren-less
-  # command argument, mirroring the grammar's external scanner.
-  trailing_keyword: 'do|end|then|else|elsif|when|rescue|ensure|if|unless|while|until|and|or|in|not'
+  # command argument, mirroring the grammar's external scanner. `not` is
+  # deliberately absent: it is a prefix operator, so `puts not x` is a
+  # command call with a negated argument.
+  trailing_keyword: 'do|end|then|else|elsif|when|rescue|ensure|if|unless|while|until|and|or|in'
 
 contexts:
   prototype:
@@ -61,7 +63,10 @@ contexts:
   definitions:
     - match: '\b(export)\b'
       scope: keyword.declaration.export.vibescript
-    - match: '\b(private)(?=\s+def\b)'
+    - match: '\b(private|public|protected)(?=\s+(?:def|property|getter|setter)\b)'
+      scope: keyword.declaration.visibility.vibescript
+    # Retroactive visibility: bare `private` or `public :name, :"quoted", :+`.
+    - match: '\b(private|public|protected)\b(?=\s*$|\s+:)'
       scope: keyword.declaration.visibility.vibescript
     - match: '\b(def)\b'
       scope: keyword.declaration.function.vibescript
@@ -69,6 +74,26 @@ contexts:
     - match: '\b(class)\b'
       scope: keyword.declaration.class.vibescript
       push: class-declaration
+    - match: '\b(enum)\b(?=\s+[A-Za-z_])'
+      scope: keyword.declaration.enum.vibescript
+      push: enum-declaration
+
+  enum-declaration:
+    - meta_scope: meta.enum.vibescript
+    - match: '{{constant}}|{{plain_identifier}}'
+      scope: entity.name.enum.vibescript
+      set: enum-body
+    - match: '(?=\S)'
+      pop: 1
+
+  # Members are bare words (constant or identifier), one or more, until end.
+  enum-body:
+    - meta_scope: meta.enum.vibescript
+    - match: '\bend\b'
+      scope: keyword.control.block.vibescript
+      pop: 1
+    - match: '{{constant}}|{{identifier}}'
+      scope: constant.other.enum.vibescript
 
   class-declaration:
     - meta_scope: meta.class.vibescript
@@ -85,6 +110,14 @@ contexts:
         1: variable.language.self.vibescript
         2: punctuation.accessor.dot.vibescript
       set: function-name-after-self
+    # Setter definitions: the `=` sits flush against the name.
+    - match: '{{plain_identifier}}=(?![=~>])'
+      scope: entity.name.function.vibescript
+      set: function-signature-tail
+    # Operator definitions: def +, def <=>, def [], def []=, ...
+    - match: '\[\]=|\[\]|<=>|<=|>=|==|!=|<<|\*\*|[+\-*/%<>&]'
+      scope: entity.name.function.vibescript
+      set: function-signature-tail
     - match: '{{identifier}}'
       scope: entity.name.function.vibescript
       set: function-signature-tail
@@ -92,6 +125,9 @@ contexts:
       pop: 1
 
   function-name-after-self:
+    - match: '{{plain_identifier}}=(?![=~>])'
+      scope: entity.name.function.vibescript
+      set: function-signature-tail
     - match: '{{identifier}}'
       scope: entity.name.function.vibescript
       set: function-signature-tail
@@ -160,7 +196,9 @@ contexts:
     - match: '(?=\S)'
       pop: 1
 
-  # Structural shape types: { name: String, age: int? }
+  # Structural shape types: { name: String, age: int? }. Field names may
+  # be labels, string literals, symbols, or quoted symbols, always
+  # separated from their type by a colon ({ "user-id": string }).
   type-shape:
     - meta_scope: meta.annotation.type.vibescript
     - match: '\}'
@@ -168,6 +206,8 @@ contexts:
       pop: 1
     - match: '{{plain_identifier}}(?=\s*:)'
       scope: variable.other.member.vibescript
+    - include: symbols
+    - include: strings
     - match: ':'
       scope: punctuation.separator.annotation.type.vibescript
       push: type-expression
@@ -180,6 +220,20 @@ contexts:
       push: member-declaration
     - match: '\b(require|as)\b'
       scope: keyword.control.import.vibescript
+    - match: '\b(alias_method)\b'
+      scope: keyword.declaration.alias.vibescript
+    - match: '\b(alias)\b'
+      scope: keyword.declaration.alias.vibescript
+      push: alias-arguments
+
+  # `alias new_name old_name` takes bare identifiers, symbols, or quoted
+  # symbols, space separated, on one line.
+  alias-arguments:
+    - include: symbols
+    - match: '{{identifier}}'
+      scope: entity.name.function.vibescript
+    - match: $\n?
+      pop: 1
 
   member-declaration:
     - meta_scope: meta.declaration.member.vibescript
@@ -191,7 +245,7 @@ contexts:
       pop: 1
 
   control-keywords:
-    - match: '\b(if|elsif|else|unless|case|when)\b'
+    - match: '\b(if|elsif|else|unless|case|when|then)\b'
       scope: keyword.control.conditional.vibescript
     - match: '\bdo\b'
       scope: keyword.control.loop.vibescript
@@ -204,7 +258,7 @@ contexts:
       scope: keyword.control.flow.vibescript
     - match: '\b(end)\b'
       scope: keyword.control.block.vibescript
-    - match: '\b(and|or)\b'
+    - match: '\b(and|or|not)\b'
       scope: keyword.operator.logical.vibescript
     - match: '\b(true|false)\b'
       scope: constant.language.boolean.vibescript
@@ -243,32 +297,98 @@ contexts:
     - match: '"'
       scope: punctuation.definition.string.begin.vibescript
       push: double-quoted-string
+    - match: "'"
+      scope: punctuation.definition.string.begin.vibescript
+      push: single-quoted-string
 
+  # Any backslashed character is an escape (unknown ones produce the
+  # character itself); \x.. and \u.... take hex digits. `\#` keeps a
+  # following `{` from opening an interpolation.
   double-quoted-string:
     - meta_include_prototype: false
     - meta_scope: string.quoted.double.vibescript
-    - match: '\\[nrt\\"]'
+    - match: '\\(?:x[0-9a-fA-F]{1,2}|u[0-9a-fA-F]{4}|[^\n])'
       scope: constant.character.escape.vibescript
-    - match: '\\.'
-      scope: invalid.illegal.escape.vibescript
+    - match: '#\{'
+      scope: punctuation.section.interpolation.begin.vibescript
+      push: interpolation
     - match: '"'
       scope: punctuation.definition.string.end.vibescript
       pop: 1
 
+  # Single-quoted strings only recognize \' and \\; every other backslash
+  # (and any #{...}) is literal text.
+  single-quoted-string:
+    - meta_include_prototype: false
+    - meta_scope: string.quoted.single.vibescript
+    - match: '\\[''\\]'
+      scope: constant.character.escape.vibescript
+    - match: ''''
+      scope: punctuation.definition.string.end.vibescript
+      pop: 1
+
+  # The body re-enters the full expression grammar, so nested strings and
+  # nested interpolations come along for free. Braces balance so hash and
+  # block literals inside #{...} don't close the interpolation early.
+  interpolation:
+    - clear_scopes: 1
+    - meta_scope: meta.interpolation.vibescript
+    - match: '\{'
+      scope: punctuation.section.braces.begin.vibescript
+      push: interpolation-braces
+    - match: '\}'
+      scope: punctuation.section.interpolation.end.vibescript
+      pop: 1
+    - include: main
+
+  interpolation-braces:
+    - match: '\{'
+      scope: punctuation.section.braces.begin.vibescript
+      push: interpolation-braces
+    - match: '\}'
+      scope: punctuation.section.braces.end.vibescript
+      pop: 1
+    - include: main
+
+  # An exponent marker makes the literal a float even without a decimal
+  # point (1e3 is 1000.0). Underscores sit between digits only.
   numbers:
-    - match: '\b\d[\d_]*\.\d[\d_]*\b'
+    - match: '\b0[xX][0-9a-fA-F](?:_?[0-9a-fA-F])*\b'
+      scope: constant.numeric.integer.hexadecimal.vibescript
+    - match: '\b0[bB][01](?:_?[01])*\b'
+      scope: constant.numeric.integer.binary.vibescript
+    - match: '\b0[oO][0-7](?:_?[0-7])*\b'
+      scope: constant.numeric.integer.octal.vibescript
+    - match: '\b0[dD]\d(?:_?\d)*\b'
+      scope: constant.numeric.integer.decimal.vibescript
+    - match: '\b\d(?:_?\d)*\.\d(?:_?\d)*(?:[eE][+-]?\d(?:_?\d)*)?\b'
       scope: constant.numeric.float.vibescript
-    - match: '\b\d[\d_]*\b'
+    - match: '\b\d(?:_?\d)*[eE][+-]?\d(?:_?\d)*\b'
+      scope: constant.numeric.float.vibescript
+    - match: '\b\d(?:_?\d)*\b'
       scope: constant.numeric.integer.vibescript
 
+  # Quoted symbols use the matching string quote's escapes, so an escaped
+  # quote stays inside the symbol (:'don\'t'). Symbols may also name
+  # operators (used by alias_method, retroactive visibility, block-pass).
   symbols:
-    - match: '(?<!:)(:)(")[^"]*(")'
+    - match: '(?<!:)(:)(")(?:[^"\\]|\\.)*(")'
       scope: constant.other.symbol.double-quoted.vibescript
       captures:
         1: punctuation.definition.constant.vibescript
         2: punctuation.definition.constant.begin.vibescript
         3: punctuation.definition.constant.end.vibescript
-    - match: '(?<!:)(:)[a-zA-Z_][a-zA-Z0-9_]*'
+    - match: '(?<!:)(:)('')(?:[^''\\]|\\.)*('')'
+      scope: constant.other.symbol.single-quoted.vibescript
+      captures:
+        1: punctuation.definition.constant.vibescript
+        2: punctuation.definition.constant.begin.vibescript
+        3: punctuation.definition.constant.end.vibescript
+    - match: '(?<!:)(:)(\[\]=|\[\]|===|<=>|\*\*|<<|<=|>=|==|!=|&&|\|\||[+\-*/%<>&|!])'
+      scope: constant.other.symbol.operator.vibescript
+      captures:
+        1: punctuation.definition.constant.vibescript
+    - match: '(?<!:)(:)[a-zA-Z_][a-zA-Z0-9_]*[?!]?'
       scope: constant.other.symbol.vibescript
       captures:
         1: punctuation.definition.constant.vibescript
@@ -280,8 +400,31 @@ contexts:
         1: constant.other.symbol.vibescript
         2: punctuation.definition.constant.vibescript
 
+  # Uppercase variants (%W, %I) interpolate; lowercase ones are literal.
   percent-arrays:
-    - match: '%[wWiI]\['
+    - match: '(?<![\w)\]}"])%[WI]\['
+      scope: punctuation.definition.string.begin.vibescript
+      push:
+        - meta_include_prototype: false
+        - meta_scope: string.quoted.other.percent-array.vibescript
+        - match: '#\{'
+          scope: punctuation.section.interpolation.begin.vibescript
+          push: interpolation
+        - match: '\]'
+          scope: punctuation.definition.string.end.vibescript
+          pop: 1
+    - match: '(?<![\w)\]}"])%[WI]\('
+      scope: punctuation.definition.string.begin.vibescript
+      push:
+        - meta_include_prototype: false
+        - meta_scope: string.quoted.other.percent-array.vibescript
+        - match: '#\{'
+          scope: punctuation.section.interpolation.begin.vibescript
+          push: interpolation
+        - match: '\)'
+          scope: punctuation.definition.string.end.vibescript
+          pop: 1
+    - match: '(?<![\w)\]}"])%[wi]\['
       scope: punctuation.definition.string.begin.vibescript
       push:
         - meta_include_prototype: false
@@ -289,7 +432,7 @@ contexts:
         - match: '\]'
           scope: punctuation.definition.string.end.vibescript
           pop: 1
-    - match: '%[wWiI]\('
+    - match: '(?<![\w)\]}"])%[wi]\('
       scope: punctuation.definition.string.begin.vibescript
       push:
         - meta_include_prototype: false
@@ -353,7 +496,7 @@ contexts:
     # Paren-less command calls: `assert result`, `puts "hi"`. Arguments start
     # with a word character, string, or ivar, and never with a trailing
     # keyword, matching the external scanner's COMMAND_START rules.
-    - match: '\b{{identifier}}(?=[ \t]+(?!(?:{{trailing_keyword}})\b)[\w"@])'
+    - match: '\b{{identifier}}(?=[ \t]+(?!(?:{{trailing_keyword}})\b)[\w"''@])'
       scope: variable.function.vibescript
 
   constants:
@@ -370,6 +513,10 @@ contexts:
       scope: keyword.operator.comparison.vibescript
     - match: '\*\*=|\|\|=|&&=|[+\-*/%]='
       scope: keyword.operator.assignment.augmented.vibescript
+    # Hash-rocket literals are gone from the language; the only remaining
+    # `=>` is the rescue exception binding (rescue RuntimeError => err).
+    - match: '=>'
+      scope: keyword.operator.rescue-binding.vibescript
     - match: '===|==|!=|<=|>=|<|>'
       scope: keyword.operator.comparison.vibescript
     - match: '=~|!~'

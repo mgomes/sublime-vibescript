@@ -2,7 +2,7 @@
 <plist version="1.0">
 <dict>
 	<key>scope</key>
-	<string>source.vibescript entity.name.class</string>
+	<string>source.vibescript entity.name.class, source.vibescript entity.name.enum</string>
 	<key>settings</key>
 	<dict>
 		<key>showInSymbolList</key>
