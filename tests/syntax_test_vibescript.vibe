@@ -395,3 +395,7 @@ total%w[0]
 
 count = total %w[0]
 #             ^^^ string.quoted.other.percent-array.vibescript
+
+render 'ok'
+# <- variable.function.vibescript
+#      ^^^^ string.quoted.single.vibescript

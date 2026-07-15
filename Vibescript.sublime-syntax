@@ -496,7 +496,7 @@ contexts:
     # Paren-less command calls: `assert result`, `puts "hi"`. Arguments start
     # with a word character, string, or ivar, and never with a trailing
     # keyword, matching the external scanner's COMMAND_START rules.
-    - match: '\b{{identifier}}(?=[ \t]+(?!(?:{{trailing_keyword}})\b)[\w"@])'
+    - match: '\b{{identifier}}(?=[ \t]+(?!(?:{{trailing_keyword}})\b)[\w"''@])'
       scope: variable.function.vibescript
 
   constants:
