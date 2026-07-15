@@ -6,11 +6,15 @@ scope: source.vibescript
 file_extensions:
   - vibe
 
-first_line_match: '^#!.*\bvibes\b'
+first_line_match: '^(?:#!.*\bvibes\b|# vibe: [0-9]+\.[0-9]+)'
 
 variables:
   identifier: '[a-z_][a-zA-Z0-9_]*[?!]?'
+  plain_identifier: '[a-z_][a-zA-Z0-9_]*'
   constant: '[A-Z][a-zA-Z0-9_]*'
+  # Keywords that follow an expression instead of starting a paren-less
+  # command argument, mirroring the grammar's external scanner.
+  trailing_keyword: 'do|end|then|else|elsif|when|rescue|ensure|if|unless|while|until|and|or|in|not'
 
 contexts:
   prototype:
@@ -20,13 +24,17 @@ contexts:
     - include: definitions
     - include: declarations
     - include: control-keywords
-    - include: block-parameters
     - include: strings
     - include: numbers
     - include: symbols
+    - include: hash-keys
+    - include: percent-arrays
+    - include: regexps
+    - include: brace-block-parameters
     - include: variables
     - include: calls
     - include: constants
+    - include: identifiers
     - include: operators
     - include: punctuation
 
@@ -116,6 +124,20 @@ contexts:
       push: type-expression
     - match: '='
       scope: keyword.operator.assignment.vibescript
+      push: parameter-default
+
+  # Default values reuse the literal rules so `def f(mode = :read)` keeps
+  # symbol/number/string highlighting inside the signature.
+  parameter-default:
+    - match: '(?=[,)])'
+      pop: 1
+    - include: strings
+    - include: numbers
+    - include: symbols
+    - include: constants
+    - include: identifiers
+    - match: '$\n?'
+      pop: 1
 
   type-expression:
     - meta_scope: meta.annotation.type.vibescript
@@ -127,13 +149,30 @@ contexts:
       scope: keyword.operator.optional.vibescript
     - match: '\bnil\b'
       scope: constant.language.null.vibescript
+    - match: '\{'
+      scope: punctuation.section.braces.begin.vibescript
+      push: type-shape
     - match: '{{constant}}'
       scope: support.class.vibescript
-    - match: '{{identifier}}'
+    - match: '{{plain_identifier}}'
       scope: support.type.vibescript
     - match: '\s+'
     - match: '(?=\S)'
       pop: 1
+
+  # Structural shape types: { name: String, age: int? }
+  type-shape:
+    - meta_scope: meta.annotation.type.vibescript
+    - match: '\}'
+      scope: punctuation.section.braces.end.vibescript
+      pop: 1
+    - match: '{{plain_identifier}}(?=\s*:)'
+      scope: variable.other.member.vibescript
+    - match: ':'
+      scope: punctuation.separator.annotation.type.vibescript
+      push: type-expression
+    - match: ','
+      scope: punctuation.separator.sequence.vibescript
 
   declarations:
     - match: '\b(property|getter|setter)\b'
@@ -154,7 +193,10 @@ contexts:
   control-keywords:
     - match: '\b(if|elsif|else|unless|case|when)\b'
       scope: keyword.control.conditional.vibescript
-    - match: '\b(while|until|for|in|do)\b'
+    - match: '\bdo\b'
+      scope: keyword.control.loop.vibescript
+      push: block-start
+    - match: '\b(while|until|for|in)\b'
       scope: keyword.control.loop.vibescript
     - match: '\b(begin|rescue|ensure)\b'
       scope: keyword.control.exception.vibescript
@@ -171,8 +213,17 @@ contexts:
     - match: '\b(self)\b'
       scope: variable.language.self.vibescript
 
-  block-parameters:
+  # `|` only delimits parameters directly after `do` or `{`; everywhere else
+  # it belongs to `||`, `||=`, or union types, so no bare-pipe rule in main.
+  block-start:
     - match: '\|'
+      scope: punctuation.separator.block-parameters.begin.vibescript
+      set: block-parameter-list
+    - match: '$|(?=\S)'
+      pop: 1
+
+  brace-block-parameters:
+    - match: '(?<=\{|\{ )\|'
       scope: punctuation.separator.block-parameters.begin.vibescript
       push: block-parameter-list
 
@@ -185,6 +236,8 @@ contexts:
       scope: variable.parameter.vibescript
     - match: ','
       scope: punctuation.separator.parameter.vibescript
+    - match: $\n?
+      pop: 1
 
   strings:
     - match: '"'
@@ -196,6 +249,8 @@ contexts:
     - meta_scope: string.quoted.double.vibescript
     - match: '\\[nrt\\"]'
       scope: constant.character.escape.vibescript
+    - match: '\\.'
+      scope: invalid.illegal.escape.vibescript
     - match: '"'
       scope: punctuation.definition.string.end.vibescript
       pop: 1
@@ -207,8 +262,74 @@ contexts:
       scope: constant.numeric.integer.vibescript
 
   symbols:
-    - match: ':[a-zA-Z_][a-zA-Z0-9_]*'
+    - match: '(?<!:)(:)(")[^"]*(")'
+      scope: constant.other.symbol.double-quoted.vibescript
+      captures:
+        1: punctuation.definition.constant.vibescript
+        2: punctuation.definition.constant.begin.vibescript
+        3: punctuation.definition.constant.end.vibescript
+    - match: '(?<!:)(:)[a-zA-Z_][a-zA-Z0-9_]*'
       scope: constant.other.symbol.vibescript
+      captures:
+        1: punctuation.definition.constant.vibescript
+
+  # Hash keys and keyword arguments: { name: "alex" }, call(limit: 10)
+  hash-keys:
+    - match: '({{plain_identifier}}[?!]?)(:)(?!:)'
+      captures:
+        1: constant.other.symbol.vibescript
+        2: punctuation.definition.constant.vibescript
+
+  percent-arrays:
+    - match: '%[wWiI]\['
+      scope: punctuation.definition.string.begin.vibescript
+      push:
+        - meta_include_prototype: false
+        - meta_scope: string.quoted.other.percent-array.vibescript
+        - match: '\]'
+          scope: punctuation.definition.string.end.vibescript
+          pop: 1
+    - match: '%[wWiI]\('
+      scope: punctuation.definition.string.begin.vibescript
+      push:
+        - meta_include_prototype: false
+        - meta_scope: string.quoted.other.percent-array.vibescript
+        - match: '\)'
+          scope: punctuation.definition.string.end.vibescript
+          pop: 1
+
+  # Heuristic port of the grammar's external scanner: a regex never follows
+  # a value (identifier, closing bracket, string) and never opens with a
+  # space or `=`, which keeps `a / b` and `a /= b` as operators.
+  regexps:
+    - match: '(?<![\w)\]}"])(/)(?![\s=])'
+      captures:
+        1: punctuation.definition.string.begin.vibescript
+      push: regexp-body
+
+  regexp-body:
+    - meta_include_prototype: false
+    - meta_scope: string.regexp.vibescript
+    - match: '\\.'
+      scope: constant.character.escape.vibescript
+    - match: '\['
+      push: regexp-class
+    - match: '(/)([a-z]*)'
+      captures:
+        1: punctuation.definition.string.end.vibescript
+        2: keyword.other.flag.regexp.vibescript
+      pop: 1
+    - match: '$\n?'
+      pop: 1
+
+  regexp-class:
+    - meta_include_prototype: false
+    - match: '\\.'
+      scope: constant.character.escape.vibescript
+    - match: '\]'
+      pop: 1
+    - match: '$\n?'
+      pop: 1
 
   variables:
     - match: '@@[a-zA-Z_][a-zA-Z0-9_]*'
@@ -217,6 +338,10 @@ contexts:
       scope: variable.other.member.vibescript
 
   calls:
+    - match: '(&\.)({{identifier}})'
+      captures:
+        1: punctuation.accessor.safe-navigation.vibescript
+        2: variable.function.vibescript
     - match: '(\.)({{identifier}})'
       captures:
         1: punctuation.accessor.dot.vibescript
@@ -225,17 +350,55 @@ contexts:
       scope: variable.function.vibescript
     - match: '\b{{identifier}}(?=\s+do\b)'
       scope: variable.function.vibescript
+    # Paren-less command calls: `assert result`, `puts "hi"`. Arguments start
+    # with a word character, string, or ivar, and never with a trailing
+    # keyword, matching the external scanner's COMMAND_START rules.
+    - match: '\b{{identifier}}(?=[ \t]+(?!(?:{{trailing_keyword}})\b)[\w"@])'
+      scope: variable.function.vibescript
 
   constants:
     - match: '{{constant}}'
       scope: support.class.vibescript
 
+  # Bare identifiers are consumed whole so trailing ?/! never leak into the
+  # operator rules (`valid?` is one name, not `valid` + ternary `?`).
+  identifiers:
+    - match: '\b[a-z_][a-zA-Z0-9_]*(?:[?!](?!=))?'
+
   operators:
-    - match: '\+=|-=|==|!=|<=|>=|&&|\|\||\.\.|->|[+\-*/%=!<>]'
-      scope: keyword.operator.vibescript
+    - match: '<=>'
+      scope: keyword.operator.comparison.vibescript
+    - match: '\*\*=|\|\|=|&&=|[+\-*/%]='
+      scope: keyword.operator.assignment.augmented.vibescript
+    - match: '===|==|!=|<=|>=|<|>'
+      scope: keyword.operator.comparison.vibescript
+    - match: '=~|!~'
+      scope: keyword.operator.match.vibescript
+    - match: '&&|\|\||!'
+      scope: keyword.operator.logical.vibescript
+    - match: '\.\.\.|\.\.'
+      scope: keyword.operator.range.vibescript
+    - match: '::'
+      scope: punctuation.accessor.double-colon.vibescript
+    - match: '->'
+      scope: keyword.operator.arrow.vibescript
+    - match: '<<'
+      scope: keyword.operator.bitwise.vibescript
+    - match: '&(?![&.=])'
+      scope: keyword.operator.bitwise.vibescript
+    - match: '\*\*|[+\-*/%]'
+      scope: keyword.operator.arithmetic.vibescript
+    - match: '='
+      scope: keyword.operator.assignment.vibescript
+    - match: '\?'
+      scope: keyword.operator.ternary.vibescript
+    - match: '\.'
+      scope: punctuation.accessor.dot.vibescript
 
   punctuation:
     - match: '[\[\]{}()]'
       scope: punctuation.section.brackets.vibescript
     - match: '[,:]'
+      scope: punctuation.separator.vibescript
+    - match: '\|'
       scope: punctuation.separator.vibescript

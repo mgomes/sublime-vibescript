@@ -1,8 +1,9 @@
-# SYNTAX TEST "Vibescript.sublime-syntax"
+# SYNTAX TEST "Packages/Vibescript/Vibescript.sublime-syntax"
 
 class Greeter
+# <- keyword.declaration.class.vibescript
 #^^^^ keyword.declaration.class.vibescript
-#      ^^^^^^^ entity.name.class.vibescript
+#     ^^^^^^^ entity.name.class.vibescript
   property name
 # ^^^^^^^^ keyword.declaration.member.vibescript
 #          ^^^^ variable.other.member.vibescript
@@ -12,47 +13,179 @@ class Greeter
 #     ^^^^ variable.language.self.vibescript
 #         ^ punctuation.accessor.dot.vibescript
 #          ^^^^^ entity.name.function.vibescript
+#               ^ punctuation.section.group.begin.vibescript
 #                ^^^^ variable.parameter.vibescript
 #                    ^ punctuation.separator.annotation.type.vibescript
 #                      ^^^^^^ support.class.vibescript
 #                            ^ keyword.operator.optional.vibescript
+#                             ^ punctuation.section.group.end.vibescript
 #                               ^^ punctuation.separator.annotation.return-type.vibescript
 #                                  ^^^^^^^ support.class.vibescript
     @name = :read
 #   ^^^^^ variable.other.member.vibescript
+#         ^ keyword.operator.assignment.vibescript
 #           ^^^^^ constant.other.symbol.vibescript
     @@count += 1
 #   ^^^^^^^ variable.other.class.vibescript
-#           ^^ keyword.operator.vibescript
+#           ^^ keyword.operator.assignment.augmented.vibescript
 #              ^ constant.numeric.integer.vibescript
     "line\nnext"
 #   ^ punctuation.definition.string.begin.vibescript
+#    ^^^^ string.quoted.double.vibescript
 #        ^^ constant.character.escape.vibescript
-#             ^ punctuation.definition.string.end.vibescript
+#              ^ punctuation.definition.string.end.vibescript
+    "oops\q"
+#        ^^ invalid.illegal.escape.vibescript
   end
 # ^^^ keyword.control.block.vibescript
+end
+
+private def secret
+# <- keyword.declaration.visibility.vibescript
+#       ^^^ keyword.declaration.function.vibescript
+#           ^^^^^^ entity.name.function.vibescript
+  42
+end
+
+export def exposed(value)
+# <- keyword.declaration.export.vibescript
+#      ^^^ keyword.declaration.function.vibescript
+#          ^^^^^^^ entity.name.function.vibescript
+  value
+end
+
+def open(path, mode = :read)
+#   ^^^^ entity.name.function.vibescript
+#        ^^^^ variable.parameter.vibescript
+#              ^^^^ variable.parameter.vibescript
+#                   ^ keyword.operator.assignment.vibescript
+#                     ^^^^^ constant.other.symbol.vibescript
+#                          ^ punctuation.section.group.end.vibescript
+  path
+end
+
+def config(opts: { name: String, age: int? }) -> nil
+#   ^^^^^^ entity.name.function.vibescript
+#          ^^^^ variable.parameter.vibescript
+#              ^ punctuation.separator.annotation.type.vibescript
+#                ^ punctuation.section.braces.begin.vibescript
+#                  ^^^^ variable.other.member.vibescript
+#                        ^^^^^^ support.class.vibescript
+#                                ^^^ variable.other.member.vibescript
+#                                     ^^^ support.type.vibescript
+#                                        ^ keyword.operator.optional.vibescript
+#                                          ^ punctuation.section.braces.end.vibescript
+#                                             ^^ punctuation.separator.annotation.return-type.vibescript
+#                                                ^^^ constant.language.null.vibescript
+  opts
 end
 
 helpers = require("./helpers")
 #         ^^^^^^^ keyword.control.import.vibescript
 
-values.each do |value|
-#     ^ punctuation.accessor.dot.vibescript
-#      ^^^^ variable.function.vibescript
-#           ^^ keyword.control.loop.vibescript
-#              ^ punctuation.separator.block-parameters.begin.vibescript
-#               ^^^^^ variable.parameter.vibescript
-#                    ^ punctuation.separator.block-parameters.end.vibescript
-  if done and true
-# ^ keyword.control.conditional.vibescript
-#         ^^^ keyword.operator.logical.vibescript
-#             ^^^^ constant.language.boolean.vibescript
-    yield(value)
-#   ^^^^^ keyword.control.flow.vibescript
-#         ^ punctuation.section.group.begin.vibescript
-  end
+sum = values.reduce(0) do |acc, value|
+#           ^ punctuation.accessor.dot.vibescript
+#            ^^^^^^ variable.function.vibescript
+#                      ^^ keyword.control.loop.vibescript
+#                         ^ punctuation.separator.block-parameters.begin.vibescript
+#                          ^^^ variable.parameter.vibescript
+#                               ^^^^^ variable.parameter.vibescript
+#                                    ^ punctuation.separator.block-parameters.end.vibescript
+  acc || value
+#     ^^ keyword.operator.logical.vibescript
+end
+
+if done and true
+# <- keyword.control.conditional.vibescript
+#       ^^^ keyword.operator.logical.vibescript
+#           ^^^^ constant.language.boolean.vibescript
+  yield(value)
+# ^^^^^ keyword.control.flow.vibescript
+#      ^ punctuation.section.brackets.vibescript
+end
+
+x ||= 1 <=> 2
+# ^^^ keyword.operator.assignment.augmented.vibescript
+#       ^^^ keyword.operator.comparison.vibescript
+
+ok = a === b && c =~ /h.llo/i
+#      ^^^ keyword.operator.comparison.vibescript
+#            ^^ keyword.operator.logical.vibescript
+#                 ^^ keyword.operator.match.vibescript
+#                    ^^^^^^^ string.regexp.vibescript
+#                    ^ punctuation.definition.string.begin.vibescript
+#                          ^ punctuation.definition.string.end.vibescript
+#                           ^ keyword.other.flag.regexp.vibescript
+
+half = total / 2
+#            ^ keyword.operator.arithmetic.vibescript
+
+url = user&.profile
+#         ^^ punctuation.accessor.safe-navigation.vibescript
+#           ^^^^^^^ variable.function.vibescript
+
+mode = Config::DEFAULT
+#      ^^^^^^ support.class.vibescript
+#            ^^ punctuation.accessor.double-colon.vibescript
+#              ^^^^^^^ support.class.vibescript
+
+slice = items[1...3]
+#              ^^^ keyword.operator.range.vibescript
+
+words = %w[alpha beta]
+#       ^^^ punctuation.definition.string.begin.vibescript
+#       ^^^^^^^^^^^^^^ string.quoted.other.percent-array.vibescript
+#                    ^ punctuation.definition.string.end.vibescript
+
+kinds = %i(alpha beta)
+#       ^^^ punctuation.definition.string.begin.vibescript
+#       ^^^^^^^^^^^^^^ string.quoted.other.percent-array.vibescript
+#                    ^ punctuation.definition.string.end.vibescript
+
+tag = :"hello world"
+#     ^^^^^^^^^^^^^^ constant.other.symbol.double-quoted.vibescript
+
+opts = { name: "alex", mode: :read }
+#        ^^^^ constant.other.symbol.vibescript
+#            ^ punctuation.definition.constant.vibescript
+#                      ^^^^ constant.other.symbol.vibescript
+#                            ^^^^^ constant.other.symbol.vibescript
+
+assert result
+# <- variable.function.vibescript
+
+puts "hello"
+# <- variable.function.vibescript
+
+label = valid? ? "ok" : "bad"
+#              ^ keyword.operator.ternary.vibescript
+#                     ^ punctuation.separator.vibescript
+
+for i in 1..10
+# <- keyword.control.loop.vibescript
+#     ^^ keyword.control.loop.vibescript
+#         ^^ keyword.operator.range.vibescript
+  i
+end
+
+begin
+# <- keyword.control.exception.vibescript
+  risky()
+rescue(RuntimeError)
+# <- keyword.control.exception.vibescript
+#      ^^^^^^^^^^^^ support.class.vibescript
+  recover()
+ensure
+# <- keyword.control.exception.vibescript
+  cleanup()
 end
 
 # vibe: 1.2
-# ^ punctuation.definition.comment.vibescript
-#  ^^^^ keyword.other.directive.vibescript
+# <- punctuation.definition.comment.vibescript
+# ^^^^ keyword.other.directive.vibescript
+#     ^ punctuation.separator.key-value.vibescript
+#       ^^^ constant.numeric.version.vibescript
+
+# uses: net, fs
+# ^^^^ keyword.other.directive.vibescript
+#       ^^^ support.other.capability.vibescript
