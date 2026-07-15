@@ -366,31 +366,24 @@ private :+, :"weird name"
 #           ^^^^^^^^^^^^^ constant.other.symbol.double-quoted.vibescript
 
 
-h = { "k" => 1, :sym => 2, :"q k" => 3 }
-#         ^^ punctuation.separator.key-value.vibescript
-#               ^^^^ constant.other.symbol.vibescript
-#                    ^^ punctuation.separator.key-value.vibescript
-#                          ^^^^^^ constant.other.symbol.double-quoted.vibescript
-#                                 ^^ punctuation.separator.key-value.vibescript
-
-def lookup(h: { "user-id" => string, :flag => bool, 'q' => int }) -> nil
+def lookup(h: { "user-id": string, :flag: bool, :"q k": int }) -> nil
 #               ^^^^^^^^^ string.quoted.double.vibescript
-#                         ^^ punctuation.separator.key-value.vibescript
-#                            ^^^^^^ support.type.vibescript
-#                                    ^^^^^ constant.other.symbol.vibescript
-#                                          ^^ punctuation.separator.key-value.vibescript
-#                                                   ^^^ string.quoted.single.vibescript
-#                                                       ^^ punctuation.separator.key-value.vibescript
-#                                                          ^^^ support.type.vibescript
+#                        ^ punctuation.separator.annotation.type.vibescript
+#                          ^^^^^^ support.type.vibescript
+#                                  ^^^^^ constant.other.symbol.vibescript
+#                                       ^ punctuation.separator.annotation.type.vibescript
+#                                         ^^^^ support.type.vibescript
+#                                               ^^^^^^ constant.other.symbol.double-quoted.vibescript
+#                                                     ^ punctuation.separator.annotation.type.vibescript
+#                                                       ^^^ support.type.vibescript
   h
 end
 
-def shape(s: { id => int, tags: array }) -> nil
-#              ^^ variable.other.member.vibescript
-#                 ^^ punctuation.separator.key-value.vibescript
-#                    ^^^ support.type.vibescript
-#                         ^^^^ variable.other.member.vibescript
-#                             ^ punctuation.separator.annotation.type.vibescript
-#                               ^^^^^ support.type.vibescript
-  s
+begin
+  risky()
+rescue RuntimeError => err
+# <- keyword.control.exception.vibescript
+#      ^^^^^^^^^^^^ support.class.vibescript
+#                   ^^ keyword.operator.rescue-binding.vibescript
+  puts(err.message)
 end
