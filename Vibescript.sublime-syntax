@@ -196,14 +196,21 @@ contexts:
     - match: '(?=\S)'
       pop: 1
 
-  # Structural shape types: { name: String, age: int? }
+  # Structural shape types: { name: String, age: int? }. Fields separate
+  # with a label colon or a hash rocket, and rocket fields also accept
+  # string, symbol, and quoted-symbol names ({ "user-id" => string }).
   type-shape:
     - meta_scope: meta.annotation.type.vibescript
     - match: '\}'
       scope: punctuation.section.braces.end.vibescript
       pop: 1
-    - match: '{{plain_identifier}}(?=\s*:)'
+    - match: '{{identifier}}(?=\s*(?::|=>))'
       scope: variable.other.member.vibescript
+    - include: symbols
+    - include: strings
+    - match: '=>'
+      scope: punctuation.separator.key-value.vibescript
+      push: type-expression
     - match: ':'
       scope: punctuation.separator.annotation.type.vibescript
       push: type-expression
@@ -509,6 +516,8 @@ contexts:
       scope: keyword.operator.comparison.vibescript
     - match: '\*\*=|\|\|=|&&=|[+\-*/%]='
       scope: keyword.operator.assignment.augmented.vibescript
+    - match: '=>'
+      scope: punctuation.separator.key-value.vibescript
     - match: '===|==|!=|<=|>=|<|>'
       scope: keyword.operator.comparison.vibescript
     - match: '=~|!~'
