@@ -387,3 +387,11 @@ rescue RuntimeError => err
 #                   ^^ keyword.operator.rescue-binding.vibescript
   puts(err.message)
 end
+
+total%w[0]
+# <- - string.quoted.other.percent-array
+#    ^ keyword.operator.arithmetic.vibescript
+#     ^ - string.quoted.other.percent-array
+
+count = total %w[0]
+#             ^^^ string.quoted.other.percent-array.vibescript

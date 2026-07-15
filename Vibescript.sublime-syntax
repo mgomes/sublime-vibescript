@@ -402,7 +402,7 @@ contexts:
 
   # Uppercase variants (%W, %I) interpolate; lowercase ones are literal.
   percent-arrays:
-    - match: '%[WI]\['
+    - match: '(?<![\w)\]}"])%[WI]\['
       scope: punctuation.definition.string.begin.vibescript
       push:
         - meta_include_prototype: false
@@ -413,7 +413,7 @@ contexts:
         - match: '\]'
           scope: punctuation.definition.string.end.vibescript
           pop: 1
-    - match: '%[WI]\('
+    - match: '(?<![\w)\]}"])%[WI]\('
       scope: punctuation.definition.string.begin.vibescript
       push:
         - meta_include_prototype: false
@@ -424,7 +424,7 @@ contexts:
         - match: '\)'
           scope: punctuation.definition.string.end.vibescript
           pop: 1
-    - match: '%[wi]\['
+    - match: '(?<![\w)\]}"])%[wi]\['
       scope: punctuation.definition.string.begin.vibescript
       push:
         - meta_include_prototype: false
@@ -432,7 +432,7 @@ contexts:
         - match: '\]'
           scope: punctuation.definition.string.end.vibescript
           pop: 1
-    - match: '%[wi]\('
+    - match: '(?<![\w)\]}"])%[wi]\('
       scope: punctuation.definition.string.begin.vibescript
       push:
         - meta_include_prototype: false
