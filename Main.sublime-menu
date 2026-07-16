@@ -1,0 +1,35 @@
+[
+    {
+        "id": "preferences",
+        "children": [
+            {
+                "caption": "Package Settings",
+                "mnemonic": "P",
+                "id": "package-settings",
+                "children": [
+                    {
+                        "caption": "Vibescript",
+                        "children": [
+                            {
+                                "caption": "Settings",
+                                "command": "edit_settings",
+                                "args": {
+                                    "base_file": "${packages}/Vibescript/Vibescript.sublime-settings",
+                                    "default": "// Settings in here override those in \"Vibescript/Vibescript.sublime-settings\"\n{\n\t$0\n}\n"
+                                }
+                            },
+                            {
+                                "caption": "LSP Settings",
+                                "command": "edit_settings",
+                                "args": {
+                                    "base_file": "${packages}/Vibescript/LSP-vibescript.sublime-settings",
+                                    "default": "// Settings in here override those in \"Vibescript/LSP-vibescript.sublime-settings\"\n{\n\t$0\n}\n"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+]
