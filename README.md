@@ -1,19 +1,21 @@
 # Vibescript package for Sublime Text
 
-Adds [Vibescript](https://github.com/mgomes/vibescript) language support to Sublime Text, mirroring the existing Zed extension with syntax highlighting and `vibes lsp` integration.
+Adds [Vibescript](https://github.com/mgomes/vibescript) syntax support to Sublime Text.
 
 ## Features
 
-- Syntax highlighting for `.vibe` files, including typed signatures, regex
-  literals, `%w[...]` / `%i(...)` arrays, symbols, and directive comments
+- Syntax highlighting for `.vibe` files, including strings with interpolation,
+  regex literals, `%w[...]` / `%i(...)` arrays, symbols, enums, typed
+  signatures, and directive comments
 - Comment toggling and indentation rules
-- Symbol indexing for classes and methods
-- Diagnostics, hover information, and completions through Sublime's `LSP` package
+- Symbol indexing for classes, methods, and enums
 
-## Prerequisites
+## Language server
 
-- [LSP](https://packagecontrol.io/packages/LSP) installed in Sublime Text
-- The `vibes` binary available on your `PATH`
+Diagnostics, hover documentation, and completions live in the separate
+[LSP-vibescript](https://github.com/mgomes/LSP-vibescript) package, so this
+package works standalone for highlighting. Install LSP-vibescript alongside
+Sublime's `LSP` package to add language-server features.
 
 ## Development install
 
@@ -24,22 +26,9 @@ Adds [Vibescript](https://github.com/mgomes/vibescript) language support to Subl
      "$HOME/Library/Application Support/Sublime Text/Packages/Vibescript"
    ```
 
-2. Install the `LSP` package through Package Control
-3. Restart Sublime Text
+2. Restart Sublime Text
 
-The LSP helper resolves its settings path dynamically and works under any
-package directory name; only the syntax tests expect the package to be
-installed as `Vibescript`.
-
-## Configuration
-
-The default language server command is:
-
-```json
-["vibes", "lsp"]
-```
-
-Override it in `Preferences > Package Settings > sublime-vibescript > Settings` by editing `LSP-vibescript.sublime-settings` if your `vibes` binary lives elsewhere.
+The syntax tests expect the package to be installed as `Vibescript`.
 
 ## Syntax tests
 
