@@ -2,12 +2,10 @@ Vibescript for Sublime Text
 ===========================
 
 Thanks for installing! This package provides syntax highlighting,
-indentation, symbol indexing, and LSP integration for Vibescript
-(.vibe) files.
+indentation, and symbol indexing for Vibescript (.vibe) files.
 
-To enable diagnostics, hover, and completions:
-
-  1. Install the "LSP" package via Package Control
-  2. Make sure the `vibes` binary is on your PATH
+For diagnostics, hover documentation, and completions, also install
+the LSP-vibescript package (which pairs with the LSP package and the
+`vibes` binary).
 
 Docs and issues: https://github.com/mgomes/sublime-vibescript
