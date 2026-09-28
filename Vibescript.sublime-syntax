@@ -12,6 +12,8 @@ variables:
   identifier: '[a-z_][a-zA-Z0-9_]*[?!]?'
   plain_identifier: '[a-z_][a-zA-Z0-9_]*'
   constant: '[A-Z][a-zA-Z0-9_]*'
+  type_name: '(?:(?:{{plain_identifier}}|{{constant}})(?:\.|::))*(?:{{constant}}|any|array|bool|comparable|duration|enum_type|enum_value|error|float|hash|int|match_data|money|number|range|regex|string|symbol|time|type)\b'
+  annotation_start: '(?:{{type_name}}(?=\s*(?:[<|?=;#]|$))|nil(?=\s*[|?=;])|\[(?=\s*(?:{{type_name}}|[\[{]))|\{(?=\s*(?:\.\.\.|{{plain_identifier}}\??\s*:\s*(?:{{type_name}}|[\[{]))))'
   trailing_keyword: 'end|then|else|elsif|when|rescue|ensure|if|while|in'
 
 contexts:
@@ -276,7 +278,7 @@ contexts:
         - include: type-body
 
   typed-local:
-    - match: '(?:^|(?<=;))\s*(@{0,2}[A-Za-z_][a-zA-Z0-9_]*)(:)(?!:)'
+    - match: '(?:^|(?<=;))\s*(@{0,2}[A-Za-z_][a-zA-Z0-9_]*)(:)(?=\s*{{annotation_start}})'
       captures:
         1: variable.other.vibescript
         2: punctuation.separator.annotation.type.vibescript

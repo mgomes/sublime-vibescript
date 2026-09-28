@@ -116,3 +116,45 @@ ignored type Name = int
 # <- comment.block.vibescript
 value = 1
 #       ^ constant.numeric.integer.vibescript
+
+opts = {
+  name: "alex",
+# ^^^^ constant.other.symbol.vibescript - meta.annotation.type
+#       ^^^^^^ string.quoted.double.vibescript - meta.annotation.type
+  count: 12,
+# ^^^^^ constant.other.symbol.vibescript - meta.annotation.type
+#        ^^ constant.numeric.integer.vibescript - meta.annotation.type
+  mode: :fast,
+#       ^^^^^ constant.other.symbol.vibescript - meta.annotation.type
+  enabled: true,
+#          ^^^^ constant.language.boolean.vibescript - meta.annotation.type
+  missing: nil,
+#          ^^^ constant.language.null.vibescript - meta.annotation.type
+  computed: value + 1,
+#                   ^ constant.numeric.integer.vibescript - meta.annotation.type
+  items: [1, 2],
+#         ^ constant.numeric.integer.vibescript - meta.annotation.type
+  child: { count: 3 },
+#                 ^ constant.numeric.integer.vibescript - meta.annotation.type
+}
+
+send(
+  name: "alex",
+# ^^^^ constant.other.symbol.vibescript - meta.annotation.type
+#       ^^^^^^ string.quoted.double.vibescript - meta.annotation.type
+  count: 12,
+#        ^^ constant.numeric.integer.vibescript - meta.annotation.type
+)
+
+pair: [int, string] = [1, "alex"]
+# <- variable.other.vibescript
+#      ^^^ support.type.vibescript
+#           ^^^^^^ support.type.vibescript
+
+record: { name: string, ... } = { name: "alex" }
+# <- variable.other.vibescript
+#               ^^^^^^ support.type.vibescript
+
+user: models.User? = nil
+# <- variable.other.vibescript
+#            ^^^^ support.class.vibescript
