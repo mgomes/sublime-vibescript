@@ -2,7 +2,7 @@
 
 `corpus_cases.json` preserves real Rust test and website programs, their origins,
 and parser-derived scope assertions. `syntax_test_corpus.vibe` renders those same
-assertions for the native syntax-test runner used in CI. The Python suite checks
+assertions for the native syntax-test runner used in CI. The Python 3.11+ suite checks
 that they agree and tests the indentation expressions:
 
 ```sh
@@ -15,6 +15,19 @@ fixture covers each complete token. Regenerate it with:
 
 ```sh
 python3 scripts/operators.py > tests/syntax_test_operators.vibe
+```
+
+`scripts/indentation.py` generates the bounded opener/closer pattern rather than
+maintaining an expanded regex by hand. `scripts/semicolon_cases.py` enumerates
+mixed `if`, `while`, `def` and brace-block nesting through three levels, both
+fully closed and with an outer block still open. It includes statement prefixes,
+trailing comments, literals containing delimiters, and postfix conditions. The
+Python suite cross-checks these cases and the generated preference. The bounded
+rule applies to lines containing a separator outside literals/comments; other
+lines retain the existing indentation heuristics:
+
+```sh
+python3 scripts/indentation.py
 ```
 
 ## Native scope and reindent checks
@@ -31,6 +44,9 @@ python3 scripts/run-native-tests.py "$profile" \
 python3 scripts/operators.py --manifest > "$cache/operator-cases.json"
 python3 scripts/run-native-tests.py "$profile" \
   --manifest "$cache/operator-cases.json" --output "$cache/operators.json"
+python3 scripts/semicolon_cases.py > "$cache/semicolon-cases.json"
+python3 scripts/run-native-tests.py "$profile" \
+  --manifest "$cache/semicolon-cases.json" --output "$cache/semicolons.json"
 ```
 
 The plugin creates scratch buffers, asserts scopes against the original source,
@@ -83,6 +99,10 @@ without trailing comments. Their expected hanging indentation is independent
 of the normalizer. Range expressions use parentheses to keep the right operand
 inside a bounded range.
 
+The generator also checks all 684 semicolon nesting cases with the Rust compiler
+and includes it in the native reindent audit. Their indentation is written by
+the fixture generator, independently of both the regex and the AST normalizer.
+
 Link `$cache/sublime-corpus/syntax` to `Packages/VibescriptCorpus` in the test
 profile, then run:
 
@@ -94,7 +114,7 @@ python3 scripts/run-native-tests.py "$profile" \
 ```
 
 The September 2026 audit used Sublime build 4215, Rust Vibescript v0.80.0,
-365 Rust programs and all 203 website examples. Its 561 added-comment variants
-and 92 operator cases brought the direct native audit to 1,221 cases. Seven
-website examples require host capabilities and therefore have no
+365 Rust programs and all 203 website examples. Its 561 added-comment variants,
+92 operator cases and 684 semicolon cases brought the native audit to 1,905 cases.
+Seven website examples require host capabilities and therefore have no
 compiler-accepted comment variant.

@@ -1,6 +1,7 @@
 """Check indentation preferences against literal boundaries and comments."""
 
 from pathlib import Path
+import importlib.util
 import plistlib
 import re
 import unittest
@@ -11,9 +12,39 @@ with (ROOT / "preferences/Indentation Rules.tmPreferences").open("rb") as stream
     SETTINGS = plistlib.load(stream)["settings"]
 with (ROOT / "preferences/Indentation Rules - Block Comments.tmPreferences").open("rb") as stream:
     BLOCK_SETTINGS = plistlib.load(stream)["settings"]
+SPEC = importlib.util.spec_from_file_location("indentation", ROOT / "scripts/indentation.py")
+GENERATOR = importlib.util.module_from_spec(SPEC)
+SPEC.loader.exec_module(GENERATOR)
+SPEC = importlib.util.spec_from_file_location("semicolon_cases", ROOT / "scripts/semicolon_cases.py")
+FIXTURES = importlib.util.module_from_spec(SPEC)
+SPEC.loader.exec_module(FIXTURES)
 
 
 class IndentationTests(unittest.TestCase):
+    def test_generated_preference_matches_source(self):
+        self.assertEqual(SETTINGS["increaseIndentPattern"], GENERATOR.increase_pattern())
+
+    def test_semicolon_nesting_and_inline_closures(self):
+        increase = re.compile(SETTINGS["increaseIndentPattern"])
+        for case in FIXTURES.semicolon_cases():
+            for row, line in enumerate(case["source"].splitlines()):
+                with self.subTest(case=case["name"], row=row, line=line):
+                    self.assertEqual(bool(increase.search(line)), row in case["increase"])
+                    self.assertIsNone(increase.search("# " + line))
+
+    def test_only_code_separators_select_the_bounded_rule(self):
+        separator = re.compile(GENERATOR.BEFORE_SEPARATOR)
+        for line in [
+            'text = "if; end"', "text = 'if; end'", r'text = "escaped\"; end"',
+            r"pattern = /[#;]/", r"pattern = /[#/;]/", r"pattern = /a\/;b/",
+            "puts 1 # if; end", "# if true; end",
+        ]:
+            with self.subTest(line=line):
+                self.assertIsNone(separator.match(line))
+                self.assertIsNotNone(separator.match("count = 1; " + line))
+        increase = re.compile(SETTINGS["increaseIndentPattern"])
+        self.assertIsNone(increase.match("xs.select { |x| next false if x > 2"))
+
     def test_inline_blocks_and_multiline_signatures(self):
         pattern = re.compile(SETTINGS["increaseIndentPattern"])
         for line in [
