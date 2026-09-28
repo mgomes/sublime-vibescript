@@ -665,6 +665,9 @@ contexts:
     - match: '\b[a-z_][a-zA-Z0-9_]*(?:[?!](?!=))?'
 
   operators:
+    - match: '(?:\+|-|\*\*?|//?|%|&&|\|\||==|!=|<=|>=|<<|=)(?=[ \t]*(?:#.*)?$)'
+      scope: keyword.operator.vibescript
+      push: expression-continuation-start
     - match: '<=>'
       scope: keyword.operator.comparison.vibescript
     - match: '//=|\*\*=|\|\|=|&&=|[+\-*/%]='
@@ -733,5 +736,19 @@ contexts:
   expression-braces:
     - match: '\}'
       scope: punctuation.section.brackets.vibescript
+      pop: 1
+    - include: main
+
+  expression-continuation-start:
+    - meta_scope: meta.expression.continuation.vibescript
+    - match: '^'
+      set: expression-continuation
+
+  expression-continuation:
+    - meta_scope: meta.expression.continuation.vibescript
+    - match: '(?:\+|-|\*\*?|//?|%|&&|\|\||==|!=|<=|>=|<<|=)(?=[ \t]*(?:#.*)?$)'
+      scope: keyword.operator.vibescript
+      set: expression-continuation-start
+    - match: '$\n?'
       pop: 1
     - include: main

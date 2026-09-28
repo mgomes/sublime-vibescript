@@ -14,6 +14,30 @@ with (ROOT / "preferences/Indentation Rules - Block Comments.tmPreferences").ope
 
 
 class IndentationTests(unittest.TestCase):
+    def test_inline_blocks_and_multiline_signatures(self):
+        pattern = re.compile(SETTINGS["increaseIndentPattern"])
+        for line in [
+            "a=[1];begin", "result = (begin", "result = if ready",
+            ") -> { updated: array<int> }", "def sum(",
+            "def f(a: int = (while true; break 1; end)) -> int",
+            "items.each { |item: int | string| # union parameter",
+        ]:
+            with self.subTest(line=line):
+                self.assertIsNotNone(pattern.search(line))
+        for line in [
+            "def literal -> int 42 end", "def literal -> int 42 end # done",
+            'concat(begin; "a"; end, "b")', "x = (if true; 1; else; 2; end)",
+            "end: 1,", "if: true,", "# ) -> int", "# result = begin",
+        ]:
+            with self.subTest(line=line):
+                self.assertIsNone(pattern.search(line))
+
+    def test_parenthesized_closers(self):
+        pattern = re.compile(SETTINGS["decreaseIndentPattern"])
+        for line in [")", "  ),", "  ) -> int", "  ) % 7", "  ) # done"]:
+            with self.subTest(line=line):
+                self.assertIsNotNone(pattern.search(line))
+
     def test_regex_literals_before_openers(self):
         pattern = re.compile(SETTINGS["increaseIndentPattern"])
         for line in [
@@ -61,6 +85,8 @@ class IndentationTests(unittest.TestCase):
             "begin", "rescue Error", "ensure", "end", "=begin", "=end",
         ]
         for name, expression in SETTINGS.items():
+            if not name.endswith("Pattern"):
+                continue
             pattern = re.compile(expression)
             for prefix in ["# ", "  # ", "\t# "]:
                 for content in contents:
