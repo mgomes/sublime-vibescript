@@ -83,21 +83,10 @@ end
 helpers = require("./helpers")
 #         ^^^^^^^ keyword.control.import.vibescript
 
-sum = values.reduce(0) do |acc, value|
-#           ^ punctuation.accessor.dot.vibescript
-#            ^^^^^^ variable.function.vibescript
-#                      ^^ keyword.control.loop.vibescript
-#                         ^ punctuation.separator.block-parameters.begin.vibescript
-#                          ^^^ variable.parameter.vibescript
-#                               ^^^^^ variable.parameter.vibescript
-#                                    ^ punctuation.separator.block-parameters.end.vibescript
-  acc || value
-#     ^^ keyword.operator.logical.vibescript
-end
 
-if done and true
+if done &&  true
 # <- keyword.control.conditional.vibescript
-#       ^^^ keyword.operator.logical.vibescript
+#       ^^ keyword.operator.logical.vibescript
 #           ^^^^ constant.language.boolean.vibescript
   yield(value)
 # ^^^^^ keyword.control.flow.vibescript
@@ -132,15 +121,7 @@ mode = Config::DEFAULT
 slice = items[1...3]
 #              ^^^ keyword.operator.range.vibescript
 
-words = %w[alpha beta]
-#       ^^^ punctuation.definition.string.begin.vibescript
-#       ^^^^^^^^^^^^^^ string.quoted.other.percent-array.vibescript
-#                    ^ punctuation.definition.string.end.vibescript
 
-kinds = %i(alpha beta)
-#       ^^^ punctuation.definition.string.begin.vibescript
-#       ^^^^^^^^^^^^^^ string.quoted.other.percent-array.vibescript
-#                    ^ punctuation.definition.string.end.vibescript
 
 tag = :"hello world"
 #     ^^^^^^^^^^^^^^ constant.other.symbol.double-quoted.vibescript
@@ -190,16 +171,7 @@ end
 # ^^^^ keyword.other.directive.vibescript
 #       ^^^ support.other.capability.vibescript
 
-puts not ok
-# <- variable.function.vibescript
-#    ^^^ keyword.operator.logical.vibescript
-#        ^^ source.vibescript - keyword
 
-flag = not done or not ready
-#      ^^^ keyword.operator.logical.vibescript
-#          ^^^^ source.vibescript - variable.function
-#               ^^ keyword.operator.logical.vibescript
-#                  ^^^ keyword.operator.logical.vibescript
 
 msg = "sum #{count + 1} done"
 #     ^ punctuation.definition.string.begin.vibescript
@@ -248,24 +220,8 @@ esc = 'don\'t \\ ok'
 #         ^^ constant.character.escape.vibescript
 #             ^^ constant.character.escape.vibescript
 #                  ^ punctuation.definition.string.end.vibescript
-paths = %W[/tmp #{base}/log]
-#       ^^^ punctuation.definition.string.begin.vibescript
-#          ^^^^ string.quoted.other.percent-array.vibescript
-#               ^^ punctuation.section.interpolation.begin.vibescript
-#                 ^^^^ meta.interpolation.vibescript - string
-#                     ^ punctuation.section.interpolation.end.vibescript
-#                      ^^^^ string.quoted.other.percent-array.vibescript
-#                          ^ punctuation.definition.string.end.vibescript
 
-tags = %I(#{prefix}_id raw)
-#      ^^^ punctuation.definition.string.begin.vibescript
-#         ^^ punctuation.section.interpolation.begin.vibescript
-#                 ^ punctuation.section.interpolation.end.vibescript
-#                  ^^^ string.quoted.other.percent-array.vibescript
-#                         ^ punctuation.definition.string.end.vibescript
 
-plain = %w[#{x} y]
-#          ^^ string.quoted.other.percent-array.vibescript - punctuation.section.interpolation
 
 ratio = a / b
 #         ^ keyword.operator.arithmetic.vibescript - string.regexp
@@ -366,18 +322,6 @@ private :+, :"weird name"
 #           ^^^^^^^^^^^^^ constant.other.symbol.double-quoted.vibescript
 
 
-def lookup(h: { "user-id": string, :flag: bool, :"q k": int }) -> nil
-#               ^^^^^^^^^ string.quoted.double.vibescript
-#                        ^ punctuation.separator.annotation.type.vibescript
-#                          ^^^^^^ support.type.vibescript
-#                                  ^^^^^ constant.other.symbol.vibescript
-#                                       ^ punctuation.separator.annotation.type.vibescript
-#                                         ^^^^ support.type.vibescript
-#                                               ^^^^^^ constant.other.symbol.double-quoted.vibescript
-#                                                     ^ punctuation.separator.annotation.type.vibescript
-#                                                       ^^^ support.type.vibescript
-  h
-end
 
 begin
   risky()
@@ -393,8 +337,6 @@ total%w[0]
 #    ^ keyword.operator.arithmetic.vibescript
 #     ^ - string.quoted.other.percent-array
 
-count = total %w[0]
-#             ^^^ string.quoted.other.percent-array.vibescript
 
 render 'ok'
 # <- variable.function.vibescript

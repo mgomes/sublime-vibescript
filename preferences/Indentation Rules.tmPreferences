@@ -10,7 +10,7 @@
 		<key>decreaseIndentPattern</key>
 		<string>^\s*(?:[}\]]\s*$|(end|elsif|else|when|rescue|ensure)\b)</string>
 		<key>increaseIndentPattern</key>
-		<string>(?x)^\s*(?:(export\s+)?(private\s+)?def|class|if|elsif|else|unless|while|until|for|case|when|begin|rescue|ensure)\b|.*\bdo\b.*$</string>
+		<string>(?x)^\s*(?:(export\s+)?((private|public|protected)\s+)?def|class|module|enum|if|elsif|else|while|for|case|when|begin|rescue|ensure)\b|[\[{]\s*(?:\|[^|]*\|\s*)?(?:#.*)?$</string>
 	</dict>
 </dict>
 </plist>
