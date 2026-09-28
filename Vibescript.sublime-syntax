@@ -278,15 +278,35 @@ contexts:
         - include: type-body
 
   typed-local:
-    - match: '(?:^|(?<=;))\s*(@{0,2}[A-Za-z_][a-zA-Z0-9_]*)(:)(?=\s*{{annotation_start}})'
+    # A label can begin with a type-shaped value; only an assignment confirms a local.
+    - match: '(?:^|(?<=;))\s*(?=@{0,2}[A-Za-z_][a-zA-Z0-9_]*:\s*{{annotation_start}})'
+      branch_point: typed-local
+      branch:
+        - typed-local-name
+        - typed-local-label
+
+  typed-local-name:
+    - match: '(@{0,2}[A-Za-z_][a-zA-Z0-9_]*)(:)'
       captures:
         1: variable.other.vibescript
         2: punctuation.separator.annotation.type.vibescript
-      push:
-        - meta_scope: meta.annotation.type.vibescript
-        - match: '(?==|;)|$'
-          pop: 1
-        - include: type-body
+      set: typed-local-type
+
+  typed-local-type:
+    - meta_scope: meta.annotation.type.vibescript
+    - meta_include_prototype: false
+    - match: '(?==(?!=|>))'
+      pop: 1
+    - include: type-body
+    - match: '(?=\S|$)'
+      fail: typed-local
+
+  typed-local-label:
+    - match: '(@{0,2}[A-Za-z_][a-zA-Z0-9_]*)(:)'
+      captures:
+        1: constant.other.symbol.vibescript
+        2: punctuation.definition.constant.vibescript
+      pop: 1
 
   type-cast:
     - match: '(\.)(as)(\()'

@@ -1,0 +1,335 @@
+# SYNTAX TEST "Packages/Vibescript/Vibescript.sublime-syntax"
+
+opts = { klass: User }
+#        ^^^^^ constant.other.symbol.vibescript - meta.annotation.type
+#               ^ support.class.vibescript - meta.annotation.type
+
+opts = {
+  klass: User
+# ^^^^^ constant.other.symbol.vibescript - meta.annotation.type
+#        ^ support.class.vibescript - meta.annotation.type
+}
+
+send(klass: User)
+#    ^^^^^ constant.other.symbol.vibescript - meta.annotation.type
+#           ^ support.class.vibescript - meta.annotation.type
+
+send(
+  klass: User
+# ^^^^^ constant.other.symbol.vibescript - meta.annotation.type
+#        ^ support.class.vibescript - meta.annotation.type
+)
+
+opts = { klass: Models::User }
+#        ^^^^^ constant.other.symbol.vibescript - meta.annotation.type
+#               ^ support.class.vibescript - meta.annotation.type
+
+opts = {
+  klass: Models::User
+# ^^^^^ constant.other.symbol.vibescript - meta.annotation.type
+#        ^ support.class.vibescript - meta.annotation.type
+}
+
+send(klass: Models::User)
+#    ^^^^^ constant.other.symbol.vibescript - meta.annotation.type
+#           ^ support.class.vibescript - meta.annotation.type
+
+send(
+  klass: Models::User
+# ^^^^^ constant.other.symbol.vibescript - meta.annotation.type
+#        ^ support.class.vibescript - meta.annotation.type
+)
+
+opts = { klass: User.new() }
+#        ^^^^^ constant.other.symbol.vibescript - meta.annotation.type
+#               ^ support.class.vibescript - meta.annotation.type
+
+opts = {
+  klass: User.new()
+# ^^^^^ constant.other.symbol.vibescript - meta.annotation.type
+#        ^ support.class.vibescript - meta.annotation.type
+}
+
+send(klass: User.new())
+#    ^^^^^ constant.other.symbol.vibescript - meta.annotation.type
+#           ^ support.class.vibescript - meta.annotation.type
+
+send(
+  klass: User.new()
+# ^^^^^ constant.other.symbol.vibescript - meta.annotation.type
+#        ^ support.class.vibescript - meta.annotation.type
+)
+
+opts = { klass: lookup() }
+#        ^^^^^ constant.other.symbol.vibescript - meta.annotation.type
+#               ^ variable.function.vibescript - meta.annotation.type
+
+opts = {
+  klass: lookup()
+# ^^^^^ constant.other.symbol.vibescript - meta.annotation.type
+#        ^ variable.function.vibescript - meta.annotation.type
+}
+
+send(klass: lookup())
+#    ^^^^^ constant.other.symbol.vibescript - meta.annotation.type
+#           ^ variable.function.vibescript - meta.annotation.type
+
+send(
+  klass: lookup()
+# ^^^^^ constant.other.symbol.vibescript - meta.annotation.type
+#        ^ variable.function.vibescript - meta.annotation.type
+)
+
+opts = { klass: "alex" }
+#        ^^^^^ constant.other.symbol.vibescript - meta.annotation.type
+#               ^ string.quoted.double.vibescript - meta.annotation.type
+
+opts = {
+  klass: "alex"
+# ^^^^^ constant.other.symbol.vibescript - meta.annotation.type
+#        ^ string.quoted.double.vibescript - meta.annotation.type
+}
+
+send(klass: "alex")
+#    ^^^^^ constant.other.symbol.vibescript - meta.annotation.type
+#           ^ string.quoted.double.vibescript - meta.annotation.type
+
+send(
+  klass: "alex"
+# ^^^^^ constant.other.symbol.vibescript - meta.annotation.type
+#        ^ string.quoted.double.vibescript - meta.annotation.type
+)
+
+opts = { klass: 12 }
+#        ^^^^^ constant.other.symbol.vibescript - meta.annotation.type
+#               ^ constant.numeric.integer.vibescript - meta.annotation.type
+
+opts = {
+  klass: 12
+# ^^^^^ constant.other.symbol.vibescript - meta.annotation.type
+#        ^ constant.numeric.integer.vibescript - meta.annotation.type
+}
+
+send(klass: 12)
+#    ^^^^^ constant.other.symbol.vibescript - meta.annotation.type
+#           ^ constant.numeric.integer.vibescript - meta.annotation.type
+
+send(
+  klass: 12
+# ^^^^^ constant.other.symbol.vibescript - meta.annotation.type
+#        ^ constant.numeric.integer.vibescript - meta.annotation.type
+)
+
+opts = { klass: :fast }
+#        ^^^^^ constant.other.symbol.vibescript - meta.annotation.type
+#               ^ constant.other.symbol.vibescript - meta.annotation.type
+
+opts = {
+  klass: :fast
+# ^^^^^ constant.other.symbol.vibescript - meta.annotation.type
+#        ^ constant.other.symbol.vibescript - meta.annotation.type
+}
+
+send(klass: :fast)
+#    ^^^^^ constant.other.symbol.vibescript - meta.annotation.type
+#           ^ constant.other.symbol.vibescript - meta.annotation.type
+
+send(
+  klass: :fast
+# ^^^^^ constant.other.symbol.vibescript - meta.annotation.type
+#        ^ constant.other.symbol.vibescript - meta.annotation.type
+)
+
+opts = { klass: true }
+#        ^^^^^ constant.other.symbol.vibescript - meta.annotation.type
+#               ^ constant.language.boolean.vibescript - meta.annotation.type
+
+opts = {
+  klass: true
+# ^^^^^ constant.other.symbol.vibescript - meta.annotation.type
+#        ^ constant.language.boolean.vibescript - meta.annotation.type
+}
+
+send(klass: true)
+#    ^^^^^ constant.other.symbol.vibescript - meta.annotation.type
+#           ^ constant.language.boolean.vibescript - meta.annotation.type
+
+send(
+  klass: true
+# ^^^^^ constant.other.symbol.vibescript - meta.annotation.type
+#        ^ constant.language.boolean.vibescript - meta.annotation.type
+)
+
+opts = { klass: nil }
+#        ^^^^^ constant.other.symbol.vibescript - meta.annotation.type
+#               ^ constant.language.null.vibescript - meta.annotation.type
+
+opts = {
+  klass: nil
+# ^^^^^ constant.other.symbol.vibescript - meta.annotation.type
+#        ^ constant.language.null.vibescript - meta.annotation.type
+}
+
+send(klass: nil)
+#    ^^^^^ constant.other.symbol.vibescript - meta.annotation.type
+#           ^ constant.language.null.vibescript - meta.annotation.type
+
+send(
+  klass: nil
+# ^^^^^ constant.other.symbol.vibescript - meta.annotation.type
+#        ^ constant.language.null.vibescript - meta.annotation.type
+)
+
+opts = { klass: [User] }
+#        ^^^^^ constant.other.symbol.vibescript - meta.annotation.type
+#               ^ source.vibescript - meta.annotation.type
+
+opts = {
+  klass: [User]
+# ^^^^^ constant.other.symbol.vibescript - meta.annotation.type
+#        ^ source.vibescript - meta.annotation.type
+}
+
+send(klass: [User])
+#    ^^^^^ constant.other.symbol.vibescript - meta.annotation.type
+#           ^ source.vibescript - meta.annotation.type
+
+send(
+  klass: [User]
+# ^^^^^ constant.other.symbol.vibescript - meta.annotation.type
+#        ^ source.vibescript - meta.annotation.type
+)
+
+opts = { klass: [User, "a=b"] }
+#        ^^^^^ constant.other.symbol.vibescript - meta.annotation.type
+#               ^ source.vibescript - meta.annotation.type
+
+opts = {
+  klass: [User, "a=b"]
+# ^^^^^ constant.other.symbol.vibescript - meta.annotation.type
+#        ^ source.vibescript - meta.annotation.type
+}
+
+send(klass: [User, "a=b"])
+#    ^^^^^ constant.other.symbol.vibescript - meta.annotation.type
+#           ^ source.vibescript - meta.annotation.type
+
+send(
+  klass: [User, "a=b"]
+# ^^^^^ constant.other.symbol.vibescript - meta.annotation.type
+#        ^ source.vibescript - meta.annotation.type
+)
+
+opts = { klass: { klass: User } }
+#        ^^^^^ constant.other.symbol.vibescript - meta.annotation.type
+#               ^ source.vibescript - meta.annotation.type
+
+opts = {
+  klass: { klass: User }
+# ^^^^^ constant.other.symbol.vibescript - meta.annotation.type
+#        ^ source.vibescript - meta.annotation.type
+}
+
+send(klass: { klass: User })
+#    ^^^^^ constant.other.symbol.vibescript - meta.annotation.type
+#           ^ source.vibescript - meta.annotation.type
+
+send(
+  klass: { klass: User }
+# ^^^^^ constant.other.symbol.vibescript - meta.annotation.type
+#        ^ source.vibescript - meta.annotation.type
+)
+
+opts = { klass: (User) }
+#        ^^^^^ constant.other.symbol.vibescript - meta.annotation.type
+#               ^ source.vibescript - meta.annotation.type
+
+opts = {
+  klass: (User)
+# ^^^^^ constant.other.symbol.vibescript - meta.annotation.type
+#        ^ source.vibescript - meta.annotation.type
+}
+
+send(klass: (User))
+#    ^^^^^ constant.other.symbol.vibescript - meta.annotation.type
+#           ^ source.vibescript - meta.annotation.type
+
+send(
+  klass: (User)
+# ^^^^^ constant.other.symbol.vibescript - meta.annotation.type
+#        ^ source.vibescript - meta.annotation.type
+)
+
+opts = { klass: (lookup()) }
+#        ^^^^^ constant.other.symbol.vibescript - meta.annotation.type
+#               ^ source.vibescript - meta.annotation.type
+
+opts = {
+  klass: (lookup())
+# ^^^^^ constant.other.symbol.vibescript - meta.annotation.type
+#        ^ source.vibescript - meta.annotation.type
+}
+
+send(klass: (lookup()))
+#    ^^^^^ constant.other.symbol.vibescript - meta.annotation.type
+#           ^ source.vibescript - meta.annotation.type
+
+send(
+  klass: (lookup())
+# ^^^^^ constant.other.symbol.vibescript - meta.annotation.type
+#        ^ source.vibescript - meta.annotation.type
+)
+
+opts = {
+  klass: User # final constant
+# ^^^^^ constant.other.symbol.vibescript - meta.annotation.type
+#        ^^^^ support.class.vibescript - meta.annotation.type
+}
+send(
+  klass: User # final constant
+# ^^^^^ constant.other.symbol.vibescript - meta.annotation.type
+#        ^^^^ support.class.vibescript - meta.annotation.type
+)
+
+opts = {
+  items: [
+# ^^^^^ constant.other.symbol.vibescript - meta.annotation.type
+    User,
+#   ^^^^ support.class.vibescript - meta.annotation.type
+    lookup()
+#   ^^^^^^ variable.function.vibescript - meta.annotation.type
+  ],
+  child: {
+# ^^^^^ constant.other.symbol.vibescript - meta.annotation.type
+    klass: User
+#   ^^^^^ constant.other.symbol.vibescript - meta.annotation.type
+#          ^^^^ support.class.vibescript - meta.annotation.type
+  }
+}
+send(
+  items: [
+# ^^^^^ constant.other.symbol.vibescript - meta.annotation.type
+    User,
+#   ^^^^ support.class.vibescript - meta.annotation.type
+    lookup()
+#   ^^^^^^ variable.function.vibescript - meta.annotation.type
+  ],
+  child: {
+# ^^^^^ constant.other.symbol.vibescript - meta.annotation.type
+    klass: User
+#   ^^^^^ constant.other.symbol.vibescript - meta.annotation.type
+#          ^^^^ support.class.vibescript - meta.annotation.type
+  }
+)
+
+user: User = User.new()
+# <- variable.other.vibescript
+#     ^^^^ meta.annotation.type.vibescript support.class.vibescript
+#            ^^^^ support.class.vibescript - meta.annotation.type
+
+users: array<
+# <- variable.other.vibescript
+  User
+# ^^^^ meta.annotation.type.vibescript support.class.vibescript
+> = []
+# ^ keyword.operator.assignment.vibescript - meta.annotation.type
