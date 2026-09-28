@@ -1,0 +1,1469 @@
+# SYNTAX TEST "Packages/Vibescript/Vibescript.sublime-syntax"
+# rust:tests/language-errors.json:1/7046/source
+
+def run(input: any) -> array<bool | int | string>
+#   ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#       ^ variable.parameter
+#              ^ meta.annotation.type support.type
+#                      ^ meta.annotation.type support.type
+#                            ^ meta.annotation.type support.type
+#                                 ^ keyword.operator.union
+#                                   ^ meta.annotation.type support.type
+#                                       ^ keyword.operator.union
+#                                         ^ meta.annotation.type support.type
+  t=Time.parse("1900 365 02 28","2006 002 01 02",in:"UTC");[t.to_i,t.nsec,t.utc_offset,t.zone,t.utc?,t.dst?,t.to_s,t.rfc2822]
+# ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#        ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#               ^ string.quoted.double
+#                                ^ string.quoted.double
+#                                                ^ constant.other.symbol - meta.annotation.type
+#                                                    ^ string.quoted.double
+#                                                           ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                                                             ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                                                                  ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                                                                    ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                                                                         ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                                                                           ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                                                                                      ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                                                                                        ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                                                                                             ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                                                                                               ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                                                                                                    ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                                                                                                      ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                                                                                                           ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                                                                                                             ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                                                                                                                  ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                                                                                                                    ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+end
+# rust:tests/language-errors.json:1/7046/source + trailing comments
+
+def run(input: any) -> array<bool | int | string> # context boundary
+#   ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#       ^ variable.parameter
+#              ^ meta.annotation.type support.type
+#                      ^ meta.annotation.type support.type
+#                            ^ meta.annotation.type support.type
+#                                 ^ keyword.operator.union
+#                                   ^ meta.annotation.type support.type
+#                                       ^ keyword.operator.union
+#                                         ^ meta.annotation.type support.type
+#                                                 ^ comment
+  t=Time.parse("1900 365 02 28","2006 002 01 02",in:"UTC");[t.to_i,t.nsec,t.utc_offset,t.zone,t.utc?,t.dst?,t.to_s,t.rfc2822] # context boundary
+# ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#        ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#               ^ string.quoted.double
+#                                ^ string.quoted.double
+#                                                ^ constant.other.symbol - meta.annotation.type
+#                                                    ^ string.quoted.double
+#                                                           ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                                                             ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                                                                  ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                                                                    ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                                                                         ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                                                                           ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                                                                                      ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                                                                                        ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                                                                                             ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                                                                                               ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                                                                                                    ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                                                                                                      ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                                                                                                           ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                                                                                                             ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                                                                                                                  ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                                                                                                                    ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                                                                                                                             ^ comment
+end
+# rust:tests/recoverable_mutations.rs:20
+
+a=[1];begin
+# <- source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+  a.insert(-9, 2)
+# ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#   ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+rescue
+  a
+# ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+end
+# rust:tests/recoverable_mutations.rs:20 + trailing comments
+
+a=[1];begin # context boundary
+# <- source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#           ^ comment
+  a.insert(-9, 2) # context boundary
+# ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#   ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                 ^ comment
+rescue
+  a
+# ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+end
+# rust:tests/static_types/gaps.rs:7
+
+def f(a: int = (while true; x=7; break x; end)) -> int
+#   ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#     ^ variable.parameter
+#        ^ meta.annotation.type support.type
+#                                                  ^ meta.annotation.type support.type
+  a
+# ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+end
+f(1)
+# <- source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+# rust:tests/static_types/gaps.rs:7 + trailing comments
+
+def f(a: int = (while true; x=7; break x; end)) -> int # context boundary
+#   ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#     ^ variable.parameter
+#        ^ meta.annotation.type support.type
+#                                                  ^ meta.annotation.type support.type
+#                                                      ^ comment
+  a
+# ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+end
+f(1) # context boundary
+# <- source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#    ^ comment
+# rust:tests/language.json:1/41483/source
+
+def render(item: Status) -> string
+#   ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#          ^ variable.parameter
+#                ^ meta.annotation.type support.class
+#                           ^ meta.annotation.type support.type
+  "#{item}"
+end
+enum Status
+  Draft
+  Done
+  HTTPServer
+end
+enum Review
+  Draft
+end
+
+def run(input: any) -> array<string>
+#   ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#       ^ variable.parameter
+#              ^ meta.annotation.type support.type
+#                      ^ meta.annotation.type support.type
+#                            ^ meta.annotation.type support.type
+  [:draft].map { |value: any | Status|
+#          ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                ^ punctuation.separator.block-parameters.begin
+#                 ^ variable.parameter
+#                        ^ meta.annotation.type support.type
+#                            ^ keyword.operator.union
+#                              ^ meta.annotation.type support.class
+#                                    ^ punctuation.separator.block-parameters.end
+    render(value.as(Status))
+#   ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+  }
+end
+# rust:tests/language.json:1/41483/source + trailing comments
+
+def render(item: Status) -> string # context boundary
+#   ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#          ^ variable.parameter
+#                ^ meta.annotation.type support.class
+#                           ^ meta.annotation.type support.type
+#                                  ^ comment
+  "#{item}" # context boundary
+#           ^ comment
+end
+enum Status # context boundary
+#           ^ comment
+  Draft
+  Done
+  HTTPServer
+end
+enum Review # context boundary
+#           ^ comment
+  Draft
+end
+
+def run(input: any) -> array<string> # context boundary
+#   ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#       ^ variable.parameter
+#              ^ meta.annotation.type support.type
+#                      ^ meta.annotation.type support.type
+#                            ^ meta.annotation.type support.type
+#                                    ^ comment
+  [:draft].map { |value: any | Status| # context boundary
+#          ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                ^ punctuation.separator.block-parameters.begin
+#                 ^ variable.parameter
+#                        ^ meta.annotation.type support.type
+#                            ^ keyword.operator.union
+#                              ^ meta.annotation.type support.class
+#                                    ^ punctuation.separator.block-parameters.end
+#                                      ^ comment
+    render(value.as(Status)) # context boundary
+#   ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                            ^ comment
+  }
+end
+# rust:tests/parser_boundaries.rs:219
+
+def at -> int [1, 2, 3].fetch(1) end
+#   ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#         ^ meta.annotation.type support.type
+#                       ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+def literal -> int 42 end
+#   ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#              ^ meta.annotation.type support.type
+def sum a: int, b: int = 2 -> int a + b end
+#   ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#       ^ variable.parameter
+#          ^ meta.annotation.type support.type
+#               ^ variable.parameter
+#                  ^ meta.annotation.type support.type
+#                             ^ meta.annotation.type support.type
+#                                 ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                                     ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+def run -> array<int>
+#   ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#          ^ meta.annotation.type support.type
+#                ^ meta.annotation.type support.type
+  [at, literal, sum(1)]
+#  ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#      ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#               ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+end
+# rust:tests/parser_boundaries.rs:219 + trailing comments
+
+def at -> int [1, 2, 3].fetch(1) end # context boundary
+#   ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#         ^ meta.annotation.type support.type
+#                       ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                                    ^ comment
+def literal -> int 42 end # context boundary
+#   ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#              ^ meta.annotation.type support.type
+#                         ^ comment
+def sum a: int, b: int = 2 -> int a + b end # context boundary
+#   ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#       ^ variable.parameter
+#          ^ meta.annotation.type support.type
+#               ^ variable.parameter
+#                  ^ meta.annotation.type support.type
+#                             ^ meta.annotation.type support.type
+#                                 ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                                     ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                                           ^ comment
+def run -> array<int> # context boundary
+#   ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#          ^ meta.annotation.type support.type
+#                ^ meta.annotation.type support.type
+#                     ^ comment
+  [at, literal, sum(1)] # context boundary
+#  ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#      ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#               ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                       ^ comment
+end
+# rust:tests/checker-diff/compound-index-instance-sound.vibe
+
+# expect: agreed
+# <- comment
+class C
+  @value: array<int>
+# ^ variable.other - constant.other.symbol
+#         ^ meta.annotation.type support.type
+#               ^ meta.annotation.type support.type
+  def initialize
+#     ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+    @value = [1]
+  end
+  def [](index: int) -> array<int>
+#        ^ variable.parameter
+#               ^ meta.annotation.type support.type
+#                       ^ meta.annotation.type support.type
+#                             ^ meta.annotation.type support.type
+    @value
+  end
+  def []=(index: int, value: array<int>)
+#         ^ variable.parameter
+#                ^ meta.annotation.type support.type
+#                     ^ variable.parameter
+#                            ^ meta.annotation.type support.type
+#                                  ^ meta.annotation.type support.type
+    @value = value
+#            ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+  end
+end
+c = C.new
+# <- source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#     ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+c[0] += [2]
+# <- source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+p(c[0])
+# <- source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+# ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+# rust:tests/checker-diff/compound-index-instance-sound.vibe + trailing comments
+
+# expect: agreed
+# <- comment
+class C # context boundary
+#       ^ comment
+  @value: array<int> # context boundary
+# ^ variable.other - constant.other.symbol
+#         ^ meta.annotation.type support.type
+#               ^ meta.annotation.type support.type
+#                    ^ comment
+  def initialize # context boundary
+#     ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                ^ comment
+    @value = [1] # context boundary
+#                ^ comment
+  end
+  def [](index: int) -> array<int> # context boundary
+#        ^ variable.parameter
+#               ^ meta.annotation.type support.type
+#                       ^ meta.annotation.type support.type
+#                             ^ meta.annotation.type support.type
+#                                  ^ comment
+    @value
+  end
+  def []=(index: int, value: array<int>) # context boundary
+#         ^ variable.parameter
+#                ^ meta.annotation.type support.type
+#                     ^ variable.parameter
+#                            ^ meta.annotation.type support.type
+#                                  ^ meta.annotation.type support.type
+#                                        ^ comment
+    @value = value
+#            ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+  end
+end
+c = C.new
+# <- source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#     ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+c[0] += [2] # context boundary
+# <- source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#           ^ comment
+p(c[0]) # context boundary
+# <- source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+# ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#       ^ comment
+# rust:tests/array_sets.rs:23
+
+a=[3,1,3,2];
+# <- source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+[a & [2,3,3], a - [3], a.union([2,4],[4,5]),
+#^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#             ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                      ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                        ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+  a.difference([3],[2]), a.difference, a.union,
+# ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#   ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                        ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                          ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                                      ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                                        ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+  [[1,2,3],[2,3],[3]].reduce { |acc, x| acc & x },
+#                     ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                              ^ punctuation.separator.block-parameters.begin
+#                               ^ variable.parameter
+#                                    ^ variable.parameter
+#                                     ^ punctuation.separator.block-parameters.end
+#                                       ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                                             ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+  [[1,2,3],[2],[3]].reduce { |acc, x| acc - x }]
+#                   ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                            ^ punctuation.separator.block-parameters.begin
+#                             ^ variable.parameter
+#                                  ^ variable.parameter
+#                                   ^ punctuation.separator.block-parameters.end
+#                                     ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                                           ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+# rust:tests/array_sets.rs:23 + trailing comments
+
+a=[3,1,3,2]; # context boundary
+# <- source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#            ^ comment
+[a & [2,3,3], a - [3], a.union([2,4],[4,5]), # context boundary
+#^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#             ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                      ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                        ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                                            ^ comment
+  a.difference([3],[2]), a.difference, a.union, # context boundary
+# ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#   ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                        ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                          ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                                      ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                                        ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                                               ^ comment
+  [[1,2,3],[2,3],[3]].reduce { |acc, x| acc & x }, # context boundary
+#                     ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                              ^ punctuation.separator.block-parameters.begin
+#                               ^ variable.parameter
+#                                    ^ variable.parameter
+#                                     ^ punctuation.separator.block-parameters.end
+#                                       ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                                             ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                                                  ^ comment
+  [[1,2,3],[2],[3]].reduce { |acc, x| acc - x }] # context boundary
+#                   ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                            ^ punctuation.separator.block-parameters.begin
+#                             ^ variable.parameter
+#                                  ^ variable.parameter
+#                                   ^ punctuation.separator.block-parameters.end
+#                                     ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                                           ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                                                ^ comment
+# rust:tests/substitution.rs:118
+
+
+s="aba";alias=s;out=s.gsub!("a","x")
+# <- source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#  ^ string.quoted.double
+#       ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#             ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#               ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                   ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                     ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                            ^ string.quoted.double
+#                                ^ string.quoted.double
+h={text:s};nested=h["text"].sub!("a") {"q"}
+# <- source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#  ^ constant.other.symbol - meta.annotation.type
+#       ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#          ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                 ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                    ^ string.quoted.double
+#                           ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                                 ^ string.quoted.double
+#                                       ^ string.quoted.double
+[s,alias,out,h,nested,s.sub!("a","a"),s.gsub!("a") {"a"},
+#^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#  ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#        ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#            ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#              ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                     ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                       ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                             ^ string.quoted.double
+#                                 ^ string.quoted.double
+#                                     ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                                       ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                                              ^ string.quoted.double
+#                                                    ^ string.quoted.double
+  s.sub!("z","x"),s.gsub!("z") {"x"},"".sub!("","")]
+# ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#   ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#         ^ string.quoted.double
+#             ^ string.quoted.double
+#                 ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                   ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                          ^ string.quoted.double
+#                                ^ string.quoted.double
+#                                       ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+# rust:tests/substitution.rs:118 + trailing comments
+
+
+s="aba";alias=s;out=s.gsub!("a","x") # context boundary
+# <- source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#  ^ string.quoted.double
+#       ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#             ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#               ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                   ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                     ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                            ^ string.quoted.double
+#                                ^ string.quoted.double
+#                                    ^ comment
+h={text:s};nested=h["text"].sub!("a") {"q"} # context boundary
+# <- source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#  ^ constant.other.symbol - meta.annotation.type
+#       ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#          ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                 ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                    ^ string.quoted.double
+#                           ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                                 ^ string.quoted.double
+#                                       ^ string.quoted.double
+#                                           ^ comment
+[s,alias,out,h,nested,s.sub!("a","a"),s.gsub!("a") {"a"}, # context boundary
+#^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#  ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#        ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#            ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#              ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                     ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                       ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                             ^ string.quoted.double
+#                                 ^ string.quoted.double
+#                                     ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                                       ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                                              ^ string.quoted.double
+#                                                    ^ string.quoted.double
+#                                                         ^ comment
+  s.sub!("z","x"),s.gsub!("z") {"x"},"".sub!("","")] # context boundary
+# ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#   ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#         ^ string.quoted.double
+#             ^ string.quoted.double
+#                 ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                   ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                          ^ string.quoted.double
+#                                ^ string.quoted.double
+#                                       ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                                                    ^ comment
+# rust:tests/string_charsets.rs:13
+
+
+["banana".count("an"), "hello".count("lo","o"), "abc^".count("^"),
+# ^ string.quoted.double
+#         ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                ^ string.quoted.double
+#                       ^ string.quoted.double
+#                              ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                                     ^ string.quoted.double
+#                                          ^ string.quoted.double
+#                                                ^ string.quoted.double
+#                                                      ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                                                             ^ string.quoted.double
+  "banana".delete("an"), "abc123".delete("^0-9"), "abc-".delete("a\\-c"),
+#  ^ string.quoted.double
+#          ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                  ^ string.quoted.double
+#                         ^ string.quoted.double
+#                                 ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                                         ^ string.quoted.double
+#                                                  ^ string.quoted.double
+#                                                        ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                                                                ^ string.quoted.double
+#                                                                   ^ string.quoted.double
+  "abc123".tr("^0-9","XYZ"), "a".tr("aa","XY"), "b".tr("a-cb","WXYZ"),
+#  ^ string.quoted.double
+#          ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#              ^ string.quoted.double
+#                     ^ string.quoted.double
+#                             ^ string.quoted.double
+#                                ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                                    ^ string.quoted.double
+#                                         ^ string.quoted.double
+#                                                ^ string.quoted.double
+#                                                   ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                                                       ^ string.quoted.double
+#                                                              ^ string.quoted.double
+  "abc".tr("a-c","x"), "abc".tr("b",""), "bookkeeper".squeeze,
+#  ^ string.quoted.double
+#       ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#           ^ string.quoted.double
+#                 ^ string.quoted.double
+#                       ^ string.quoted.double
+#                            ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                                ^ string.quoted.double
+#                                         ^ string.quoted.double
+#                                                     ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+  "hello   world".squeeze(" "), "aaabbbccc".squeeze("a-c","^b"),
+#  ^ string.quoted.double
+#                 ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                          ^ string.quoted.double
+#                                ^ string.quoted.double
+#                                           ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                                                    ^ string.quoted.double
+#                                                          ^ string.quoted.double
+  "abc".tr("a-c","^ab"), "abc\\".count("\\")]
+#  ^ string.quoted.double
+#       ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#           ^ string.quoted.double
+#                 ^ string.quoted.double
+#                         ^ string.quoted.double
+#                                ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+# rust:tests/string_charsets.rs:13 + trailing comments
+
+
+["banana".count("an"), "hello".count("lo","o"), "abc^".count("^"), # context boundary
+# ^ string.quoted.double
+#         ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                ^ string.quoted.double
+#                       ^ string.quoted.double
+#                              ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                                     ^ string.quoted.double
+#                                          ^ string.quoted.double
+#                                                ^ string.quoted.double
+#                                                      ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                                                             ^ string.quoted.double
+#                                                                  ^ comment
+  "banana".delete("an"), "abc123".delete("^0-9"), "abc-".delete("a\\-c"), # context boundary
+#  ^ string.quoted.double
+#          ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                  ^ string.quoted.double
+#                         ^ string.quoted.double
+#                                 ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                                         ^ string.quoted.double
+#                                                  ^ string.quoted.double
+#                                                        ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                                                                ^ string.quoted.double
+#                                                                   ^ string.quoted.double
+#                                                                         ^ comment
+  "abc123".tr("^0-9","XYZ"), "a".tr("aa","XY"), "b".tr("a-cb","WXYZ"), # context boundary
+#  ^ string.quoted.double
+#          ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#              ^ string.quoted.double
+#                     ^ string.quoted.double
+#                             ^ string.quoted.double
+#                                ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                                    ^ string.quoted.double
+#                                         ^ string.quoted.double
+#                                                ^ string.quoted.double
+#                                                   ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                                                       ^ string.quoted.double
+#                                                              ^ string.quoted.double
+#                                                                      ^ comment
+  "abc".tr("a-c","x"), "abc".tr("b",""), "bookkeeper".squeeze, # context boundary
+#  ^ string.quoted.double
+#       ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#           ^ string.quoted.double
+#                 ^ string.quoted.double
+#                       ^ string.quoted.double
+#                            ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                                ^ string.quoted.double
+#                                         ^ string.quoted.double
+#                                                     ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                                                              ^ comment
+  "hello   world".squeeze(" "), "aaabbbccc".squeeze("a-c","^b"), # context boundary
+#  ^ string.quoted.double
+#                 ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                          ^ string.quoted.double
+#                                ^ string.quoted.double
+#                                           ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                                                    ^ string.quoted.double
+#                                                          ^ string.quoted.double
+#                                                                ^ comment
+  "abc".tr("a-c","^ab"), "abc\\".count("\\")] # context boundary
+#  ^ string.quoted.double
+#       ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#           ^ string.quoted.double
+#                 ^ string.quoted.double
+#                         ^ string.quoted.double
+#                                ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                                             ^ comment
+# rust:tests/builtins.rs:172
+
+def run(Math: hash<string, int>) -> array<array<int?>>
+#   ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#       ^ variable.parameter
+#             ^ meta.annotation.type support.type
+#                  ^ meta.annotation.type support.type
+#                          ^ meta.annotation.type support.type
+#                                   ^ meta.annotation.type support.type
+#                                         ^ meta.annotation.type support.type
+#                                               ^ meta.annotation.type support.type
+  [1].map {[2].map {Math["PI"]}}
+#     ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#              ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                         ^ string.quoted.double
+end
+# rust:tests/builtins.rs:172 + trailing comments
+
+def run(Math: hash<string, int>) -> array<array<int?>> # context boundary
+#   ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#       ^ variable.parameter
+#             ^ meta.annotation.type support.type
+#                  ^ meta.annotation.type support.type
+#                          ^ meta.annotation.type support.type
+#                                   ^ meta.annotation.type support.type
+#                                         ^ meta.annotation.type support.type
+#                                               ^ meta.annotation.type support.type
+#                                                      ^ comment
+  [1].map {[2].map {Math["PI"]}} # context boundary
+#     ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#              ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                         ^ string.quoted.double
+#                                ^ comment
+end
+# rust:tests/parse_parity.rs:31
+
+=begin
+# <- comment
+ignored
+=end
+1
+# rust:tests/parse_parity.rs:31 + trailing comments
+
+=begin
+# <- comment
+ignored
+=end
+1
+# rust:corpus/glue/money_invoice/money_invoice_test.vibe
+
+def test_money_invoice
+#   ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+  subject = require("money_invoice")
+# ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                    ^ string.quoted.double
+  assert subject.invoice([{ unit: money("1.25 USD"), quantity: 3 }], "USD") == '{"cents":375,"currency":"USD","display":"3.75 USD"}'
+# ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#        ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                           ^ constant.other.symbol - meta.annotation.type
+#                                 ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                                        ^ string.quoted.double
+#                                                    ^ constant.other.symbol - meta.annotation.type
+#                                                                     ^ string.quoted.double
+#                                                                               ^ string.quoted.single
+  assert subject.invoice([], "EUR").include?('"cents":0')
+# ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#        ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                             ^ string.quoted.double
+#                                   ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                                             ^ string.quoted.single
+end
+# rust:corpus/glue/money_invoice/money_invoice_test.vibe + trailing comments
+
+def test_money_invoice # context boundary
+#   ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                      ^ comment
+  subject = require("money_invoice") # context boundary
+# ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                    ^ string.quoted.double
+#                                    ^ comment
+  assert subject.invoice([{ unit: money("1.25 USD"), quantity: 3 }], "USD") == '{"cents":375,"currency":"USD","display":"3.75 USD"}' # context boundary
+# ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#        ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                           ^ constant.other.symbol - meta.annotation.type
+#                                 ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                                        ^ string.quoted.double
+#                                                    ^ constant.other.symbol - meta.annotation.type
+#                                                                     ^ string.quoted.double
+#                                                                               ^ string.quoted.single
+#                                                                                                                                    ^ comment
+  assert subject.invoice([], "EUR").include?('"cents":0') # context boundary
+# ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#        ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                             ^ string.quoted.double
+#                                   ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                                             ^ string.quoted.single
+#                                                         ^ comment
+end
+# site:rosettacode/popular/day_of_the_week.vibe
+
+# title: Day of the week
+# <- comment
+# source: https://rosettacode.org/wiki/Day_of_the_week
+# <- comment
+# category: Rosetta Code
+# <- comment
+# difficulty: Intro
+# <- comment
+# summary: Compute weekdays for fixed Gregorian dates with Zeller's congruence.
+# <- comment
+# tags: popular, dates, math, calendars
+# <- comment
+# vibe: 0.1.0
+# <- comment
+
+def weekday(year: int, month: int, day: int) -> string
+#   ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#           ^ variable.parameter
+#                 ^ meta.annotation.type support.type
+#                      ^ variable.parameter
+#                             ^ meta.annotation.type support.type
+#                                  ^ variable.parameter
+#                                       ^ meta.annotation.type support.type
+#                                               ^ meta.annotation.type support.type
+  adjusted_year = year
+# ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                 ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+  adjusted_month = month
+# ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                  ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+
+  if adjusted_month < 3
+#    ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+    adjusted_month = adjusted_month + 12
+#   ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                    ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+    adjusted_year = adjusted_year - 1
+#   ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                   ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+  end
+
+  century_year = adjusted_year % 100
+# ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+  zero_based_century = adjusted_year // 100
+# ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                      ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+  code = (
+# ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+    day +
+#   ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+      ((13 * (adjusted_month + 1)) // 5) +
+#             ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+      century_year +
+#     ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+      (century_year // 4) +
+#      ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+      (zero_based_century // 4) +
+#      ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+      (5 * zero_based_century)
+#          ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+  ) % 7
+
+  weekday_names.fetch(code)
+# ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#               ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                     ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+end
+
+def weekday_names -> array<string>
+#   ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                    ^ meta.annotation.type support.type
+#                          ^ meta.annotation.type support.type
+  ["Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
+#   ^ string.quoted.double
+#               ^ string.quoted.double
+#                         ^ string.quoted.double
+#                                   ^ string.quoted.double
+#                                              ^ string.quoted.double
+#                                                           ^ string.quoted.double
+#                                                                       ^ string.quoted.double
+end
+
+def run -> array<{ date: string, weekday: string }>
+#   ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#          ^ meta.annotation.type support.type
+#                        ^ meta.annotation.type support.type
+#                                         ^ meta.annotation.type support.type
+  [
+    { date: "2026-03-08", weekday: weekday(2026, 3, 8) },
+#     ^ constant.other.symbol - meta.annotation.type
+#            ^ string.quoted.double
+#                         ^ constant.other.symbol - meta.annotation.type
+#                                  ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+    { date: "2024-02-29", weekday: weekday(2024, 2, 29) },
+#     ^ constant.other.symbol - meta.annotation.type
+#            ^ string.quoted.double
+#                         ^ constant.other.symbol - meta.annotation.type
+#                                  ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+    { date: "2000-01-01", weekday: weekday(2000, 1, 1) }
+#     ^ constant.other.symbol - meta.annotation.type
+#            ^ string.quoted.double
+#                         ^ constant.other.symbol - meta.annotation.type
+#                                  ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+  ]
+end
+# site:rosettacode/popular/day_of_the_week.vibe + trailing comments
+
+# title: Day of the week
+# <- comment
+# source: https://rosettacode.org/wiki/Day_of_the_week
+# <- comment
+# category: Rosetta Code
+# <- comment
+# difficulty: Intro
+# <- comment
+# summary: Compute weekdays for fixed Gregorian dates with Zeller's congruence.
+# <- comment
+# tags: popular, dates, math, calendars
+# <- comment
+# vibe: 0.1.0
+# <- comment
+
+def weekday(year: int, month: int, day: int) -> string # context boundary
+#   ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#           ^ variable.parameter
+#                 ^ meta.annotation.type support.type
+#                      ^ variable.parameter
+#                             ^ meta.annotation.type support.type
+#                                  ^ variable.parameter
+#                                       ^ meta.annotation.type support.type
+#                                               ^ meta.annotation.type support.type
+#                                                      ^ comment
+  adjusted_year = year
+# ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                 ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+  adjusted_month = month
+# ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                  ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+
+  if adjusted_month < 3
+#    ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+    adjusted_month = adjusted_month + 12
+#   ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                    ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+    adjusted_year = adjusted_year - 1
+#   ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                   ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+  end
+
+  century_year = adjusted_year % 100
+# ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+  zero_based_century = adjusted_year // 100
+# ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                      ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+  code = ( # context boundary
+# ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#          ^ comment
+    day +
+#   ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+      ((13 * (adjusted_month + 1)) // 5) + # context boundary
+#             ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                                          ^ comment
+      century_year +
+#     ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+      (century_year // 4) + # context boundary
+#      ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                           ^ comment
+      (zero_based_century // 4) + # context boundary
+#      ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                                 ^ comment
+      (5 * zero_based_century) # context boundary
+#          ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                              ^ comment
+  ) % 7
+
+  weekday_names.fetch(code) # context boundary
+# ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#               ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                     ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                           ^ comment
+end
+
+def weekday_names -> array<string> # context boundary
+#   ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                    ^ meta.annotation.type support.type
+#                          ^ meta.annotation.type support.type
+#                                  ^ comment
+  ["Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"] # context boundary
+#   ^ string.quoted.double
+#               ^ string.quoted.double
+#                         ^ string.quoted.double
+#                                   ^ string.quoted.double
+#                                              ^ string.quoted.double
+#                                                           ^ string.quoted.double
+#                                                                       ^ string.quoted.double
+#                                                                                ^ comment
+end
+
+def run -> array<{ date: string, weekday: string }> # context boundary
+#   ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#          ^ meta.annotation.type support.type
+#                        ^ meta.annotation.type support.type
+#                                         ^ meta.annotation.type support.type
+#                                                   ^ comment
+  [ # context boundary
+#   ^ comment
+    { date: "2026-03-08", weekday: weekday(2026, 3, 8) }, # context boundary
+#     ^ constant.other.symbol - meta.annotation.type
+#            ^ string.quoted.double
+#                         ^ constant.other.symbol - meta.annotation.type
+#                                  ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                                                         ^ comment
+    { date: "2024-02-29", weekday: weekday(2024, 2, 29) }, # context boundary
+#     ^ constant.other.symbol - meta.annotation.type
+#            ^ string.quoted.double
+#                         ^ constant.other.symbol - meta.annotation.type
+#                                  ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                                                          ^ comment
+    { date: "2000-01-01", weekday: weekday(2000, 1, 1) } # context boundary
+#     ^ constant.other.symbol - meta.annotation.type
+#            ^ string.quoted.double
+#                         ^ constant.other.symbol - meta.annotation.type
+#                                  ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                                                        ^ comment
+  ]
+end
+# site:rosettacode/popular/word_wrap.vibe
+
+# title: Word wrap
+# <- comment
+# source: https://rosettacode.org/wiki/Word_wrap
+# <- comment
+# category: Rosetta Code
+# <- comment
+# difficulty: Intro
+# <- comment
+# summary: Wrap a paragraph with the standard greedy algorithm at two different column widths.
+# <- comment
+# tags: popular, text-processing, formatting, greedy
+# <- comment
+# vibe: 0.1.0
+# <- comment
+
+def word_wrap(text: string, width: int) -> array<string>
+#   ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#             ^ variable.parameter
+#                   ^ meta.annotation.type support.type
+#                           ^ variable.parameter
+#                                  ^ meta.annotation.type support.type
+#                                          ^ meta.annotation.type support.type
+#                                                ^ meta.annotation.type support.type
+  words = text.split
+# ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#         ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#              ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+  lines: array<string> = []
+# ^ variable.other - constant.other.symbol
+#        ^ meta.annotation.type support.type
+#              ^ meta.annotation.type support.type
+  current = ""
+# ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+  index = 0
+# ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+
+  while index < words.length
+#       ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#               ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                     ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+    word = words.fetch(index)
+#   ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#          ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                      ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+    if current == ""
+#      ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+      current = word
+#     ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#               ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+    elsif current.length + 1 + word.length <= width
+#         ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                 ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                              ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                                   ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                                             ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+      current = current + " " + word
+#     ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#               ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                          ^ string.quoted.double
+#                               ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+    else
+      lines = lines + [current]
+#     ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#             ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                      ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+      current = word
+#     ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#               ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+    end
+    index = index + 1
+#   ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#           ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+  end
+
+  if current != ""
+#    ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+    lines = lines + [current]
+#   ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#           ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                    ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+  end
+
+  lines
+# ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+end
+
+def sample_text -> string
+#   ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                  ^ meta.annotation.type support.type
+  "In olden times when wishing still helped one, there lived a king whose " +
+#  ^ string.quoted.double
+    "daughters were all beautiful, but the youngest was so beautiful that the " +
+#    ^ string.quoted.double
+    "sun itself, which has seen so much, was astonished whenever it shone in her face."
+#    ^ string.quoted.double
+end
+
+def run -> { width_32: array<string>, width_48: array<string> }
+#   ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                      ^ meta.annotation.type support.type
+#                            ^ meta.annotation.type support.type
+#                                               ^ meta.annotation.type support.type
+#                                                     ^ meta.annotation.type support.type
+  text = sample_text
+# ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#        ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+  {
+    width_32: word_wrap(text, 32),
+#   ^ constant.other.symbol - meta.annotation.type
+#             ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                       ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+    width_48: word_wrap(text, 48)
+#   ^ constant.other.symbol - meta.annotation.type
+#             ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                       ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+  }
+end
+# site:rosettacode/popular/word_wrap.vibe + trailing comments
+
+# title: Word wrap
+# <- comment
+# source: https://rosettacode.org/wiki/Word_wrap
+# <- comment
+# category: Rosetta Code
+# <- comment
+# difficulty: Intro
+# <- comment
+# summary: Wrap a paragraph with the standard greedy algorithm at two different column widths.
+# <- comment
+# tags: popular, text-processing, formatting, greedy
+# <- comment
+# vibe: 0.1.0
+# <- comment
+
+def word_wrap(text: string, width: int) -> array<string> # context boundary
+#   ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#             ^ variable.parameter
+#                   ^ meta.annotation.type support.type
+#                           ^ variable.parameter
+#                                  ^ meta.annotation.type support.type
+#                                          ^ meta.annotation.type support.type
+#                                                ^ meta.annotation.type support.type
+#                                                        ^ comment
+  words = text.split
+# ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#         ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#              ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+  lines: array<string> = [] # context boundary
+# ^ variable.other - constant.other.symbol
+#        ^ meta.annotation.type support.type
+#              ^ meta.annotation.type support.type
+#                           ^ comment
+  current = "" # context boundary
+# ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#              ^ comment
+  index = 0
+# ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+
+  while index < words.length
+#       ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#               ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                     ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+    word = words.fetch(index) # context boundary
+#   ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#          ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                      ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                             ^ comment
+    if current == "" # context boundary
+#      ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                    ^ comment
+      current = word
+#     ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#               ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+    elsif current.length + 1 + word.length <= width
+#         ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                 ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                              ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                                   ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                                             ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+      current = current + " " + word # context boundary
+#     ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#               ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                          ^ string.quoted.double
+#                               ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                                    ^ comment
+    else
+      lines = lines + [current] # context boundary
+#     ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#             ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                      ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                               ^ comment
+      current = word
+#     ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#               ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+    end
+    index = index + 1
+#   ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#           ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+  end
+
+  if current != "" # context boundary
+#    ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                  ^ comment
+    lines = lines + [current] # context boundary
+#   ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#           ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                    ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                             ^ comment
+  end
+
+  lines
+# ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+end
+
+def sample_text -> string # context boundary
+#   ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                  ^ meta.annotation.type support.type
+#                         ^ comment
+  "In olden times when wishing still helped one, there lived a king whose " + # context boundary
+#  ^ string.quoted.double
+#                                                                             ^ comment
+    "daughters were all beautiful, but the youngest was so beautiful that the " + # context boundary
+#    ^ string.quoted.double
+#                                                                                 ^ comment
+    "sun itself, which has seen so much, was astonished whenever it shone in her face." # context boundary
+#    ^ string.quoted.double
+#                                                                                       ^ comment
+end
+
+def run -> { width_32: array<string>, width_48: array<string> } # context boundary
+#   ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                      ^ meta.annotation.type support.type
+#                            ^ meta.annotation.type support.type
+#                                               ^ meta.annotation.type support.type
+#                                                     ^ meta.annotation.type support.type
+#                                                               ^ comment
+  text = sample_text
+# ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#        ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+  { # context boundary
+#   ^ comment
+    width_32: word_wrap(text, 32), # context boundary
+#   ^ constant.other.symbol - meta.annotation.type
+#             ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                       ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                                  ^ comment
+    width_48: word_wrap(text, 48) # context boundary
+#   ^ constant.other.symbol - meta.annotation.type
+#             ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                       ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                                 ^ comment
+  }
+end
+# site:upstream/collections/arrays.vibe
+
+# vibe: 0.1.0
+# <- comment
+
+def head(values: array<int>) -> int?
+#   ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#        ^ variable.parameter
+#                ^ meta.annotation.type support.type
+#                      ^ meta.annotation.type support.type
+#                               ^ meta.annotation.type support.type
+  values.first
+# ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#        ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+end
+
+def tail(values: array<int>) -> int?
+#   ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#        ^ variable.parameter
+#                ^ meta.annotation.type support.type
+#                      ^ meta.annotation.type support.type
+#                               ^ meta.annotation.type support.type
+  values[1]
+# ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+end
+
+def build_matrix(x: int, y: int) -> array<array<int>>
+#   ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                ^ variable.parameter
+#                   ^ meta.annotation.type support.type
+#                        ^ variable.parameter
+#                           ^ meta.annotation.type support.type
+#                                   ^ meta.annotation.type support.type
+#                                         ^ meta.annotation.type support.type
+#                                               ^ meta.annotation.type support.type
+  [[x, y], [y, x]]
+#   ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#      ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#           ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#              ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+end
+
+def replace_first(values: array<int>, value: int) -> array<int>
+#   ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                 ^ variable.parameter
+#                         ^ meta.annotation.type support.type
+#                               ^ meta.annotation.type support.type
+#                                     ^ variable.parameter
+#                                            ^ meta.annotation.type support.type
+#                                                    ^ meta.annotation.type support.type
+#                                                          ^ meta.annotation.type support.type
+  values[0] = value
+# ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#             ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+  values
+# ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+end
+
+def update_without_aliasing(
+#   ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+  values: array<int>,
+# ^ variable.parameter
+#         ^ meta.annotation.type support.type
+#               ^ meta.annotation.type support.type
+  value: int
+# ^ variable.parameter
+#        ^ meta.annotation.type support.type
+) -> { updated: array<int>, original: array<int> }
+#               ^ meta.annotation.type support.type
+#                     ^ meta.annotation.type support.type
+#                                     ^ meta.annotation.type support.type
+#                                           ^ meta.annotation.type support.type
+  original = values
+# ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#            ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+  values[0] = value
+# ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#             ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+  { updated: values, original: original }
+#   ^ constant.other.symbol - meta.annotation.type
+#            ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                    ^ constant.other.symbol - meta.annotation.type
+#                              ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+end
+
+def run -> { head: int?, matrix: array<array<int>>, replaced: array<int>, tail: int? }
+#   ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                  ^ meta.annotation.type support.type
+#                                ^ meta.annotation.type support.type
+#                                      ^ meta.annotation.type support.type
+#                                            ^ meta.annotation.type support.type
+#                                                             ^ meta.annotation.type support.type
+#                                                                   ^ meta.annotation.type support.type
+#                                                                               ^ meta.annotation.type support.type
+  {
+    head: head([10, 20, 30]),
+#   ^ constant.other.symbol - meta.annotation.type
+#         ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+    tail: tail([10, 20, 30]),
+#   ^ constant.other.symbol - meta.annotation.type
+#         ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+    matrix: build_matrix(1, 2),
+#   ^ constant.other.symbol - meta.annotation.type
+#           ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+    replaced: replace_first([1, 2, 3], 99)
+#   ^ constant.other.symbol - meta.annotation.type
+#             ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+  }
+end
+# site:upstream/collections/arrays.vibe + trailing comments
+
+# vibe: 0.1.0
+# <- comment
+
+def head(values: array<int>) -> int? # context boundary
+#   ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#        ^ variable.parameter
+#                ^ meta.annotation.type support.type
+#                      ^ meta.annotation.type support.type
+#                               ^ meta.annotation.type support.type
+#                                    ^ comment
+  values.first
+# ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#        ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+end
+
+def tail(values: array<int>) -> int? # context boundary
+#   ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#        ^ variable.parameter
+#                ^ meta.annotation.type support.type
+#                      ^ meta.annotation.type support.type
+#                               ^ meta.annotation.type support.type
+#                                    ^ comment
+  values[1]
+# ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+end
+
+def build_matrix(x: int, y: int) -> array<array<int>> # context boundary
+#   ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                ^ variable.parameter
+#                   ^ meta.annotation.type support.type
+#                        ^ variable.parameter
+#                           ^ meta.annotation.type support.type
+#                                   ^ meta.annotation.type support.type
+#                                         ^ meta.annotation.type support.type
+#                                               ^ meta.annotation.type support.type
+#                                                     ^ comment
+  [[x, y], [y, x]] # context boundary
+#   ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#      ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#           ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#              ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                  ^ comment
+end
+
+def replace_first(values: array<int>, value: int) -> array<int> # context boundary
+#   ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                 ^ variable.parameter
+#                         ^ meta.annotation.type support.type
+#                               ^ meta.annotation.type support.type
+#                                     ^ variable.parameter
+#                                            ^ meta.annotation.type support.type
+#                                                    ^ meta.annotation.type support.type
+#                                                          ^ meta.annotation.type support.type
+#                                                               ^ comment
+  values[0] = value
+# ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#             ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+  values
+# ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+end
+
+def update_without_aliasing( # context boundary
+#   ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                            ^ comment
+  values: array<int>, # context boundary
+# ^ variable.parameter
+#         ^ meta.annotation.type support.type
+#               ^ meta.annotation.type support.type
+#                     ^ comment
+  value: int # context boundary
+# ^ variable.parameter
+#        ^ meta.annotation.type support.type
+#            ^ comment
+) -> { updated: array<int>, original: array<int> } # context boundary
+#               ^ meta.annotation.type support.type
+#                     ^ meta.annotation.type support.type
+#                                     ^ meta.annotation.type support.type
+#                                           ^ meta.annotation.type support.type
+#                                                  ^ comment
+  original = values
+# ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#            ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+  values[0] = value
+# ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#             ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+  { updated: values, original: original } # context boundary
+#   ^ constant.other.symbol - meta.annotation.type
+#            ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                    ^ constant.other.symbol - meta.annotation.type
+#                              ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                                         ^ comment
+end
+
+def run -> { head: int?, matrix: array<array<int>>, replaced: array<int>, tail: int? } # context boundary
+#   ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                  ^ meta.annotation.type support.type
+#                                ^ meta.annotation.type support.type
+#                                      ^ meta.annotation.type support.type
+#                                            ^ meta.annotation.type support.type
+#                                                             ^ meta.annotation.type support.type
+#                                                                   ^ meta.annotation.type support.type
+#                                                                               ^ meta.annotation.type support.type
+#                                                                                      ^ comment
+  { # context boundary
+#   ^ comment
+    head: head([10, 20, 30]), # context boundary
+#   ^ constant.other.symbol - meta.annotation.type
+#         ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                             ^ comment
+    tail: tail([10, 20, 30]), # context boundary
+#   ^ constant.other.symbol - meta.annotation.type
+#         ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                             ^ comment
+    matrix: build_matrix(1, 2), # context boundary
+#   ^ constant.other.symbol - meta.annotation.type
+#           ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                               ^ comment
+    replaced: replace_first([1, 2, 3], 99) # context boundary
+#   ^ constant.other.symbol - meta.annotation.type
+#             ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                                          ^ comment
+  }
+end

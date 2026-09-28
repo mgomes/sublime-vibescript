@@ -21,17 +21,17 @@ contexts:
     - include: comments
 
   main:
+    - include: typed-local
+    - include: hash-keys
     - include: definitions
     - include: declarations
     - include: type-alias
-    - include: typed-local
     - include: type-cast
     - include: type-literals
     - include: control-keywords
     - include: strings
     - include: numbers
     - include: symbols
-    - include: hash-keys
     - include: regexps
     - include: brace-block-parameters
     - include: variables
@@ -39,6 +39,7 @@ contexts:
     - include: constants
     - include: identifiers
     - include: operators
+    - include: expression-groups
     - include: punctuation
 
   comments:
@@ -147,6 +148,8 @@ contexts:
       pop: 1
 
   function-signature-tail:
+    - match: '(?={{identifier}}\s*:)'
+      push: bare-parameters
     - match: '\('
       scope: punctuation.section.group.begin.vibescript
       push: parameters
@@ -155,6 +158,13 @@ contexts:
       push: type-expression
     - match: $\n?
       pop: 1
+    - match: '(?=\S)'
+      pop: 1
+
+  bare-parameters:
+    - match: '(?=->)|$'
+      pop: 1
+    - include: parameters
 
   parameters:
     - match: '\*\*|\*|&'
@@ -167,7 +177,7 @@ contexts:
       scope: punctuation.separator.parameter.vibescript
     - match: '@[a-zA-Z_][a-zA-Z0-9_]*'
       scope: variable.parameter.instance.vibescript
-    - match: '{{identifier}}'
+    - match: '{{identifier}}|{{constant}}'
       scope: variable.parameter.vibescript
     - match: ':'
       scope: punctuation.separator.annotation.type.vibescript
@@ -179,21 +189,55 @@ contexts:
   # Default values reuse the literal rules so `def f(mode = :read)` keeps
   # symbol/number/string highlighting inside the signature.
   parameter-default:
-    - match: '(?=[,)])'
+    - match: '(?=[,)]|->)'
       pop: 1
-    - include: strings
-    - include: numbers
-    - include: symbols
-    - include: constants
-    - include: identifiers
     - match: '$\n?'
       pop: 1
+    - include: main
 
   type-expression:
     - meta_scope: meta.annotation.type.vibescript
-    - match: '(?=[,)=}\n;])'
+    - match: '(?=[,)=};])|$'
       pop: 1
-    - include: type-body
+    - match: '\bnil\b'
+      scope: constant.language.null.vibescript
+      set: type-expression-tail
+    - match: '{{constant}}'
+      scope: support.class.vibescript
+      set: type-expression-tail
+    - match: '{{plain_identifier}}'
+      scope: support.type.vibescript
+      set: type-expression-tail
+    - match: '\['
+      scope: punctuation.section.brackets.begin.vibescript
+      set: [type-expression-tail, type-tuple]
+    - match: '\('
+      scope: punctuation.section.group.begin.vibescript
+      set: [type-expression-tail, block-type-arguments]
+    - match: '\{'
+      scope: punctuation.section.braces.begin.vibescript
+      set: [type-expression-tail, type-shape]
+    - match: '(?=\S)'
+      pop: 1
+
+  type-expression-tail:
+    - meta_scope: meta.annotation.type.vibescript
+    - match: '<'
+      scope: punctuation.section.generic.begin.vibescript
+      push: type-generics
+    - match: '\?'
+      scope: keyword.operator.optional.vibescript
+    - match: '\|'
+      scope: keyword.operator.union.vibescript
+      set: type-expression
+    - match: '->'
+      scope: punctuation.separator.annotation.return-type.vibescript
+      set: type-expression
+    - match: '::|\.'
+      scope: punctuation.accessor.vibescript
+      set: type-expression
+    - match: '(?=\S)|$'
+      pop: 1
 
   type-body:
     - match: '\|'
@@ -273,11 +317,17 @@ contexts:
         2: entity.name.type.vibescript
         3: keyword.operator.assignment.vibescript
       push:
+        - meta_scope: meta.annotation.type.vibescript
         - match: '(?=;)|$'
           pop: 1
         - include: type-body
 
   typed-local:
+    - match: '^\s*(@{1,2}[A-Za-z_][a-zA-Z0-9_]*)(:)'
+      captures:
+        1: variable.other.member.vibescript
+        2: punctuation.separator.annotation.type.vibescript
+      push: type-expression
     # A label can begin with a type-shaped value; only an assignment confirms a local.
     - match: '(?:^|(?<=;))\s*(?=@{0,2}[A-Za-z_][a-zA-Z0-9_]*:\s*{{annotation_start}})'
       branch_point: typed-local
@@ -315,6 +365,7 @@ contexts:
         2: variable.function.vibescript
         3: punctuation.section.group.begin.vibescript
       push:
+        - meta_content_scope: meta.annotation.type.vibescript
         - match: '\)'
           scope: punctuation.section.group.end.vibescript
           pop: 1
@@ -326,9 +377,20 @@ contexts:
         1: support.type.vibescript
         2: punctuation.section.generic.begin.vibescript
       push: type-generics
-    - match: '\{(?=\s*(?:\.\.\.|{{plain_identifier}}\??:\s*(?:int|float|string|bool|array|hash|any|symbol|duration|time|money|regex)\b))'
+    - match: '(?=\{\s*(?:\.\.\.|{{plain_identifier}}\??:\s*(?:int|float|string|bool|array|hash|any|symbol|duration|time|money|regex)\b(?!\s*[.(])))'
+      branch_point: shape-value
+      branch: [shape-value-open, expression-brace-open]
+
+  shape-value-open:
+    - match: '\{'
       scope: punctuation.section.braces.begin.vibescript
-      push: type-shape
+      set: shape-value
+
+  shape-value:
+    - meta_scope: meta.annotation.type.vibescript
+    - include: type-shape
+    - match: '(?=\S)'
+      fail: shape-value
 
   declarations:
     - match: '\b(property|getter|setter)\b'
@@ -338,7 +400,7 @@ contexts:
       scope: keyword.control.import.vibescript
     - match: '\b(alias_method)\b'
       scope: keyword.declaration.alias.vibescript
-    - match: '\b(alias)\b'
+    - match: '\b(alias)\b(?=[ \t]+(?::|{{identifier}}))'
       scope: keyword.declaration.alias.vibescript
       push: alias-arguments
 
@@ -643,3 +705,33 @@ contexts:
       scope: punctuation.separator.vibescript
     - match: '\|'
       scope: punctuation.separator.vibescript
+
+  expression-groups:
+    - match: '\('
+      scope: punctuation.section.brackets.vibescript
+      push:
+        - match: '\)'
+          scope: punctuation.section.brackets.vibescript
+          pop: 1
+        - include: main
+    - match: '\['
+      scope: punctuation.section.brackets.vibescript
+      push:
+        - match: '\]'
+          scope: punctuation.section.brackets.vibescript
+          pop: 1
+        - include: main
+    - match: '\{'
+      scope: punctuation.section.brackets.vibescript
+      push: expression-braces
+
+  expression-brace-open:
+    - match: '\{'
+      scope: punctuation.section.brackets.vibescript
+      set: expression-braces
+
+  expression-braces:
+    - match: '\}'
+      scope: punctuation.section.brackets.vibescript
+      pop: 1
+    - include: main
