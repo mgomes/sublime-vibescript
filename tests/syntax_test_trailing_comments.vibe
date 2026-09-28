@@ -1,0 +1,32 @@
+# SYNTAX TEST "Packages/Vibescript/Vibescript.sublime-syntax"
+
+type UserId = int # identifier
+value = "next"
+# <- source.vibescript - support.type - meta.annotation.type
+#        ^^^^ string.quoted.double.vibescript
+
+def name -> string # result
+  value = "next"
+# ^^^^^ source.vibescript - meta.function.signature - meta.annotation.type
+#          ^^^^ string.quoted.double.vibescript
+end
+
+class Record
+  property name: string # field
+  def name -> string # result
+# ^^^ keyword.declaration.function.vibescript - meta.declaration.member
+    "next"
+#    ^^^^ string.quoted.double.vibescript - meta.annotation.type
+  end
+end
+
+alias :short :long # names
+value = "next"
+# <- source.vibescript - entity.name.function
+#        ^^^^ string.quoted.double.vibescript
+
+def default(value: int = 1 # default
+)
+  value
+# ^^^^^ source.vibescript - meta.function.signature - meta.annotation.type
+end

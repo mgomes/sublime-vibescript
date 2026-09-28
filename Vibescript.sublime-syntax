@@ -65,7 +65,7 @@ contexts:
         1: keyword.other.directive.vibescript
         2: punctuation.separator.key-value.vibescript
         3: support.other.capability.vibescript
-    - match: $\n?
+    - match: $
       pop: 1
 
   definitions:
