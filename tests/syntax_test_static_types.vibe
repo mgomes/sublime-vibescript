@@ -158,3 +158,16 @@ record: { name: string, ... } = { name: "alex" }
 user: models.User? = nil
 # <- variable.other.vibescript
 #            ^^^^ support.class.vibescript
+
+=begin examples [
+# <- comment.block.vibescript
+record {
+# <- comment.block.vibescript
+if ready
+# <- comment.block.vibescript
+end
+# <- comment.block.vibescript
+=end
+# <- comment.block.vibescript
+value = 1
+#       ^ constant.numeric.integer.vibescript - comment.block
