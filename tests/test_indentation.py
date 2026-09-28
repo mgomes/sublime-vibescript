@@ -14,6 +14,22 @@ with (ROOT / "preferences/Indentation Rules - Block Comments.tmPreferences").ope
 
 
 class IndentationTests(unittest.TestCase):
+    def test_regex_literals_before_openers(self):
+        pattern = re.compile(SETTINGS["increaseIndentPattern"])
+        for line in [
+            "records[/#/] = [", r"consume(/\d+/) {", r"consume(/a\/#b/) {",
+            r"records[/[#/\\]/] = [", "consume(/hash#tag/i) { # body",
+            'consume(/"quoted"/) {', "consume(/'quoted'/) {",
+        ]:
+            with self.subTest(line=line):
+                self.assertIsNotNone(pattern.search(line))
+        for line in [
+            r"consume(/\d+/) # example {", "records[/#/] = [] # [",
+            r"# consume(/\d+/) {", r"consume(/\d+{2}/)",
+        ]:
+            with self.subTest(line=line):
+                self.assertIsNone(pattern.search(line))
+
     def test_nested_literal_closers_deindent(self):
         pattern = re.compile(SETTINGS["decreaseIndentPattern"])
         for line in ["}", "]", "  },", "  ],", "  })", "  ]),", "  ];", "  } # record", "  ].size"]:
