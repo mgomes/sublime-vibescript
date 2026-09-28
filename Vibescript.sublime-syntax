@@ -389,10 +389,7 @@ contexts:
   block-parameter-list:
     - match: ':'
       scope: punctuation.separator.annotation.type.vibescript
-      push:
-        - match: '(?=[,|])'
-          pop: 1
-        - include: type-body
+      push: block-parameter-type
     - meta_scope: meta.block.parameters.vibescript
     - match: '\|'
       scope: punctuation.separator.block-parameters.end.vibescript
@@ -403,6 +400,33 @@ contexts:
       scope: punctuation.separator.parameter.vibescript
     - match: $\n?
       pop: 1
+
+  block-parameter-type:
+    - meta_scope: meta.annotation.type.vibescript
+    - match: '(?=\|\s*(?:{{type_name}}|nil|[\[({]))'
+      branch_point: block-type-pipe
+      branch:
+        - block-type-union
+        - block-type-end
+    - match: '(?=[,|])'
+      pop: 1
+    - include: type-body
+
+  block-type-union:
+    - match: '\|'
+      scope: keyword.operator.union.vibescript
+      set: block-type-union-operand
+
+  block-type-union-operand:
+    - match: '(?=[,|])'
+      pop: 1
+    - include: type-body
+    - match: '(?=\S|$)'
+      fail: block-type-pipe
+
+  block-type-end:
+    - match: ''
+      pop: 2
 
   strings:
     - match: '"'
