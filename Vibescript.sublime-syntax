@@ -581,7 +581,7 @@ contexts:
         1: punctuation.definition.constant.vibescript
         2: punctuation.definition.constant.begin.vibescript
         3: punctuation.definition.constant.end.vibescript
-    - match: '(?<!:)(:)(\[\]=|\[\]|===|<=>|\*\*|<<|<=|>=|==|!=|&&|\|\||[+\-*/%<>&|!])'
+    - match: '(?<!:)(:)(\[\]=|\[\]|===|<=>|\*\*|//|<<|<=|>=|==|!=|&&|\|\||[+\-*/%<>&|!])'
       scope: constant.other.symbol.operator.vibescript
       captures:
         1: punctuation.definition.constant.vibescript
