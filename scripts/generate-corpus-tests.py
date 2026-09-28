@@ -13,6 +13,7 @@ import subprocess
 from tree_sitter import Language, Parser
 
 from corpus_fixtures import syntax_test
+from operators import BINARY_LINE_END, continuation_cases
 
 
 BUILTINS = set("any array bool comparable duration enum_type enum_value error float hash int match_data money number range regex string symbol time type nil".split())
@@ -78,7 +79,7 @@ def normalize_indentation(source, parser):
             first = node
             while first.type == "binary":
                 first = first.named_children[0]
-            if re.search(r'(?:[+*/%=&|<>-])\s*(?:#.*)?$', lines[first.end_point.row]):
+            if BINARY_LINE_END.search(lines[first.end_point.row]):
                 continuations[first.end_point.row] = end
     for start, ends in brackets.items():
         for row in range(start + 1, max(ends) + 1):
@@ -252,6 +253,13 @@ def main():
             raise ValueError(f"Adding comments invalidated {origin}: {result.stdout}{result.stderr}")
         if index % 100 == 0:
             print(f"Generated {index + 1}/{len(selected)} programs", flush=True)
+    for index, case in enumerate(continuation_cases()):
+        subprocess.run([str(compiler), "check", "--eval", case["source"]], cwd=args.rust_repo,
+                       capture_output=True, text=True, check=True)
+        cases.append(case)
+        (output / "syntax" / f"syntax_test_operator_{index:03}.vibe").write_text(
+            syntax_test(case["source"], case["assertions"], case["name"]))
+        coverage["binary-operator-continuations"] += 1
     manifest = {"website_count": len(website), "rust_origins": dict(origins), "coverage": dict(coverage),
                 "compiler": subprocess.check_output([str(compiler), "--version"], text=True).strip(),
                 "rejected": rejected, "cases": cases}

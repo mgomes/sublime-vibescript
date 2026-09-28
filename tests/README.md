@@ -9,6 +9,14 @@ that they agree and tests the indentation expressions:
 python3 -m unittest discover -s tests
 ```
 
+The operator inventory in `scripts/operators.py` cross-checks symbol and method
+spellings, binary scopes, and both continuation matchers. Its native syntax
+fixture covers each complete token. Regenerate it with:
+
+```sh
+python3 scripts/operators.py > tests/syntax_test_operators.vibe
+```
+
 ## Native scope and reindent checks
 
 Use an isolated Sublime Text profile containing `Packages/Vibescript` linked to
@@ -20,6 +28,9 @@ an open window. `profile` below is the directory containing `Packages`.
 python3 scripts/run-native-tests.py "$profile" --output "$cache/syntax.json"
 python3 scripts/run-native-tests.py "$profile" \
   --manifest tests/corpus_cases.json --output "$cache/regressions.json"
+python3 scripts/operators.py --manifest > "$cache/operator-cases.json"
+python3 scripts/run-native-tests.py "$profile" \
+  --manifest "$cache/operator-cases.json" --output "$cache/operators.json"
 ```
 
 The plugin creates scratch buffers, asserts scopes against the original source,
@@ -66,6 +77,12 @@ comments to lines opening syntax contexts and checks the variants with the
 compiler. Invalidating an accepted program fails generation. Coverage counters
 and source provenance appear in `manifest.json`.
 
+The broad sample also includes 92 compiler-checked operator cases: every binary
+operator at a line ending, both starting and extending a continuation, with and
+without trailing comments. Their expected hanging indentation is independent
+of the normalizer. Range expressions use parentheses to keep the right operand
+inside a bounded range.
+
 Link `$cache/sublime-corpus/syntax` to `Packages/VibescriptCorpus` in the test
 profile, then run:
 
@@ -78,5 +95,6 @@ python3 scripts/run-native-tests.py "$profile" \
 
 The September 2026 audit used Sublime build 4215, Rust Vibescript v0.80.0,
 365 Rust programs and all 203 website examples. Its 561 added-comment variants
-brought the direct native audit to 1,129 cases. Seven website examples require
-host capabilities and therefore have no compiler-accepted comment variant.
+and 92 operator cases brought the direct native audit to 1,221 cases. Seven
+website examples require host capabilities and therefore have no
+compiler-accepted comment variant.

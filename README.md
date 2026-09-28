@@ -46,9 +46,10 @@ Open `tests/syntax_test_vibescript.vibe` and run Build (`⌘B`) to execute the
 assertions in-editor. CI runs the same tests with Sublime's headless
 `syntax_tests` binary.
 
-Run `python3 -m unittest discover -s tests` for indentation-rule checks and
-fixture consistency. The checked-in corpus tests contain 30 real-code cases,
-including trailing-comment variants. See [the corpus audit instructions](tests/README.md)
+Run `python3 -m unittest discover -s tests` for indentation-rule checks, operator
+consistency, and fixture consistency. The checked-in corpus tests contain 30
+real-code cases, including trailing-comment variants, plus scope and continuation
+tests for every binary operator. See [the corpus audit instructions](tests/README.md)
 to generate a broader sample and verify scopes and whole-file reindentation
 with the native editor.
 

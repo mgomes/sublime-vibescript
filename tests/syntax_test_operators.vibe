@@ -1,0 +1,1669 @@
+# SYNTAX TEST "Packages/Vibescript/Vibescript.sublime-syntax"
+# inline operator:+
+
+value = 9 + 2
+#         ^ keyword.operator.arithmetic
+# inline operator:-
+
+value = 9 - 2
+#         ^ keyword.operator.arithmetic
+# inline operator:*
+
+value = 9 * 2
+#         ^ keyword.operator.arithmetic
+# inline operator:**
+
+value = 9 ** 2
+#         ^ keyword.operator.arithmetic
+#          ^ keyword.operator.arithmetic
+# inline operator:/
+
+value = 9 / 2
+#         ^ keyword.operator.arithmetic
+# inline operator://
+
+value = 9 // 2
+#         ^ keyword.operator.arithmetic
+#          ^ keyword.operator.arithmetic
+# inline operator:%
+
+value = 9 % 2
+#         ^ keyword.operator.arithmetic
+# inline operator:==
+
+value = 9 == 2
+#         ^ keyword.operator.comparison
+#          ^ keyword.operator.comparison
+# inline operator:===
+
+value = 9 === 2
+#         ^ keyword.operator.comparison
+#          ^ keyword.operator.comparison
+#           ^ keyword.operator.comparison
+# inline operator:!=
+
+value = 9 != 2
+#         ^ keyword.operator.comparison
+#          ^ keyword.operator.comparison
+# inline operator:<
+
+value = 9 < 2
+#         ^ keyword.operator.comparison
+# inline operator:<=
+
+value = 9 <= 2
+#         ^ keyword.operator.comparison
+#          ^ keyword.operator.comparison
+# inline operator:>
+
+value = 9 > 2
+#         ^ keyword.operator.comparison
+# inline operator:>=
+
+value = 9 >= 2
+#         ^ keyword.operator.comparison
+#          ^ keyword.operator.comparison
+# inline operator:<=>
+
+value = 9 <=> 2
+#         ^ keyword.operator.comparison
+#          ^ keyword.operator.comparison
+#           ^ keyword.operator.comparison
+# inline operator:=~
+
+value = "abc" =~ /a/
+#             ^ keyword.operator.match
+#              ^ keyword.operator.match
+# inline operator:!~
+
+value = "abc" !~ /a/
+#             ^ keyword.operator.match
+#              ^ keyword.operator.match
+# inline operator:&&
+
+value = true && false
+#            ^ keyword.operator.logical
+#             ^ keyword.operator.logical
+# inline operator:||
+
+value = true || false
+#            ^ keyword.operator.logical
+#             ^ keyword.operator.logical
+# inline operator:<<
+
+value = [1] << 2
+#           ^ keyword.operator.bitwise
+#            ^ keyword.operator.bitwise
+# inline operator:&
+
+value = [1, 2] & [2, 3]
+#              ^ keyword.operator.bitwise
+# inline operator:..
+
+value = 1 .. 3
+#         ^ keyword.operator.range
+#          ^ keyword.operator.range
+# inline operator:...
+
+value = 1 ... 3
+#         ^ keyword.operator.range
+#          ^ keyword.operator.range
+#           ^ keyword.operator.range
+# operator symbol:!
+
+alias_method :operation, :!
+#                        ^ constant.other.symbol.operator - keyword.operator
+#                         ^ constant.other.symbol.operator - keyword.operator
+private :!
+#       ^ constant.other.symbol.operator - keyword.operator
+#        ^ constant.other.symbol.operator - keyword.operator
+# operator symbol:!=
+
+alias_method :operation, :!=
+#                        ^ constant.other.symbol.operator - keyword.operator
+#                         ^ constant.other.symbol.operator - keyword.operator
+#                          ^ constant.other.symbol.operator - keyword.operator
+private :!=
+#       ^ constant.other.symbol.operator - keyword.operator
+#        ^ constant.other.symbol.operator - keyword.operator
+#         ^ constant.other.symbol.operator - keyword.operator
+# operator symbol:%
+
+alias_method :operation, :%
+#                        ^ constant.other.symbol.operator - keyword.operator
+#                         ^ constant.other.symbol.operator - keyword.operator
+private :%
+#       ^ constant.other.symbol.operator - keyword.operator
+#        ^ constant.other.symbol.operator - keyword.operator
+# operator symbol:&
+
+alias_method :operation, :&
+#                        ^ constant.other.symbol.operator - keyword.operator
+#                         ^ constant.other.symbol.operator - keyword.operator
+private :&
+#       ^ constant.other.symbol.operator - keyword.operator
+#        ^ constant.other.symbol.operator - keyword.operator
+# operator symbol:&&
+
+alias_method :operation, :&&
+#                        ^ constant.other.symbol.operator - keyword.operator
+#                         ^ constant.other.symbol.operator - keyword.operator
+#                          ^ constant.other.symbol.operator - keyword.operator
+private :&&
+#       ^ constant.other.symbol.operator - keyword.operator
+#        ^ constant.other.symbol.operator - keyword.operator
+#         ^ constant.other.symbol.operator - keyword.operator
+# operator symbol:*
+
+alias_method :operation, :*
+#                        ^ constant.other.symbol.operator - keyword.operator
+#                         ^ constant.other.symbol.operator - keyword.operator
+private :*
+#       ^ constant.other.symbol.operator - keyword.operator
+#        ^ constant.other.symbol.operator - keyword.operator
+# operator symbol:**
+
+alias_method :operation, :**
+#                        ^ constant.other.symbol.operator - keyword.operator
+#                         ^ constant.other.symbol.operator - keyword.operator
+#                          ^ constant.other.symbol.operator - keyword.operator
+private :**
+#       ^ constant.other.symbol.operator - keyword.operator
+#        ^ constant.other.symbol.operator - keyword.operator
+#         ^ constant.other.symbol.operator - keyword.operator
+# operator symbol:+
+
+alias_method :operation, :+
+#                        ^ constant.other.symbol.operator - keyword.operator
+#                         ^ constant.other.symbol.operator - keyword.operator
+private :+
+#       ^ constant.other.symbol.operator - keyword.operator
+#        ^ constant.other.symbol.operator - keyword.operator
+# operator symbol:-
+
+alias_method :operation, :-
+#                        ^ constant.other.symbol.operator - keyword.operator
+#                         ^ constant.other.symbol.operator - keyword.operator
+private :-
+#       ^ constant.other.symbol.operator - keyword.operator
+#        ^ constant.other.symbol.operator - keyword.operator
+# operator symbol:/
+
+alias_method :operation, :/
+#                        ^ constant.other.symbol.operator - keyword.operator
+#                         ^ constant.other.symbol.operator - keyword.operator
+private :/
+#       ^ constant.other.symbol.operator - keyword.operator
+#        ^ constant.other.symbol.operator - keyword.operator
+# operator symbol://
+
+alias_method :operation, ://
+#                        ^ constant.other.symbol.operator - keyword.operator
+#                         ^ constant.other.symbol.operator - keyword.operator
+#                          ^ constant.other.symbol.operator - keyword.operator
+private ://
+#       ^ constant.other.symbol.operator - keyword.operator
+#        ^ constant.other.symbol.operator - keyword.operator
+#         ^ constant.other.symbol.operator - keyword.operator
+# operator symbol:<
+
+alias_method :operation, :<
+#                        ^ constant.other.symbol.operator - keyword.operator
+#                         ^ constant.other.symbol.operator - keyword.operator
+private :<
+#       ^ constant.other.symbol.operator - keyword.operator
+#        ^ constant.other.symbol.operator - keyword.operator
+# operator symbol:<<
+
+alias_method :operation, :<<
+#                        ^ constant.other.symbol.operator - keyword.operator
+#                         ^ constant.other.symbol.operator - keyword.operator
+#                          ^ constant.other.symbol.operator - keyword.operator
+private :<<
+#       ^ constant.other.symbol.operator - keyword.operator
+#        ^ constant.other.symbol.operator - keyword.operator
+#         ^ constant.other.symbol.operator - keyword.operator
+# operator symbol:<=
+
+alias_method :operation, :<=
+#                        ^ constant.other.symbol.operator - keyword.operator
+#                         ^ constant.other.symbol.operator - keyword.operator
+#                          ^ constant.other.symbol.operator - keyword.operator
+private :<=
+#       ^ constant.other.symbol.operator - keyword.operator
+#        ^ constant.other.symbol.operator - keyword.operator
+#         ^ constant.other.symbol.operator - keyword.operator
+# operator symbol:<=>
+
+alias_method :operation, :<=>
+#                        ^ constant.other.symbol.operator - keyword.operator
+#                         ^ constant.other.symbol.operator - keyword.operator
+#                          ^ constant.other.symbol.operator - keyword.operator
+#                           ^ constant.other.symbol.operator - keyword.operator
+private :<=>
+#       ^ constant.other.symbol.operator - keyword.operator
+#        ^ constant.other.symbol.operator - keyword.operator
+#         ^ constant.other.symbol.operator - keyword.operator
+#          ^ constant.other.symbol.operator - keyword.operator
+# operator symbol:==
+
+alias_method :operation, :==
+#                        ^ constant.other.symbol.operator - keyword.operator
+#                         ^ constant.other.symbol.operator - keyword.operator
+#                          ^ constant.other.symbol.operator - keyword.operator
+private :==
+#       ^ constant.other.symbol.operator - keyword.operator
+#        ^ constant.other.symbol.operator - keyword.operator
+#         ^ constant.other.symbol.operator - keyword.operator
+# operator symbol:===
+
+alias_method :operation, :===
+#                        ^ constant.other.symbol.operator - keyword.operator
+#                         ^ constant.other.symbol.operator - keyword.operator
+#                          ^ constant.other.symbol.operator - keyword.operator
+#                           ^ constant.other.symbol.operator - keyword.operator
+private :===
+#       ^ constant.other.symbol.operator - keyword.operator
+#        ^ constant.other.symbol.operator - keyword.operator
+#         ^ constant.other.symbol.operator - keyword.operator
+#          ^ constant.other.symbol.operator - keyword.operator
+# operator symbol:>
+
+alias_method :operation, :>
+#                        ^ constant.other.symbol.operator - keyword.operator
+#                         ^ constant.other.symbol.operator - keyword.operator
+private :>
+#       ^ constant.other.symbol.operator - keyword.operator
+#        ^ constant.other.symbol.operator - keyword.operator
+# operator symbol:>=
+
+alias_method :operation, :>=
+#                        ^ constant.other.symbol.operator - keyword.operator
+#                         ^ constant.other.symbol.operator - keyword.operator
+#                          ^ constant.other.symbol.operator - keyword.operator
+private :>=
+#       ^ constant.other.symbol.operator - keyword.operator
+#        ^ constant.other.symbol.operator - keyword.operator
+#         ^ constant.other.symbol.operator - keyword.operator
+# operator symbol:[]
+
+alias_method :operation, :[]
+#                        ^ constant.other.symbol.operator - keyword.operator
+#                         ^ constant.other.symbol.operator - keyword.operator
+#                          ^ constant.other.symbol.operator - keyword.operator
+private :[]
+#       ^ constant.other.symbol.operator - keyword.operator
+#        ^ constant.other.symbol.operator - keyword.operator
+#         ^ constant.other.symbol.operator - keyword.operator
+# operator symbol:[]=
+
+alias_method :operation, :[]=
+#                        ^ constant.other.symbol.operator - keyword.operator
+#                         ^ constant.other.symbol.operator - keyword.operator
+#                          ^ constant.other.symbol.operator - keyword.operator
+#                           ^ constant.other.symbol.operator - keyword.operator
+private :[]=
+#       ^ constant.other.symbol.operator - keyword.operator
+#        ^ constant.other.symbol.operator - keyword.operator
+#         ^ constant.other.symbol.operator - keyword.operator
+#          ^ constant.other.symbol.operator - keyword.operator
+# operator symbol:|
+
+alias_method :operation, :|
+#                        ^ constant.other.symbol.operator - keyword.operator
+#                         ^ constant.other.symbol.operator - keyword.operator
+private :|
+#       ^ constant.other.symbol.operator - keyword.operator
+#        ^ constant.other.symbol.operator - keyword.operator
+# operator symbol:||
+
+alias_method :operation, :||
+#                        ^ constant.other.symbol.operator - keyword.operator
+#                         ^ constant.other.symbol.operator - keyword.operator
+#                          ^ constant.other.symbol.operator - keyword.operator
+private :||
+#       ^ constant.other.symbol.operator - keyword.operator
+#        ^ constant.other.symbol.operator - keyword.operator
+#         ^ constant.other.symbol.operator - keyword.operator
+# operator method:!=
+
+def !=(other)
+#   ^ entity.name.function
+#    ^ entity.name.function
+  other
+end
+# operator method:%
+
+def %(other)
+#   ^ entity.name.function
+  other
+end
+# operator method:&
+
+def &(other)
+#   ^ entity.name.function
+  other
+end
+# operator method:*
+
+def *(other)
+#   ^ entity.name.function
+  other
+end
+# operator method:**
+
+def **(other)
+#   ^ entity.name.function
+#    ^ entity.name.function
+  other
+end
+# operator method:+
+
+def +(other)
+#   ^ entity.name.function
+  other
+end
+# operator method:-
+
+def -(other)
+#   ^ entity.name.function
+  other
+end
+# operator method:/
+
+def /(other)
+#   ^ entity.name.function
+  other
+end
+# operator method://
+
+def //(other)
+#   ^ entity.name.function
+#    ^ entity.name.function
+  other
+end
+# operator method:<
+
+def <(other)
+#   ^ entity.name.function
+  other
+end
+# operator method:<<
+
+def <<(other)
+#   ^ entity.name.function
+#    ^ entity.name.function
+  other
+end
+# operator method:<=
+
+def <=(other)
+#   ^ entity.name.function
+#    ^ entity.name.function
+  other
+end
+# operator method:<=>
+
+def <=>(other)
+#   ^ entity.name.function
+#    ^ entity.name.function
+#     ^ entity.name.function
+  other
+end
+# operator method:==
+
+def ==(other)
+#   ^ entity.name.function
+#    ^ entity.name.function
+  other
+end
+# operator method:>
+
+def >(other)
+#   ^ entity.name.function
+  other
+end
+# operator method:>=
+
+def >=(other)
+#   ^ entity.name.function
+#    ^ entity.name.function
+  other
+end
+# operator method:[]
+
+def [](other)
+#   ^ entity.name.function
+#    ^ entity.name.function
+  other
+end
+# operator method:[]=
+
+def []=(other)
+#   ^ entity.name.function
+#    ^ entity.name.function
+#     ^ entity.name.function
+  other
+end
+# operator:+:existing=False:comment=False
+
+def sample
+  value = (
+    9 +
+#     ^ keyword.operator
+      2
+#     ^ meta.expression.continuation
+  )
+  puts value
+# ^ source.vibescript - meta.expression.continuation
+end
+# operator:+:existing=False:comment=True
+
+def sample
+  value = (
+    9 + # continued
+#     ^ keyword.operator
+      2
+#     ^ meta.expression.continuation
+  )
+  puts value
+# ^ source.vibescript - meta.expression.continuation
+end
+# operator:+:existing=True:comment=False
+
+def sample
+  value = (
+    0 +
+      9 +
+#       ^ keyword.operator
+        2
+#       ^ meta.expression.continuation
+  )
+  puts value
+# ^ source.vibescript - meta.expression.continuation
+end
+# operator:+:existing=True:comment=True
+
+def sample
+  value = (
+    0 + # continued
+      9 + # continued
+#       ^ keyword.operator
+        2
+#       ^ meta.expression.continuation
+  )
+  puts value
+# ^ source.vibescript - meta.expression.continuation
+end
+# operator:-:existing=False:comment=False
+
+def sample
+  value = (
+    9 -
+#     ^ keyword.operator
+      2
+#     ^ meta.expression.continuation
+  )
+  puts value
+# ^ source.vibescript - meta.expression.continuation
+end
+# operator:-:existing=False:comment=True
+
+def sample
+  value = (
+    9 - # continued
+#     ^ keyword.operator
+      2
+#     ^ meta.expression.continuation
+  )
+  puts value
+# ^ source.vibescript - meta.expression.continuation
+end
+# operator:-:existing=True:comment=False
+
+def sample
+  value = (
+    0 +
+      9 -
+#       ^ keyword.operator
+        2
+#       ^ meta.expression.continuation
+  )
+  puts value
+# ^ source.vibescript - meta.expression.continuation
+end
+# operator:-:existing=True:comment=True
+
+def sample
+  value = (
+    0 + # continued
+      9 - # continued
+#       ^ keyword.operator
+        2
+#       ^ meta.expression.continuation
+  )
+  puts value
+# ^ source.vibescript - meta.expression.continuation
+end
+# operator:*:existing=False:comment=False
+
+def sample
+  value = (
+    9 *
+#     ^ keyword.operator
+      2
+#     ^ meta.expression.continuation
+  )
+  puts value
+# ^ source.vibescript - meta.expression.continuation
+end
+# operator:*:existing=False:comment=True
+
+def sample
+  value = (
+    9 * # continued
+#     ^ keyword.operator
+      2
+#     ^ meta.expression.continuation
+  )
+  puts value
+# ^ source.vibescript - meta.expression.continuation
+end
+# operator:*:existing=True:comment=False
+
+def sample
+  value = (
+    0 +
+      9 *
+#       ^ keyword.operator
+        2
+#       ^ meta.expression.continuation
+  )
+  puts value
+# ^ source.vibescript - meta.expression.continuation
+end
+# operator:*:existing=True:comment=True
+
+def sample
+  value = (
+    0 + # continued
+      9 * # continued
+#       ^ keyword.operator
+        2
+#       ^ meta.expression.continuation
+  )
+  puts value
+# ^ source.vibescript - meta.expression.continuation
+end
+# operator:**:existing=False:comment=False
+
+def sample
+  value = (
+    9 **
+#     ^ keyword.operator
+#      ^ keyword.operator
+      2
+#     ^ meta.expression.continuation
+  )
+  puts value
+# ^ source.vibescript - meta.expression.continuation
+end
+# operator:**:existing=False:comment=True
+
+def sample
+  value = (
+    9 ** # continued
+#     ^ keyword.operator
+#      ^ keyword.operator
+      2
+#     ^ meta.expression.continuation
+  )
+  puts value
+# ^ source.vibescript - meta.expression.continuation
+end
+# operator:**:existing=True:comment=False
+
+def sample
+  value = (
+    0 +
+      9 **
+#       ^ keyword.operator
+#        ^ keyword.operator
+        2
+#       ^ meta.expression.continuation
+  )
+  puts value
+# ^ source.vibescript - meta.expression.continuation
+end
+# operator:**:existing=True:comment=True
+
+def sample
+  value = (
+    0 + # continued
+      9 ** # continued
+#       ^ keyword.operator
+#        ^ keyword.operator
+        2
+#       ^ meta.expression.continuation
+  )
+  puts value
+# ^ source.vibescript - meta.expression.continuation
+end
+# operator:/:existing=False:comment=False
+
+def sample
+  value = (
+    9 /
+#     ^ keyword.operator
+      2
+#     ^ meta.expression.continuation
+  )
+  puts value
+# ^ source.vibescript - meta.expression.continuation
+end
+# operator:/:existing=False:comment=True
+
+def sample
+  value = (
+    9 / # continued
+#     ^ keyword.operator
+      2
+#     ^ meta.expression.continuation
+  )
+  puts value
+# ^ source.vibescript - meta.expression.continuation
+end
+# operator:/:existing=True:comment=False
+
+def sample
+  value = (
+    0 +
+      9 /
+#       ^ keyword.operator
+        2
+#       ^ meta.expression.continuation
+  )
+  puts value
+# ^ source.vibescript - meta.expression.continuation
+end
+# operator:/:existing=True:comment=True
+
+def sample
+  value = (
+    0 + # continued
+      9 / # continued
+#       ^ keyword.operator
+        2
+#       ^ meta.expression.continuation
+  )
+  puts value
+# ^ source.vibescript - meta.expression.continuation
+end
+# operator://:existing=False:comment=False
+
+def sample
+  value = (
+    9 //
+#     ^ keyword.operator
+#      ^ keyword.operator
+      2
+#     ^ meta.expression.continuation
+  )
+  puts value
+# ^ source.vibescript - meta.expression.continuation
+end
+# operator://:existing=False:comment=True
+
+def sample
+  value = (
+    9 // # continued
+#     ^ keyword.operator
+#      ^ keyword.operator
+      2
+#     ^ meta.expression.continuation
+  )
+  puts value
+# ^ source.vibescript - meta.expression.continuation
+end
+# operator://:existing=True:comment=False
+
+def sample
+  value = (
+    0 +
+      9 //
+#       ^ keyword.operator
+#        ^ keyword.operator
+        2
+#       ^ meta.expression.continuation
+  )
+  puts value
+# ^ source.vibescript - meta.expression.continuation
+end
+# operator://:existing=True:comment=True
+
+def sample
+  value = (
+    0 + # continued
+      9 // # continued
+#       ^ keyword.operator
+#        ^ keyword.operator
+        2
+#       ^ meta.expression.continuation
+  )
+  puts value
+# ^ source.vibescript - meta.expression.continuation
+end
+# operator:%:existing=False:comment=False
+
+def sample
+  value = (
+    9 %
+#     ^ keyword.operator
+      2
+#     ^ meta.expression.continuation
+  )
+  puts value
+# ^ source.vibescript - meta.expression.continuation
+end
+# operator:%:existing=False:comment=True
+
+def sample
+  value = (
+    9 % # continued
+#     ^ keyword.operator
+      2
+#     ^ meta.expression.continuation
+  )
+  puts value
+# ^ source.vibescript - meta.expression.continuation
+end
+# operator:%:existing=True:comment=False
+
+def sample
+  value = (
+    0 +
+      9 %
+#       ^ keyword.operator
+        2
+#       ^ meta.expression.continuation
+  )
+  puts value
+# ^ source.vibescript - meta.expression.continuation
+end
+# operator:%:existing=True:comment=True
+
+def sample
+  value = (
+    0 + # continued
+      9 % # continued
+#       ^ keyword.operator
+        2
+#       ^ meta.expression.continuation
+  )
+  puts value
+# ^ source.vibescript - meta.expression.continuation
+end
+# operator:==:existing=False:comment=False
+
+def sample
+  value = (
+    9 ==
+#     ^ keyword.operator
+#      ^ keyword.operator
+      2
+#     ^ meta.expression.continuation
+  )
+  puts value
+# ^ source.vibescript - meta.expression.continuation
+end
+# operator:==:existing=False:comment=True
+
+def sample
+  value = (
+    9 == # continued
+#     ^ keyword.operator
+#      ^ keyword.operator
+      2
+#     ^ meta.expression.continuation
+  )
+  puts value
+# ^ source.vibescript - meta.expression.continuation
+end
+# operator:==:existing=True:comment=False
+
+def sample
+  value = (
+    0 +
+      9 ==
+#       ^ keyword.operator
+#        ^ keyword.operator
+        2
+#       ^ meta.expression.continuation
+  )
+  puts value
+# ^ source.vibescript - meta.expression.continuation
+end
+# operator:==:existing=True:comment=True
+
+def sample
+  value = (
+    0 + # continued
+      9 == # continued
+#       ^ keyword.operator
+#        ^ keyword.operator
+        2
+#       ^ meta.expression.continuation
+  )
+  puts value
+# ^ source.vibescript - meta.expression.continuation
+end
+# operator:===:existing=False:comment=False
+
+def sample
+  value = (
+    9 ===
+#     ^ keyword.operator
+#      ^ keyword.operator
+#       ^ keyword.operator
+      2
+#     ^ meta.expression.continuation
+  )
+  puts value
+# ^ source.vibescript - meta.expression.continuation
+end
+# operator:===:existing=False:comment=True
+
+def sample
+  value = (
+    9 === # continued
+#     ^ keyword.operator
+#      ^ keyword.operator
+#       ^ keyword.operator
+      2
+#     ^ meta.expression.continuation
+  )
+  puts value
+# ^ source.vibescript - meta.expression.continuation
+end
+# operator:===:existing=True:comment=False
+
+def sample
+  value = (
+    0 +
+      9 ===
+#       ^ keyword.operator
+#        ^ keyword.operator
+#         ^ keyword.operator
+        2
+#       ^ meta.expression.continuation
+  )
+  puts value
+# ^ source.vibescript - meta.expression.continuation
+end
+# operator:===:existing=True:comment=True
+
+def sample
+  value = (
+    0 + # continued
+      9 === # continued
+#       ^ keyword.operator
+#        ^ keyword.operator
+#         ^ keyword.operator
+        2
+#       ^ meta.expression.continuation
+  )
+  puts value
+# ^ source.vibescript - meta.expression.continuation
+end
+# operator:!=:existing=False:comment=False
+
+def sample
+  value = (
+    9 !=
+#     ^ keyword.operator
+#      ^ keyword.operator
+      2
+#     ^ meta.expression.continuation
+  )
+  puts value
+# ^ source.vibescript - meta.expression.continuation
+end
+# operator:!=:existing=False:comment=True
+
+def sample
+  value = (
+    9 != # continued
+#     ^ keyword.operator
+#      ^ keyword.operator
+      2
+#     ^ meta.expression.continuation
+  )
+  puts value
+# ^ source.vibescript - meta.expression.continuation
+end
+# operator:!=:existing=True:comment=False
+
+def sample
+  value = (
+    0 +
+      9 !=
+#       ^ keyword.operator
+#        ^ keyword.operator
+        2
+#       ^ meta.expression.continuation
+  )
+  puts value
+# ^ source.vibescript - meta.expression.continuation
+end
+# operator:!=:existing=True:comment=True
+
+def sample
+  value = (
+    0 + # continued
+      9 != # continued
+#       ^ keyword.operator
+#        ^ keyword.operator
+        2
+#       ^ meta.expression.continuation
+  )
+  puts value
+# ^ source.vibescript - meta.expression.continuation
+end
+# operator:<:existing=False:comment=False
+
+def sample
+  value = (
+    9 <
+#     ^ keyword.operator
+      2
+#     ^ meta.expression.continuation
+  )
+  puts value
+# ^ source.vibescript - meta.expression.continuation
+end
+# operator:<:existing=False:comment=True
+
+def sample
+  value = (
+    9 < # continued
+#     ^ keyword.operator
+      2
+#     ^ meta.expression.continuation
+  )
+  puts value
+# ^ source.vibescript - meta.expression.continuation
+end
+# operator:<:existing=True:comment=False
+
+def sample
+  value = (
+    0 +
+      9 <
+#       ^ keyword.operator
+        2
+#       ^ meta.expression.continuation
+  )
+  puts value
+# ^ source.vibescript - meta.expression.continuation
+end
+# operator:<:existing=True:comment=True
+
+def sample
+  value = (
+    0 + # continued
+      9 < # continued
+#       ^ keyword.operator
+        2
+#       ^ meta.expression.continuation
+  )
+  puts value
+# ^ source.vibescript - meta.expression.continuation
+end
+# operator:<=:existing=False:comment=False
+
+def sample
+  value = (
+    9 <=
+#     ^ keyword.operator
+#      ^ keyword.operator
+      2
+#     ^ meta.expression.continuation
+  )
+  puts value
+# ^ source.vibescript - meta.expression.continuation
+end
+# operator:<=:existing=False:comment=True
+
+def sample
+  value = (
+    9 <= # continued
+#     ^ keyword.operator
+#      ^ keyword.operator
+      2
+#     ^ meta.expression.continuation
+  )
+  puts value
+# ^ source.vibescript - meta.expression.continuation
+end
+# operator:<=:existing=True:comment=False
+
+def sample
+  value = (
+    0 +
+      9 <=
+#       ^ keyword.operator
+#        ^ keyword.operator
+        2
+#       ^ meta.expression.continuation
+  )
+  puts value
+# ^ source.vibescript - meta.expression.continuation
+end
+# operator:<=:existing=True:comment=True
+
+def sample
+  value = (
+    0 + # continued
+      9 <= # continued
+#       ^ keyword.operator
+#        ^ keyword.operator
+        2
+#       ^ meta.expression.continuation
+  )
+  puts value
+# ^ source.vibescript - meta.expression.continuation
+end
+# operator:>:existing=False:comment=False
+
+def sample
+  value = (
+    9 >
+#     ^ keyword.operator
+      2
+#     ^ meta.expression.continuation
+  )
+  puts value
+# ^ source.vibescript - meta.expression.continuation
+end
+# operator:>:existing=False:comment=True
+
+def sample
+  value = (
+    9 > # continued
+#     ^ keyword.operator
+      2
+#     ^ meta.expression.continuation
+  )
+  puts value
+# ^ source.vibescript - meta.expression.continuation
+end
+# operator:>:existing=True:comment=False
+
+def sample
+  value = (
+    0 +
+      9 >
+#       ^ keyword.operator
+        2
+#       ^ meta.expression.continuation
+  )
+  puts value
+# ^ source.vibescript - meta.expression.continuation
+end
+# operator:>:existing=True:comment=True
+
+def sample
+  value = (
+    0 + # continued
+      9 > # continued
+#       ^ keyword.operator
+        2
+#       ^ meta.expression.continuation
+  )
+  puts value
+# ^ source.vibescript - meta.expression.continuation
+end
+# operator:>=:existing=False:comment=False
+
+def sample
+  value = (
+    9 >=
+#     ^ keyword.operator
+#      ^ keyword.operator
+      2
+#     ^ meta.expression.continuation
+  )
+  puts value
+# ^ source.vibescript - meta.expression.continuation
+end
+# operator:>=:existing=False:comment=True
+
+def sample
+  value = (
+    9 >= # continued
+#     ^ keyword.operator
+#      ^ keyword.operator
+      2
+#     ^ meta.expression.continuation
+  )
+  puts value
+# ^ source.vibescript - meta.expression.continuation
+end
+# operator:>=:existing=True:comment=False
+
+def sample
+  value = (
+    0 +
+      9 >=
+#       ^ keyword.operator
+#        ^ keyword.operator
+        2
+#       ^ meta.expression.continuation
+  )
+  puts value
+# ^ source.vibescript - meta.expression.continuation
+end
+# operator:>=:existing=True:comment=True
+
+def sample
+  value = (
+    0 + # continued
+      9 >= # continued
+#       ^ keyword.operator
+#        ^ keyword.operator
+        2
+#       ^ meta.expression.continuation
+  )
+  puts value
+# ^ source.vibescript - meta.expression.continuation
+end
+# operator:<=>:existing=False:comment=False
+
+def sample
+  value = (
+    9 <=>
+#     ^ keyword.operator
+#      ^ keyword.operator
+#       ^ keyword.operator
+      2
+#     ^ meta.expression.continuation
+  )
+  puts value
+# ^ source.vibescript - meta.expression.continuation
+end
+# operator:<=>:existing=False:comment=True
+
+def sample
+  value = (
+    9 <=> # continued
+#     ^ keyword.operator
+#      ^ keyword.operator
+#       ^ keyword.operator
+      2
+#     ^ meta.expression.continuation
+  )
+  puts value
+# ^ source.vibescript - meta.expression.continuation
+end
+# operator:<=>:existing=True:comment=False
+
+def sample
+  value = (
+    0 +
+      9 <=>
+#       ^ keyword.operator
+#        ^ keyword.operator
+#         ^ keyword.operator
+        2
+#       ^ meta.expression.continuation
+  )
+  puts value
+# ^ source.vibescript - meta.expression.continuation
+end
+# operator:<=>:existing=True:comment=True
+
+def sample
+  value = (
+    0 + # continued
+      9 <=> # continued
+#       ^ keyword.operator
+#        ^ keyword.operator
+#         ^ keyword.operator
+        2
+#       ^ meta.expression.continuation
+  )
+  puts value
+# ^ source.vibescript - meta.expression.continuation
+end
+# operator:=~:existing=False:comment=False
+
+def sample
+  value = (
+    "abc" =~
+#         ^ keyword.operator
+#          ^ keyword.operator
+      /a/
+#     ^ meta.expression.continuation
+  )
+  puts value
+# ^ source.vibescript - meta.expression.continuation
+end
+# operator:=~:existing=False:comment=True
+
+def sample
+  value = (
+    "abc" =~ # continued
+#         ^ keyword.operator
+#          ^ keyword.operator
+      /a/
+#     ^ meta.expression.continuation
+  )
+  puts value
+# ^ source.vibescript - meta.expression.continuation
+end
+# operator:=~:existing=True:comment=False
+
+def sample
+  value = (
+    "" +
+      "abc" =~
+#           ^ keyword.operator
+#            ^ keyword.operator
+        /a/
+#       ^ meta.expression.continuation
+  )
+  puts value
+# ^ source.vibescript - meta.expression.continuation
+end
+# operator:=~:existing=True:comment=True
+
+def sample
+  value = (
+    "" + # continued
+      "abc" =~ # continued
+#           ^ keyword.operator
+#            ^ keyword.operator
+        /a/
+#       ^ meta.expression.continuation
+  )
+  puts value
+# ^ source.vibescript - meta.expression.continuation
+end
+# operator:!~:existing=False:comment=False
+
+def sample
+  value = (
+    "abc" !~
+#         ^ keyword.operator
+#          ^ keyword.operator
+      /a/
+#     ^ meta.expression.continuation
+  )
+  puts value
+# ^ source.vibescript - meta.expression.continuation
+end
+# operator:!~:existing=False:comment=True
+
+def sample
+  value = (
+    "abc" !~ # continued
+#         ^ keyword.operator
+#          ^ keyword.operator
+      /a/
+#     ^ meta.expression.continuation
+  )
+  puts value
+# ^ source.vibescript - meta.expression.continuation
+end
+# operator:!~:existing=True:comment=False
+
+def sample
+  value = (
+    "" +
+      "abc" !~
+#           ^ keyword.operator
+#            ^ keyword.operator
+        /a/
+#       ^ meta.expression.continuation
+  )
+  puts value
+# ^ source.vibescript - meta.expression.continuation
+end
+# operator:!~:existing=True:comment=True
+
+def sample
+  value = (
+    "" + # continued
+      "abc" !~ # continued
+#           ^ keyword.operator
+#            ^ keyword.operator
+        /a/
+#       ^ meta.expression.continuation
+  )
+  puts value
+# ^ source.vibescript - meta.expression.continuation
+end
+# operator:&&:existing=False:comment=False
+
+def sample
+  value = (
+    true &&
+#        ^ keyword.operator
+#         ^ keyword.operator
+      false
+#     ^ meta.expression.continuation
+  )
+  puts value
+# ^ source.vibescript - meta.expression.continuation
+end
+# operator:&&:existing=False:comment=True
+
+def sample
+  value = (
+    true && # continued
+#        ^ keyword.operator
+#         ^ keyword.operator
+      false
+#     ^ meta.expression.continuation
+  )
+  puts value
+# ^ source.vibescript - meta.expression.continuation
+end
+# operator:&&:existing=True:comment=False
+
+def sample
+  value = (
+    false ||
+      true &&
+#          ^ keyword.operator
+#           ^ keyword.operator
+        false
+#       ^ meta.expression.continuation
+  )
+  puts value
+# ^ source.vibescript - meta.expression.continuation
+end
+# operator:&&:existing=True:comment=True
+
+def sample
+  value = (
+    false || # continued
+      true && # continued
+#          ^ keyword.operator
+#           ^ keyword.operator
+        false
+#       ^ meta.expression.continuation
+  )
+  puts value
+# ^ source.vibescript - meta.expression.continuation
+end
+# operator:||:existing=False:comment=False
+
+def sample
+  value = (
+    true ||
+#        ^ keyword.operator
+#         ^ keyword.operator
+      false
+#     ^ meta.expression.continuation
+  )
+  puts value
+# ^ source.vibescript - meta.expression.continuation
+end
+# operator:||:existing=False:comment=True
+
+def sample
+  value = (
+    true || # continued
+#        ^ keyword.operator
+#         ^ keyword.operator
+      false
+#     ^ meta.expression.continuation
+  )
+  puts value
+# ^ source.vibescript - meta.expression.continuation
+end
+# operator:||:existing=True:comment=False
+
+def sample
+  value = (
+    false ||
+      true ||
+#          ^ keyword.operator
+#           ^ keyword.operator
+        false
+#       ^ meta.expression.continuation
+  )
+  puts value
+# ^ source.vibescript - meta.expression.continuation
+end
+# operator:||:existing=True:comment=True
+
+def sample
+  value = (
+    false || # continued
+      true || # continued
+#          ^ keyword.operator
+#           ^ keyword.operator
+        false
+#       ^ meta.expression.continuation
+  )
+  puts value
+# ^ source.vibescript - meta.expression.continuation
+end
+# operator:<<:existing=False:comment=False
+
+def sample
+  value = (
+    [1] <<
+#       ^ keyword.operator
+#        ^ keyword.operator
+      2
+#     ^ meta.expression.continuation
+  )
+  puts value
+# ^ source.vibescript - meta.expression.continuation
+end
+# operator:<<:existing=False:comment=True
+
+def sample
+  value = (
+    [1] << # continued
+#       ^ keyword.operator
+#        ^ keyword.operator
+      2
+#     ^ meta.expression.continuation
+  )
+  puts value
+# ^ source.vibescript - meta.expression.continuation
+end
+# operator:<<:existing=True:comment=False
+
+def sample
+  value = (
+    [] +
+      [1] <<
+#         ^ keyword.operator
+#          ^ keyword.operator
+        2
+#       ^ meta.expression.continuation
+  )
+  puts value
+# ^ source.vibescript - meta.expression.continuation
+end
+# operator:<<:existing=True:comment=True
+
+def sample
+  value = (
+    [] + # continued
+      [1] << # continued
+#         ^ keyword.operator
+#          ^ keyword.operator
+        2
+#       ^ meta.expression.continuation
+  )
+  puts value
+# ^ source.vibescript - meta.expression.continuation
+end
+# operator:&:existing=False:comment=False
+
+def sample
+  value = (
+    [1, 2] &
+#          ^ keyword.operator
+      [2, 3]
+#     ^ meta.expression.continuation
+  )
+  puts value
+# ^ source.vibescript - meta.expression.continuation
+end
+# operator:&:existing=False:comment=True
+
+def sample
+  value = (
+    [1, 2] & # continued
+#          ^ keyword.operator
+      [2, 3]
+#     ^ meta.expression.continuation
+  )
+  puts value
+# ^ source.vibescript - meta.expression.continuation
+end
+# operator:&:existing=True:comment=False
+
+def sample
+  value = (
+    [] +
+      [1, 2] &
+#            ^ keyword.operator
+        [2, 3]
+#       ^ meta.expression.continuation
+  )
+  puts value
+# ^ source.vibescript - meta.expression.continuation
+end
+# operator:&:existing=True:comment=True
+
+def sample
+  value = (
+    [] + # continued
+      [1, 2] & # continued
+#            ^ keyword.operator
+        [2, 3]
+#       ^ meta.expression.continuation
+  )
+  puts value
+# ^ source.vibescript - meta.expression.continuation
+end
+# operator:..:existing=False:comment=False
+
+def sample
+  value = (
+    1 ..
+#     ^ keyword.operator
+#      ^ keyword.operator
+      3
+#     ^ meta.expression.continuation
+  )
+  puts value
+# ^ source.vibescript - meta.expression.continuation
+end
+# operator:..:existing=False:comment=True
+
+def sample
+  value = (
+    1 .. # continued
+#     ^ keyword.operator
+#      ^ keyword.operator
+      3
+#     ^ meta.expression.continuation
+  )
+  puts value
+# ^ source.vibescript - meta.expression.continuation
+end
+# operator:..:existing=True:comment=False
+
+def sample
+  value = (
+    0 +
+      1 ..
+#       ^ keyword.operator
+#        ^ keyword.operator
+        3
+#       ^ meta.expression.continuation
+  )
+  puts value
+# ^ source.vibescript - meta.expression.continuation
+end
+# operator:..:existing=True:comment=True
+
+def sample
+  value = (
+    0 + # continued
+      1 .. # continued
+#       ^ keyword.operator
+#        ^ keyword.operator
+        3
+#       ^ meta.expression.continuation
+  )
+  puts value
+# ^ source.vibescript - meta.expression.continuation
+end
+# operator:...:existing=False:comment=False
+
+def sample
+  value = (
+    1 ...
+#     ^ keyword.operator
+#      ^ keyword.operator
+#       ^ keyword.operator
+      3
+#     ^ meta.expression.continuation
+  )
+  puts value
+# ^ source.vibescript - meta.expression.continuation
+end
+# operator:...:existing=False:comment=True
+
+def sample
+  value = (
+    1 ... # continued
+#     ^ keyword.operator
+#      ^ keyword.operator
+#       ^ keyword.operator
+      3
+#     ^ meta.expression.continuation
+  )
+  puts value
+# ^ source.vibescript - meta.expression.continuation
+end
+# operator:...:existing=True:comment=False
+
+def sample
+  value = (
+    0 +
+      1 ...
+#       ^ keyword.operator
+#        ^ keyword.operator
+#         ^ keyword.operator
+        3
+#       ^ meta.expression.continuation
+  )
+  puts value
+# ^ source.vibescript - meta.expression.continuation
+end
+# operator:...:existing=True:comment=True
+
+def sample
+  value = (
+    0 + # continued
+      1 ... # continued
+#       ^ keyword.operator
+#        ^ keyword.operator
+#         ^ keyword.operator
+        3
+#       ^ meta.expression.continuation
+  )
+  puts value
+# ^ source.vibescript - meta.expression.continuation
+end

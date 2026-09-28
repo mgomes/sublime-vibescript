@@ -15,6 +15,17 @@ variables:
   type_name: '(?:(?:{{plain_identifier}}|{{constant}})(?:\.|::))*(?:{{constant}}|any|array|bool|comparable|duration|enum_type|enum_value|error|float|hash|int|match_data|money|number|range|regex|string|symbol|time|type)\b'
   annotation_start: '(?:(?:{{type_name}}|nil)(?=\s*(?:[<|?=;#]|->|$))|[\[({])'
   trailing_keyword: 'end|then|else|elsif|when|rescue|ensure|if|while|in'
+  arithmetic_operator: '//|\*\*|[+\-*/%]'
+  comparison_operator: '<=>|===|==|!=|<=|>=|[<>]'
+  match_operator: '=~|!~'
+  logical_binary_operator: '&&|\|\|'
+  bitwise_operator: '<<|&(?![&.=])'
+  range_operator: '\.\.\.|\.\.'
+  augmented_assignment_operator: '//=|\*\*=|\|\|=|&&=|[+\-*/%]='
+  binary_operator: '(?:{{bitwise_operator}}|{{comparison_operator}}|{{match_operator}}|{{logical_binary_operator}}|{{arithmetic_operator}}|{{range_operator}})'
+  continuation_operator: '(?:{{augmented_assignment_operator}}|{{binary_operator}}|=)'
+  continuation: '{{continuation_operator}}(?=[ \t]*(?:#.*)?$)'
+  symbol_operator: '(?:\[\]=?|{{bitwise_operator}}|{{comparison_operator}}|{{logical_binary_operator}}|{{arithmetic_operator}}|[|!])'
 
 contexts:
   prototype:
@@ -581,7 +592,7 @@ contexts:
         1: punctuation.definition.constant.vibescript
         2: punctuation.definition.constant.begin.vibescript
         3: punctuation.definition.constant.end.vibescript
-    - match: '(?<!:)(:)(\[\]=|\[\]|===|<=>|\*\*|//|<<|<=|>=|==|!=|&&|\|\||[+\-*/%<>&|!])'
+    - match: '(?<!:)(:)({{symbol_operator}})'
       scope: constant.other.symbol.operator.vibescript
       captures:
         1: punctuation.definition.constant.vibescript
@@ -665,34 +676,30 @@ contexts:
     - match: '\b[a-z_][a-zA-Z0-9_]*(?:[?!](?!=))?'
 
   operators:
-    - match: '(?:\+|-|\*\*?|//?|%|&&|\|\||==|!=|<=|>=|<<|=)(?=[ \t]*(?:#.*)?$)'
+    - match: '{{continuation}}'
       scope: keyword.operator.vibescript
       push: expression-continuation-start
-    - match: '<=>'
-      scope: keyword.operator.comparison.vibescript
-    - match: '//=|\*\*=|\|\|=|&&=|[+\-*/%]='
+    - match: '{{augmented_assignment_operator}}'
       scope: keyword.operator.assignment.augmented.vibescript
     # Hash-rocket literals are gone from the language; the only remaining
     # `=>` is the rescue exception binding (rescue RuntimeError => err).
     - match: '=>'
       scope: keyword.operator.rescue-binding.vibescript
-    - match: '===|==|!=|<=|>=|<|>'
+    - match: '{{bitwise_operator}}'
+      scope: keyword.operator.bitwise.vibescript
+    - match: '{{comparison_operator}}'
       scope: keyword.operator.comparison.vibescript
-    - match: '=~|!~'
+    - match: '{{match_operator}}'
       scope: keyword.operator.match.vibescript
-    - match: '&&|\|\||!'
+    - match: '{{logical_binary_operator}}|!'
       scope: keyword.operator.logical.vibescript
-    - match: '\.\.\.|\.\.'
+    - match: '{{range_operator}}'
       scope: keyword.operator.range.vibescript
     - match: '::'
       scope: punctuation.accessor.double-colon.vibescript
     - match: '->'
       scope: keyword.operator.arrow.vibescript
-    - match: '<<'
-      scope: keyword.operator.bitwise.vibescript
-    - match: '&(?![&.=])'
-      scope: keyword.operator.bitwise.vibescript
-    - match: '//|\*\*|[+\-*/%]'
+    - match: '{{arithmetic_operator}}'
       scope: keyword.operator.arithmetic.vibescript
     - match: '='
       scope: keyword.operator.assignment.vibescript
@@ -741,12 +748,12 @@ contexts:
 
   expression-continuation-start:
     - meta_scope: meta.expression.continuation.vibescript
-    - match: '^'
+    - match: '^(?![ \t]*(?:#|$))'
       set: expression-continuation
 
   expression-continuation:
     - meta_scope: meta.expression.continuation.vibescript
-    - match: '(?:\+|-|\*\*?|//?|%|&&|\|\||==|!=|<=|>=|<<|=)(?=[ \t]*(?:#.*)?$)'
+    - match: '{{continuation}}'
       scope: keyword.operator.vibescript
       set: expression-continuation-start
     - match: '$\n?'
