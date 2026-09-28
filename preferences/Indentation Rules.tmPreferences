@@ -8,9 +8,9 @@
 	<key>settings</key>
 	<dict>
 		<key>decreaseIndentPattern</key>
-		<string>^\s*(?:[}\]]\s*$|(end|elsif|else|when|rescue|ensure)\b)</string>
+		<string>^\s*(?:[}\]]|(end|elsif|else|when|rescue|ensure)\b)</string>
 		<key>increaseIndentPattern</key>
-		<string>(?x)^\s*(?:(export\s+)?((private|public|protected)\s+)?def|class|module|enum|if|elsif|else|while|for|case|when|begin|rescue|ensure)\b|[\[{]\s*(?:\|[^|]*\|\s*)?(?:#.*)?$</string>
+		<string>^\s*(?:(export\s+)?((private|public|protected)\s+)?def|class|module|enum|if|elsif|else|while|for|case|when|begin|rescue|ensure)\b|.*[\[{]\s*(?:\|[^|]*\|\s*)?(?:#.*)?$</string>
 	</dict>
 </dict>
 </plist>
