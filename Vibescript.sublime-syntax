@@ -13,7 +13,7 @@ variables:
   plain_identifier: '[a-z_][a-zA-Z0-9_]*'
   constant: '[A-Z][a-zA-Z0-9_]*'
   type_name: '(?:(?:{{plain_identifier}}|{{constant}})(?:\.|::))*(?:{{constant}}|any|array|bool|comparable|duration|enum_type|enum_value|error|float|hash|int|match_data|money|number|range|regex|string|symbol|time|type)\b'
-  annotation_start: '(?:{{type_name}}(?=\s*(?:[<|?=;#]|$))|nil(?=\s*[|?=;])|\[(?=\s*(?:{{type_name}}|[\[{]))|\{(?=\s*(?:\.\.\.|{{plain_identifier}}\??\s*:\s*(?:{{type_name}}|[\[{]))))'
+  annotation_start: '(?:(?:{{type_name}}|nil)(?=\s*(?:[<|?=;#]|->|$))|[\[({])'
   trailing_keyword: 'end|then|else|elsif|when|rescue|ensure|if|while|in'
 
 contexts:
