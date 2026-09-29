@@ -1521,3 +1521,10 @@ rescue => e
   e
 # ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
 end)
+# typed local after inline method return type
+
+def run() -> array<string> out: array<string> = []; out end
+#                          ^ variable.other - constant.other.symbol - meta.function.signature
+#                               ^ meta.annotation.type support.type
+#                                     ^ meta.annotation.type support.type
+#                                                 ^ source.vibescript - meta.annotation.type - meta.function.signature

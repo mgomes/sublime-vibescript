@@ -1222,6 +1222,16 @@
         [2, 10, "source.vibescript - meta.annotation.type - meta.block.parameters - string - comment"],
         [3, 2, "source.vibescript - meta.annotation.type - meta.block.parameters - string - comment"]
       ]
+    },
+    {
+      "name": "typed local after inline method return type",
+      "source": "def run() -> array<string> out: array<string> = []; out end\n",
+      "assertions": [
+        [0, 27, "variable.other - constant.other.symbol - meta.function.signature"],
+        [0, 32, "meta.annotation.type support.type"],
+        [0, 38, "meta.annotation.type support.type"],
+        [0, 50, "source.vibescript - meta.annotation.type - meta.function.signature"]
+      ]
     }
   ]
 }

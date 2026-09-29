@@ -191,7 +191,10 @@ contexts:
   function-signature-end:
     - meta_scope: meta.function.signature.vibescript
     - match: ''
-      pop: 1
+      set: function-body-start
+
+  function-body-start:
+    - include: typed-local-start
 
   bare-parameters:
     - match: '(?=->)|$'
@@ -387,10 +390,16 @@ contexts:
       push: type-expression
     # A label can begin with a type-shaped value; only an assignment confirms a local.
     - match: '(?:^|(?<=;))\s*(?=@{0,2}[A-Za-z_][a-zA-Z0-9_]*:\s*{{annotation_start}})'
+      push: typed-local-start
+
+  typed-local-start:
+    - match: '(?=@{0,2}[A-Za-z_][a-zA-Z0-9_]*:\s*{{annotation_start}})'
       branch_point: typed-local
       branch:
         - typed-local-name
         - typed-local-label
+    - match: ''
+      pop: 1
 
   typed-local-name:
     - match: '(@{0,2}[A-Za-z_][a-zA-Z0-9_]*)(:)'
