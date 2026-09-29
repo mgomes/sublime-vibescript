@@ -1,0 +1,21 @@
+# SYNTAX TEST "Packages/Vibescript/Vibescript.sublime-syntax"
+
+alias_method :quotient, ://
+#                       ^^^ constant.other.symbol.operator.vibescript
+#                        ^ - keyword.operator
+
+private ://
+#       ^^^ constant.other.symbol.operator.vibescript
+#         ^ - keyword.operator
+
+alias quotient :// # floor division
+#              ^^^ constant.other.symbol.operator.vibescript
+#                  ^^^^^^^^^^^^^^^^ comment.line.number-sign
+
+operators = [:/, ://, :*, :**, :[], :[]=]
+#            ^^ constant.other.symbol.operator
+#                ^^^ constant.other.symbol.operator
+#                     ^^ constant.other.symbol.operator
+#                         ^^^ constant.other.symbol.operator
+#                              ^^^ constant.other.symbol.operator
+#                                   ^^^^ constant.other.symbol.operator

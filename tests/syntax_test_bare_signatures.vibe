@@ -1,0 +1,237 @@
+# SYNTAX TEST "Packages/Vibescript/Vibescript.sublime-syntax"
+# bare positional
+
+def add a: int, b: int -> int
+#       ^ variable.parameter.vibescript
+#               ^ variable.parameter.vibescript
+#          ^ meta.annotation.type.vibescript support.type.vibescript
+#                      ^ punctuation.separator.annotation.return-type.vibescript
+  return 1
+# ^ keyword.control.flow.vibescript - meta.group.parameters - meta.annotation.type
+end
+# bare default
+
+def add a: int = 1 -> int
+#       ^ variable.parameter.vibescript
+#          ^ meta.annotation.type.vibescript support.type.vibescript
+#                ^ constant.numeric.integer.vibescript - meta.annotation.type
+#                  ^ punctuation.separator.annotation.return-type.vibescript
+  return 1
+# ^ keyword.control.flow.vibescript - meta.group.parameters - meta.annotation.type
+end
+# bare rest first
+
+def collect *items: array<int> -> int
+#           ^ keyword.operator.parameter.vibescript
+#            ^ variable.parameter.vibescript
+#                   ^ meta.annotation.type.vibescript support.type.vibescript
+#                         ^ meta.annotation.type.vibescript support.type.vibescript
+#                              ^ punctuation.separator.annotation.return-type.vibescript
+  return 1
+# ^ keyword.control.flow.vibescript - meta.group.parameters - meta.annotation.type
+end
+# bare keyword separator first
+
+def choose *, enabled: bool, limit: int = 2 -> int
+#          ^ keyword.operator.parameter.vibescript
+#             ^ variable.parameter.vibescript
+#                      ^ meta.annotation.type.vibescript support.type.vibescript
+#                            ^ variable.parameter.vibescript
+#                                         ^ constant.numeric.integer.vibescript - meta.annotation.type
+#                                           ^ punctuation.separator.annotation.return-type.vibescript
+  return 1
+# ^ keyword.control.flow.vibescript - meta.group.parameters - meta.annotation.type
+end
+# bare keyword rest first
+
+def collect **opts: hash<string, int> -> int
+#           ^ keyword.operator.parameter.vibescript
+#             ^ variable.parameter.vibescript
+#                   ^ meta.annotation.type.vibescript support.type.vibescript
+#                        ^ meta.annotation.type.vibescript support.type.vibescript
+#                                     ^ punctuation.separator.annotation.return-type.vibescript
+  return 1
+# ^ keyword.control.flow.vibescript - meta.group.parameters - meta.annotation.type
+end
+# bare block first
+
+def apply &block: () -> int
+#         ^ keyword.operator.parameter.vibescript
+#          ^ variable.parameter.vibescript
+#                       ^ meta.annotation.type.vibescript support.type.vibescript
+#                    ^ punctuation.separator.annotation.return-type.vibescript
+  yield
+# ^ keyword.control.flow.vibescript - meta.group.parameters - meta.annotation.type
+end
+# bare optional block first
+
+def apply &block?: (int, string) -> int -> int
+#         ^ keyword.operator.parameter.vibescript
+#          ^ variable.parameter.vibescript
+#                   ^ meta.annotation.type.vibescript support.type.vibescript
+#                        ^ meta.annotation.type.vibescript support.type.vibescript
+#                                ^ punctuation.separator.annotation.return-type.vibescript
+#                                       ^ punctuation.separator.annotation.return-type.vibescript
+  return 1
+# ^ keyword.control.flow.vibescript - meta.group.parameters - meta.annotation.type
+end
+# bare instance first
+
+class Box
+  @value: int
+  def initialize @value: int
+#                ^ variable.parameter.instance.vibescript
+#                        ^ meta.annotation.type.vibescript support.type.vibescript
+    return
+#   ^ keyword.control.flow.vibescript - meta.group.parameters - meta.annotation.type
+  end
+end
+# bare mixed
+
+def mixed value: int = 1, *items: array<int>, enabled: bool = true, **opts: hash<string, any>, &block: (int) -> int -> int
+#         ^ variable.parameter.vibescript
+#                      ^ constant.numeric.integer.vibescript - meta.annotation.type
+#                         ^ keyword.operator.parameter.vibescript
+#                          ^ variable.parameter.vibescript
+#                                             ^ variable.parameter.vibescript
+#                                                                   ^ keyword.operator.parameter.vibescript
+#                                                                     ^ variable.parameter.vibescript
+#                                                                                              ^ keyword.operator.parameter.vibescript
+#                                                                                               ^ variable.parameter.vibescript
+#                                                                                                            ^ punctuation.separator.annotation.return-type.vibescript
+#                                                                                                                   ^ punctuation.separator.annotation.return-type.vibescript
+  return 1
+# ^ keyword.control.flow.vibescript - meta.group.parameters - meta.annotation.type
+end
+# bare uppercase parameter
+
+def collect Value: int -> int
+#           ^ variable.parameter.vibescript
+#                  ^ meta.annotation.type.vibescript support.type.vibescript
+#                      ^ punctuation.separator.annotation.return-type.vibescript
+  return 1
+# ^ keyword.control.flow.vibescript - meta.group.parameters - meta.annotation.type
+end
+# bare positional with comment
+
+def add a: int, b: int -> int # signature
+#       ^ variable.parameter.vibescript
+#               ^ variable.parameter.vibescript
+#          ^ meta.annotation.type.vibescript support.type.vibescript
+#                      ^ punctuation.separator.annotation.return-type.vibescript
+#                             ^ comment.line.number-sign.vibescript
+  return 1
+# ^ keyword.control.flow.vibescript - meta.group.parameters - meta.annotation.type
+end
+# bare default with comment
+
+def add a: int = 1 -> int # signature
+#       ^ variable.parameter.vibescript
+#          ^ meta.annotation.type.vibescript support.type.vibescript
+#                ^ constant.numeric.integer.vibescript - meta.annotation.type
+#                  ^ punctuation.separator.annotation.return-type.vibescript
+#                         ^ comment.line.number-sign.vibescript
+  return 1
+# ^ keyword.control.flow.vibescript - meta.group.parameters - meta.annotation.type
+end
+# bare rest first with comment
+
+def collect *items: array<int> -> int # signature
+#           ^ keyword.operator.parameter.vibescript
+#            ^ variable.parameter.vibescript
+#                   ^ meta.annotation.type.vibescript support.type.vibescript
+#                         ^ meta.annotation.type.vibescript support.type.vibescript
+#                              ^ punctuation.separator.annotation.return-type.vibescript
+#                                     ^ comment.line.number-sign.vibescript
+  return 1
+# ^ keyword.control.flow.vibescript - meta.group.parameters - meta.annotation.type
+end
+# bare keyword separator first with comment
+
+def choose *, enabled: bool, limit: int = 2 -> int # signature
+#          ^ keyword.operator.parameter.vibescript
+#             ^ variable.parameter.vibescript
+#                      ^ meta.annotation.type.vibescript support.type.vibescript
+#                            ^ variable.parameter.vibescript
+#                                         ^ constant.numeric.integer.vibescript - meta.annotation.type
+#                                           ^ punctuation.separator.annotation.return-type.vibescript
+#                                                  ^ comment.line.number-sign.vibescript
+  return 1
+# ^ keyword.control.flow.vibescript - meta.group.parameters - meta.annotation.type
+end
+# bare keyword rest first with comment
+
+def collect **opts: hash<string, int> -> int # signature
+#           ^ keyword.operator.parameter.vibescript
+#             ^ variable.parameter.vibescript
+#                   ^ meta.annotation.type.vibescript support.type.vibescript
+#                        ^ meta.annotation.type.vibescript support.type.vibescript
+#                                     ^ punctuation.separator.annotation.return-type.vibescript
+#                                            ^ comment.line.number-sign.vibescript
+  return 1
+# ^ keyword.control.flow.vibescript - meta.group.parameters - meta.annotation.type
+end
+# bare block first with comment
+
+def apply &block: () -> int # signature
+#         ^ keyword.operator.parameter.vibescript
+#          ^ variable.parameter.vibescript
+#                       ^ meta.annotation.type.vibescript support.type.vibescript
+#                    ^ punctuation.separator.annotation.return-type.vibescript
+#                           ^ comment.line.number-sign.vibescript
+  yield
+# ^ keyword.control.flow.vibescript - meta.group.parameters - meta.annotation.type
+end
+# bare optional block first with comment
+
+def apply &block?: (int, string) -> int -> int # signature
+#         ^ keyword.operator.parameter.vibescript
+#          ^ variable.parameter.vibescript
+#                   ^ meta.annotation.type.vibescript support.type.vibescript
+#                        ^ meta.annotation.type.vibescript support.type.vibescript
+#                                ^ punctuation.separator.annotation.return-type.vibescript
+#                                       ^ punctuation.separator.annotation.return-type.vibescript
+#                                              ^ comment.line.number-sign.vibescript
+  return 1
+# ^ keyword.control.flow.vibescript - meta.group.parameters - meta.annotation.type
+end
+# bare instance first with comment
+
+class Box
+  @value: int
+  def initialize @value: int # signature
+#                ^ variable.parameter.instance.vibescript
+#                        ^ meta.annotation.type.vibescript support.type.vibescript
+#                            ^ comment.line.number-sign.vibescript
+    return
+#   ^ keyword.control.flow.vibescript - meta.group.parameters - meta.annotation.type
+  end
+end
+# bare mixed with comment
+
+def mixed value: int = 1, *items: array<int>, enabled: bool = true, **opts: hash<string, any>, &block: (int) -> int -> int # signature
+#         ^ variable.parameter.vibescript
+#                      ^ constant.numeric.integer.vibescript - meta.annotation.type
+#                         ^ keyword.operator.parameter.vibescript
+#                          ^ variable.parameter.vibescript
+#                                             ^ variable.parameter.vibescript
+#                                                                   ^ keyword.operator.parameter.vibescript
+#                                                                     ^ variable.parameter.vibescript
+#                                                                                              ^ keyword.operator.parameter.vibescript
+#                                                                                               ^ variable.parameter.vibescript
+#                                                                                                            ^ punctuation.separator.annotation.return-type.vibescript
+#                                                                                                                   ^ punctuation.separator.annotation.return-type.vibescript
+#                                                                                                                          ^ comment.line.number-sign.vibescript
+  return 1
+# ^ keyword.control.flow.vibescript - meta.group.parameters - meta.annotation.type
+end
+# bare uppercase parameter with comment
+
+def collect Value: int -> int # signature
+#           ^ variable.parameter.vibescript
+#                  ^ meta.annotation.type.vibescript support.type.vibescript
+#                      ^ punctuation.separator.annotation.return-type.vibescript
+#                             ^ comment.line.number-sign.vibescript
+  return 1
+# ^ keyword.control.flow.vibescript - meta.group.parameters - meta.annotation.type
+end

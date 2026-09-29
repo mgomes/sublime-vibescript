@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>name</key>
+	<string>Literal Indentation</string>
+	<key>scope</key>
+	<string>source.vibescript string, source.vibescript meta.interpolation, source.vibescript constant.other.symbol.double-quoted, source.vibescript constant.other.symbol.single-quoted</string>
+	<key>settings</key>
+	<dict>
+		<key>increaseIndentPattern</key>
+		<string>(?!)</string>
+		<key>decreaseIndentPattern</key>
+		<string>(?!)</string>
+		<key>indentNextLinePattern</key>
+		<string>(?!)</string>
+		<key>unIndentedLinePattern</key>
+		<string>^</string>
+		<key>preserveIndent</key>
+		<true/>
+		<key>indentSquareBrackets</key>
+		<false/>
+		<key>indentParens</key>
+		<false/>
+		<key>indentCurlyBrackets</key>
+		<false/>
+	</dict>
+</dict>
+</plist>

@@ -9,3 +9,9 @@ the LSP-vibescript package (which pairs with the LSP package and the
 `vibes` binary).
 
 Docs and issues: https://github.com/mgomes/sublime-vibescript
+
+Use Rust Vibescript v0.80.0:
+
+  cargo install --git https://github.com/xipkit/vibescript --tag v0.80.0 vibes
+
+The language server command is vibes lsp. Replace any retired Go binary.

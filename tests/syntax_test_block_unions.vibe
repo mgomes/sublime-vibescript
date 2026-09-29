@@ -1,0 +1,35 @@
+# SYNTAX TEST "Packages/Vibescript/Vibescript.sublime-syntax"
+
+items.each { |item: int | string| item }
+#             ^ variable.parameter.vibescript
+#                   ^ meta.annotation.type.vibescript support.type.vibescript
+#                       ^ keyword.operator.union.vibescript
+#                         ^ meta.annotation.type.vibescript support.type.vibescript
+#                               ^ punctuation.separator.block-parameters.end.vibescript
+#                                 ^ source.vibescript - meta.annotation.type - meta.block.parameters
+
+items.each { |item: int | string, index: int| item }
+#             ^ variable.parameter.vibescript
+#                   ^ meta.annotation.type.vibescript support.type.vibescript
+#                       ^ keyword.operator.union.vibescript
+#                         ^ meta.annotation.type.vibescript support.type.vibescript
+#                                           ^ punctuation.separator.block-parameters.end.vibescript
+#                                             ^ source.vibescript - meta.annotation.type - meta.block.parameters
+#                                 ^ variable.parameter.vibescript
+
+items.each { |item: array<int | string>| item }
+#             ^ variable.parameter.vibescript
+#                         ^ meta.annotation.type.vibescript support.type.vibescript
+#                             ^ keyword.operator.union.vibescript
+#                               ^ meta.annotation.type.vibescript support.type.vibescript
+#                                      ^ punctuation.separator.block-parameters.end.vibescript
+#                                        ^ source.vibescript - meta.annotation.type - meta.block.parameters
+
+items.each { |item: int | string| String }
+#             ^ variable.parameter.vibescript
+#                   ^ meta.annotation.type.vibescript support.type.vibescript
+#                       ^ keyword.operator.union.vibescript
+#                         ^ meta.annotation.type.vibescript support.type.vibescript
+#                               ^ punctuation.separator.block-parameters.end.vibescript
+#                                 ^ source.vibescript - meta.annotation.type - meta.block.parameters
+

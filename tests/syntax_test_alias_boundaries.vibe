@@ -1,0 +1,55 @@
+# SYNTAX TEST "Packages/Vibescript/Vibescript.sublime-syntax"
+
+type id == int
+# <- - keyword.declaration.type
+#    ^^ - entity.name.type
+#          ^^^ - meta.annotation.type
+
+type box<T> = array<T>
+# <- - keyword.declaration.type
+#    ^^^ - entity.name.type
+#        ^ - meta.annotation.type
+
+def p<T>(value: T)
+#     ^ - meta.annotation.type - variable.parameter
+end
+
+opts = { value: id }
+#        ^^^^^ constant.other.symbol - meta.annotation.type
+#               ^^ - meta.annotation.type
+opts = {
+  value: id
+# ^^^^^ constant.other.symbol - meta.annotation.type
+#        ^^ - meta.annotation.type
+}
+consume(value: id)
+#       ^^^^^ constant.other.symbol - meta.annotation.type
+#              ^^ - meta.annotation.type
+consume(
+  value: id
+# ^^^^^ constant.other.symbol - meta.annotation.type
+#        ^^ - meta.annotation.type
+)
+
+opts = {
+  valid: balanced?("([)]"),
+# ^^^^^ constant.other.symbol - meta.annotation.type
+#        ^^^^^^^^^ - meta.annotation.type
+#                  ^^^^^^ string.quoted - meta.annotation.type
+  refreshable: age <= refresh_window(risk),
+# ^^^^^^^^^^^ constant.other.symbol - meta.annotation.type
+#              ^^^ - meta.annotation.type
+#                     ^^^^^^^^^^^^^^ - meta.annotation.type
+  union: value | lookup("text"),
+# ^^^^^ constant.other.symbol - meta.annotation.type
+#        ^^^^^ - meta.annotation.type
+#                       ^^^^^^ string.quoted - meta.annotation.type
+  tuple: [lookup("text")],
+# ^^^^^ constant.other.symbol - meta.annotation.type
+#                ^^^^^^ string.quoted - meta.annotation.type
+  grouped: (lookup("text"))
+# ^^^^^^^ constant.other.symbol - meta.annotation.type
+#                  ^^^^^^ string.quoted - meta.annotation.type
+}
+puts "after"
+#    ^^^^^^^ string.quoted - meta.annotation.type

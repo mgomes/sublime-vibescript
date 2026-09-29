@@ -1,0 +1,182 @@
+"""Generate type discriminators and fixtures from the Rust signature prelude."""
+
+import argparse
+import json
+from pathlib import Path
+import re
+import subprocess
+
+
+ROOT = Path(__file__).resolve().parent.parent
+INVENTORY = ROOT / "syntax/type_inventory.json"
+PRELUDE = ROOT / "tests/fixtures/prelude.vibe"
+TOKEN = re.compile(r'''"(?:\\.|[^"\\])*"|'(?:\\.|[^'\\])*'|\#.*|[A-Za-z_]\w*|->|::|\.\.\.|\S''')
+WORD = re.compile(r"[A-Za-z_]\w*\Z")
+
+
+def from_prelude(prelude):
+    """Read type names and generic arities from declarations and annotations."""
+    names, generics = set(), {}
+
+    def read_type(tokens, i):
+        token = tokens[i]
+        i += 1
+        if token == ":":
+            i += 1  # A singleton symbol type contributes no type name.
+        elif token in ("[", "(", "{"):
+            close = {"[": "]", "(": ")", "{": "}"}[token]
+            while tokens[i] != close:
+                if token == "{":
+                    if tokens[i] == "...":
+                        i += 1
+                        break
+                    i += 1
+                    if tokens[i] == "?":
+                        i += 1
+                    assert tokens[i] == ":", tokens
+                    i += 1
+                i = read_type(tokens, i)
+                if tokens[i] != close:
+                    assert tokens[i] == ",", tokens
+                    i += 1
+            i += 1
+        elif WORD.fullmatch(token):
+            if token[0].islower():
+                names.add(token)
+            if i < len(tokens) and tokens[i] == "<":
+                i += 1
+                arity = 0
+                while tokens[i] != ">":
+                    i = read_type(tokens, i)
+                    if tokens[i] == ":":
+                        i = read_type(tokens, i + 1)
+                    arity += 1
+                    if tokens[i] != ">":
+                        assert tokens[i] == ",", tokens
+                        i += 1
+                i += 1
+                if token[0].islower():
+                    assert token not in generics or generics[token] == arity
+                    generics[token] = arity
+        else:
+            raise ValueError(f"Unexpected prelude type start: {token}")
+        if i < len(tokens) and tokens[i] == "?":
+            i += 1
+        if i < len(tokens) and tokens[i] in ("|", "->"):
+            i = read_type(tokens, i + 1)
+        return i
+
+    for line in prelude.splitlines():
+        tokens = [token for token in TOKEN.findall(line) if not token.startswith("#")]
+        if not tokens:
+            continue
+        if tokens[0] == "class":
+            read_type(tokens, 1)
+        elif tokens[0] == "type":
+            if tokens[1][0].islower():
+                names.add(tokens[1])
+            read_type(tokens, 3)
+        for i, token in enumerate(tokens[:-1]):
+            if token == "->" or (token == ":" and i and
+                                  (WORD.fullmatch(tokens[i - 1]) or tokens[i - 1] == "?")):
+                read_type(tokens, i + 1)
+    if not names or not generics:
+        raise ValueError("Prelude contains no builtin types or generic heads")
+    return {"builtins": sorted(names), "generics": dict(sorted(generics.items()))}
+
+
+def inventory():
+    return json.loads(INVENTORY.read_text())
+
+
+def type_call_parameters(prelude):
+    """Return the positional indexes of type-valued parameters in the prelude."""
+    owner, result = "", {}
+    for line in prelude.splitlines():
+        tokens = [token for token in TOKEN.findall(line) if not token.startswith("#")]
+        if not tokens:
+            continue
+        if tokens[0] in ("module", "class"):
+            owner = tokens[1]
+        elif tokens[0] == "end":
+            owner = ""
+        elif tokens[0] == "def" and "(" in tokens:
+            name = tokens[1] + (tokens[2] if tokens[2] in ("?", "!") else "")
+            depth, parameters, current = [], [], []
+            for token in tokens[tokens.index("(") + 1:]:
+                if not depth and token in (",", ")"):
+                    parameters.append(current)
+                    current = []
+                    if token == ")":
+                        break
+                else:
+                    current.append(token)
+                    if token in ("(", "[", "{", "<"):
+                        depth.append(token)
+                    elif token in (")", "]", "}", ">"):
+                        depth.pop()
+            indexes = [i for i, parameter in enumerate(parameters)
+                       if ":" in parameter and parameter[parameter.index(":") + 1] == "type"]
+            if indexes:
+                result[(owner + "." if owner else "") + name] = indexes
+    return result
+
+
+def variables(types):
+    return {
+        "builtin_type": "(?:" + "|".join(map(re.escape, types["builtins"])) + r")\b",
+        "generic_type": "(?:" + "|".join(map(re.escape, types["generics"])) + r")\b",
+        "type_space": r"(?:\s|\#[^\n]*(?:\n|$))*",
+        "type_identifier": r"[^\W\d]\w*",
+        "type_constant": r"(?=[A-Z]){{type_identifier}}",
+        "type_name": r"{{type_identifier}}(?:(?:\.|::){{type_identifier}})*",
+        "compound_type_start": r"[\[({]",
+        "type_start": r"(?:{{type_name}}|{{compound_type_start}})",
+        "annotation_start": r"(?:{{generic_type}}(?={{type_space}}<(?![=<>]))|{{type_name}}(?={{type_space}}(?:[|=;#]|{{optional_type}}(?!{{type_space}}\()|->|$))|{{compound_type_start}})",
+        "quoted_field_key": r'''(?:"(?:\\.|[^"\\])*"|'(?:\\.|[^'\\])*')''',
+        "shape_field_name": r"(?:{{plain_identifier}}|{{constant}})(?:{{optional_type}})?",
+        "shape_field_key": r"(?:{{shape_field_name}}|{{quoted_field_key}})",
+        "open_shape": r"\.\.\.",
+        "optional_type": r"\?",
+        "literal_type_name": r"{{builtin_type}}(?!\s*[.(])",
+        # A bare nil field remains an ordinary hash value in the compiler.
+        "shape_field_type_start": r"(?!nil\b(?!{{type_space}}\|)){{type_start}}",
+        "shape_literal_start": r"\{(?={{type_space}}(?:{{open_shape}}|{{shape_field_key}}{{type_space}}:|$))",
+    }
+
+
+def variable_block(types):
+    lines = ["  # Generated by scripts/type_inventory.py from vibes prelude."]
+    for name, pattern in variables(types).items():
+        quoted = pattern.replace("'", "''")
+        lines.append(f"  {name}: '{quoted}'")
+    return "\n".join(lines) + "\n"
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--vibes", required=True, help="Rust vibes executable")
+    parser.add_argument("--write", action="store_true")
+    args = parser.parse_args()
+    prelude = subprocess.check_output([args.vibes, "prelude"], text=True)
+    types = from_prelude(prelude)
+    if not args.write:
+        if inventory() != types:
+            raise SystemExit("Type inventory differs from vibes prelude; regenerate with --write")
+        print(f"Prelude matches {len(types['builtins'])} builtin types and {len(types['generics'])} generic heads")
+        return
+    INVENTORY.parent.mkdir(exist_ok=True)
+    PRELUDE.parent.mkdir(exist_ok=True)
+    INVENTORY.write_text(json.dumps(types, indent=2) + "\n")
+    PRELUDE.write_text(prelude.rstrip() + "\n")
+    path = ROOT / "Vibescript.sublime-syntax"
+    syntax = path.read_text()
+    start = syntax.index("  # Generated by scripts/type_inventory.py")
+    end = syntax.index("  trailing_keyword:", start)
+    path.write_text(syntax[:start] + variable_block(types) + syntax[end:])
+    from type_cases import render
+    (ROOT / "tests/syntax_test_type_inventory.vibe").write_text(render(types))
+
+
+if __name__ == "__main__":
+    main()

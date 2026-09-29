@@ -1,0 +1,30 @@
+{
+  "builtins": [
+    "any",
+    "array",
+    "bool",
+    "comparable",
+    "duration",
+    "enum_type",
+    "enum_value",
+    "error",
+    "float",
+    "hash",
+    "int",
+    "match_data",
+    "money",
+    "nil",
+    "number",
+    "range",
+    "regex",
+    "string",
+    "symbol",
+    "time",
+    "type"
+  ],
+  "generics": {
+    "array": 1,
+    "hash": 2,
+    "type": 1
+  }
+}

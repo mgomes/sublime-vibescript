@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>name</key>
+	<string>Continued Expression Alignment</string>
+	<key>scope</key>
+	<string>source.vibescript meta.expression.continuation - string - meta.interpolation - constant.other.symbol.double-quoted - constant.other.symbol.single-quoted</string>
+	<key>settings</key>
+	<dict>
+		<key>preserveIndent</key>
+		<true/>
+		<key>unIndentedLinePattern</key>
+		<string>.</string>
+	</dict>
+</dict>
+</plist>

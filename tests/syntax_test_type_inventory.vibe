@@ -1,0 +1,1564 @@
+# SYNTAX TEST "Packages/Vibescript/Vibescript.sublime-syntax"
+# any, key=field, optional=False
+
+schema = { field: any } # shape
+#          ^ meta.annotation.type variable.other.member
+#                 ^ meta.annotation.type support.type
+#                        ^ comment.line
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# any, key=field, optional=True
+
+schema = { # shape
+#           ^ comment.line
+  field: any? # field
+# ^ meta.annotation.type variable.other.member
+#        ^ meta.annotation.type support.type
+#           ^ keyword.operator.optional
+#              ^ comment.line
+}
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# any, key="quoted field", optional=False
+
+schema = { "quoted field": any } # shape
+#          ^ meta.annotation.type string.quoted
+#                          ^ meta.annotation.type support.type
+#                                 ^ comment.line
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# any, key="quoted field", optional=True
+
+schema = { # shape
+#           ^ comment.line
+  "quoted field": any? # field
+# ^ meta.annotation.type string.quoted
+#                 ^ meta.annotation.type support.type
+#                    ^ keyword.operator.optional
+#                       ^ comment.line
+}
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# local type any
+
+local: any = value
+# <- variable.other - constant.other.symbol
+#      ^ meta.annotation.type support.type
+# block union type any
+
+items.each { |item: int | any| item }
+#                       ^ keyword.operator.union
+#                            ^ punctuation.separator.block-parameters.end
+#                         ^ meta.annotation.type support.type
+# array, key=field, optional=False
+
+schema = { field: array<string> } # shape
+#          ^ meta.annotation.type variable.other.member
+#                 ^ meta.annotation.type support.type
+#                                  ^ comment.line
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# array, key=field, optional=True
+
+schema = { # shape
+#           ^ comment.line
+  field: array<string>? # field
+# ^ meta.annotation.type variable.other.member
+#        ^ meta.annotation.type support.type
+#                     ^ keyword.operator.optional
+#                        ^ comment.line
+}
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# array, key="quoted field", optional=False
+
+schema = { "quoted field": array<string> } # shape
+#          ^ meta.annotation.type string.quoted
+#                          ^ meta.annotation.type support.type
+#                                           ^ comment.line
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# array, key="quoted field", optional=True
+
+schema = { # shape
+#           ^ comment.line
+  "quoted field": array<string>? # field
+# ^ meta.annotation.type string.quoted
+#                 ^ meta.annotation.type support.type
+#                              ^ keyword.operator.optional
+#                                 ^ comment.line
+}
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# local type array
+
+local: array<string> = value
+# <- variable.other - constant.other.symbol
+#      ^ meta.annotation.type support.type
+# block union type array
+
+items.each { |item: int | array<string>| item }
+#                       ^ keyword.operator.union
+#                                      ^ punctuation.separator.block-parameters.end
+#                         ^ meta.annotation.type support.type
+# bool, key=field, optional=False
+
+schema = { field: bool } # shape
+#          ^ meta.annotation.type variable.other.member
+#                 ^ meta.annotation.type support.type
+#                         ^ comment.line
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# bool, key=field, optional=True
+
+schema = { # shape
+#           ^ comment.line
+  field: bool? # field
+# ^ meta.annotation.type variable.other.member
+#        ^ meta.annotation.type support.type
+#            ^ keyword.operator.optional
+#               ^ comment.line
+}
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# bool, key="quoted field", optional=False
+
+schema = { "quoted field": bool } # shape
+#          ^ meta.annotation.type string.quoted
+#                          ^ meta.annotation.type support.type
+#                                  ^ comment.line
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# bool, key="quoted field", optional=True
+
+schema = { # shape
+#           ^ comment.line
+  "quoted field": bool? # field
+# ^ meta.annotation.type string.quoted
+#                 ^ meta.annotation.type support.type
+#                     ^ keyword.operator.optional
+#                        ^ comment.line
+}
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# local type bool
+
+local: bool = value
+# <- variable.other - constant.other.symbol
+#      ^ meta.annotation.type support.type
+# block union type bool
+
+items.each { |item: int | bool| item }
+#                       ^ keyword.operator.union
+#                             ^ punctuation.separator.block-parameters.end
+#                         ^ meta.annotation.type support.type
+# comparable, key=field, optional=False
+
+schema = { field: comparable } # shape
+#          ^ meta.annotation.type variable.other.member
+#                 ^ meta.annotation.type support.type
+#                               ^ comment.line
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# comparable, key=field, optional=True
+
+schema = { # shape
+#           ^ comment.line
+  field: comparable? # field
+# ^ meta.annotation.type variable.other.member
+#        ^ meta.annotation.type support.type
+#                  ^ keyword.operator.optional
+#                     ^ comment.line
+}
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# comparable, key="quoted field", optional=False
+
+schema = { "quoted field": comparable } # shape
+#          ^ meta.annotation.type string.quoted
+#                          ^ meta.annotation.type support.type
+#                                        ^ comment.line
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# comparable, key="quoted field", optional=True
+
+schema = { # shape
+#           ^ comment.line
+  "quoted field": comparable? # field
+# ^ meta.annotation.type string.quoted
+#                 ^ meta.annotation.type support.type
+#                           ^ keyword.operator.optional
+#                              ^ comment.line
+}
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# local type comparable
+
+local: comparable = value
+# <- variable.other - constant.other.symbol
+#      ^ meta.annotation.type support.type
+# block union type comparable
+
+items.each { |item: int | comparable| item }
+#                       ^ keyword.operator.union
+#                                   ^ punctuation.separator.block-parameters.end
+#                         ^ meta.annotation.type support.type
+# duration, key=field, optional=False
+
+schema = { field: duration } # shape
+#          ^ meta.annotation.type variable.other.member
+#                 ^ meta.annotation.type support.type
+#                             ^ comment.line
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# duration, key=field, optional=True
+
+schema = { # shape
+#           ^ comment.line
+  field: duration? # field
+# ^ meta.annotation.type variable.other.member
+#        ^ meta.annotation.type support.type
+#                ^ keyword.operator.optional
+#                   ^ comment.line
+}
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# duration, key="quoted field", optional=False
+
+schema = { "quoted field": duration } # shape
+#          ^ meta.annotation.type string.quoted
+#                          ^ meta.annotation.type support.type
+#                                      ^ comment.line
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# duration, key="quoted field", optional=True
+
+schema = { # shape
+#           ^ comment.line
+  "quoted field": duration? # field
+# ^ meta.annotation.type string.quoted
+#                 ^ meta.annotation.type support.type
+#                         ^ keyword.operator.optional
+#                            ^ comment.line
+}
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# local type duration
+
+local: duration = value
+# <- variable.other - constant.other.symbol
+#      ^ meta.annotation.type support.type
+# block union type duration
+
+items.each { |item: int | duration| item }
+#                       ^ keyword.operator.union
+#                                 ^ punctuation.separator.block-parameters.end
+#                         ^ meta.annotation.type support.type
+# enum_type, key=field, optional=False
+
+schema = { field: enum_type } # shape
+#          ^ meta.annotation.type variable.other.member
+#                 ^ meta.annotation.type support.type
+#                              ^ comment.line
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# enum_type, key=field, optional=True
+
+schema = { # shape
+#           ^ comment.line
+  field: enum_type? # field
+# ^ meta.annotation.type variable.other.member
+#        ^ meta.annotation.type support.type
+#                 ^ keyword.operator.optional
+#                    ^ comment.line
+}
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# enum_type, key="quoted field", optional=False
+
+schema = { "quoted field": enum_type } # shape
+#          ^ meta.annotation.type string.quoted
+#                          ^ meta.annotation.type support.type
+#                                       ^ comment.line
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# enum_type, key="quoted field", optional=True
+
+schema = { # shape
+#           ^ comment.line
+  "quoted field": enum_type? # field
+# ^ meta.annotation.type string.quoted
+#                 ^ meta.annotation.type support.type
+#                          ^ keyword.operator.optional
+#                             ^ comment.line
+}
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# local type enum_type
+
+local: enum_type = value
+# <- variable.other - constant.other.symbol
+#      ^ meta.annotation.type support.type
+# block union type enum_type
+
+items.each { |item: int | enum_type| item }
+#                       ^ keyword.operator.union
+#                                  ^ punctuation.separator.block-parameters.end
+#                         ^ meta.annotation.type support.type
+# enum_value, key=field, optional=False
+
+schema = { field: enum_value } # shape
+#          ^ meta.annotation.type variable.other.member
+#                 ^ meta.annotation.type support.type
+#                               ^ comment.line
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# enum_value, key=field, optional=True
+
+schema = { # shape
+#           ^ comment.line
+  field: enum_value? # field
+# ^ meta.annotation.type variable.other.member
+#        ^ meta.annotation.type support.type
+#                  ^ keyword.operator.optional
+#                     ^ comment.line
+}
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# enum_value, key="quoted field", optional=False
+
+schema = { "quoted field": enum_value } # shape
+#          ^ meta.annotation.type string.quoted
+#                          ^ meta.annotation.type support.type
+#                                        ^ comment.line
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# enum_value, key="quoted field", optional=True
+
+schema = { # shape
+#           ^ comment.line
+  "quoted field": enum_value? # field
+# ^ meta.annotation.type string.quoted
+#                 ^ meta.annotation.type support.type
+#                           ^ keyword.operator.optional
+#                              ^ comment.line
+}
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# local type enum_value
+
+local: enum_value = value
+# <- variable.other - constant.other.symbol
+#      ^ meta.annotation.type support.type
+# block union type enum_value
+
+items.each { |item: int | enum_value| item }
+#                       ^ keyword.operator.union
+#                                   ^ punctuation.separator.block-parameters.end
+#                         ^ meta.annotation.type support.type
+# error, key=field, optional=False
+
+schema = { field: error } # shape
+#          ^ meta.annotation.type variable.other.member
+#                 ^ meta.annotation.type support.type
+#                          ^ comment.line
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# error, key=field, optional=True
+
+schema = { # shape
+#           ^ comment.line
+  field: error? # field
+# ^ meta.annotation.type variable.other.member
+#        ^ meta.annotation.type support.type
+#             ^ keyword.operator.optional
+#                ^ comment.line
+}
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# error, key="quoted field", optional=False
+
+schema = { "quoted field": error } # shape
+#          ^ meta.annotation.type string.quoted
+#                          ^ meta.annotation.type support.type
+#                                   ^ comment.line
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# error, key="quoted field", optional=True
+
+schema = { # shape
+#           ^ comment.line
+  "quoted field": error? # field
+# ^ meta.annotation.type string.quoted
+#                 ^ meta.annotation.type support.type
+#                      ^ keyword.operator.optional
+#                         ^ comment.line
+}
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# local type error
+
+local: error = value
+# <- variable.other - constant.other.symbol
+#      ^ meta.annotation.type support.type
+# block union type error
+
+items.each { |item: int | error| item }
+#                       ^ keyword.operator.union
+#                              ^ punctuation.separator.block-parameters.end
+#                         ^ meta.annotation.type support.type
+# float, key=field, optional=False
+
+schema = { field: float } # shape
+#          ^ meta.annotation.type variable.other.member
+#                 ^ meta.annotation.type support.type
+#                          ^ comment.line
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# float, key=field, optional=True
+
+schema = { # shape
+#           ^ comment.line
+  field: float? # field
+# ^ meta.annotation.type variable.other.member
+#        ^ meta.annotation.type support.type
+#             ^ keyword.operator.optional
+#                ^ comment.line
+}
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# float, key="quoted field", optional=False
+
+schema = { "quoted field": float } # shape
+#          ^ meta.annotation.type string.quoted
+#                          ^ meta.annotation.type support.type
+#                                   ^ comment.line
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# float, key="quoted field", optional=True
+
+schema = { # shape
+#           ^ comment.line
+  "quoted field": float? # field
+# ^ meta.annotation.type string.quoted
+#                 ^ meta.annotation.type support.type
+#                      ^ keyword.operator.optional
+#                         ^ comment.line
+}
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# local type float
+
+local: float = value
+# <- variable.other - constant.other.symbol
+#      ^ meta.annotation.type support.type
+# block union type float
+
+items.each { |item: int | float| item }
+#                       ^ keyword.operator.union
+#                              ^ punctuation.separator.block-parameters.end
+#                         ^ meta.annotation.type support.type
+# hash, key=field, optional=False
+
+schema = { field: hash<string, string> } # shape
+#          ^ meta.annotation.type variable.other.member
+#                 ^ meta.annotation.type support.type
+#                                         ^ comment.line
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# hash, key=field, optional=True
+
+schema = { # shape
+#           ^ comment.line
+  field: hash<string, string>? # field
+# ^ meta.annotation.type variable.other.member
+#        ^ meta.annotation.type support.type
+#                            ^ keyword.operator.optional
+#                               ^ comment.line
+}
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# hash, key="quoted field", optional=False
+
+schema = { "quoted field": hash<string, string> } # shape
+#          ^ meta.annotation.type string.quoted
+#                          ^ meta.annotation.type support.type
+#                                                  ^ comment.line
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# hash, key="quoted field", optional=True
+
+schema = { # shape
+#           ^ comment.line
+  "quoted field": hash<string, string>? # field
+# ^ meta.annotation.type string.quoted
+#                 ^ meta.annotation.type support.type
+#                                     ^ keyword.operator.optional
+#                                        ^ comment.line
+}
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# local type hash
+
+local: hash<string, string> = value
+# <- variable.other - constant.other.symbol
+#      ^ meta.annotation.type support.type
+# block union type hash
+
+items.each { |item: int | hash<string, string>| item }
+#                       ^ keyword.operator.union
+#                                             ^ punctuation.separator.block-parameters.end
+#                         ^ meta.annotation.type support.type
+# int, key=field, optional=False
+
+schema = { field: int } # shape
+#          ^ meta.annotation.type variable.other.member
+#                 ^ meta.annotation.type support.type
+#                        ^ comment.line
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# int, key=field, optional=True
+
+schema = { # shape
+#           ^ comment.line
+  field: int? # field
+# ^ meta.annotation.type variable.other.member
+#        ^ meta.annotation.type support.type
+#           ^ keyword.operator.optional
+#              ^ comment.line
+}
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# int, key="quoted field", optional=False
+
+schema = { "quoted field": int } # shape
+#          ^ meta.annotation.type string.quoted
+#                          ^ meta.annotation.type support.type
+#                                 ^ comment.line
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# int, key="quoted field", optional=True
+
+schema = { # shape
+#           ^ comment.line
+  "quoted field": int? # field
+# ^ meta.annotation.type string.quoted
+#                 ^ meta.annotation.type support.type
+#                    ^ keyword.operator.optional
+#                       ^ comment.line
+}
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# local type int
+
+local: int = value
+# <- variable.other - constant.other.symbol
+#      ^ meta.annotation.type support.type
+# block union type int
+
+items.each { |item: int | int| item }
+#                       ^ keyword.operator.union
+#                            ^ punctuation.separator.block-parameters.end
+#                         ^ meta.annotation.type support.type
+# match_data, key=field, optional=False
+
+schema = { field: match_data } # shape
+#          ^ meta.annotation.type variable.other.member
+#                 ^ meta.annotation.type support.type
+#                               ^ comment.line
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# match_data, key=field, optional=True
+
+schema = { # shape
+#           ^ comment.line
+  field: match_data? # field
+# ^ meta.annotation.type variable.other.member
+#        ^ meta.annotation.type support.type
+#                  ^ keyword.operator.optional
+#                     ^ comment.line
+}
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# match_data, key="quoted field", optional=False
+
+schema = { "quoted field": match_data } # shape
+#          ^ meta.annotation.type string.quoted
+#                          ^ meta.annotation.type support.type
+#                                        ^ comment.line
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# match_data, key="quoted field", optional=True
+
+schema = { # shape
+#           ^ comment.line
+  "quoted field": match_data? # field
+# ^ meta.annotation.type string.quoted
+#                 ^ meta.annotation.type support.type
+#                           ^ keyword.operator.optional
+#                              ^ comment.line
+}
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# local type match_data
+
+local: match_data = value
+# <- variable.other - constant.other.symbol
+#      ^ meta.annotation.type support.type
+# block union type match_data
+
+items.each { |item: int | match_data| item }
+#                       ^ keyword.operator.union
+#                                   ^ punctuation.separator.block-parameters.end
+#                         ^ meta.annotation.type support.type
+# money, key=field, optional=False
+
+schema = { field: money } # shape
+#          ^ meta.annotation.type variable.other.member
+#                 ^ meta.annotation.type support.type
+#                          ^ comment.line
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# money, key=field, optional=True
+
+schema = { # shape
+#           ^ comment.line
+  field: money? # field
+# ^ meta.annotation.type variable.other.member
+#        ^ meta.annotation.type support.type
+#             ^ keyword.operator.optional
+#                ^ comment.line
+}
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# money, key="quoted field", optional=False
+
+schema = { "quoted field": money } # shape
+#          ^ meta.annotation.type string.quoted
+#                          ^ meta.annotation.type support.type
+#                                   ^ comment.line
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# money, key="quoted field", optional=True
+
+schema = { # shape
+#           ^ comment.line
+  "quoted field": money? # field
+# ^ meta.annotation.type string.quoted
+#                 ^ meta.annotation.type support.type
+#                      ^ keyword.operator.optional
+#                         ^ comment.line
+}
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# local type money
+
+local: money = value
+# <- variable.other - constant.other.symbol
+#      ^ meta.annotation.type support.type
+# block union type money
+
+items.each { |item: int | money| item }
+#                       ^ keyword.operator.union
+#                              ^ punctuation.separator.block-parameters.end
+#                         ^ meta.annotation.type support.type
+# nil, key=field, optional=False
+
+schema = { field: nil | int } # shape
+#          ^ meta.annotation.type variable.other.member
+#                 ^ meta.annotation.type constant.language.null
+#                              ^ comment.line
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# nil, key=field, optional=True
+
+schema = { # shape
+#           ^ comment.line
+  field: nil | int? # field
+# ^ meta.annotation.type variable.other.member
+#        ^ meta.annotation.type constant.language.null
+#                 ^ keyword.operator.optional
+#                    ^ comment.line
+}
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# nil, key="quoted field", optional=False
+
+schema = { "quoted field": nil | int } # shape
+#          ^ meta.annotation.type string.quoted
+#                          ^ meta.annotation.type constant.language.null
+#                                       ^ comment.line
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# nil, key="quoted field", optional=True
+
+schema = { # shape
+#           ^ comment.line
+  "quoted field": nil | int? # field
+# ^ meta.annotation.type string.quoted
+#                 ^ meta.annotation.type constant.language.null
+#                          ^ keyword.operator.optional
+#                             ^ comment.line
+}
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# local type nil
+
+local: nil | int = value
+# <- variable.other - constant.other.symbol
+#      ^ meta.annotation.type constant.language.null
+# block union type nil
+
+items.each { |item: int | nil | int| item }
+#                       ^ keyword.operator.union
+#                                  ^ punctuation.separator.block-parameters.end
+#                         ^ meta.annotation.type constant.language.null
+# number, key=field, optional=False
+
+schema = { field: number } # shape
+#          ^ meta.annotation.type variable.other.member
+#                 ^ meta.annotation.type support.type
+#                           ^ comment.line
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# number, key=field, optional=True
+
+schema = { # shape
+#           ^ comment.line
+  field: number? # field
+# ^ meta.annotation.type variable.other.member
+#        ^ meta.annotation.type support.type
+#              ^ keyword.operator.optional
+#                 ^ comment.line
+}
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# number, key="quoted field", optional=False
+
+schema = { "quoted field": number } # shape
+#          ^ meta.annotation.type string.quoted
+#                          ^ meta.annotation.type support.type
+#                                    ^ comment.line
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# number, key="quoted field", optional=True
+
+schema = { # shape
+#           ^ comment.line
+  "quoted field": number? # field
+# ^ meta.annotation.type string.quoted
+#                 ^ meta.annotation.type support.type
+#                       ^ keyword.operator.optional
+#                          ^ comment.line
+}
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# local type number
+
+local: number = value
+# <- variable.other - constant.other.symbol
+#      ^ meta.annotation.type support.type
+# block union type number
+
+items.each { |item: int | number| item }
+#                       ^ keyword.operator.union
+#                               ^ punctuation.separator.block-parameters.end
+#                         ^ meta.annotation.type support.type
+# range, key=field, optional=False
+
+schema = { field: range } # shape
+#          ^ meta.annotation.type variable.other.member
+#                 ^ meta.annotation.type support.type
+#                          ^ comment.line
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# range, key=field, optional=True
+
+schema = { # shape
+#           ^ comment.line
+  field: range? # field
+# ^ meta.annotation.type variable.other.member
+#        ^ meta.annotation.type support.type
+#             ^ keyword.operator.optional
+#                ^ comment.line
+}
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# range, key="quoted field", optional=False
+
+schema = { "quoted field": range } # shape
+#          ^ meta.annotation.type string.quoted
+#                          ^ meta.annotation.type support.type
+#                                   ^ comment.line
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# range, key="quoted field", optional=True
+
+schema = { # shape
+#           ^ comment.line
+  "quoted field": range? # field
+# ^ meta.annotation.type string.quoted
+#                 ^ meta.annotation.type support.type
+#                      ^ keyword.operator.optional
+#                         ^ comment.line
+}
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# local type range
+
+local: range = value
+# <- variable.other - constant.other.symbol
+#      ^ meta.annotation.type support.type
+# block union type range
+
+items.each { |item: int | range| item }
+#                       ^ keyword.operator.union
+#                              ^ punctuation.separator.block-parameters.end
+#                         ^ meta.annotation.type support.type
+# regex, key=field, optional=False
+
+schema = { field: regex } # shape
+#          ^ meta.annotation.type variable.other.member
+#                 ^ meta.annotation.type support.type
+#                          ^ comment.line
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# regex, key=field, optional=True
+
+schema = { # shape
+#           ^ comment.line
+  field: regex? # field
+# ^ meta.annotation.type variable.other.member
+#        ^ meta.annotation.type support.type
+#             ^ keyword.operator.optional
+#                ^ comment.line
+}
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# regex, key="quoted field", optional=False
+
+schema = { "quoted field": regex } # shape
+#          ^ meta.annotation.type string.quoted
+#                          ^ meta.annotation.type support.type
+#                                   ^ comment.line
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# regex, key="quoted field", optional=True
+
+schema = { # shape
+#           ^ comment.line
+  "quoted field": regex? # field
+# ^ meta.annotation.type string.quoted
+#                 ^ meta.annotation.type support.type
+#                      ^ keyword.operator.optional
+#                         ^ comment.line
+}
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# local type regex
+
+local: regex = value
+# <- variable.other - constant.other.symbol
+#      ^ meta.annotation.type support.type
+# block union type regex
+
+items.each { |item: int | regex| item }
+#                       ^ keyword.operator.union
+#                              ^ punctuation.separator.block-parameters.end
+#                         ^ meta.annotation.type support.type
+# string, key=field, optional=False
+
+schema = { field: string } # shape
+#          ^ meta.annotation.type variable.other.member
+#                 ^ meta.annotation.type support.type
+#                           ^ comment.line
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# string, key=field, optional=True
+
+schema = { # shape
+#           ^ comment.line
+  field: string? # field
+# ^ meta.annotation.type variable.other.member
+#        ^ meta.annotation.type support.type
+#              ^ keyword.operator.optional
+#                 ^ comment.line
+}
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# string, key="quoted field", optional=False
+
+schema = { "quoted field": string } # shape
+#          ^ meta.annotation.type string.quoted
+#                          ^ meta.annotation.type support.type
+#                                    ^ comment.line
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# string, key="quoted field", optional=True
+
+schema = { # shape
+#           ^ comment.line
+  "quoted field": string? # field
+# ^ meta.annotation.type string.quoted
+#                 ^ meta.annotation.type support.type
+#                       ^ keyword.operator.optional
+#                          ^ comment.line
+}
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# local type string
+
+local: string = value
+# <- variable.other - constant.other.symbol
+#      ^ meta.annotation.type support.type
+# block union type string
+
+items.each { |item: int | string| item }
+#                       ^ keyword.operator.union
+#                               ^ punctuation.separator.block-parameters.end
+#                         ^ meta.annotation.type support.type
+# symbol, key=field, optional=False
+
+schema = { field: symbol } # shape
+#          ^ meta.annotation.type variable.other.member
+#                 ^ meta.annotation.type support.type
+#                           ^ comment.line
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# symbol, key=field, optional=True
+
+schema = { # shape
+#           ^ comment.line
+  field: symbol? # field
+# ^ meta.annotation.type variable.other.member
+#        ^ meta.annotation.type support.type
+#              ^ keyword.operator.optional
+#                 ^ comment.line
+}
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# symbol, key="quoted field", optional=False
+
+schema = { "quoted field": symbol } # shape
+#          ^ meta.annotation.type string.quoted
+#                          ^ meta.annotation.type support.type
+#                                    ^ comment.line
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# symbol, key="quoted field", optional=True
+
+schema = { # shape
+#           ^ comment.line
+  "quoted field": symbol? # field
+# ^ meta.annotation.type string.quoted
+#                 ^ meta.annotation.type support.type
+#                       ^ keyword.operator.optional
+#                          ^ comment.line
+}
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# local type symbol
+
+local: symbol = value
+# <- variable.other - constant.other.symbol
+#      ^ meta.annotation.type support.type
+# block union type symbol
+
+items.each { |item: int | symbol| item }
+#                       ^ keyword.operator.union
+#                               ^ punctuation.separator.block-parameters.end
+#                         ^ meta.annotation.type support.type
+# time, key=field, optional=False
+
+schema = { field: time } # shape
+#          ^ meta.annotation.type variable.other.member
+#                 ^ meta.annotation.type support.type
+#                         ^ comment.line
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# time, key=field, optional=True
+
+schema = { # shape
+#           ^ comment.line
+  field: time? # field
+# ^ meta.annotation.type variable.other.member
+#        ^ meta.annotation.type support.type
+#            ^ keyword.operator.optional
+#               ^ comment.line
+}
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# time, key="quoted field", optional=False
+
+schema = { "quoted field": time } # shape
+#          ^ meta.annotation.type string.quoted
+#                          ^ meta.annotation.type support.type
+#                                  ^ comment.line
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# time, key="quoted field", optional=True
+
+schema = { # shape
+#           ^ comment.line
+  "quoted field": time? # field
+# ^ meta.annotation.type string.quoted
+#                 ^ meta.annotation.type support.type
+#                     ^ keyword.operator.optional
+#                        ^ comment.line
+}
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# local type time
+
+local: time = value
+# <- variable.other - constant.other.symbol
+#      ^ meta.annotation.type support.type
+# block union type time
+
+items.each { |item: int | time| item }
+#                       ^ keyword.operator.union
+#                             ^ punctuation.separator.block-parameters.end
+#                         ^ meta.annotation.type support.type
+# type, key=field, optional=False
+
+schema = { field: type<string> } # shape
+#          ^ meta.annotation.type variable.other.member
+#                 ^ meta.annotation.type support.type
+#                                 ^ comment.line
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# type, key=field, optional=True
+
+schema = { # shape
+#           ^ comment.line
+  field: type<string>? # field
+# ^ meta.annotation.type variable.other.member
+#        ^ meta.annotation.type support.type
+#                    ^ keyword.operator.optional
+#                       ^ comment.line
+}
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# type, key="quoted field", optional=False
+
+schema = { "quoted field": type<string> } # shape
+#          ^ meta.annotation.type string.quoted
+#                          ^ meta.annotation.type support.type
+#                                          ^ comment.line
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# type, key="quoted field", optional=True
+
+schema = { # shape
+#           ^ comment.line
+  "quoted field": type<string>? # field
+# ^ meta.annotation.type string.quoted
+#                 ^ meta.annotation.type support.type
+#                             ^ keyword.operator.optional
+#                                ^ comment.line
+}
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# local type type
+
+local: type<string> = value
+# <- variable.other - constant.other.symbol
+#      ^ meta.annotation.type support.type
+# block union type type
+
+items.each { |item: int | type<string>| item }
+#                       ^ keyword.operator.union
+#                                     ^ punctuation.separator.block-parameters.end
+#                         ^ meta.annotation.type support.type
+# bare generic array
+
+schema = { field: array } # shape
+#          ^ meta.annotation.type variable.other.member
+#                 ^ meta.annotation.type support.type
+#                          ^ comment.line
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# generic literal array
+
+schema = array<string>
+#        ^ support.type
+#              ^ meta.annotation.type support.type
+# bare generic hash
+
+schema = { field: hash } # shape
+#          ^ meta.annotation.type variable.other.member
+#                 ^ meta.annotation.type support.type
+#                         ^ comment.line
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# generic literal hash
+
+schema = hash<string, string>
+#        ^ support.type
+#             ^ meta.annotation.type support.type
+# bare generic type
+
+schema = { field: type } # shape
+#          ^ meta.annotation.type variable.other.member
+#                 ^ meta.annotation.type support.type
+#                         ^ comment.line
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# generic literal type
+
+schema = type<string>
+#        ^ support.type
+#             ^ meta.annotation.type support.type
+# field key field?
+
+schema = { field?: number } # shape
+#          ^ meta.annotation.type variable.other.member
+#                  ^ meta.annotation.type support.type
+#                            ^ comment.line
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# field key Field
+
+schema = { Field: number } # shape
+#          ^ meta.annotation.type variable.other.member
+#                 ^ meta.annotation.type support.type
+#                           ^ comment.line
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# field key 'single key'
+
+schema = { 'single key': number } # shape
+#          ^ meta.annotation.type string.quoted
+#                        ^ meta.annotation.type support.type
+#                                  ^ comment.line
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# field key "escaped\"key"
+
+schema = { "escaped\"key": number } # shape
+#          ^ meta.annotation.type string.quoted
+#                          ^ meta.annotation.type support.type
+#                                    ^ comment.line
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# field key "hash#key"
+
+schema = { "hash#key": number } # shape
+#          ^ meta.annotation.type string.quoted
+#                      ^ meta.annotation.type support.type
+#                                ^ comment.line
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# compound number | string
+
+schema = { # shape
+#           ^ comment.line
+  field: number | string # field
+# ^ meta.annotation.type variable.other.member
+#        ^ meta.annotation.type support.type
+#               ^ keyword.operator.union
+#                 ^ meta.annotation.type support.type
+#                         ^ comment.line
+}
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# compound array<hash<string, int?>>
+
+schema = { # shape
+#           ^ comment.line
+  field: array<hash<string, int?>> # field
+# ^ meta.annotation.type variable.other.member
+#        ^ meta.annotation.type support.type
+#              ^ meta.annotation.type support.type
+#                           ^ meta.annotation.type support.type
+#                                   ^ comment.line
+}
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# compound [int, string]
+
+schema = { # shape
+#           ^ comment.line
+  field: [int, string] # field
+# ^ meta.annotation.type variable.other.member
+#         ^ meta.annotation.type support.type
+#              ^ meta.annotation.type support.type
+#                       ^ comment.line
+}
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# compound [[int, string], bool]
+
+schema = { # shape
+#           ^ comment.line
+  field: [[int, string], bool] # field
+# ^ meta.annotation.type variable.other.member
+#          ^ meta.annotation.type support.type
+#                        ^ meta.annotation.type support.type
+#                               ^ comment.line
+}
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# compound () -> int
+
+schema = { # shape
+#           ^ comment.line
+  field: () -> int # field
+# ^ meta.annotation.type variable.other.member
+#           ^ punctuation.separator.annotation.return-type
+#              ^ meta.annotation.type support.type
+#                   ^ comment.line
+}
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# compound (int, string) -> bool
+
+schema = { # shape
+#           ^ comment.line
+  field: (int, string) -> bool # field
+# ^ meta.annotation.type variable.other.member
+#         ^ meta.annotation.type support.type
+#              ^ meta.annotation.type support.type
+#                         ^ meta.annotation.type support.type
+#                               ^ comment.line
+}
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# compound { "child": number, ... }
+
+schema = { # shape
+#           ^ comment.line
+  field: { "child": number, ... } # field
+# ^ meta.annotation.type variable.other.member
+#                   ^ meta.annotation.type support.type
+#                           ^ keyword.operator.open-shape
+#                                  ^ comment.line
+}
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# compound { ... }
+
+schema = { # shape
+#           ^ comment.line
+  field: { ... } # field
+# ^ meta.annotation.type variable.other.member
+#          ^ keyword.operator.open-shape
+#                 ^ comment.line
+}
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# open shape first
+
+schema = { ... } # shape
+#          ^ meta.annotation.type keyword.operator.open-shape
+#                   ^ comment.line
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# expression fallback field: nil
+
+opts = { field: nil }
+#        ^ constant.other.symbol - meta.annotation.type
+#               ^ source.vibescript - meta.annotation.type
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# expression fallback "quoted field": nil
+
+opts = { "quoted field": nil }
+#        ^ string.quoted - meta.annotation.type
+#                        ^ source.vibescript - meta.annotation.type
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# expression fallback field: User
+
+opts = { field: User }
+#        ^ constant.other.symbol - meta.annotation.type
+#               ^ source.vibescript - meta.annotation.type
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# expression fallback "quoted field": User
+
+opts = { "quoted field": User }
+#        ^ string.quoted - meta.annotation.type
+#                        ^ source.vibescript - meta.annotation.type
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# expression fallback field: [User]
+
+opts = { field: [User] }
+#        ^ constant.other.symbol - meta.annotation.type
+#               ^ source.vibescript - meta.annotation.type
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# expression fallback "quoted field": [User]
+
+opts = { "quoted field": [User] }
+#        ^ string.quoted - meta.annotation.type
+#                        ^ source.vibescript - meta.annotation.type
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# expression fallback field: []
+
+opts = { field: [] }
+#        ^ constant.other.symbol - meta.annotation.type
+#               ^ source.vibescript - meta.annotation.type
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# expression fallback "quoted field": []
+
+opts = { "quoted field": [] }
+#        ^ string.quoted - meta.annotation.type
+#                        ^ source.vibescript - meta.annotation.type
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# expression fallback field: {}
+
+opts = { field: {} }
+#        ^ constant.other.symbol - meta.annotation.type
+#               ^ source.vibescript - meta.annotation.type
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# expression fallback "quoted field": {}
+
+opts = { "quoted field": {} }
+#        ^ string.quoted - meta.annotation.type
+#                        ^ source.vibescript - meta.annotation.type
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# expression fallback field: (User)
+
+opts = { field: (User) }
+#        ^ constant.other.symbol - meta.annotation.type
+#               ^ source.vibescript - meta.annotation.type
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# expression fallback "quoted field": (User)
+
+opts = { "quoted field": (User) }
+#        ^ string.quoted - meta.annotation.type
+#                        ^ source.vibescript - meta.annotation.type
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# expression fallback field: "text"
+
+opts = { field: "text" }
+#        ^ constant.other.symbol - meta.annotation.type
+#               ^ source.vibescript - meta.annotation.type
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# expression fallback "quoted field": "text"
+
+opts = { "quoted field": "text" }
+#        ^ string.quoted - meta.annotation.type
+#                        ^ source.vibescript - meta.annotation.type
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# expression fallback field: 42
+
+opts = { field: 42 }
+#        ^ constant.other.symbol - meta.annotation.type
+#               ^ source.vibescript - meta.annotation.type
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# expression fallback "quoted field": 42
+
+opts = { "quoted field": 42 }
+#        ^ string.quoted - meta.annotation.type
+#                        ^ source.vibescript - meta.annotation.type
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# expression fallback field: true
+
+opts = { field: true }
+#        ^ constant.other.symbol - meta.annotation.type
+#               ^ source.vibescript - meta.annotation.type
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# expression fallback "quoted field": true
+
+opts = { "quoted field": true }
+#        ^ string.quoted - meta.annotation.type
+#                        ^ source.vibescript - meta.annotation.type
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# expression fallback field: :fast
+
+opts = { field: :fast }
+#        ^ constant.other.symbol - meta.annotation.type
+#               ^ source.vibescript - meta.annotation.type
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# expression fallback "quoted field": :fast
+
+opts = { "quoted field": :fast }
+#        ^ string.quoted - meta.annotation.type
+#                        ^ source.vibescript - meta.annotation.type
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# expression fallback field: numbered
+
+opts = { field: numbered }
+#        ^ constant.other.symbol - meta.annotation.type
+#               ^ source.vibescript - meta.annotation.type
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# expression fallback "quoted field": numbered
+
+opts = { "quoted field": numbered }
+#        ^ string.quoted - meta.annotation.type
+#                        ^ source.vibescript - meta.annotation.type
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# expression fallback field: number()
+
+opts = { field: number() }
+#        ^ constant.other.symbol - meta.annotation.type
+#               ^ source.vibescript - meta.annotation.type
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# expression fallback "quoted field": number()
+
+opts = { "quoted field": number() }
+#        ^ string.quoted - meta.annotation.type
+#                        ^ source.vibescript - meta.annotation.type
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# expression fallback field: number.call
+
+opts = { field: number.call }
+#        ^ constant.other.symbol - meta.annotation.type
+#               ^ source.vibescript - meta.annotation.type
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# expression fallback "quoted field": number.call
+
+opts = { "quoted field": number.call }
+#        ^ string.quoted - meta.annotation.type
+#                        ^ source.vibescript - meta.annotation.type
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# expression fallback field: number[0]
+
+opts = { field: number[0] }
+#        ^ constant.other.symbol - meta.annotation.type
+#               ^ source.vibescript - meta.annotation.type
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# expression fallback "quoted field": number[0]
+
+opts = { "quoted field": number[0] }
+#        ^ string.quoted - meta.annotation.type
+#                        ^ source.vibescript - meta.annotation.type
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# expression fallback field: number + 1
+
+opts = { field: number + 1 }
+#        ^ constant.other.symbol - meta.annotation.type
+#               ^ source.vibescript - meta.annotation.type
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# expression fallback "quoted field": number + 1
+
+opts = { "quoted field": number + 1 }
+#        ^ string.quoted - meta.annotation.type
+#                        ^ source.vibescript - meta.annotation.type
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# expression fallback field: number..3
+
+opts = { field: number..3 }
+#        ^ constant.other.symbol - meta.annotation.type
+#               ^ source.vibescript - meta.annotation.type
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# expression fallback "quoted field": number..3
+
+opts = { "quoted field": number..3 }
+#        ^ string.quoted - meta.annotation.type
+#                        ^ source.vibescript - meta.annotation.type
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# expression fallback field: number ? yes : no
+
+opts = { field: number ? yes : no }
+#        ^ constant.other.symbol - meta.annotation.type
+#               ^ source.vibescript - meta.annotation.type
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# expression fallback "quoted field": number ? yes : no
+
+opts = { "quoted field": number ? yes : no }
+#        ^ string.quoted - meta.annotation.type
+#                        ^ source.vibescript - meta.annotation.type
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# expression fallback field: [number, 1]
+
+opts = { field: [number, 1] }
+#        ^ constant.other.symbol - meta.annotation.type
+#               ^ source.vibescript - meta.annotation.type
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# expression fallback "quoted field": [number, 1]
+
+opts = { "quoted field": [number, 1] }
+#        ^ string.quoted - meta.annotation.type
+#                        ^ source.vibescript - meta.annotation.type
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# expression fallback field: { child: User }
+
+opts = { field: { child: User } }
+#        ^ constant.other.symbol - meta.annotation.type
+#               ^ source.vibescript - meta.annotation.type
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# expression fallback "quoted field": { child: User }
+
+opts = { "quoted field": { child: User } }
+#        ^ string.quoted - meta.annotation.type
+#                        ^ source.vibescript - meta.annotation.type
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# expression fallback field: int, other: lookup()
+
+opts = { field: int, other: lookup() }
+#        ^ constant.other.symbol - meta.annotation.type
+#               ^ source.vibescript - meta.annotation.type
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# expression fallback "quoted field": int, other: lookup()
+
+opts = { "quoted field": int, other: lookup() }
+#        ^ string.quoted - meta.annotation.type
+#                        ^ source.vibescript - meta.annotation.type
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# expression fallback field: int, other: nil
+
+opts = { field: int, other: nil }
+#        ^ constant.other.symbol - meta.annotation.type
+#               ^ source.vibescript - meta.annotation.type
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# expression fallback "quoted field": int, other: nil
+
+opts = { "quoted field": int, other: nil }
+#        ^ string.quoted - meta.annotation.type
+#                        ^ source.vibescript - meta.annotation.type
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# expression fallback field: int, other: "text"
+
+opts = { field: int, other: "text" }
+#        ^ constant.other.symbol - meta.annotation.type
+#               ^ source.vibescript - meta.annotation.type
+puts "after"
+#     ^ string.quoted - meta.annotation.type
+# expression fallback "quoted field": int, other: "text"
+
+opts = { "quoted field": int, other: "text" }
+#        ^ string.quoted - meta.annotation.type
+#                        ^ source.vibescript - meta.annotation.type
+puts "after"
+#     ^ string.quoted - meta.annotation.type

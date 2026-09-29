@@ -1,0 +1,339 @@
+# SYNTAX TEST "Packages/Vibescript/Vibescript.sublime-syntax"
+# alias name id
+
+type id = int # alias
+# <- keyword.declaration.type
+#    ^ entity.name.type
+#         ^ meta.annotation.type support.type
+#               ^ comment.line
+value: id = 1
+# <- variable.other - constant.other.symbol
+#      ^ meta.annotation.type support.type
+#           ^ constant.numeric - meta.annotation.type
+def echo(item: id) -> id
+#              ^ meta.annotation.type support.type
+#                     ^ meta.annotation.type support.type
+  item
+# ^ source.vibescript - meta.annotation.type
+end
+echo(value)
+# alias name Id
+
+type Id = int # alias
+# <- keyword.declaration.type
+#    ^ entity.name.type
+#         ^ meta.annotation.type support.type
+#               ^ comment.line
+value: Id = 1
+# <- variable.other - constant.other.symbol
+#      ^ meta.annotation.type support.class
+#           ^ constant.numeric - meta.annotation.type
+def echo(item: Id) -> Id
+#              ^ meta.annotation.type support.class
+#                     ^ meta.annotation.type support.class
+  item
+# ^ source.vibescript - meta.annotation.type
+end
+echo(value)
+# alias name ID
+
+type ID = int # alias
+# <- keyword.declaration.type
+#    ^ entity.name.type
+#         ^ meta.annotation.type support.type
+#               ^ comment.line
+value: ID = 1
+# <- variable.other - constant.other.symbol
+#      ^ meta.annotation.type support.class
+#           ^ constant.numeric - meta.annotation.type
+def echo(item: ID) -> ID
+#              ^ meta.annotation.type support.class
+#                     ^ meta.annotation.type support.class
+  item
+# ^ source.vibescript - meta.annotation.type
+end
+echo(value)
+# alias name _id
+
+type _id = int # alias
+# <- keyword.declaration.type
+#    ^ entity.name.type
+#          ^ meta.annotation.type support.type
+#                ^ comment.line
+value: _id = 1
+# <- variable.other - constant.other.symbol
+#      ^ meta.annotation.type support.type
+#            ^ constant.numeric - meta.annotation.type
+def echo(item: _id) -> _id
+#              ^ meta.annotation.type support.type
+#                      ^ meta.annotation.type support.type
+  item
+# ^ source.vibescript - meta.annotation.type
+end
+echo(value)
+# alias name _
+
+type _ = int # alias
+# <- keyword.declaration.type
+#    ^ entity.name.type
+#        ^ meta.annotation.type support.type
+#              ^ comment.line
+value: _ = 1
+# <- variable.other - constant.other.symbol
+#      ^ meta.annotation.type support.type
+#          ^ constant.numeric - meta.annotation.type
+def echo(item: _) -> _
+#              ^ meta.annotation.type support.type
+#                    ^ meta.annotation.type support.type
+  item
+# ^ source.vibescript - meta.annotation.type
+end
+echo(value)
+# alias name id2
+
+type id2 = int # alias
+# <- keyword.declaration.type
+#    ^ entity.name.type
+#          ^ meta.annotation.type support.type
+#                ^ comment.line
+value: id2 = 1
+# <- variable.other - constant.other.symbol
+#      ^ meta.annotation.type support.type
+#            ^ constant.numeric - meta.annotation.type
+def echo(item: id2) -> id2
+#              ^ meta.annotation.type support.type
+#                      ^ meta.annotation.type support.type
+  item
+# ^ source.vibescript - meta.annotation.type
+end
+echo(value)
+# alias name λ
+
+type λ = int # alias
+# <- keyword.declaration.type
+#    ^ entity.name.type
+#        ^ meta.annotation.type support.type
+#              ^ comment.line
+value: λ = 1
+# <- variable.other - constant.other.symbol
+#      ^ meta.annotation.type support.type
+#          ^ constant.numeric - meta.annotation.type
+def echo(item: λ) -> λ
+#              ^ meta.annotation.type support.type
+#                    ^ meta.annotation.type support.type
+  item
+# ^ source.vibescript - meta.annotation.type
+end
+echo(value)
+# alias name Λ
+
+type Λ = int # alias
+# <- keyword.declaration.type
+#    ^ entity.name.type
+#        ^ meta.annotation.type support.type
+#              ^ comment.line
+value: Λ = 1
+# <- variable.other - constant.other.symbol
+#      ^ meta.annotation.type support.type
+#          ^ constant.numeric - meta.annotation.type
+def echo(item: Λ) -> Λ
+#              ^ meta.annotation.type support.type
+#                    ^ meta.annotation.type support.type
+  item
+# ^ source.vibescript - meta.annotation.type
+end
+echo(value)
+# alias name 名字
+
+type 名字 = int # alias
+# <- keyword.declaration.type
+#    ^ entity.name.type
+#         ^ meta.annotation.type support.type
+#               ^ comment.line
+value: 名字 = 1
+# <- variable.other - constant.other.symbol
+#      ^ meta.annotation.type support.type
+#           ^ constant.numeric - meta.annotation.type
+def echo(item: 名字) -> 名字
+#              ^ meta.annotation.type support.type
+#                     ^ meta.annotation.type support.type
+  item
+# ^ source.vibescript - meta.annotation.type
+end
+echo(value)
+# alias name 𝔦𝔡
+
+type 𝔦𝔡 = int # alias
+# <- keyword.declaration.type
+#    ^ entity.name.type
+#         ^ meta.annotation.type support.type
+#               ^ comment.line
+value: 𝔦𝔡 = 1
+# <- variable.other - constant.other.symbol
+#      ^ meta.annotation.type support.type
+#           ^ constant.numeric - meta.annotation.type
+def echo(item: 𝔦𝔡) -> 𝔦𝔡
+#              ^ meta.annotation.type support.type
+#                     ^ meta.annotation.type support.type
+  item
+# ^ source.vibescript - meta.annotation.type
+end
+echo(value)
+# alias name id٢
+
+type id٢ = int # alias
+# <- keyword.declaration.type
+#    ^ entity.name.type
+#          ^ meta.annotation.type support.type
+#                ^ comment.line
+value: id٢ = 1
+# <- variable.other - constant.other.symbol
+#      ^ meta.annotation.type support.type
+#            ^ constant.numeric - meta.annotation.type
+def echo(item: id٢) -> id٢
+#              ^ meta.annotation.type support.type
+#                      ^ meta.annotation.type support.type
+  item
+# ^ source.vibescript - meta.annotation.type
+end
+echo(value)
+# alias name Idλ
+
+type Idλ = int # alias
+# <- keyword.declaration.type
+#    ^ entity.name.type
+#          ^ meta.annotation.type support.type
+#                ^ comment.line
+value: Idλ = 1
+# <- variable.other - constant.other.symbol
+#      ^ meta.annotation.type support.class
+#            ^ constant.numeric - meta.annotation.type
+def echo(item: Idλ) -> Idλ
+#              ^ meta.annotation.type support.class
+#                      ^ meta.annotation.type support.class
+  item
+# ^ source.vibescript - meta.annotation.type
+end
+echo(value)
+# alias name module
+
+type module = int # alias
+# <- keyword.declaration.type
+#    ^ entity.name.type
+#             ^ meta.annotation.type support.type
+#                   ^ comment.line
+value: module = 1
+# <- variable.other - constant.other.symbol
+#      ^ meta.annotation.type support.type
+#               ^ constant.numeric - meta.annotation.type
+def echo(item: module) -> module
+#              ^ meta.annotation.type support.type
+#                         ^ meta.annotation.type support.type
+  item
+# ^ source.vibescript - meta.annotation.type
+end
+echo(value)
+# alias name public
+
+type public = int # alias
+# <- keyword.declaration.type
+#    ^ entity.name.type
+#             ^ meta.annotation.type support.type
+#                   ^ comment.line
+value: public = 1
+# <- variable.other - constant.other.symbol
+#      ^ meta.annotation.type support.type
+#               ^ constant.numeric - meta.annotation.type
+def echo(item: public) -> public
+#              ^ meta.annotation.type support.type
+#                         ^ meta.annotation.type support.type
+  item
+# ^ source.vibescript - meta.annotation.type
+end
+echo(value)
+# alias name not
+
+type not = int # alias
+# <- keyword.declaration.type
+#    ^ entity.name.type
+#          ^ meta.annotation.type support.type
+#                ^ comment.line
+value: not = 1
+# <- variable.other - constant.other.symbol
+#      ^ meta.annotation.type support.type
+#            ^ constant.numeric - meta.annotation.type
+def echo(item: not) -> not
+#              ^ meta.annotation.type support.type
+#                      ^ meta.annotation.type support.type
+  item
+# ^ source.vibescript - meta.annotation.type
+end
+echo(value)
+# generic-free aliases with structured right-hand sides
+
+type id = int
+#    ^ entity.name.type
+type ids = array<id>
+#    ^ entity.name.type
+type record = { id: id, ... }
+#    ^ entity.name.type
+type pair = [id, string]
+#    ^ entity.name.type
+type maybe = id | nil
+#    ^ entity.name.type
+items: ids = [1]
+#      ^ meta.annotation.type support.type
+entry: record = { id: 1 }
+#      ^ meta.annotation.type support.type
+tuple: pair = [1, "one"]
+#      ^ meta.annotation.type support.type
+optional: maybe = nil
+#         ^ meta.annotation.type support.type
+# qualified lowercase aliases
+
+module Types
+  type id = int
+# ^ keyword.declaration.type
+#      ^ entity.name.type
+end
+value: Types::id = 1
+# <- variable.other - constant.other.symbol
+#      ^ meta.annotation.type support.class
+#             ^ meta.annotation.type support.type
+# lowercase aliases in block annotations
+
+type id = int
+type text = string
+values: array<int | string> = [1, "two"]
+values.each { |value: id | text| puts value }
+#                     ^ meta.annotation.type support.type
+#                          ^ meta.annotation.type support.type
+#                        ^ keyword.operator.union
+#                              ^ punctuation.separator.block-parameters.end
+#                                ^ source.vibescript - meta.annotation.type - meta.block.parameters
+def visit(&block: id -> id) -> id
+#                 ^ meta.annotation.type support.type
+  yield 1
+end
+# optional alias annotation
+
+type id = int
+value: id? = nil
+# <- variable.other - constant.other.symbol
+#      ^ meta.annotation.type support.type
+#        ^ keyword.operator.optional
+#            ^ constant.language.null - meta.annotation.type
+# semicolon aliases and trailing comments
+
+type id=int; type label=string # aliases
+#    ^ entity.name.type
+#       ^ meta.annotation.type support.type
+#                 ^ entity.name.type
+#                       ^ meta.annotation.type support.type
+#                              ^ comment.line
+value: id = 1
+# <- variable.other - constant.other.symbol
+name: label = "one"
+# <- variable.other - constant.other.symbol
+puts name
+#    ^ source.vibescript - meta.annotation.type

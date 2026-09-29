@@ -1,0 +1,107 @@
+# SYNTAX TEST "Packages/Vibescript/Vibescript.sublime-syntax"
+
+callback: (int) -> bool = handler
+# <- variable.other.vibescript
+#       ^ punctuation.separator.annotation.type.vibescript
+#          ^^^ meta.annotation.type.vibescript support.type.vibescript
+#               ^^ punctuation.separator.annotation.return-type.vibescript
+#                  ^^^^ meta.annotation.type.vibescript support.type.vibescript
+#                       ^ keyword.operator.assignment.vibescript - meta.annotation.type
+#                         ^^^^^^^ - meta.annotation.type
+
+callback: () -> bool = handler
+# <- variable.other.vibescript
+#         ^ punctuation.section.group.begin.vibescript
+#               ^^^^ meta.annotation.type.vibescript support.type.vibescript
+
+callback: int -> bool = handler
+# <- variable.other.vibescript
+#         ^^^ meta.annotation.type.vibescript support.type.vibescript
+#             ^^ punctuation.separator.annotation.return-type.vibescript
+
+def configure
+  callback: (int) -> bool = handler
+# ^^^^^^^^ variable.other.vibescript
+#            ^^^ meta.annotation.type.vibescript support.type.vibescript
+end
+
+callback: (
+# <- variable.other.vibescript
+  int,
+# ^^^ meta.annotation.type.vibescript support.type.vibescript
+  string
+# ^^^^^^ meta.annotation.type.vibescript support.type.vibescript
+) -> bool = handler
+#    ^^^^ meta.annotation.type.vibescript support.type.vibescript
+#         ^ keyword.operator.assignment.vibescript - meta.annotation.type
+
+pair: [int, string] = [1, "alex"]
+# <- variable.other.vibescript
+#      ^^^ meta.annotation.type.vibescript support.type.vibescript
+
+empty: [] = []
+# <- variable.other.vibescript
+#      ^^ meta.annotation.type.vibescript
+
+maybe: [nil, User?] = [nil, nil]
+# <- variable.other.vibescript
+#       ^^^ meta.annotation.type.vibescript constant.language.null.vibescript
+#            ^^^^ meta.annotation.type.vibescript support.class.vibescript
+
+callbacks: [(int) -> bool, () -> string] = handlers
+# <- variable.other.vibescript
+#            ^^^ meta.annotation.type.vibescript support.type.vibescript
+#                                ^^^^^^ meta.annotation.type.vibescript support.type.vibescript
+
+record: { name: string } = { name: "alex" }
+# <- variable.other.vibescript
+#         ^^^^ variable.other.member.vibescript
+#               ^^^^^^ meta.annotation.type.vibescript support.type.vibescript
+
+empty: {} = {}
+# <- variable.other.vibescript
+#      ^^ meta.annotation.type.vibescript
+
+record: { "name": string, missing: nil } = data
+# <- variable.other.vibescript
+#                 ^^^^^^ meta.annotation.type.vibescript support.type.vibescript
+#                                  ^^^ meta.annotation.type.vibescript constant.language.null.vibescript
+
+record: { callback: (int) -> bool, ... } = data
+# <- variable.other.vibescript
+#                    ^^^ meta.annotation.type.vibescript support.type.vibescript
+#                                  ^^^ keyword.operator.open-shape.vibescript
+
+pair: [
+# <- variable.other.vibescript
+  int,
+# ^^^ meta.annotation.type.vibescript support.type.vibescript
+  string
+# ^^^^^^ meta.annotation.type.vibescript support.type.vibescript
+] = values
+# ^ keyword.operator.assignment.vibescript - meta.annotation.type
+
+record: {
+# <- variable.other.vibescript
+  name: string,
+# ^^^^ variable.other.member.vibescript
+#       ^^^^^^ meta.annotation.type.vibescript support.type.vibescript
+  ...
+# ^^^ keyword.operator.open-shape.vibescript
+} = data
+# ^ keyword.operator.assignment.vibescript - meta.annotation.type
+
+opts = { group: (User), items: [], child: {} }
+#        ^^^^^ constant.other.symbol.vibescript - meta.annotation.type
+#                       ^^^^^ constant.other.symbol.vibescript - meta.annotation.type
+#                                  ^^^^^ constant.other.symbol.vibescript - meta.annotation.type
+
+send(
+  group: (User),
+# ^^^^^ constant.other.symbol.vibescript - meta.annotation.type
+#         ^^^^ support.class.vibescript - meta.annotation.type
+  items: [],
+# ^^^^^ constant.other.symbol.vibescript - meta.annotation.type
+  child: {}
+# ^^^^^ constant.other.symbol.vibescript - meta.annotation.type
+)

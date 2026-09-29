@@ -1,0 +1,173 @@
+# SYNTAX TEST "Packages/Vibescript/Vibescript.sublime-syntax"
+
+type Result = { name: string, age?: int, ... }
+# <- keyword.declaration.type.vibescript
+#    ^^^^^^ entity.name.type.vibescript
+#               ^^^^ variable.other.member.vibescript
+#                     ^^^^^^ support.type.vibescript
+#                             ^^^^ variable.other.member.vibescript
+#                                   ^^^ support.type.vibescript
+#                                        ^^^ keyword.operator.open-shape.vibescript
+
+values: hash<string, array<[int, string?]>> = {}
+# <- variable.other.vibescript
+#       ^^^^ support.type.vibescript
+#            ^^^^^^ support.type.vibescript
+#                    ^^^^^ support.type.vibescript
+#                           ^^^ support.type.vibescript
+#                                      ^ keyword.operator.optional.vibescript
+#                                           ^ keyword.operator.assignment.vibescript
+
+def visit(items: array<int>, *, limit: int = 3, &block: (int, string) -> bool) -> int
+# <- keyword.declaration.function.vibescript
+#   ^^^^^ entity.name.function.vibescript
+#         ^^^^^ variable.parameter.vibescript
+#                ^^^^^ support.type.vibescript
+#                            ^ keyword.operator.parameter.vibescript
+#                               ^^^^^ variable.parameter.vibescript
+#                                            ^ constant.numeric.integer.vibescript
+#                                               ^ keyword.operator.parameter.vibescript
+#                                                ^^^^^ variable.parameter.vibescript
+#                                                             ^^^^^^ support.type.vibescript
+#                                                                        ^^^^ support.type.vibescript
+
+end
+
+def maybe(&block?: () -> string) -> string
+#          ^^^^^^ variable.parameter.vibescript
+#                        ^^^^^^ support.type.vibescript
+
+end
+
+total = value.as(hash<string, array<int | nil>>) 
+#             ^^ variable.function.vibescript
+#                ^^^^ support.type.vibescript
+#                             ^^^^^ support.type.vibescript
+#                                       ^ keyword.operator.union.vibescript
+#                                         ^^^ constant.language.null.vibescript
+
+schema = { id: string, tags?: array<int>, ... }
+#          ^^ variable.other.member.vibescript
+#              ^^^^^^ support.type.vibescript
+#                      ^^^^^ variable.other.member.vibescript
+#                             ^^^^^ support.type.vibescript
+#                                         ^^^ keyword.operator.open-shape.vibescript
+
+sum = values.reduce(0) { |acc, value| acc + value }
+#            ^^^^^^ variable.function.vibescript
+#                         ^^^ variable.parameter.vibescript
+#                              ^^^^^ variable.parameter.vibescript
+
+quotient = 7 // 2
+#            ^^ keyword.operator.arithmetic.vibescript - string.regexp.vibescript
+
+quotient //= 2
+#        ^^^ keyword.operator.assignment.augmented.vibescript - string.regexp.vibescript
+
+quotient = 7//2
+#           ^^ keyword.operator.arithmetic.vibescript - string.regexp.vibescript
+
+pattern = /id+/i
+#         ^^^^^^ string.regexp.vibescript
+
+message = "hello #{name}"
+#         ^^^^^^ string.quoted.double.vibescript
+#                ^^ punctuation.section.interpolation.begin.vibescript
+
+puts Time.now
+# <- variable.function.vibescript
+#         ^^^ variable.function.vibescript
+
+module Pricing
+# <- keyword.declaration.module.vibescript
+#      ^^^^^^^ entity.name.namespace.vibescript
+
+end
+
+unless = 1
+# <- - keyword.control.vibescript
+
+until = 1
+# <- - keyword.control.vibescript
+
+do = 1
+# <- - keyword.control.vibescript
+
+and = 1
+# <- - keyword.operator.logical.vibescript
+
+words = %w[old syntax]
+#       ^ keyword.operator.arithmetic.vibescript - string.quoted.other.percent-array.vibescript
+
+class Box
+  property value:array<int>
+# ^^^^^^^^ keyword.declaration.member.vibescript
+#          ^^^^^ variable.other.member.vibescript
+#                ^^^^^ support.type.vibescript
+#                      ^^^ support.type.vibescript
+
+end
+
+=begin
+# <- comment.block.vibescript
+ignored type Name = int
+# <- comment.block.vibescript
+=end
+# <- comment.block.vibescript
+value = 1
+#       ^ constant.numeric.integer.vibescript
+
+opts = {
+  name: "alex",
+# ^^^^ constant.other.symbol.vibescript - meta.annotation.type
+#       ^^^^^^ string.quoted.double.vibescript - meta.annotation.type
+  count: 12,
+# ^^^^^ constant.other.symbol.vibescript - meta.annotation.type
+#        ^^ constant.numeric.integer.vibescript - meta.annotation.type
+  mode: :fast,
+#       ^^^^^ constant.other.symbol.vibescript - meta.annotation.type
+  enabled: true,
+#          ^^^^ constant.language.boolean.vibescript - meta.annotation.type
+  missing: nil,
+#          ^^^ constant.language.null.vibescript - meta.annotation.type
+  computed: value + 1,
+#                   ^ constant.numeric.integer.vibescript - meta.annotation.type
+  items: [1, 2],
+#         ^ constant.numeric.integer.vibescript - meta.annotation.type
+  child: { count: 3 },
+#                 ^ constant.numeric.integer.vibescript - meta.annotation.type
+}
+
+send(
+  name: "alex",
+# ^^^^ constant.other.symbol.vibescript - meta.annotation.type
+#       ^^^^^^ string.quoted.double.vibescript - meta.annotation.type
+  count: 12,
+#        ^^ constant.numeric.integer.vibescript - meta.annotation.type
+)
+
+pair: [int, string] = [1, "alex"]
+# <- variable.other.vibescript
+#      ^^^ support.type.vibescript
+#           ^^^^^^ support.type.vibescript
+
+record: { name: string, ... } = { name: "alex" }
+# <- variable.other.vibescript
+#               ^^^^^^ support.type.vibescript
+
+user: models.User? = nil
+# <- variable.other.vibescript
+#            ^^^^ support.class.vibescript
+
+=begin examples [
+# <- comment.block.vibescript
+record {
+# <- comment.block.vibescript
+if ready
+# <- comment.block.vibescript
+end
+# <- comment.block.vibescript
+=end
+# <- comment.block.vibescript
+value = 1
+#       ^ constant.numeric.integer.vibescript - comment.block
