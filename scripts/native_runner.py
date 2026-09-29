@@ -49,12 +49,13 @@ def run_case(request, cases, index, results):
     view = window.new_file()
     view.set_scratch(True)
     view.settings().set("tab_size", 2)
-    view.settings().set("translate_tabs_to_spaces", True)
+    view.settings().set("translate_tabs_to_spaces", False)
     view.settings().set("detect_indentation", False)
     view.assign_syntax("Packages/Vibescript/Vibescript.sublime-syntax")
     case = cases[index]
     source = Path(case["path"]).read_text() if "path" in case else case["source"]
     view.run_command("append", {"characters": source})
+    view.settings().set("translate_tabs_to_spaces", True)
     sublime.set_timeout(lambda: check_case(request, cases, index, results, view, source), 10)
 
 

@@ -52,7 +52,9 @@ class LayoutTests(unittest.TestCase):
         for case in cases:
             lines = case["source"].splitlines()
             for group in case["equal_scopes"]:
-                self.assertLessEqual({"inline", "leading", "trailing", "continued-inline", "continued-leading", "continued-trailing"},
+                layouts = ({"inline", "space", "tab", "newline", "comment"} if case.get("layout_kind") == "call-spacing" else
+                           {"inline", "leading", "trailing", "continued-inline", "continued-leading", "continued-trailing"})
+                self.assertLessEqual(layouts,
                                      {location["layout"] for location in group["locations"]})
                 for location in group["locations"]:
                     row, column = location["position"]

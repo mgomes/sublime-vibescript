@@ -21,6 +21,7 @@ from alias_cases import cases as alias_cases
 from nested_cases import cases as nested_cases
 from layout_cases import cases as layout_cases, required_scopes
 from ternary_cases import cases as ternary_cases
+from call_cases import cases as call_cases
 
 
 BUILTINS = set(inventory()["builtins"])
@@ -293,6 +294,14 @@ def main():
                        capture_output=True, text=True, check=True)
     cases.extend(ternaries)
     coverage["ternary-cases"] = len(ternaries)
+    calls = call_cases()
+    for case in calls:
+        checked = subprocess.run([str(compiler), "check", "--eval", case["source"]], cwd=args.rust_repo,
+                                 capture_output=True, text=True)
+        if (checked.returncode == 0) != case["compiler_accepted"]:
+            raise ValueError(f"Unexpected call parse result for {case['name']}: {checked.stdout}{checked.stderr}")
+    cases.extend(calls)
+    coverage["call-spacing-cases"] = len(calls)
     layouts = layout_cases()
     cases.extend(layouts)
     coverage["layout-invariance-cases"] = len(layouts)

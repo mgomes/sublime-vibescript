@@ -14705,3 +14705,2489 @@ end
 (ready ? :ok : {next:
 :error})
 # <- constant.other.symbol
+
+# layout:call as int
+
+type Status = int
+number = 1
+value = JSON.parse("1")
+def identity(item: any) -> any
+  item
+end
+module Other
+  def self.parse_as(text: string, schema: any) -> any
+    text
+  end
+end
+class Example
+  def as?(item: int) -> int
+    item
+  end
+end
+example = Example.new
+value.as(int)
+#     ^ variable.function
+#       ^ punctuation.section.group.begin
+#        ^ meta.annotation.type
+#           ^ punctuation.section.group.end
+after = :after
+#       ^ constant.other.symbol - meta.annotation.type
+
+type Status = int
+number = 1
+value = JSON.parse("1")
+def identity(item: any) -> any
+  item
+end
+module Other
+  def self.parse_as(text: string, schema: any) -> any
+    text
+  end
+end
+class Example
+  def as?(item: int) -> int
+    item
+  end
+end
+example = Example.new
+value.as (int)
+#     ^ variable.function
+#        ^ punctuation.section.group.begin
+#         ^ meta.annotation.type
+#            ^ punctuation.section.group.end
+after = :after
+#       ^ constant.other.symbol - meta.annotation.type
+
+type Status = int
+number = 1
+value = JSON.parse("1")
+def identity(item: any) -> any
+  item
+end
+module Other
+  def self.parse_as(text: string, schema: any) -> any
+    text
+  end
+end
+class Example
+  def as?(item: int) -> int
+    item
+  end
+end
+example = Example.new
+value.as	(int)
+#     ^ variable.function
+#        ^ punctuation.section.group.begin
+#         ^ meta.annotation.type
+#            ^ punctuation.section.group.end
+after = :after
+#       ^ constant.other.symbol - meta.annotation.type
+
+type Status = int
+number = 1
+value = JSON.parse("1")
+def identity(item: any) -> any
+  item
+end
+module Other
+  def self.parse_as(text: string, schema: any) -> any
+    text
+  end
+end
+class Example
+  def as?(item: int) -> int
+    item
+  end
+end
+example = Example.new
+value.as
+#     ^ variable.function
+(int)
+# <- punctuation.section.group.begin
+#^ meta.annotation.type
+#   ^ punctuation.section.group.end
+after = :after
+#       ^ constant.other.symbol - meta.annotation.type
+
+type Status = int
+number = 1
+value = JSON.parse("1")
+def identity(item: any) -> any
+  item
+end
+module Other
+  def self.parse_as(text: string, schema: any) -> any
+    text
+  end
+end
+class Example
+  def as?(item: int) -> int
+    item
+  end
+end
+example = Example.new
+value.as # call boundary
+#     ^ variable.function
+(int)
+# <- punctuation.section.group.begin
+#^ meta.annotation.type
+#   ^ punctuation.section.group.end
+after = :after
+#       ^ constant.other.symbol - meta.annotation.type
+
+# layout:call JSON.parse_as int
+
+type Status = int
+number = 1
+value = JSON.parse("1")
+def identity(item: any) -> any
+  item
+end
+module Other
+  def self.parse_as(text: string, schema: any) -> any
+    text
+  end
+end
+class Example
+  def as?(item: int) -> int
+    item
+  end
+end
+example = Example.new
+JSON.parse_as("1", int)
+#    ^ variable.function
+#            ^ punctuation.section.group.begin
+#             ^ string.quoted - meta.annotation.type
+#                  ^ meta.annotation.type
+#                     ^ punctuation.section.group.end
+after = :after
+#       ^ constant.other.symbol - meta.annotation.type
+
+type Status = int
+number = 1
+value = JSON.parse("1")
+def identity(item: any) -> any
+  item
+end
+module Other
+  def self.parse_as(text: string, schema: any) -> any
+    text
+  end
+end
+class Example
+  def as?(item: int) -> int
+    item
+  end
+end
+example = Example.new
+JSON.parse_as ("1", int)
+#    ^ variable.function
+#             ^ punctuation.section.group.begin
+#              ^ string.quoted - meta.annotation.type
+#                   ^ meta.annotation.type
+#                      ^ punctuation.section.group.end
+after = :after
+#       ^ constant.other.symbol - meta.annotation.type
+
+type Status = int
+number = 1
+value = JSON.parse("1")
+def identity(item: any) -> any
+  item
+end
+module Other
+  def self.parse_as(text: string, schema: any) -> any
+    text
+  end
+end
+class Example
+  def as?(item: int) -> int
+    item
+  end
+end
+example = Example.new
+JSON.parse_as	("1", int)
+#    ^ variable.function
+#             ^ punctuation.section.group.begin
+#              ^ string.quoted - meta.annotation.type
+#                   ^ meta.annotation.type
+#                      ^ punctuation.section.group.end
+after = :after
+#       ^ constant.other.symbol - meta.annotation.type
+
+type Status = int
+number = 1
+value = JSON.parse("1")
+def identity(item: any) -> any
+  item
+end
+module Other
+  def self.parse_as(text: string, schema: any) -> any
+    text
+  end
+end
+class Example
+  def as?(item: int) -> int
+    item
+  end
+end
+example = Example.new
+JSON.parse_as
+#    ^ variable.function
+("1", int)
+# <- punctuation.section.group.begin
+#^ string.quoted - meta.annotation.type
+#     ^ meta.annotation.type
+#        ^ punctuation.section.group.end
+after = :after
+#       ^ constant.other.symbol - meta.annotation.type
+
+type Status = int
+number = 1
+value = JSON.parse("1")
+def identity(item: any) -> any
+  item
+end
+module Other
+  def self.parse_as(text: string, schema: any) -> any
+    text
+  end
+end
+class Example
+  def as?(item: int) -> int
+    item
+  end
+end
+example = Example.new
+JSON.parse_as # call boundary
+#    ^ variable.function
+("1", int)
+# <- punctuation.section.group.begin
+#^ string.quoted - meta.annotation.type
+#     ^ meta.annotation.type
+#        ^ punctuation.section.group.end
+after = :after
+#       ^ constant.other.symbol - meta.annotation.type
+
+# layout:call as Status
+
+type Status = int
+number = 1
+value = JSON.parse("1")
+def identity(item: any) -> any
+  item
+end
+module Other
+  def self.parse_as(text: string, schema: any) -> any
+    text
+  end
+end
+class Example
+  def as?(item: int) -> int
+    item
+  end
+end
+example = Example.new
+value.as(Status)
+#     ^ variable.function
+#       ^ punctuation.section.group.begin
+#        ^ meta.annotation.type
+#              ^ punctuation.section.group.end
+after = :after
+#       ^ constant.other.symbol - meta.annotation.type
+
+type Status = int
+number = 1
+value = JSON.parse("1")
+def identity(item: any) -> any
+  item
+end
+module Other
+  def self.parse_as(text: string, schema: any) -> any
+    text
+  end
+end
+class Example
+  def as?(item: int) -> int
+    item
+  end
+end
+example = Example.new
+value.as (Status)
+#     ^ variable.function
+#        ^ punctuation.section.group.begin
+#         ^ meta.annotation.type
+#               ^ punctuation.section.group.end
+after = :after
+#       ^ constant.other.symbol - meta.annotation.type
+
+type Status = int
+number = 1
+value = JSON.parse("1")
+def identity(item: any) -> any
+  item
+end
+module Other
+  def self.parse_as(text: string, schema: any) -> any
+    text
+  end
+end
+class Example
+  def as?(item: int) -> int
+    item
+  end
+end
+example = Example.new
+value.as	(Status)
+#     ^ variable.function
+#        ^ punctuation.section.group.begin
+#         ^ meta.annotation.type
+#               ^ punctuation.section.group.end
+after = :after
+#       ^ constant.other.symbol - meta.annotation.type
+
+type Status = int
+number = 1
+value = JSON.parse("1")
+def identity(item: any) -> any
+  item
+end
+module Other
+  def self.parse_as(text: string, schema: any) -> any
+    text
+  end
+end
+class Example
+  def as?(item: int) -> int
+    item
+  end
+end
+example = Example.new
+value.as
+#     ^ variable.function
+(Status)
+# <- punctuation.section.group.begin
+#^ meta.annotation.type
+#      ^ punctuation.section.group.end
+after = :after
+#       ^ constant.other.symbol - meta.annotation.type
+
+type Status = int
+number = 1
+value = JSON.parse("1")
+def identity(item: any) -> any
+  item
+end
+module Other
+  def self.parse_as(text: string, schema: any) -> any
+    text
+  end
+end
+class Example
+  def as?(item: int) -> int
+    item
+  end
+end
+example = Example.new
+value.as # call boundary
+#     ^ variable.function
+(Status)
+# <- punctuation.section.group.begin
+#^ meta.annotation.type
+#      ^ punctuation.section.group.end
+after = :after
+#       ^ constant.other.symbol - meta.annotation.type
+
+# layout:call JSON.parse_as Status
+
+type Status = int
+number = 1
+value = JSON.parse("1")
+def identity(item: any) -> any
+  item
+end
+module Other
+  def self.parse_as(text: string, schema: any) -> any
+    text
+  end
+end
+class Example
+  def as?(item: int) -> int
+    item
+  end
+end
+example = Example.new
+JSON.parse_as("1", Status)
+#    ^ variable.function
+#            ^ punctuation.section.group.begin
+#             ^ string.quoted - meta.annotation.type
+#                  ^ meta.annotation.type
+#                        ^ punctuation.section.group.end
+after = :after
+#       ^ constant.other.symbol - meta.annotation.type
+
+type Status = int
+number = 1
+value = JSON.parse("1")
+def identity(item: any) -> any
+  item
+end
+module Other
+  def self.parse_as(text: string, schema: any) -> any
+    text
+  end
+end
+class Example
+  def as?(item: int) -> int
+    item
+  end
+end
+example = Example.new
+JSON.parse_as ("1", Status)
+#    ^ variable.function
+#             ^ punctuation.section.group.begin
+#              ^ string.quoted - meta.annotation.type
+#                   ^ meta.annotation.type
+#                         ^ punctuation.section.group.end
+after = :after
+#       ^ constant.other.symbol - meta.annotation.type
+
+type Status = int
+number = 1
+value = JSON.parse("1")
+def identity(item: any) -> any
+  item
+end
+module Other
+  def self.parse_as(text: string, schema: any) -> any
+    text
+  end
+end
+class Example
+  def as?(item: int) -> int
+    item
+  end
+end
+example = Example.new
+JSON.parse_as	("1", Status)
+#    ^ variable.function
+#             ^ punctuation.section.group.begin
+#              ^ string.quoted - meta.annotation.type
+#                   ^ meta.annotation.type
+#                         ^ punctuation.section.group.end
+after = :after
+#       ^ constant.other.symbol - meta.annotation.type
+
+type Status = int
+number = 1
+value = JSON.parse("1")
+def identity(item: any) -> any
+  item
+end
+module Other
+  def self.parse_as(text: string, schema: any) -> any
+    text
+  end
+end
+class Example
+  def as?(item: int) -> int
+    item
+  end
+end
+example = Example.new
+JSON.parse_as
+#    ^ variable.function
+("1", Status)
+# <- punctuation.section.group.begin
+#^ string.quoted - meta.annotation.type
+#     ^ meta.annotation.type
+#           ^ punctuation.section.group.end
+after = :after
+#       ^ constant.other.symbol - meta.annotation.type
+
+type Status = int
+number = 1
+value = JSON.parse("1")
+def identity(item: any) -> any
+  item
+end
+module Other
+  def self.parse_as(text: string, schema: any) -> any
+    text
+  end
+end
+class Example
+  def as?(item: int) -> int
+    item
+  end
+end
+example = Example.new
+JSON.parse_as # call boundary
+#    ^ variable.function
+("1", Status)
+# <- punctuation.section.group.begin
+#^ string.quoted - meta.annotation.type
+#     ^ meta.annotation.type
+#           ^ punctuation.section.group.end
+after = :after
+#       ^ constant.other.symbol - meta.annotation.type
+
+# layout:call as array<int>
+
+type Status = int
+number = 1
+value = JSON.parse("1")
+def identity(item: any) -> any
+  item
+end
+module Other
+  def self.parse_as(text: string, schema: any) -> any
+    text
+  end
+end
+class Example
+  def as?(item: int) -> int
+    item
+  end
+end
+example = Example.new
+value.as(array<int>)
+#     ^ variable.function
+#       ^ punctuation.section.group.begin
+#        ^ meta.annotation.type
+#                  ^ punctuation.section.group.end
+after = :after
+#       ^ constant.other.symbol - meta.annotation.type
+
+type Status = int
+number = 1
+value = JSON.parse("1")
+def identity(item: any) -> any
+  item
+end
+module Other
+  def self.parse_as(text: string, schema: any) -> any
+    text
+  end
+end
+class Example
+  def as?(item: int) -> int
+    item
+  end
+end
+example = Example.new
+value.as (array<int>)
+#     ^ variable.function
+#        ^ punctuation.section.group.begin
+#         ^ meta.annotation.type
+#                   ^ punctuation.section.group.end
+after = :after
+#       ^ constant.other.symbol - meta.annotation.type
+
+type Status = int
+number = 1
+value = JSON.parse("1")
+def identity(item: any) -> any
+  item
+end
+module Other
+  def self.parse_as(text: string, schema: any) -> any
+    text
+  end
+end
+class Example
+  def as?(item: int) -> int
+    item
+  end
+end
+example = Example.new
+value.as	(array<int>)
+#     ^ variable.function
+#        ^ punctuation.section.group.begin
+#         ^ meta.annotation.type
+#                   ^ punctuation.section.group.end
+after = :after
+#       ^ constant.other.symbol - meta.annotation.type
+
+type Status = int
+number = 1
+value = JSON.parse("1")
+def identity(item: any) -> any
+  item
+end
+module Other
+  def self.parse_as(text: string, schema: any) -> any
+    text
+  end
+end
+class Example
+  def as?(item: int) -> int
+    item
+  end
+end
+example = Example.new
+value.as
+#     ^ variable.function
+(array<int>)
+# <- punctuation.section.group.begin
+#^ meta.annotation.type
+#          ^ punctuation.section.group.end
+after = :after
+#       ^ constant.other.symbol - meta.annotation.type
+
+type Status = int
+number = 1
+value = JSON.parse("1")
+def identity(item: any) -> any
+  item
+end
+module Other
+  def self.parse_as(text: string, schema: any) -> any
+    text
+  end
+end
+class Example
+  def as?(item: int) -> int
+    item
+  end
+end
+example = Example.new
+value.as # call boundary
+#     ^ variable.function
+(array<int>)
+# <- punctuation.section.group.begin
+#^ meta.annotation.type
+#          ^ punctuation.section.group.end
+after = :after
+#       ^ constant.other.symbol - meta.annotation.type
+
+# layout:call JSON.parse_as array<int>
+
+type Status = int
+number = 1
+value = JSON.parse("1")
+def identity(item: any) -> any
+  item
+end
+module Other
+  def self.parse_as(text: string, schema: any) -> any
+    text
+  end
+end
+class Example
+  def as?(item: int) -> int
+    item
+  end
+end
+example = Example.new
+JSON.parse_as("1", array<int>)
+#    ^ variable.function
+#            ^ punctuation.section.group.begin
+#             ^ string.quoted - meta.annotation.type
+#                  ^ meta.annotation.type
+#                            ^ punctuation.section.group.end
+after = :after
+#       ^ constant.other.symbol - meta.annotation.type
+
+type Status = int
+number = 1
+value = JSON.parse("1")
+def identity(item: any) -> any
+  item
+end
+module Other
+  def self.parse_as(text: string, schema: any) -> any
+    text
+  end
+end
+class Example
+  def as?(item: int) -> int
+    item
+  end
+end
+example = Example.new
+JSON.parse_as ("1", array<int>)
+#    ^ variable.function
+#             ^ punctuation.section.group.begin
+#              ^ string.quoted - meta.annotation.type
+#                   ^ meta.annotation.type
+#                             ^ punctuation.section.group.end
+after = :after
+#       ^ constant.other.symbol - meta.annotation.type
+
+type Status = int
+number = 1
+value = JSON.parse("1")
+def identity(item: any) -> any
+  item
+end
+module Other
+  def self.parse_as(text: string, schema: any) -> any
+    text
+  end
+end
+class Example
+  def as?(item: int) -> int
+    item
+  end
+end
+example = Example.new
+JSON.parse_as	("1", array<int>)
+#    ^ variable.function
+#             ^ punctuation.section.group.begin
+#              ^ string.quoted - meta.annotation.type
+#                   ^ meta.annotation.type
+#                             ^ punctuation.section.group.end
+after = :after
+#       ^ constant.other.symbol - meta.annotation.type
+
+type Status = int
+number = 1
+value = JSON.parse("1")
+def identity(item: any) -> any
+  item
+end
+module Other
+  def self.parse_as(text: string, schema: any) -> any
+    text
+  end
+end
+class Example
+  def as?(item: int) -> int
+    item
+  end
+end
+example = Example.new
+JSON.parse_as
+#    ^ variable.function
+("1", array<int>)
+# <- punctuation.section.group.begin
+#^ string.quoted - meta.annotation.type
+#     ^ meta.annotation.type
+#               ^ punctuation.section.group.end
+after = :after
+#       ^ constant.other.symbol - meta.annotation.type
+
+type Status = int
+number = 1
+value = JSON.parse("1")
+def identity(item: any) -> any
+  item
+end
+module Other
+  def self.parse_as(text: string, schema: any) -> any
+    text
+  end
+end
+class Example
+  def as?(item: int) -> int
+    item
+  end
+end
+example = Example.new
+JSON.parse_as # call boundary
+#    ^ variable.function
+("1", array<int>)
+# <- punctuation.section.group.begin
+#^ string.quoted - meta.annotation.type
+#     ^ meta.annotation.type
+#               ^ punctuation.section.group.end
+after = :after
+#       ^ constant.other.symbol - meta.annotation.type
+
+# layout:call as [int, string]
+
+type Status = int
+number = 1
+value = JSON.parse("1")
+def identity(item: any) -> any
+  item
+end
+module Other
+  def self.parse_as(text: string, schema: any) -> any
+    text
+  end
+end
+class Example
+  def as?(item: int) -> int
+    item
+  end
+end
+example = Example.new
+value.as([int, string])
+#     ^ variable.function
+#       ^ punctuation.section.group.begin
+#        ^ meta.annotation.type
+#                     ^ punctuation.section.group.end
+after = :after
+#       ^ constant.other.symbol - meta.annotation.type
+
+type Status = int
+number = 1
+value = JSON.parse("1")
+def identity(item: any) -> any
+  item
+end
+module Other
+  def self.parse_as(text: string, schema: any) -> any
+    text
+  end
+end
+class Example
+  def as?(item: int) -> int
+    item
+  end
+end
+example = Example.new
+value.as ([int, string])
+#     ^ variable.function
+#        ^ punctuation.section.group.begin
+#         ^ meta.annotation.type
+#                      ^ punctuation.section.group.end
+after = :after
+#       ^ constant.other.symbol - meta.annotation.type
+
+type Status = int
+number = 1
+value = JSON.parse("1")
+def identity(item: any) -> any
+  item
+end
+module Other
+  def self.parse_as(text: string, schema: any) -> any
+    text
+  end
+end
+class Example
+  def as?(item: int) -> int
+    item
+  end
+end
+example = Example.new
+value.as	([int, string])
+#     ^ variable.function
+#        ^ punctuation.section.group.begin
+#         ^ meta.annotation.type
+#                      ^ punctuation.section.group.end
+after = :after
+#       ^ constant.other.symbol - meta.annotation.type
+
+type Status = int
+number = 1
+value = JSON.parse("1")
+def identity(item: any) -> any
+  item
+end
+module Other
+  def self.parse_as(text: string, schema: any) -> any
+    text
+  end
+end
+class Example
+  def as?(item: int) -> int
+    item
+  end
+end
+example = Example.new
+value.as
+#     ^ variable.function
+([int, string])
+# <- punctuation.section.group.begin
+#^ meta.annotation.type
+#             ^ punctuation.section.group.end
+after = :after
+#       ^ constant.other.symbol - meta.annotation.type
+
+type Status = int
+number = 1
+value = JSON.parse("1")
+def identity(item: any) -> any
+  item
+end
+module Other
+  def self.parse_as(text: string, schema: any) -> any
+    text
+  end
+end
+class Example
+  def as?(item: int) -> int
+    item
+  end
+end
+example = Example.new
+value.as # call boundary
+#     ^ variable.function
+([int, string])
+# <- punctuation.section.group.begin
+#^ meta.annotation.type
+#             ^ punctuation.section.group.end
+after = :after
+#       ^ constant.other.symbol - meta.annotation.type
+
+# layout:call JSON.parse_as [int, string]
+
+type Status = int
+number = 1
+value = JSON.parse("1")
+def identity(item: any) -> any
+  item
+end
+module Other
+  def self.parse_as(text: string, schema: any) -> any
+    text
+  end
+end
+class Example
+  def as?(item: int) -> int
+    item
+  end
+end
+example = Example.new
+JSON.parse_as("1", [int, string])
+#    ^ variable.function
+#            ^ punctuation.section.group.begin
+#             ^ string.quoted - meta.annotation.type
+#                  ^ meta.annotation.type
+#                               ^ punctuation.section.group.end
+after = :after
+#       ^ constant.other.symbol - meta.annotation.type
+
+type Status = int
+number = 1
+value = JSON.parse("1")
+def identity(item: any) -> any
+  item
+end
+module Other
+  def self.parse_as(text: string, schema: any) -> any
+    text
+  end
+end
+class Example
+  def as?(item: int) -> int
+    item
+  end
+end
+example = Example.new
+JSON.parse_as ("1", [int, string])
+#    ^ variable.function
+#             ^ punctuation.section.group.begin
+#              ^ string.quoted - meta.annotation.type
+#                   ^ meta.annotation.type
+#                                ^ punctuation.section.group.end
+after = :after
+#       ^ constant.other.symbol - meta.annotation.type
+
+type Status = int
+number = 1
+value = JSON.parse("1")
+def identity(item: any) -> any
+  item
+end
+module Other
+  def self.parse_as(text: string, schema: any) -> any
+    text
+  end
+end
+class Example
+  def as?(item: int) -> int
+    item
+  end
+end
+example = Example.new
+JSON.parse_as	("1", [int, string])
+#    ^ variable.function
+#             ^ punctuation.section.group.begin
+#              ^ string.quoted - meta.annotation.type
+#                   ^ meta.annotation.type
+#                                ^ punctuation.section.group.end
+after = :after
+#       ^ constant.other.symbol - meta.annotation.type
+
+type Status = int
+number = 1
+value = JSON.parse("1")
+def identity(item: any) -> any
+  item
+end
+module Other
+  def self.parse_as(text: string, schema: any) -> any
+    text
+  end
+end
+class Example
+  def as?(item: int) -> int
+    item
+  end
+end
+example = Example.new
+JSON.parse_as
+#    ^ variable.function
+("1", [int, string])
+# <- punctuation.section.group.begin
+#^ string.quoted - meta.annotation.type
+#     ^ meta.annotation.type
+#                  ^ punctuation.section.group.end
+after = :after
+#       ^ constant.other.symbol - meta.annotation.type
+
+type Status = int
+number = 1
+value = JSON.parse("1")
+def identity(item: any) -> any
+  item
+end
+module Other
+  def self.parse_as(text: string, schema: any) -> any
+    text
+  end
+end
+class Example
+  def as?(item: int) -> int
+    item
+  end
+end
+example = Example.new
+JSON.parse_as # call boundary
+#    ^ variable.function
+("1", [int, string])
+# <- punctuation.section.group.begin
+#^ string.quoted - meta.annotation.type
+#     ^ meta.annotation.type
+#                  ^ punctuation.section.group.end
+after = :after
+#       ^ constant.other.symbol - meta.annotation.type
+
+# layout:call as { "field": int }
+
+type Status = int
+number = 1
+value = JSON.parse("1")
+def identity(item: any) -> any
+  item
+end
+module Other
+  def self.parse_as(text: string, schema: any) -> any
+    text
+  end
+end
+class Example
+  def as?(item: int) -> int
+    item
+  end
+end
+example = Example.new
+value.as({ "field": int })
+#     ^ variable.function
+#       ^ punctuation.section.group.begin
+#        ^ meta.annotation.type
+#                        ^ punctuation.section.group.end
+after = :after
+#       ^ constant.other.symbol - meta.annotation.type
+
+type Status = int
+number = 1
+value = JSON.parse("1")
+def identity(item: any) -> any
+  item
+end
+module Other
+  def self.parse_as(text: string, schema: any) -> any
+    text
+  end
+end
+class Example
+  def as?(item: int) -> int
+    item
+  end
+end
+example = Example.new
+value.as ({ "field": int })
+#     ^ variable.function
+#        ^ punctuation.section.group.begin
+#         ^ meta.annotation.type
+#                         ^ punctuation.section.group.end
+after = :after
+#       ^ constant.other.symbol - meta.annotation.type
+
+type Status = int
+number = 1
+value = JSON.parse("1")
+def identity(item: any) -> any
+  item
+end
+module Other
+  def self.parse_as(text: string, schema: any) -> any
+    text
+  end
+end
+class Example
+  def as?(item: int) -> int
+    item
+  end
+end
+example = Example.new
+value.as	({ "field": int })
+#     ^ variable.function
+#        ^ punctuation.section.group.begin
+#         ^ meta.annotation.type
+#                         ^ punctuation.section.group.end
+after = :after
+#       ^ constant.other.symbol - meta.annotation.type
+
+type Status = int
+number = 1
+value = JSON.parse("1")
+def identity(item: any) -> any
+  item
+end
+module Other
+  def self.parse_as(text: string, schema: any) -> any
+    text
+  end
+end
+class Example
+  def as?(item: int) -> int
+    item
+  end
+end
+example = Example.new
+value.as
+#     ^ variable.function
+({ "field": int })
+# <- punctuation.section.group.begin
+#^ meta.annotation.type
+#                ^ punctuation.section.group.end
+after = :after
+#       ^ constant.other.symbol - meta.annotation.type
+
+type Status = int
+number = 1
+value = JSON.parse("1")
+def identity(item: any) -> any
+  item
+end
+module Other
+  def self.parse_as(text: string, schema: any) -> any
+    text
+  end
+end
+class Example
+  def as?(item: int) -> int
+    item
+  end
+end
+example = Example.new
+value.as # call boundary
+#     ^ variable.function
+({ "field": int })
+# <- punctuation.section.group.begin
+#^ meta.annotation.type
+#                ^ punctuation.section.group.end
+after = :after
+#       ^ constant.other.symbol - meta.annotation.type
+
+# layout:call JSON.parse_as { "field": int }
+
+type Status = int
+number = 1
+value = JSON.parse("1")
+def identity(item: any) -> any
+  item
+end
+module Other
+  def self.parse_as(text: string, schema: any) -> any
+    text
+  end
+end
+class Example
+  def as?(item: int) -> int
+    item
+  end
+end
+example = Example.new
+JSON.parse_as("1", { "field": int })
+#    ^ variable.function
+#            ^ punctuation.section.group.begin
+#             ^ string.quoted - meta.annotation.type
+#                  ^ meta.annotation.type
+#                                  ^ punctuation.section.group.end
+after = :after
+#       ^ constant.other.symbol - meta.annotation.type
+
+type Status = int
+number = 1
+value = JSON.parse("1")
+def identity(item: any) -> any
+  item
+end
+module Other
+  def self.parse_as(text: string, schema: any) -> any
+    text
+  end
+end
+class Example
+  def as?(item: int) -> int
+    item
+  end
+end
+example = Example.new
+JSON.parse_as ("1", { "field": int })
+#    ^ variable.function
+#             ^ punctuation.section.group.begin
+#              ^ string.quoted - meta.annotation.type
+#                   ^ meta.annotation.type
+#                                   ^ punctuation.section.group.end
+after = :after
+#       ^ constant.other.symbol - meta.annotation.type
+
+type Status = int
+number = 1
+value = JSON.parse("1")
+def identity(item: any) -> any
+  item
+end
+module Other
+  def self.parse_as(text: string, schema: any) -> any
+    text
+  end
+end
+class Example
+  def as?(item: int) -> int
+    item
+  end
+end
+example = Example.new
+JSON.parse_as	("1", { "field": int })
+#    ^ variable.function
+#             ^ punctuation.section.group.begin
+#              ^ string.quoted - meta.annotation.type
+#                   ^ meta.annotation.type
+#                                   ^ punctuation.section.group.end
+after = :after
+#       ^ constant.other.symbol - meta.annotation.type
+
+type Status = int
+number = 1
+value = JSON.parse("1")
+def identity(item: any) -> any
+  item
+end
+module Other
+  def self.parse_as(text: string, schema: any) -> any
+    text
+  end
+end
+class Example
+  def as?(item: int) -> int
+    item
+  end
+end
+example = Example.new
+JSON.parse_as
+#    ^ variable.function
+("1", { "field": int })
+# <- punctuation.section.group.begin
+#^ string.quoted - meta.annotation.type
+#     ^ meta.annotation.type
+#                     ^ punctuation.section.group.end
+after = :after
+#       ^ constant.other.symbol - meta.annotation.type
+
+type Status = int
+number = 1
+value = JSON.parse("1")
+def identity(item: any) -> any
+  item
+end
+module Other
+  def self.parse_as(text: string, schema: any) -> any
+    text
+  end
+end
+class Example
+  def as?(item: int) -> int
+    item
+  end
+end
+example = Example.new
+JSON.parse_as # call boundary
+#    ^ variable.function
+("1", { "field": int })
+# <- punctuation.section.group.begin
+#^ string.quoted - meta.annotation.type
+#     ^ meta.annotation.type
+#                     ^ punctuation.section.group.end
+after = :after
+#       ^ constant.other.symbol - meta.annotation.type
+
+# layout:call JSON.parse_as nested first argument
+
+type Status = int
+number = 1
+value = JSON.parse("1")
+def identity(item: any) -> any
+  item
+end
+module Other
+  def self.parse_as(text: string, schema: any) -> any
+    text
+  end
+end
+class Example
+  def as?(item: int) -> int
+    item
+  end
+end
+example = Example.new
+JSON.parse_as(JSON.stringify([1, 2]), array<int>)
+#    ^ variable.function
+#            ^ punctuation.section.group.begin
+#                                     ^ meta.annotation.type
+#                                               ^ punctuation.section.group.end
+after = :after
+#       ^ constant.other.symbol - meta.annotation.type
+
+type Status = int
+number = 1
+value = JSON.parse("1")
+def identity(item: any) -> any
+  item
+end
+module Other
+  def self.parse_as(text: string, schema: any) -> any
+    text
+  end
+end
+class Example
+  def as?(item: int) -> int
+    item
+  end
+end
+example = Example.new
+JSON.parse_as (JSON.stringify([1, 2]), array<int>)
+#    ^ variable.function
+#             ^ punctuation.section.group.begin
+#                                      ^ meta.annotation.type
+#                                                ^ punctuation.section.group.end
+after = :after
+#       ^ constant.other.symbol - meta.annotation.type
+
+type Status = int
+number = 1
+value = JSON.parse("1")
+def identity(item: any) -> any
+  item
+end
+module Other
+  def self.parse_as(text: string, schema: any) -> any
+    text
+  end
+end
+class Example
+  def as?(item: int) -> int
+    item
+  end
+end
+example = Example.new
+JSON.parse_as	(JSON.stringify([1, 2]), array<int>)
+#    ^ variable.function
+#             ^ punctuation.section.group.begin
+#                                      ^ meta.annotation.type
+#                                                ^ punctuation.section.group.end
+after = :after
+#       ^ constant.other.symbol - meta.annotation.type
+
+type Status = int
+number = 1
+value = JSON.parse("1")
+def identity(item: any) -> any
+  item
+end
+module Other
+  def self.parse_as(text: string, schema: any) -> any
+    text
+  end
+end
+class Example
+  def as?(item: int) -> int
+    item
+  end
+end
+example = Example.new
+JSON.parse_as
+#    ^ variable.function
+(JSON.stringify([1, 2]), array<int>)
+# <- punctuation.section.group.begin
+#                        ^ meta.annotation.type
+#                                  ^ punctuation.section.group.end
+after = :after
+#       ^ constant.other.symbol - meta.annotation.type
+
+type Status = int
+number = 1
+value = JSON.parse("1")
+def identity(item: any) -> any
+  item
+end
+module Other
+  def self.parse_as(text: string, schema: any) -> any
+    text
+  end
+end
+class Example
+  def as?(item: int) -> int
+    item
+  end
+end
+example = Example.new
+JSON.parse_as # call boundary
+#    ^ variable.function
+(JSON.stringify([1, 2]), array<int>)
+# <- punctuation.section.group.begin
+#                        ^ meta.annotation.type
+#                                  ^ punctuation.section.group.end
+after = :after
+#       ^ constant.other.symbol - meta.annotation.type
+
+# layout:call safe as
+
+type Status = int
+number = 1
+value = JSON.parse("1")
+def identity(item: any) -> any
+  item
+end
+module Other
+  def self.parse_as(text: string, schema: any) -> any
+    text
+  end
+end
+class Example
+  def as?(item: int) -> int
+    item
+  end
+end
+example = Example.new
+value&.as(Status)
+#      ^ variable.function
+#        ^ punctuation.section.group.begin
+#         ^ meta.annotation.type
+#               ^ punctuation.section.group.end
+after = :after
+#       ^ constant.other.symbol - meta.annotation.type
+
+type Status = int
+number = 1
+value = JSON.parse("1")
+def identity(item: any) -> any
+  item
+end
+module Other
+  def self.parse_as(text: string, schema: any) -> any
+    text
+  end
+end
+class Example
+  def as?(item: int) -> int
+    item
+  end
+end
+example = Example.new
+value&.as (Status)
+#      ^ variable.function
+#         ^ punctuation.section.group.begin
+#          ^ meta.annotation.type
+#                ^ punctuation.section.group.end
+after = :after
+#       ^ constant.other.symbol - meta.annotation.type
+
+type Status = int
+number = 1
+value = JSON.parse("1")
+def identity(item: any) -> any
+  item
+end
+module Other
+  def self.parse_as(text: string, schema: any) -> any
+    text
+  end
+end
+class Example
+  def as?(item: int) -> int
+    item
+  end
+end
+example = Example.new
+value&.as	(Status)
+#      ^ variable.function
+#         ^ punctuation.section.group.begin
+#          ^ meta.annotation.type
+#                ^ punctuation.section.group.end
+after = :after
+#       ^ constant.other.symbol - meta.annotation.type
+
+type Status = int
+number = 1
+value = JSON.parse("1")
+def identity(item: any) -> any
+  item
+end
+module Other
+  def self.parse_as(text: string, schema: any) -> any
+    text
+  end
+end
+class Example
+  def as?(item: int) -> int
+    item
+  end
+end
+example = Example.new
+value&.as
+#      ^ variable.function
+(Status)
+# <- punctuation.section.group.begin
+#^ meta.annotation.type
+#      ^ punctuation.section.group.end
+after = :after
+#       ^ constant.other.symbol - meta.annotation.type
+
+type Status = int
+number = 1
+value = JSON.parse("1")
+def identity(item: any) -> any
+  item
+end
+module Other
+  def self.parse_as(text: string, schema: any) -> any
+    text
+  end
+end
+class Example
+  def as?(item: int) -> int
+    item
+  end
+end
+example = Example.new
+value&.as # call boundary
+#      ^ variable.function
+(Status)
+# <- punctuation.section.group.begin
+#^ meta.annotation.type
+#      ^ punctuation.section.group.end
+after = :after
+#       ^ constant.other.symbol - meta.annotation.type
+
+# layout:call safe JSON.parse_as
+
+type Status = int
+number = 1
+value = JSON.parse("1")
+def identity(item: any) -> any
+  item
+end
+module Other
+  def self.parse_as(text: string, schema: any) -> any
+    text
+  end
+end
+class Example
+  def as?(item: int) -> int
+    item
+  end
+end
+example = Example.new
+JSON&.parse_as("1", Status)
+#     ^ variable.function
+#             ^ punctuation.section.group.begin
+#              ^ string.quoted - meta.annotation.type
+#                   ^ meta.annotation.type
+#                         ^ punctuation.section.group.end
+after = :after
+#       ^ constant.other.symbol - meta.annotation.type
+
+type Status = int
+number = 1
+value = JSON.parse("1")
+def identity(item: any) -> any
+  item
+end
+module Other
+  def self.parse_as(text: string, schema: any) -> any
+    text
+  end
+end
+class Example
+  def as?(item: int) -> int
+    item
+  end
+end
+example = Example.new
+JSON&.parse_as ("1", Status)
+#     ^ variable.function
+#              ^ punctuation.section.group.begin
+#               ^ string.quoted - meta.annotation.type
+#                    ^ meta.annotation.type
+#                          ^ punctuation.section.group.end
+after = :after
+#       ^ constant.other.symbol - meta.annotation.type
+
+type Status = int
+number = 1
+value = JSON.parse("1")
+def identity(item: any) -> any
+  item
+end
+module Other
+  def self.parse_as(text: string, schema: any) -> any
+    text
+  end
+end
+class Example
+  def as?(item: int) -> int
+    item
+  end
+end
+example = Example.new
+JSON&.parse_as	("1", Status)
+#     ^ variable.function
+#              ^ punctuation.section.group.begin
+#               ^ string.quoted - meta.annotation.type
+#                    ^ meta.annotation.type
+#                          ^ punctuation.section.group.end
+after = :after
+#       ^ constant.other.symbol - meta.annotation.type
+
+type Status = int
+number = 1
+value = JSON.parse("1")
+def identity(item: any) -> any
+  item
+end
+module Other
+  def self.parse_as(text: string, schema: any) -> any
+    text
+  end
+end
+class Example
+  def as?(item: int) -> int
+    item
+  end
+end
+example = Example.new
+JSON&.parse_as
+#     ^ variable.function
+("1", Status)
+# <- punctuation.section.group.begin
+#^ string.quoted - meta.annotation.type
+#     ^ meta.annotation.type
+#           ^ punctuation.section.group.end
+after = :after
+#       ^ constant.other.symbol - meta.annotation.type
+
+type Status = int
+number = 1
+value = JSON.parse("1")
+def identity(item: any) -> any
+  item
+end
+module Other
+  def self.parse_as(text: string, schema: any) -> any
+    text
+  end
+end
+class Example
+  def as?(item: int) -> int
+    item
+  end
+end
+example = Example.new
+JSON&.parse_as # call boundary
+#     ^ variable.function
+("1", Status)
+# <- punctuation.section.group.begin
+#^ string.quoted - meta.annotation.type
+#     ^ meta.annotation.type
+#           ^ punctuation.section.group.end
+after = :after
+#       ^ constant.other.symbol - meta.annotation.type
+
+# layout:call number.is_type?
+
+type Status = int
+number = 1
+value = JSON.parse("1")
+def identity(item: any) -> any
+  item
+end
+module Other
+  def self.parse_as(text: string, schema: any) -> any
+    text
+  end
+end
+class Example
+  def as?(item: int) -> int
+    item
+  end
+end
+example = Example.new
+number.is_type?(:int)
+#      ^ variable.function
+#              ^ punctuation.section.brackets
+#               ^ constant.other.symbol - meta.annotation.type
+#                   ^ punctuation.section.brackets
+after = :after
+#       ^ constant.other.symbol - meta.annotation.type
+
+type Status = int
+number = 1
+value = JSON.parse("1")
+def identity(item: any) -> any
+  item
+end
+module Other
+  def self.parse_as(text: string, schema: any) -> any
+    text
+  end
+end
+class Example
+  def as?(item: int) -> int
+    item
+  end
+end
+example = Example.new
+number.is_type? (:int)
+#      ^ variable.function
+#               ^ punctuation.section.brackets
+#                ^ constant.other.symbol - meta.annotation.type
+#                    ^ punctuation.section.brackets
+after = :after
+#       ^ constant.other.symbol - meta.annotation.type
+
+type Status = int
+number = 1
+value = JSON.parse("1")
+def identity(item: any) -> any
+  item
+end
+module Other
+  def self.parse_as(text: string, schema: any) -> any
+    text
+  end
+end
+class Example
+  def as?(item: int) -> int
+    item
+  end
+end
+example = Example.new
+number.is_type?	(:int)
+#      ^ variable.function
+#               ^ punctuation.section.brackets
+#                ^ constant.other.symbol - meta.annotation.type
+#                    ^ punctuation.section.brackets
+after = :after
+#       ^ constant.other.symbol - meta.annotation.type
+
+type Status = int
+number = 1
+value = JSON.parse("1")
+def identity(item: any) -> any
+  item
+end
+module Other
+  def self.parse_as(text: string, schema: any) -> any
+    text
+  end
+end
+class Example
+  def as?(item: int) -> int
+    item
+  end
+end
+example = Example.new
+number.is_type?
+#      ^ variable.function
+(:int)
+# <- punctuation.section.brackets
+#^ constant.other.symbol - meta.annotation.type
+#    ^ punctuation.section.brackets
+after = :after
+#       ^ constant.other.symbol - meta.annotation.type
+
+type Status = int
+number = 1
+value = JSON.parse("1")
+def identity(item: any) -> any
+  item
+end
+module Other
+  def self.parse_as(text: string, schema: any) -> any
+    text
+  end
+end
+class Example
+  def as?(item: int) -> int
+    item
+  end
+end
+example = Example.new
+number.is_type? # call boundary
+#      ^ variable.function
+(:int)
+# <- punctuation.section.brackets
+#^ constant.other.symbol - meta.annotation.type
+#    ^ punctuation.section.brackets
+after = :after
+#       ^ constant.other.symbol - meta.annotation.type
+
+# layout:call identity
+
+type Status = int
+number = 1
+value = JSON.parse("1")
+def identity(item: any) -> any
+  item
+end
+module Other
+  def self.parse_as(text: string, schema: any) -> any
+    text
+  end
+end
+class Example
+  def as?(item: int) -> int
+    item
+  end
+end
+example = Example.new
+identity(1)
+# <- variable.function
+#       ^ punctuation.section.brackets
+#        ^ constant.numeric - meta.annotation.type
+#         ^ punctuation.section.brackets
+after = :after
+#       ^ constant.other.symbol - meta.annotation.type
+
+type Status = int
+number = 1
+value = JSON.parse("1")
+def identity(item: any) -> any
+  item
+end
+module Other
+  def self.parse_as(text: string, schema: any) -> any
+    text
+  end
+end
+class Example
+  def as?(item: int) -> int
+    item
+  end
+end
+example = Example.new
+identity (1)
+# <- variable.function
+#        ^ punctuation.section.brackets
+#         ^ constant.numeric - meta.annotation.type
+#          ^ punctuation.section.brackets
+after = :after
+#       ^ constant.other.symbol - meta.annotation.type
+
+type Status = int
+number = 1
+value = JSON.parse("1")
+def identity(item: any) -> any
+  item
+end
+module Other
+  def self.parse_as(text: string, schema: any) -> any
+    text
+  end
+end
+class Example
+  def as?(item: int) -> int
+    item
+  end
+end
+example = Example.new
+identity	(1)
+# <- variable.function
+#        ^ punctuation.section.brackets
+#         ^ constant.numeric - meta.annotation.type
+#          ^ punctuation.section.brackets
+after = :after
+#       ^ constant.other.symbol - meta.annotation.type
+
+type Status = int
+number = 1
+value = JSON.parse("1")
+def identity(item: any) -> any
+  item
+end
+module Other
+  def self.parse_as(text: string, schema: any) -> any
+    text
+  end
+end
+class Example
+  def as?(item: int) -> int
+    item
+  end
+end
+example = Example.new
+identity
+# <- source.vibescript - variable.function
+(1)
+# <- punctuation.section.brackets
+#^ constant.numeric - meta.annotation.type
+# ^ punctuation.section.brackets
+after = :after
+#       ^ constant.other.symbol - meta.annotation.type
+
+type Status = int
+number = 1
+value = JSON.parse("1")
+def identity(item: any) -> any
+  item
+end
+module Other
+  def self.parse_as(text: string, schema: any) -> any
+    text
+  end
+end
+class Example
+  def as?(item: int) -> int
+    item
+  end
+end
+example = Example.new
+identity # call boundary
+# <- source.vibescript - variable.function
+(1)
+# <- punctuation.section.brackets
+#^ constant.numeric - meta.annotation.type
+# ^ punctuation.section.brackets
+after = :after
+#       ^ constant.other.symbol - meta.annotation.type
+
+# layout:call JSON.stringify
+
+type Status = int
+number = 1
+value = JSON.parse("1")
+def identity(item: any) -> any
+  item
+end
+module Other
+  def self.parse_as(text: string, schema: any) -> any
+    text
+  end
+end
+class Example
+  def as?(item: int) -> int
+    item
+  end
+end
+example = Example.new
+JSON.stringify(1)
+#    ^ variable.function
+#             ^ punctuation.section.brackets
+#              ^ constant.numeric - meta.annotation.type
+#               ^ punctuation.section.brackets
+after = :after
+#       ^ constant.other.symbol - meta.annotation.type
+
+type Status = int
+number = 1
+value = JSON.parse("1")
+def identity(item: any) -> any
+  item
+end
+module Other
+  def self.parse_as(text: string, schema: any) -> any
+    text
+  end
+end
+class Example
+  def as?(item: int) -> int
+    item
+  end
+end
+example = Example.new
+JSON.stringify (1)
+#    ^ variable.function
+#              ^ punctuation.section.brackets
+#               ^ constant.numeric - meta.annotation.type
+#                ^ punctuation.section.brackets
+after = :after
+#       ^ constant.other.symbol - meta.annotation.type
+
+type Status = int
+number = 1
+value = JSON.parse("1")
+def identity(item: any) -> any
+  item
+end
+module Other
+  def self.parse_as(text: string, schema: any) -> any
+    text
+  end
+end
+class Example
+  def as?(item: int) -> int
+    item
+  end
+end
+example = Example.new
+JSON.stringify	(1)
+#    ^ variable.function
+#              ^ punctuation.section.brackets
+#               ^ constant.numeric - meta.annotation.type
+#                ^ punctuation.section.brackets
+after = :after
+#       ^ constant.other.symbol - meta.annotation.type
+
+type Status = int
+number = 1
+value = JSON.parse("1")
+def identity(item: any) -> any
+  item
+end
+module Other
+  def self.parse_as(text: string, schema: any) -> any
+    text
+  end
+end
+class Example
+  def as?(item: int) -> int
+    item
+  end
+end
+example = Example.new
+JSON.stringify
+#    ^ variable.function
+(1)
+# <- punctuation.section.brackets
+#^ constant.numeric - meta.annotation.type
+# ^ punctuation.section.brackets
+after = :after
+#       ^ constant.other.symbol - meta.annotation.type
+
+type Status = int
+number = 1
+value = JSON.parse("1")
+def identity(item: any) -> any
+  item
+end
+module Other
+  def self.parse_as(text: string, schema: any) -> any
+    text
+  end
+end
+class Example
+  def as?(item: int) -> int
+    item
+  end
+end
+example = Example.new
+JSON.stringify # call boundary
+#    ^ variable.function
+(1)
+# <- punctuation.section.brackets
+#^ constant.numeric - meta.annotation.type
+# ^ punctuation.section.brackets
+after = :after
+#       ^ constant.other.symbol - meta.annotation.type
+
+# layout:call [1].include?
+
+type Status = int
+number = 1
+value = JSON.parse("1")
+def identity(item: any) -> any
+  item
+end
+module Other
+  def self.parse_as(text: string, schema: any) -> any
+    text
+  end
+end
+class Example
+  def as?(item: int) -> int
+    item
+  end
+end
+example = Example.new
+[1].include?(1)
+#   ^ variable.function
+#           ^ punctuation.section.brackets
+#            ^ constant.numeric - meta.annotation.type
+#             ^ punctuation.section.brackets
+after = :after
+#       ^ constant.other.symbol - meta.annotation.type
+
+type Status = int
+number = 1
+value = JSON.parse("1")
+def identity(item: any) -> any
+  item
+end
+module Other
+  def self.parse_as(text: string, schema: any) -> any
+    text
+  end
+end
+class Example
+  def as?(item: int) -> int
+    item
+  end
+end
+example = Example.new
+[1].include? (1)
+#   ^ variable.function
+#            ^ punctuation.section.brackets
+#             ^ constant.numeric - meta.annotation.type
+#              ^ punctuation.section.brackets
+after = :after
+#       ^ constant.other.symbol - meta.annotation.type
+
+type Status = int
+number = 1
+value = JSON.parse("1")
+def identity(item: any) -> any
+  item
+end
+module Other
+  def self.parse_as(text: string, schema: any) -> any
+    text
+  end
+end
+class Example
+  def as?(item: int) -> int
+    item
+  end
+end
+example = Example.new
+[1].include?	(1)
+#   ^ variable.function
+#            ^ punctuation.section.brackets
+#             ^ constant.numeric - meta.annotation.type
+#              ^ punctuation.section.brackets
+after = :after
+#       ^ constant.other.symbol - meta.annotation.type
+
+type Status = int
+number = 1
+value = JSON.parse("1")
+def identity(item: any) -> any
+  item
+end
+module Other
+  def self.parse_as(text: string, schema: any) -> any
+    text
+  end
+end
+class Example
+  def as?(item: int) -> int
+    item
+  end
+end
+example = Example.new
+[1].include?
+#   ^ variable.function
+(1)
+# <- punctuation.section.brackets
+#^ constant.numeric - meta.annotation.type
+# ^ punctuation.section.brackets
+after = :after
+#       ^ constant.other.symbol - meta.annotation.type
+
+type Status = int
+number = 1
+value = JSON.parse("1")
+def identity(item: any) -> any
+  item
+end
+module Other
+  def self.parse_as(text: string, schema: any) -> any
+    text
+  end
+end
+class Example
+  def as?(item: int) -> int
+    item
+  end
+end
+example = Example.new
+[1].include? # call boundary
+#   ^ variable.function
+(1)
+# <- punctuation.section.brackets
+#^ constant.numeric - meta.annotation.type
+# ^ punctuation.section.brackets
+after = :after
+#       ^ constant.other.symbol - meta.annotation.type
+
+# layout:call example.as?
+
+type Status = int
+number = 1
+value = JSON.parse("1")
+def identity(item: any) -> any
+  item
+end
+module Other
+  def self.parse_as(text: string, schema: any) -> any
+    text
+  end
+end
+class Example
+  def as?(item: int) -> int
+    item
+  end
+end
+example = Example.new
+example.as?(1)
+#       ^ variable.function
+#          ^ punctuation.section.brackets
+#           ^ constant.numeric - meta.annotation.type
+#            ^ punctuation.section.brackets
+after = :after
+#       ^ constant.other.symbol - meta.annotation.type
+
+type Status = int
+number = 1
+value = JSON.parse("1")
+def identity(item: any) -> any
+  item
+end
+module Other
+  def self.parse_as(text: string, schema: any) -> any
+    text
+  end
+end
+class Example
+  def as?(item: int) -> int
+    item
+  end
+end
+example = Example.new
+example.as? (1)
+#       ^ variable.function
+#           ^ punctuation.section.brackets
+#            ^ constant.numeric - meta.annotation.type
+#             ^ punctuation.section.brackets
+after = :after
+#       ^ constant.other.symbol - meta.annotation.type
+
+type Status = int
+number = 1
+value = JSON.parse("1")
+def identity(item: any) -> any
+  item
+end
+module Other
+  def self.parse_as(text: string, schema: any) -> any
+    text
+  end
+end
+class Example
+  def as?(item: int) -> int
+    item
+  end
+end
+example = Example.new
+example.as?	(1)
+#       ^ variable.function
+#           ^ punctuation.section.brackets
+#            ^ constant.numeric - meta.annotation.type
+#             ^ punctuation.section.brackets
+after = :after
+#       ^ constant.other.symbol - meta.annotation.type
+
+type Status = int
+number = 1
+value = JSON.parse("1")
+def identity(item: any) -> any
+  item
+end
+module Other
+  def self.parse_as(text: string, schema: any) -> any
+    text
+  end
+end
+class Example
+  def as?(item: int) -> int
+    item
+  end
+end
+example = Example.new
+example.as?
+#       ^ variable.function
+(1)
+# <- punctuation.section.brackets
+#^ constant.numeric - meta.annotation.type
+# ^ punctuation.section.brackets
+after = :after
+#       ^ constant.other.symbol - meta.annotation.type
+
+type Status = int
+number = 1
+value = JSON.parse("1")
+def identity(item: any) -> any
+  item
+end
+module Other
+  def self.parse_as(text: string, schema: any) -> any
+    text
+  end
+end
+class Example
+  def as?(item: int) -> int
+    item
+  end
+end
+example = Example.new
+example.as? # call boundary
+#       ^ variable.function
+(1)
+# <- punctuation.section.brackets
+#^ constant.numeric - meta.annotation.type
+# ^ punctuation.section.brackets
+after = :after
+#       ^ constant.other.symbol - meta.annotation.type
+
+# layout:call Other.parse_as
+
+type Status = int
+number = 1
+value = JSON.parse("1")
+def identity(item: any) -> any
+  item
+end
+module Other
+  def self.parse_as(text: string, schema: any) -> any
+    text
+  end
+end
+class Example
+  def as?(item: int) -> int
+    item
+  end
+end
+example = Example.new
+Other.parse_as("1", Status)
+#     ^ variable.function
+#             ^ punctuation.section.brackets
+#              ^ string.quoted - meta.annotation.type
+#                   ^ support.class - meta.annotation.type
+#                         ^ punctuation.section.brackets
+after = :after
+#       ^ constant.other.symbol - meta.annotation.type
+
+type Status = int
+number = 1
+value = JSON.parse("1")
+def identity(item: any) -> any
+  item
+end
+module Other
+  def self.parse_as(text: string, schema: any) -> any
+    text
+  end
+end
+class Example
+  def as?(item: int) -> int
+    item
+  end
+end
+example = Example.new
+Other.parse_as ("1", Status)
+#     ^ variable.function
+#              ^ punctuation.section.brackets
+#               ^ string.quoted - meta.annotation.type
+#                    ^ support.class - meta.annotation.type
+#                          ^ punctuation.section.brackets
+after = :after
+#       ^ constant.other.symbol - meta.annotation.type
+
+type Status = int
+number = 1
+value = JSON.parse("1")
+def identity(item: any) -> any
+  item
+end
+module Other
+  def self.parse_as(text: string, schema: any) -> any
+    text
+  end
+end
+class Example
+  def as?(item: int) -> int
+    item
+  end
+end
+example = Example.new
+Other.parse_as	("1", Status)
+#     ^ variable.function
+#              ^ punctuation.section.brackets
+#               ^ string.quoted - meta.annotation.type
+#                    ^ support.class - meta.annotation.type
+#                          ^ punctuation.section.brackets
+after = :after
+#       ^ constant.other.symbol - meta.annotation.type
+
+type Status = int
+number = 1
+value = JSON.parse("1")
+def identity(item: any) -> any
+  item
+end
+module Other
+  def self.parse_as(text: string, schema: any) -> any
+    text
+  end
+end
+class Example
+  def as?(item: int) -> int
+    item
+  end
+end
+example = Example.new
+Other.parse_as
+#     ^ variable.function
+("1", Status)
+# <- punctuation.section.brackets
+#^ string.quoted - meta.annotation.type
+#     ^ support.class - meta.annotation.type
+#           ^ punctuation.section.brackets
+after = :after
+#       ^ constant.other.symbol - meta.annotation.type
+
+type Status = int
+number = 1
+value = JSON.parse("1")
+def identity(item: any) -> any
+  item
+end
+module Other
+  def self.parse_as(text: string, schema: any) -> any
+    text
+  end
+end
+class Example
+  def as?(item: int) -> int
+    item
+  end
+end
+example = Example.new
+Other.parse_as # call boundary
+#     ^ variable.function
+("1", Status)
+# <- punctuation.section.brackets
+#^ string.quoted - meta.annotation.type
+#     ^ support.class - meta.annotation.type
+#           ^ punctuation.section.brackets
+after = :after
+#       ^ constant.other.symbol - meta.annotation.type

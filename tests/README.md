@@ -17,15 +17,15 @@ fixture covers each complete token. Regenerate it with:
 python3 scripts/operators.py > tests/syntax_test_operators.vibe
 ```
 
-`scripts/layout_cases.py` adds 277 token contexts to the corpus audit. Binary,
+`scripts/layout_cases.py` adds 296 token contexts to the corpus audit. Binary,
 assignment, symbol and method operators come from the same operator inventory.
 The remaining cases cover every keyword spelling and every punctuation and
 literal scope declared by the syntax, with representative values for numeric,
 string, symbol and regex token classes. Missing scope coverage fails the audit.
 
-Each case compares every character's complete scope stack across inline,
-trailing, leading and existing-continuation layouts, including trailing comments
-and operators extending an existing continuation. Only
+The matrix compares every character's complete scope stack across inline,
+trailing, leading and existing-continuation layouts and call-spacing variants,
+including trailing comments and operators extending a continuation. Only
 `meta.expression.continuation.vibescript` is removed before comparison. The
 checked-in syntax fixture also asserts the token's category in each layout.
 The curated corpus retains block and rescue expressions that exercise incremental
@@ -37,6 +37,21 @@ or move a directive outside its comment. Line-sensitive declaration units
 (`module Name`, `alias old new`, `type Name =`, `def name(`, `) ->` and
 `&block: (`) stay intact: splitting them changes the Rust parser's reading.
 The Python suite separately checks the newly supported line breaks with Rust.
+
+`scripts/call_cases.py` also compares call parentheses, names and argument scopes
+with no gap, spaces, tabs, newlines and trailing comments before `(`. It covers
+`.as`, `JSON.parse_as`, safe navigation, `is_type?` and ordinary calls. The prelude
+audit checks all type-valued parameter positions: `.as` takes a type first,
+`JSON.parse_as` second; `is_type?` takes a symbol. JSON input expressions stay
+outside the type annotation, including nested calls with commas.
+
+The Rust checker currently rejects a newline between these callees and `(`.
+Those variants test incomplete editor input and assert the compiler rejection;
+the builtin type argument scopes survive the gap. A bare ordinary name on the
+previous line retains its expression scope rather than becoming a call name.
+Tab and incomplete-input probes check scopes only; native reindent checks use
+complete programs formatted with spaces. The runner inserts tabs verbatim so
+Sublime cannot silently turn the tab coverage into space coverage.
 
 ```sh
 python3 scripts/layout_cases.py --syntax > tests/syntax_test_layout.vibe

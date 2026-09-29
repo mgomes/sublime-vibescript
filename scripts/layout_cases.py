@@ -5,6 +5,7 @@ import re
 
 from operators import ASSIGNMENT_OPERATORS, BINARY_OPERATORS, METHOD_OPERATORS, SYMBOL_OPERATORS
 from ternary_cases import examples as ternary_examples, PREFIX as TERNARY_PREFIX
+from call_cases import layouts as call_layouts
 
 
 def required_scopes():
@@ -171,7 +172,7 @@ def cases():
             source += text + "\n"
         result.append({"name": "layout:" + item["name"], "source": source, "reindent": False,
                        "assertions": assertions, "equal_scopes": [{"token": token, "locations": locations}]})
-    return result
+    return result + call_layouts()
 
 
 def render():

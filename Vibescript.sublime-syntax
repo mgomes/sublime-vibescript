@@ -416,17 +416,55 @@ contexts:
       pop: 1
 
   type-cast:
-    - match: '(\.)(as)(\()'
-      captures:
-        1: punctuation.accessor.dot.vibescript
-        2: variable.function.vibescript
-        3: punctuation.section.group.begin.vibescript
-      push:
-        - meta_content_scope: meta.annotation.type.vibescript
-        - match: '\)'
-          scope: punctuation.section.group.end.vibescript
-          pop: 1
-        - include: type-body
+    - match: '\bJSON\b'
+      scope: support.class.vibescript
+      push: json-type-receiver
+
+  json-type-receiver:
+    - match: '&\.'
+      scope: punctuation.accessor.safe-navigation.vibescript
+      set: json-type-member
+    - match: '\.(?!\.)'
+      scope: punctuation.accessor.dot.vibescript
+      set: json-type-member
+    - match: '(?=\S)'
+      pop: 1
+
+  json-type-member:
+    - match: 'parse_as(?![a-zA-Z0-9_?!])'
+      scope: variable.function.vibescript
+      set: json-type-call-open
+    - include: member-name
+
+  type-call-open:
+    - match: '\('
+      scope: punctuation.section.group.begin.vibescript
+      set: type-call-arguments
+    - match: '(?=\S)'
+      pop: 1
+
+  type-call-arguments:
+    - meta_content_scope: meta.annotation.type.vibescript
+    - match: '\)'
+      scope: punctuation.section.group.end.vibescript
+      pop: 1
+    - include: type-body
+
+  json-type-call-open:
+    - match: '\('
+      scope: punctuation.section.group.begin.vibescript
+      set: json-type-call-value
+    - match: '(?=\S)'
+      pop: 1
+
+  json-type-call-value:
+    - match: '\)'
+      scope: punctuation.section.group.end.vibescript
+      pop: 1
+    - match: ','
+      scope: punctuation.separator.vibescript
+      set: type-call-arguments
+    - include: main
 
   type-literals:
     - match: '\b({{generic_type}})(<)'
@@ -816,6 +854,9 @@ contexts:
       scope: variable.function.vibescript
 
   member-name:
+    - match: 'as(?![a-zA-Z0-9_?!])'
+      scope: variable.function.vibescript
+      set: type-call-open
     - match: '{{identifier}}'
       scope: variable.function.vibescript
       pop: 1

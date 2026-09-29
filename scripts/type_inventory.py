@@ -89,6 +89,39 @@ def inventory():
     return json.loads(INVENTORY.read_text())
 
 
+def type_call_parameters(prelude):
+    """Return the positional indexes of type-valued parameters in the prelude."""
+    owner, result = "", {}
+    for line in prelude.splitlines():
+        tokens = [token for token in TOKEN.findall(line) if not token.startswith("#")]
+        if not tokens:
+            continue
+        if tokens[0] in ("module", "class"):
+            owner = tokens[1]
+        elif tokens[0] == "end":
+            owner = ""
+        elif tokens[0] == "def" and "(" in tokens:
+            name = tokens[1] + (tokens[2] if tokens[2] in ("?", "!") else "")
+            depth, parameters, current = [], [], []
+            for token in tokens[tokens.index("(") + 1:]:
+                if not depth and token in (",", ")"):
+                    parameters.append(current)
+                    current = []
+                    if token == ")":
+                        break
+                else:
+                    current.append(token)
+                    if token in ("(", "[", "{", "<"):
+                        depth.append(token)
+                    elif token in (")", "]", "}", ">"):
+                        depth.pop()
+            indexes = [i for i, parameter in enumerate(parameters)
+                       if ":" in parameter and parameter[parameter.index(":") + 1] == "type"]
+            if indexes:
+                result[(owner + "." if owner else "") + name] = indexes
+    return result
+
+
 def variables(types):
     return {
         "builtin_type": "(?:" + "|".join(map(re.escape, types["builtins"])) + r")\b",
