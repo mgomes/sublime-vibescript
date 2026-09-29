@@ -15,9 +15,11 @@ from tree_sitter import Language, Parser
 from corpus_fixtures import syntax_test
 from operators import BINARY_LINE_END, continuation_cases
 from semicolon_cases import semicolon_cases
+from type_inventory import inventory
+from type_cases import cases as type_cases
 
 
-BUILTINS = set("any array bool comparable duration enum_type enum_value error float hash int match_data money number range regex string symbol time type nil".split())
+BUILTINS = set(inventory()["builtins"])
 TYPE_NODES = {"type_annotation", "type_alias", "block_type", "return_type", "type_literal"}
 PARAMETERS = {"typed_parameter", "splat_parameter", "double_splat_parameter", "block_parameter"}
 CONTEXTS = {"method", "class", "module", "enum", "type_alias", "typed_assignment",
@@ -266,6 +268,9 @@ def main():
                        capture_output=True, text=True, check=True)
         cases.append(case)
         coverage["semicolon-nesting"] += 1
+    inventory_cases = type_cases(inventory())
+    cases.extend(inventory_cases)
+    coverage["type-inventory-cases"] = len(inventory_cases)
     manifest = {"website_count": len(website), "rust_origins": dict(origins), "coverage": dict(coverage),
                 "compiler": subprocess.check_output([str(compiler), "--version"], text=True).strip(),
                 "rejected": rejected, "cases": cases}

@@ -47,11 +47,16 @@ assertions in-editor. CI runs the same tests with Sublime's headless
 `syntax_tests` binary.
 
 Run `python3 -m unittest discover -s tests` with Python 3.11 or newer for
-indentation-rule checks, operator consistency, and fixture consistency. The
+indentation-rule checks, type and operator consistency, and fixture consistency. The
 checked-in corpus tests contain 30 real-code cases, including trailing-comment variants, plus scope and continuation
 tests for every binary operator. See [the corpus audit instructions](tests/README.md)
 to generate a broader sample and verify scopes and whole-file reindentation
 with the native editor.
+
+Type-start discriminators share an inventory extracted from Rust's `vibes prelude`.
+Set `VIBES` to the Rust executable when running the Python suite to compare the
+inventory with the live compiler; CI also checks the committed prelude snapshot.
+See [regenerating the inventory](tests/README.md#type-inventory).
 
 ## Known limitations
 

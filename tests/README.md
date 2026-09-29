@@ -30,6 +30,34 @@ lines retain the existing indentation heuristics:
 python3 scripts/indentation.py
 ```
 
+## Type inventory
+
+`syntax/type_inventory.json` is extracted from type positions in Rust's
+`vibes prelude`: receivers, aliases, parameters, generic constraints and return
+types. The extractor also records generic arities. Method names, parameter names,
+symbol literals and default values do not contribute type names.
+
+Regenerate the inventory, prelude snapshot, shared syntax variables and native
+type cases together, then compare with the live compiler during the test run:
+
+```sh
+python3 scripts/type_inventory.py --vibes "$rust/target/gate/vibes" --write
+VIBES="$rust/target/gate/vibes" python3 -m unittest discover -s tests
+```
+
+Without `VIBES`, the suite compares against `fixtures/prelude.vibe`, so CI needs
+no compiler installation. The same inventory drives annotation, block-union,
+generic-literal and standalone-shape starts, including quoted field keys,
+optional types, open shapes, tuples and function types. The corpus generator's
+type expectations consume it too. Native tests cover every builtin as the first
+field with both bare and quoted keys, and fall back to expression scopes for
+constants, calls and ordinary literal values, even in later fields. As in the
+compiler, a bare `nil` field is a hash value; `nil | int` tests nil in a type.
+
+`scripts/type_cases.py` emits the additional scope/reindent manifest. These
+lexical regression cases include incomplete or invalid expressions to exercise
+fallback; they are separate from the compiler-accepted corpus sample.
+
 ## Native scope and reindent checks
 
 Use an isolated Sublime Text profile containing `Packages/Vibescript` linked to
