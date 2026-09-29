@@ -159,7 +159,7 @@ contexts:
       pop: 1
 
   function-signature-tail:
-    - match: '(?={{identifier}}\s*:)'
+    - match: '(?=(?:\*\*?|&|@)?(?:{{identifier}}|{{constant}})\s*:|\*\s*,)'
       push: bare-parameters
     - match: '\('
       scope: punctuation.section.group.begin.vibescript
