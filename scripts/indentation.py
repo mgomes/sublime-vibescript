@@ -5,6 +5,7 @@ import plistlib
 
 
 MAX_DEPTH = 3
+METHOD_SCOPE = "source.vibescript meta.function.signature - meta.group.parameters - meta.annotation.type"
 STRING = r'"(?:\\.|[^"\\])*"' + r"|'(?:\\.|[^'\\])*'"
 REGEX = r'''(?<![\w)\]}"/])/(?![\s=/])(?:\\.|\[(?:\\.|[^\]\\])*\]|[^/\\\n])+/[a-z]*'''
 SYMBOL = r':(?:[a-zA-Z_]\w*[!?]?|\[\]=?|<=>|===|\*\*|//|<<|<=|>=|==|!=|&&|\|\||[+*/%<>&|!\-])'
@@ -29,7 +30,7 @@ BEFORE_SEPARATOR = f'(?>{LITERAL}|(?!{LITERAL})' + r'''[^;#"'\\\r\n])*;'''
 def ordinary_increase_pattern():
     scan = f'(?:{STRING}|{REGEX}|' + r'''[^#"'\\])*'''
     return (
-        r'^\s*\)\s*->|^\s*(?:(export\s+)?((private|public|protected)\s+)?def|class|module|enum|if|elsif|else|while|for|case|when|begin|rescue|ensure)\b(?!\s*:)'
+        r'^\s*(?:(export\s+)?((private|public|protected)\s+)?def|class|module|enum|if|elsif|else|while|for|case|when|begin|rescue|ensure)\b(?!\s*:)'
         + f'(?!{scan}' + r'\bend\b(?=[ \t]*(?:;|#|$)))'
         + r'|^(?!\s*=(?:begin|end)\b)' + scan + r'[;=(]\s*(?:begin|case|if|while|for)\b'
         + f'(?!{scan}' + r'\bend\b)'
@@ -42,7 +43,7 @@ def increase_pattern():
     for _ in range(MAX_DEPTH):
         balanced = f'(?:{ATOM}|{OPEN}{balanced}{CLOSE})*'
     return (
-        r'^[ \t]*\)[ \t]*->|^' + f'(?={BEFORE_SEPARATOR})'
+        r'^' + f'(?={BEFORE_SEPARATOR})'
         + r'(?![ \t]*=(?:begin|end)\b)'
         + f'(?:{balanced}{CLOSE})*{balanced}(?:{OPEN}{balanced}){{1,{MAX_DEPTH}}}'
         + r'[ \t]*(?:#.*)?$'
@@ -50,8 +51,18 @@ def increase_pattern():
     )
 
 
+def method_increase_pattern():
+    return r'^\s*[)\]}]|' + increase_pattern()
+
+
 if __name__ == '__main__':
-    path = Path(__file__).resolve().parent.parent / 'preferences/Indentation Rules.tmPreferences'
+    directory = Path(__file__).resolve().parent.parent / 'preferences'
+    path = directory / 'Indentation Rules.tmPreferences'
     settings = plistlib.loads(path.read_bytes())
     settings['settings']['increaseIndentPattern'] = increase_pattern()
     path.write_bytes(plistlib.dumps(settings, sort_keys=False))
+    path = directory / 'Indentation Rules - Method Closers.tmPreferences'
+    path.write_bytes(plistlib.dumps({
+        'name': 'Method Signature Closers', 'scope': METHOD_SCOPE,
+        'settings': {'increaseIndentPattern': method_increase_pattern()},
+    }, sort_keys=False))

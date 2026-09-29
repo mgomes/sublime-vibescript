@@ -175,6 +175,7 @@ contexts:
       pop: 1
 
   function-signature-tail:
+    - meta_scope: meta.function.signature.vibescript
     - match: '(?=(?:\*\*?|&|@)?(?:{{identifier}}|{{constant}})\s*:|\*\s*,)'
       push: bare-parameters
     - match: '\('

@@ -12,6 +12,8 @@ with (ROOT / "preferences/Indentation Rules.tmPreferences").open("rb") as stream
     SETTINGS = plistlib.load(stream)["settings"]
 with (ROOT / "preferences/Indentation Rules - Block Comments.tmPreferences").open("rb") as stream:
     BLOCK_SETTINGS = plistlib.load(stream)["settings"]
+with (ROOT / "preferences/Indentation Rules - Method Closers.tmPreferences").open("rb") as stream:
+    METHOD_PREFERENCES = plistlib.load(stream)
 SPEC = importlib.util.spec_from_file_location("indentation", ROOT / "scripts/indentation.py")
 GENERATOR = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(GENERATOR)
@@ -23,6 +25,17 @@ SPEC.loader.exec_module(FIXTURES)
 class IndentationTests(unittest.TestCase):
     def test_generated_preference_matches_source(self):
         self.assertEqual(SETTINGS["increaseIndentPattern"], GENERATOR.increase_pattern())
+        self.assertEqual(METHOD_PREFERENCES["scope"], GENERATOR.METHOD_SCOPE)
+        self.assertEqual(METHOD_PREFERENCES["settings"]["increaseIndentPattern"], GENERATOR.method_increase_pattern())
+
+    def test_only_method_signature_scope_reopens_after_closers(self):
+        ordinary = re.compile(SETTINGS["increaseIndentPattern"])
+        signature = re.compile(METHOD_PREFERENCES["settings"]["increaseIndentPattern"])
+        for line in [")", "  ) -> bool", ") -> int # result", "] # tuple result", "} # shape result"]:
+            with self.subTest(line=line):
+                self.assertIsNone(ordinary.search(line))
+                self.assertIsNotNone(signature.search(line))
+                self.assertIsNone(signature.search("# " + line))
 
     def test_semicolon_nesting_and_inline_closures(self):
         increase = re.compile(SETTINGS["increaseIndentPattern"])
@@ -49,7 +62,7 @@ class IndentationTests(unittest.TestCase):
         pattern = re.compile(SETTINGS["increaseIndentPattern"])
         for line in [
             "a=[1];begin", "result = (begin", "result = if ready",
-            ") -> { updated: array<int> }", "def sum(",
+            "def sum(",
             "def f(a: int = (while true; break 1; end)) -> int",
             "items.each { |item: int | string| # union parameter",
         ]:
@@ -58,7 +71,7 @@ class IndentationTests(unittest.TestCase):
         for line in [
             "def literal -> int 42 end", "def literal -> int 42 end # done",
             'concat(begin; "a"; end, "b")', "x = (if true; 1; else; 2; end)",
-            "end: 1,", "if: true,", "# ) -> int", "# result = begin",
+            ") -> { updated: array<int> }", "end: 1,", "if: true,", "# ) -> int", "# result = begin",
         ]:
             with self.subTest(line=line):
                 self.assertIsNone(pattern.search(line))
@@ -115,7 +128,7 @@ class IndentationTests(unittest.TestCase):
             "else", "while ready", "for item in items", "case value", "when 1",
             "begin", "rescue Error", "ensure", "end", "=begin", "=end",
         ]
-        for name, expression in SETTINGS.items():
+        for name, expression in [*SETTINGS.items(), *METHOD_PREFERENCES["settings"].items()]:
             if not name.endswith("Pattern"):
                 continue
             pattern = re.compile(expression)

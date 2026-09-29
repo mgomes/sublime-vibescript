@@ -1,0 +1,1941 @@
+# SYNTAX TEST "Packages/Vibescript/Vibescript.sublime-syntax"
+# nested:function parameter outer arrow=False:comments=False
+
+def apply(
+  &block: (
+    int
+#   ^ meta.annotation.type support.type
+  ) -> int
+#         ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#      ^ meta.annotation.type support.type
+)
+#^ meta.function.signature - meta.group.parameters - meta.annotation.type
+  1
+# ^ constant.numeric - meta.annotation.type
+end
+# nested:function parameter outer arrow=False:comments=True
+
+def apply( # nested boundary
+#          ^ comment.line
+  &block: ( # nested boundary
+#           ^ comment.line
+    int # nested boundary
+#   ^ meta.annotation.type support.type
+#       ^ comment.line
+  ) -> int # nested boundary
+#                           ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#      ^ meta.annotation.type support.type
+#          ^ comment.line
+) # nested boundary
+#                  ^ meta.function.signature - meta.group.parameters - meta.annotation.type
+# ^ comment.line
+  1 # nested boundary
+# ^ constant.numeric - meta.annotation.type
+#   ^ comment.line
+end # nested boundary
+#   ^ comment.line
+# nested:function parameter outer arrow=True:comments=False
+
+def apply(
+  &block: (
+    int
+#   ^ meta.annotation.type support.type
+  ) -> int
+#         ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#      ^ meta.annotation.type support.type
+) -> int
+#       ^ meta.function.signature - meta.group.parameters - meta.annotation.type
+#    ^ meta.annotation.type support.type
+  1
+# ^ constant.numeric - meta.annotation.type
+end
+# nested:function parameter outer arrow=True:comments=True
+
+def apply( # nested boundary
+#          ^ comment.line
+  &block: ( # nested boundary
+#           ^ comment.line
+    int # nested boundary
+#   ^ meta.annotation.type support.type
+#       ^ comment.line
+  ) -> int # nested boundary
+#                           ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#      ^ meta.annotation.type support.type
+#          ^ comment.line
+) -> int # nested boundary
+#                         ^ meta.function.signature - meta.group.parameters - meta.annotation.type
+#    ^ meta.annotation.type support.type
+#        ^ comment.line
+  1 # nested boundary
+# ^ constant.numeric - meta.annotation.type
+#   ^ comment.line
+end # nested boundary
+#   ^ comment.line
+# nested:block parameter:tuple/tuple:module=False:comments=False
+
+def apply(
+  &block: (
+    [
+      int,
+#     ^ meta.annotation.type support.type
+      [
+        int,
+#       ^ meta.annotation.type support.type
+        int
+#       ^ meta.annotation.type support.type
+      ]
+#      ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+    ]
+#    ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+  ) -> int
+#         ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#      ^ meta.annotation.type support.type
+) -> int
+#       ^ meta.function.signature - meta.group.parameters - meta.annotation.type
+#    ^ meta.annotation.type support.type
+  1
+# ^ constant.numeric - meta.annotation.type
+end
+# nested:block parameter:tuple/tuple:module=False:comments=True
+
+def apply( # nested boundary
+#          ^ comment.line
+  &block: ( # nested boundary
+#           ^ comment.line
+    [ # nested boundary
+#     ^ comment.line
+      int, # nested boundary
+#     ^ meta.annotation.type support.type
+#          ^ comment.line
+      [ # nested boundary
+#       ^ comment.line
+        int, # nested boundary
+#       ^ meta.annotation.type support.type
+#            ^ comment.line
+        int # nested boundary
+#       ^ meta.annotation.type support.type
+#           ^ comment.line
+      ] # nested boundary
+#                        ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#       ^ comment.line
+    ] # nested boundary
+#                      ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#     ^ comment.line
+  ) -> int # nested boundary
+#                           ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#      ^ meta.annotation.type support.type
+#          ^ comment.line
+) -> int # nested boundary
+#                         ^ meta.function.signature - meta.group.parameters - meta.annotation.type
+#    ^ meta.annotation.type support.type
+#        ^ comment.line
+  1 # nested boundary
+# ^ constant.numeric - meta.annotation.type
+#   ^ comment.line
+end # nested boundary
+#   ^ comment.line
+# nested:block parameter:tuple/tuple:module=True:comments=False
+
+module Nested
+  def self.apply(
+    &block: (
+      [
+        int,
+#       ^ meta.annotation.type support.type
+        [
+          int,
+#         ^ meta.annotation.type support.type
+          int
+#         ^ meta.annotation.type support.type
+        ]
+#        ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+      ]
+#      ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+    ) -> int
+#           ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#        ^ meta.annotation.type support.type
+  ) -> int
+#         ^ meta.function.signature - meta.group.parameters - meta.annotation.type
+#      ^ meta.annotation.type support.type
+    1
+#   ^ constant.numeric - meta.annotation.type
+  end
+end
+# nested:block parameter:tuple/tuple:module=True:comments=True
+
+module Nested # nested boundary
+#             ^ comment.line
+  def self.apply( # nested boundary
+#                 ^ comment.line
+    &block: ( # nested boundary
+#             ^ comment.line
+      [ # nested boundary
+#       ^ comment.line
+        int, # nested boundary
+#       ^ meta.annotation.type support.type
+#            ^ comment.line
+        [ # nested boundary
+#         ^ comment.line
+          int, # nested boundary
+#         ^ meta.annotation.type support.type
+#              ^ comment.line
+          int # nested boundary
+#         ^ meta.annotation.type support.type
+#             ^ comment.line
+        ] # nested boundary
+#                          ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#         ^ comment.line
+      ] # nested boundary
+#                        ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#       ^ comment.line
+    ) -> int # nested boundary
+#                             ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#        ^ meta.annotation.type support.type
+#            ^ comment.line
+  ) -> int # nested boundary
+#                           ^ meta.function.signature - meta.group.parameters - meta.annotation.type
+#      ^ meta.annotation.type support.type
+#          ^ comment.line
+    1 # nested boundary
+#   ^ constant.numeric - meta.annotation.type
+#     ^ comment.line
+  end # nested boundary
+#     ^ comment.line
+end # nested boundary
+#   ^ comment.line
+# nested:return:tuple/tuple:module=False:comments=False
+
+def apply(
+  &block: (
+    int
+#   ^ meta.annotation.type support.type
+  ) -> int
+#         ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#      ^ meta.annotation.type support.type
+) -> [
+#     ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+  int,
+# ^ meta.annotation.type support.type
+  [
+    int,
+#   ^ meta.annotation.type support.type
+    int
+#   ^ meta.annotation.type support.type
+  ]
+#  ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+]
+#^ meta.function.signature - meta.group.parameters - meta.annotation.type
+  raise "unused"
+# ^ keyword.control.flow - meta.annotation.type - meta.function.signature
+#       ^ string.quoted - meta.annotation.type
+end
+# nested:return:tuple/tuple:module=False:comments=True
+
+def apply( # nested boundary
+#          ^ comment.line
+  &block: ( # nested boundary
+#           ^ comment.line
+    int # nested boundary
+#   ^ meta.annotation.type support.type
+#       ^ comment.line
+  ) -> int # nested boundary
+#                           ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#      ^ meta.annotation.type support.type
+#          ^ comment.line
+) -> [ # nested boundary
+#                       ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#      ^ comment.line
+  int, # nested boundary
+# ^ meta.annotation.type support.type
+#      ^ comment.line
+  [ # nested boundary
+#   ^ comment.line
+    int, # nested boundary
+#   ^ meta.annotation.type support.type
+#        ^ comment.line
+    int # nested boundary
+#   ^ meta.annotation.type support.type
+#       ^ comment.line
+  ] # nested boundary
+#                    ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#   ^ comment.line
+] # nested boundary
+#                  ^ meta.function.signature - meta.group.parameters - meta.annotation.type
+# ^ comment.line
+  raise "unused" # nested boundary
+# ^ keyword.control.flow - meta.annotation.type - meta.function.signature
+#       ^ string.quoted - meta.annotation.type
+#                ^ comment.line
+end # nested boundary
+#   ^ comment.line
+# nested:return:tuple/tuple:module=True:comments=False
+
+module Nested
+  def self.apply(
+    &block: (
+      int
+#     ^ meta.annotation.type support.type
+    ) -> int
+#           ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#        ^ meta.annotation.type support.type
+  ) -> [
+#       ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+    int,
+#   ^ meta.annotation.type support.type
+    [
+      int,
+#     ^ meta.annotation.type support.type
+      int
+#     ^ meta.annotation.type support.type
+    ]
+#    ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+  ]
+#  ^ meta.function.signature - meta.group.parameters - meta.annotation.type
+    raise "unused"
+#   ^ keyword.control.flow - meta.annotation.type - meta.function.signature
+#         ^ string.quoted - meta.annotation.type
+  end
+end
+# nested:return:tuple/tuple:module=True:comments=True
+
+module Nested # nested boundary
+#             ^ comment.line
+  def self.apply( # nested boundary
+#                 ^ comment.line
+    &block: ( # nested boundary
+#             ^ comment.line
+      int # nested boundary
+#     ^ meta.annotation.type support.type
+#         ^ comment.line
+    ) -> int # nested boundary
+#                             ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#        ^ meta.annotation.type support.type
+#            ^ comment.line
+  ) -> [ # nested boundary
+#                         ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#        ^ comment.line
+    int, # nested boundary
+#   ^ meta.annotation.type support.type
+#        ^ comment.line
+    [ # nested boundary
+#     ^ comment.line
+      int, # nested boundary
+#     ^ meta.annotation.type support.type
+#          ^ comment.line
+      int # nested boundary
+#     ^ meta.annotation.type support.type
+#         ^ comment.line
+    ] # nested boundary
+#                      ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#     ^ comment.line
+  ] # nested boundary
+#                    ^ meta.function.signature - meta.group.parameters - meta.annotation.type
+#   ^ comment.line
+    raise "unused" # nested boundary
+#   ^ keyword.control.flow - meta.annotation.type - meta.function.signature
+#         ^ string.quoted - meta.annotation.type
+#                  ^ comment.line
+  end # nested boundary
+#     ^ comment.line
+end # nested boundary
+#   ^ comment.line
+# nested:block parameter:tuple/shape:module=False:comments=False
+
+def apply(
+  &block: (
+    [
+      int,
+#     ^ meta.annotation.type support.type
+      {
+        child: int
+#              ^ meta.annotation.type support.type
+      }
+#      ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+    ]
+#    ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+  ) -> int
+#         ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#      ^ meta.annotation.type support.type
+) -> int
+#       ^ meta.function.signature - meta.group.parameters - meta.annotation.type
+#    ^ meta.annotation.type support.type
+  1
+# ^ constant.numeric - meta.annotation.type
+end
+# nested:block parameter:tuple/shape:module=False:comments=True
+
+def apply( # nested boundary
+#          ^ comment.line
+  &block: ( # nested boundary
+#           ^ comment.line
+    [ # nested boundary
+#     ^ comment.line
+      int, # nested boundary
+#     ^ meta.annotation.type support.type
+#          ^ comment.line
+      { # nested boundary
+#       ^ comment.line
+        child: int # nested boundary
+#              ^ meta.annotation.type support.type
+#                  ^ comment.line
+      } # nested boundary
+#                        ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#       ^ comment.line
+    ] # nested boundary
+#                      ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#     ^ comment.line
+  ) -> int # nested boundary
+#                           ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#      ^ meta.annotation.type support.type
+#          ^ comment.line
+) -> int # nested boundary
+#                         ^ meta.function.signature - meta.group.parameters - meta.annotation.type
+#    ^ meta.annotation.type support.type
+#        ^ comment.line
+  1 # nested boundary
+# ^ constant.numeric - meta.annotation.type
+#   ^ comment.line
+end # nested boundary
+#   ^ comment.line
+# nested:block parameter:tuple/shape:module=True:comments=False
+
+module Nested
+  def self.apply(
+    &block: (
+      [
+        int,
+#       ^ meta.annotation.type support.type
+        {
+          child: int
+#                ^ meta.annotation.type support.type
+        }
+#        ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+      ]
+#      ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+    ) -> int
+#           ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#        ^ meta.annotation.type support.type
+  ) -> int
+#         ^ meta.function.signature - meta.group.parameters - meta.annotation.type
+#      ^ meta.annotation.type support.type
+    1
+#   ^ constant.numeric - meta.annotation.type
+  end
+end
+# nested:block parameter:tuple/shape:module=True:comments=True
+
+module Nested # nested boundary
+#             ^ comment.line
+  def self.apply( # nested boundary
+#                 ^ comment.line
+    &block: ( # nested boundary
+#             ^ comment.line
+      [ # nested boundary
+#       ^ comment.line
+        int, # nested boundary
+#       ^ meta.annotation.type support.type
+#            ^ comment.line
+        { # nested boundary
+#         ^ comment.line
+          child: int # nested boundary
+#                ^ meta.annotation.type support.type
+#                    ^ comment.line
+        } # nested boundary
+#                          ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#         ^ comment.line
+      ] # nested boundary
+#                        ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#       ^ comment.line
+    ) -> int # nested boundary
+#                             ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#        ^ meta.annotation.type support.type
+#            ^ comment.line
+  ) -> int # nested boundary
+#                           ^ meta.function.signature - meta.group.parameters - meta.annotation.type
+#      ^ meta.annotation.type support.type
+#          ^ comment.line
+    1 # nested boundary
+#   ^ constant.numeric - meta.annotation.type
+#     ^ comment.line
+  end # nested boundary
+#     ^ comment.line
+end # nested boundary
+#   ^ comment.line
+# nested:return:tuple/shape:module=False:comments=False
+
+def apply(
+  &block: (
+    int
+#   ^ meta.annotation.type support.type
+  ) -> int
+#         ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#      ^ meta.annotation.type support.type
+) -> [
+#     ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+  int,
+# ^ meta.annotation.type support.type
+  {
+    child: int
+#          ^ meta.annotation.type support.type
+  }
+#  ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+]
+#^ meta.function.signature - meta.group.parameters - meta.annotation.type
+  raise "unused"
+# ^ keyword.control.flow - meta.annotation.type - meta.function.signature
+#       ^ string.quoted - meta.annotation.type
+end
+# nested:return:tuple/shape:module=False:comments=True
+
+def apply( # nested boundary
+#          ^ comment.line
+  &block: ( # nested boundary
+#           ^ comment.line
+    int # nested boundary
+#   ^ meta.annotation.type support.type
+#       ^ comment.line
+  ) -> int # nested boundary
+#                           ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#      ^ meta.annotation.type support.type
+#          ^ comment.line
+) -> [ # nested boundary
+#                       ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#      ^ comment.line
+  int, # nested boundary
+# ^ meta.annotation.type support.type
+#      ^ comment.line
+  { # nested boundary
+#   ^ comment.line
+    child: int # nested boundary
+#          ^ meta.annotation.type support.type
+#              ^ comment.line
+  } # nested boundary
+#                    ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#   ^ comment.line
+] # nested boundary
+#                  ^ meta.function.signature - meta.group.parameters - meta.annotation.type
+# ^ comment.line
+  raise "unused" # nested boundary
+# ^ keyword.control.flow - meta.annotation.type - meta.function.signature
+#       ^ string.quoted - meta.annotation.type
+#                ^ comment.line
+end # nested boundary
+#   ^ comment.line
+# nested:return:tuple/shape:module=True:comments=False
+
+module Nested
+  def self.apply(
+    &block: (
+      int
+#     ^ meta.annotation.type support.type
+    ) -> int
+#           ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#        ^ meta.annotation.type support.type
+  ) -> [
+#       ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+    int,
+#   ^ meta.annotation.type support.type
+    {
+      child: int
+#            ^ meta.annotation.type support.type
+    }
+#    ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+  ]
+#  ^ meta.function.signature - meta.group.parameters - meta.annotation.type
+    raise "unused"
+#   ^ keyword.control.flow - meta.annotation.type - meta.function.signature
+#         ^ string.quoted - meta.annotation.type
+  end
+end
+# nested:return:tuple/shape:module=True:comments=True
+
+module Nested # nested boundary
+#             ^ comment.line
+  def self.apply( # nested boundary
+#                 ^ comment.line
+    &block: ( # nested boundary
+#             ^ comment.line
+      int # nested boundary
+#     ^ meta.annotation.type support.type
+#         ^ comment.line
+    ) -> int # nested boundary
+#                             ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#        ^ meta.annotation.type support.type
+#            ^ comment.line
+  ) -> [ # nested boundary
+#                         ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#        ^ comment.line
+    int, # nested boundary
+#   ^ meta.annotation.type support.type
+#        ^ comment.line
+    { # nested boundary
+#     ^ comment.line
+      child: int # nested boundary
+#            ^ meta.annotation.type support.type
+#                ^ comment.line
+    } # nested boundary
+#                      ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#     ^ comment.line
+  ] # nested boundary
+#                    ^ meta.function.signature - meta.group.parameters - meta.annotation.type
+#   ^ comment.line
+    raise "unused" # nested boundary
+#   ^ keyword.control.flow - meta.annotation.type - meta.function.signature
+#         ^ string.quoted - meta.annotation.type
+#                  ^ comment.line
+  end # nested boundary
+#     ^ comment.line
+end # nested boundary
+#   ^ comment.line
+# nested:block parameter:shape/tuple:module=False:comments=False
+
+def apply(
+  &block: (
+    {
+      child: [
+        int,
+#       ^ meta.annotation.type support.type
+        int
+#       ^ meta.annotation.type support.type
+      ]
+#      ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+    }
+#    ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+  ) -> int
+#         ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#      ^ meta.annotation.type support.type
+) -> int
+#       ^ meta.function.signature - meta.group.parameters - meta.annotation.type
+#    ^ meta.annotation.type support.type
+  1
+# ^ constant.numeric - meta.annotation.type
+end
+# nested:block parameter:shape/tuple:module=False:comments=True
+
+def apply( # nested boundary
+#          ^ comment.line
+  &block: ( # nested boundary
+#           ^ comment.line
+    { # nested boundary
+#     ^ comment.line
+      child: [ # nested boundary
+#              ^ comment.line
+        int, # nested boundary
+#       ^ meta.annotation.type support.type
+#            ^ comment.line
+        int # nested boundary
+#       ^ meta.annotation.type support.type
+#           ^ comment.line
+      ] # nested boundary
+#                        ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#       ^ comment.line
+    } # nested boundary
+#                      ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#     ^ comment.line
+  ) -> int # nested boundary
+#                           ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#      ^ meta.annotation.type support.type
+#          ^ comment.line
+) -> int # nested boundary
+#                         ^ meta.function.signature - meta.group.parameters - meta.annotation.type
+#    ^ meta.annotation.type support.type
+#        ^ comment.line
+  1 # nested boundary
+# ^ constant.numeric - meta.annotation.type
+#   ^ comment.line
+end # nested boundary
+#   ^ comment.line
+# nested:block parameter:shape/tuple:module=True:comments=False
+
+module Nested
+  def self.apply(
+    &block: (
+      {
+        child: [
+          int,
+#         ^ meta.annotation.type support.type
+          int
+#         ^ meta.annotation.type support.type
+        ]
+#        ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+      }
+#      ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+    ) -> int
+#           ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#        ^ meta.annotation.type support.type
+  ) -> int
+#         ^ meta.function.signature - meta.group.parameters - meta.annotation.type
+#      ^ meta.annotation.type support.type
+    1
+#   ^ constant.numeric - meta.annotation.type
+  end
+end
+# nested:block parameter:shape/tuple:module=True:comments=True
+
+module Nested # nested boundary
+#             ^ comment.line
+  def self.apply( # nested boundary
+#                 ^ comment.line
+    &block: ( # nested boundary
+#             ^ comment.line
+      { # nested boundary
+#       ^ comment.line
+        child: [ # nested boundary
+#                ^ comment.line
+          int, # nested boundary
+#         ^ meta.annotation.type support.type
+#              ^ comment.line
+          int # nested boundary
+#         ^ meta.annotation.type support.type
+#             ^ comment.line
+        ] # nested boundary
+#                          ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#         ^ comment.line
+      } # nested boundary
+#                        ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#       ^ comment.line
+    ) -> int # nested boundary
+#                             ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#        ^ meta.annotation.type support.type
+#            ^ comment.line
+  ) -> int # nested boundary
+#                           ^ meta.function.signature - meta.group.parameters - meta.annotation.type
+#      ^ meta.annotation.type support.type
+#          ^ comment.line
+    1 # nested boundary
+#   ^ constant.numeric - meta.annotation.type
+#     ^ comment.line
+  end # nested boundary
+#     ^ comment.line
+end # nested boundary
+#   ^ comment.line
+# nested:return:shape/tuple:module=False:comments=False
+
+def apply(
+  &block: (
+    int
+#   ^ meta.annotation.type support.type
+  ) -> int
+#         ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#      ^ meta.annotation.type support.type
+) -> {
+#     ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+  child: [
+    int,
+#   ^ meta.annotation.type support.type
+    int
+#   ^ meta.annotation.type support.type
+  ]
+#  ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+}
+#^ meta.function.signature - meta.group.parameters - meta.annotation.type
+  raise "unused"
+# ^ keyword.control.flow - meta.annotation.type - meta.function.signature
+#       ^ string.quoted - meta.annotation.type
+end
+# nested:return:shape/tuple:module=False:comments=True
+
+def apply( # nested boundary
+#          ^ comment.line
+  &block: ( # nested boundary
+#           ^ comment.line
+    int # nested boundary
+#   ^ meta.annotation.type support.type
+#       ^ comment.line
+  ) -> int # nested boundary
+#                           ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#      ^ meta.annotation.type support.type
+#          ^ comment.line
+) -> { # nested boundary
+#                       ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#      ^ comment.line
+  child: [ # nested boundary
+#          ^ comment.line
+    int, # nested boundary
+#   ^ meta.annotation.type support.type
+#        ^ comment.line
+    int # nested boundary
+#   ^ meta.annotation.type support.type
+#       ^ comment.line
+  ] # nested boundary
+#                    ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#   ^ comment.line
+} # nested boundary
+#                  ^ meta.function.signature - meta.group.parameters - meta.annotation.type
+# ^ comment.line
+  raise "unused" # nested boundary
+# ^ keyword.control.flow - meta.annotation.type - meta.function.signature
+#       ^ string.quoted - meta.annotation.type
+#                ^ comment.line
+end # nested boundary
+#   ^ comment.line
+# nested:return:shape/tuple:module=True:comments=False
+
+module Nested
+  def self.apply(
+    &block: (
+      int
+#     ^ meta.annotation.type support.type
+    ) -> int
+#           ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#        ^ meta.annotation.type support.type
+  ) -> {
+#       ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+    child: [
+      int,
+#     ^ meta.annotation.type support.type
+      int
+#     ^ meta.annotation.type support.type
+    ]
+#    ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+  }
+#  ^ meta.function.signature - meta.group.parameters - meta.annotation.type
+    raise "unused"
+#   ^ keyword.control.flow - meta.annotation.type - meta.function.signature
+#         ^ string.quoted - meta.annotation.type
+  end
+end
+# nested:return:shape/tuple:module=True:comments=True
+
+module Nested # nested boundary
+#             ^ comment.line
+  def self.apply( # nested boundary
+#                 ^ comment.line
+    &block: ( # nested boundary
+#             ^ comment.line
+      int # nested boundary
+#     ^ meta.annotation.type support.type
+#         ^ comment.line
+    ) -> int # nested boundary
+#                             ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#        ^ meta.annotation.type support.type
+#            ^ comment.line
+  ) -> { # nested boundary
+#                         ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#        ^ comment.line
+    child: [ # nested boundary
+#            ^ comment.line
+      int, # nested boundary
+#     ^ meta.annotation.type support.type
+#          ^ comment.line
+      int # nested boundary
+#     ^ meta.annotation.type support.type
+#         ^ comment.line
+    ] # nested boundary
+#                      ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#     ^ comment.line
+  } # nested boundary
+#                    ^ meta.function.signature - meta.group.parameters - meta.annotation.type
+#   ^ comment.line
+    raise "unused" # nested boundary
+#   ^ keyword.control.flow - meta.annotation.type - meta.function.signature
+#         ^ string.quoted - meta.annotation.type
+#                  ^ comment.line
+  end # nested boundary
+#     ^ comment.line
+end # nested boundary
+#   ^ comment.line
+# nested:block parameter:shape/shape:module=False:comments=False
+
+def apply(
+  &block: (
+    {
+      child: {
+        child: int
+#              ^ meta.annotation.type support.type
+      }
+#      ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+    }
+#    ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+  ) -> int
+#         ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#      ^ meta.annotation.type support.type
+) -> int
+#       ^ meta.function.signature - meta.group.parameters - meta.annotation.type
+#    ^ meta.annotation.type support.type
+  1
+# ^ constant.numeric - meta.annotation.type
+end
+# nested:block parameter:shape/shape:module=False:comments=True
+
+def apply( # nested boundary
+#          ^ comment.line
+  &block: ( # nested boundary
+#           ^ comment.line
+    { # nested boundary
+#     ^ comment.line
+      child: { # nested boundary
+#              ^ comment.line
+        child: int # nested boundary
+#              ^ meta.annotation.type support.type
+#                  ^ comment.line
+      } # nested boundary
+#                        ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#       ^ comment.line
+    } # nested boundary
+#                      ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#     ^ comment.line
+  ) -> int # nested boundary
+#                           ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#      ^ meta.annotation.type support.type
+#          ^ comment.line
+) -> int # nested boundary
+#                         ^ meta.function.signature - meta.group.parameters - meta.annotation.type
+#    ^ meta.annotation.type support.type
+#        ^ comment.line
+  1 # nested boundary
+# ^ constant.numeric - meta.annotation.type
+#   ^ comment.line
+end # nested boundary
+#   ^ comment.line
+# nested:block parameter:shape/shape:module=True:comments=False
+
+module Nested
+  def self.apply(
+    &block: (
+      {
+        child: {
+          child: int
+#                ^ meta.annotation.type support.type
+        }
+#        ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+      }
+#      ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+    ) -> int
+#           ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#        ^ meta.annotation.type support.type
+  ) -> int
+#         ^ meta.function.signature - meta.group.parameters - meta.annotation.type
+#      ^ meta.annotation.type support.type
+    1
+#   ^ constant.numeric - meta.annotation.type
+  end
+end
+# nested:block parameter:shape/shape:module=True:comments=True
+
+module Nested # nested boundary
+#             ^ comment.line
+  def self.apply( # nested boundary
+#                 ^ comment.line
+    &block: ( # nested boundary
+#             ^ comment.line
+      { # nested boundary
+#       ^ comment.line
+        child: { # nested boundary
+#                ^ comment.line
+          child: int # nested boundary
+#                ^ meta.annotation.type support.type
+#                    ^ comment.line
+        } # nested boundary
+#                          ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#         ^ comment.line
+      } # nested boundary
+#                        ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#       ^ comment.line
+    ) -> int # nested boundary
+#                             ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#        ^ meta.annotation.type support.type
+#            ^ comment.line
+  ) -> int # nested boundary
+#                           ^ meta.function.signature - meta.group.parameters - meta.annotation.type
+#      ^ meta.annotation.type support.type
+#          ^ comment.line
+    1 # nested boundary
+#   ^ constant.numeric - meta.annotation.type
+#     ^ comment.line
+  end # nested boundary
+#     ^ comment.line
+end # nested boundary
+#   ^ comment.line
+# nested:return:shape/shape:module=False:comments=False
+
+def apply(
+  &block: (
+    int
+#   ^ meta.annotation.type support.type
+  ) -> int
+#         ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#      ^ meta.annotation.type support.type
+) -> {
+#     ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+  child: {
+    child: int
+#          ^ meta.annotation.type support.type
+  }
+#  ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+}
+#^ meta.function.signature - meta.group.parameters - meta.annotation.type
+  raise "unused"
+# ^ keyword.control.flow - meta.annotation.type - meta.function.signature
+#       ^ string.quoted - meta.annotation.type
+end
+# nested:return:shape/shape:module=False:comments=True
+
+def apply( # nested boundary
+#          ^ comment.line
+  &block: ( # nested boundary
+#           ^ comment.line
+    int # nested boundary
+#   ^ meta.annotation.type support.type
+#       ^ comment.line
+  ) -> int # nested boundary
+#                           ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#      ^ meta.annotation.type support.type
+#          ^ comment.line
+) -> { # nested boundary
+#                       ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#      ^ comment.line
+  child: { # nested boundary
+#          ^ comment.line
+    child: int # nested boundary
+#          ^ meta.annotation.type support.type
+#              ^ comment.line
+  } # nested boundary
+#                    ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#   ^ comment.line
+} # nested boundary
+#                  ^ meta.function.signature - meta.group.parameters - meta.annotation.type
+# ^ comment.line
+  raise "unused" # nested boundary
+# ^ keyword.control.flow - meta.annotation.type - meta.function.signature
+#       ^ string.quoted - meta.annotation.type
+#                ^ comment.line
+end # nested boundary
+#   ^ comment.line
+# nested:return:shape/shape:module=True:comments=False
+
+module Nested
+  def self.apply(
+    &block: (
+      int
+#     ^ meta.annotation.type support.type
+    ) -> int
+#           ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#        ^ meta.annotation.type support.type
+  ) -> {
+#       ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+    child: {
+      child: int
+#            ^ meta.annotation.type support.type
+    }
+#    ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+  }
+#  ^ meta.function.signature - meta.group.parameters - meta.annotation.type
+    raise "unused"
+#   ^ keyword.control.flow - meta.annotation.type - meta.function.signature
+#         ^ string.quoted - meta.annotation.type
+  end
+end
+# nested:return:shape/shape:module=True:comments=True
+
+module Nested # nested boundary
+#             ^ comment.line
+  def self.apply( # nested boundary
+#                 ^ comment.line
+    &block: ( # nested boundary
+#             ^ comment.line
+      int # nested boundary
+#     ^ meta.annotation.type support.type
+#         ^ comment.line
+    ) -> int # nested boundary
+#                             ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#        ^ meta.annotation.type support.type
+#            ^ comment.line
+  ) -> { # nested boundary
+#                         ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#        ^ comment.line
+    child: { # nested boundary
+#            ^ comment.line
+      child: int # nested boundary
+#            ^ meta.annotation.type support.type
+#                ^ comment.line
+    } # nested boundary
+#                      ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#     ^ comment.line
+  } # nested boundary
+#                    ^ meta.function.signature - meta.group.parameters - meta.annotation.type
+#   ^ comment.line
+    raise "unused" # nested boundary
+#   ^ keyword.control.flow - meta.annotation.type - meta.function.signature
+#         ^ string.quoted - meta.annotation.type
+#                  ^ comment.line
+  end # nested boundary
+#     ^ comment.line
+end # nested boundary
+#   ^ comment.line
+# nested:block parameter:tuple/shape/tuple:module=False:comments=False
+
+def apply(
+  &block: (
+    [
+      int,
+#     ^ meta.annotation.type support.type
+      {
+        child: [
+          int,
+#         ^ meta.annotation.type support.type
+          int
+#         ^ meta.annotation.type support.type
+        ]
+#        ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+      }
+#      ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+    ]
+#    ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+  ) -> int
+#         ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#      ^ meta.annotation.type support.type
+) -> int
+#       ^ meta.function.signature - meta.group.parameters - meta.annotation.type
+#    ^ meta.annotation.type support.type
+  1
+# ^ constant.numeric - meta.annotation.type
+end
+# nested:block parameter:tuple/shape/tuple:module=False:comments=True
+
+def apply( # nested boundary
+#          ^ comment.line
+  &block: ( # nested boundary
+#           ^ comment.line
+    [ # nested boundary
+#     ^ comment.line
+      int, # nested boundary
+#     ^ meta.annotation.type support.type
+#          ^ comment.line
+      { # nested boundary
+#       ^ comment.line
+        child: [ # nested boundary
+#                ^ comment.line
+          int, # nested boundary
+#         ^ meta.annotation.type support.type
+#              ^ comment.line
+          int # nested boundary
+#         ^ meta.annotation.type support.type
+#             ^ comment.line
+        ] # nested boundary
+#                          ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#         ^ comment.line
+      } # nested boundary
+#                        ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#       ^ comment.line
+    ] # nested boundary
+#                      ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#     ^ comment.line
+  ) -> int # nested boundary
+#                           ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#      ^ meta.annotation.type support.type
+#          ^ comment.line
+) -> int # nested boundary
+#                         ^ meta.function.signature - meta.group.parameters - meta.annotation.type
+#    ^ meta.annotation.type support.type
+#        ^ comment.line
+  1 # nested boundary
+# ^ constant.numeric - meta.annotation.type
+#   ^ comment.line
+end # nested boundary
+#   ^ comment.line
+# nested:block parameter:tuple/shape/tuple:module=True:comments=False
+
+module Nested
+  def self.apply(
+    &block: (
+      [
+        int,
+#       ^ meta.annotation.type support.type
+        {
+          child: [
+            int,
+#           ^ meta.annotation.type support.type
+            int
+#           ^ meta.annotation.type support.type
+          ]
+#          ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+        }
+#        ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+      ]
+#      ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+    ) -> int
+#           ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#        ^ meta.annotation.type support.type
+  ) -> int
+#         ^ meta.function.signature - meta.group.parameters - meta.annotation.type
+#      ^ meta.annotation.type support.type
+    1
+#   ^ constant.numeric - meta.annotation.type
+  end
+end
+# nested:block parameter:tuple/shape/tuple:module=True:comments=True
+
+module Nested # nested boundary
+#             ^ comment.line
+  def self.apply( # nested boundary
+#                 ^ comment.line
+    &block: ( # nested boundary
+#             ^ comment.line
+      [ # nested boundary
+#       ^ comment.line
+        int, # nested boundary
+#       ^ meta.annotation.type support.type
+#            ^ comment.line
+        { # nested boundary
+#         ^ comment.line
+          child: [ # nested boundary
+#                  ^ comment.line
+            int, # nested boundary
+#           ^ meta.annotation.type support.type
+#                ^ comment.line
+            int # nested boundary
+#           ^ meta.annotation.type support.type
+#               ^ comment.line
+          ] # nested boundary
+#                            ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#           ^ comment.line
+        } # nested boundary
+#                          ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#         ^ comment.line
+      ] # nested boundary
+#                        ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#       ^ comment.line
+    ) -> int # nested boundary
+#                             ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#        ^ meta.annotation.type support.type
+#            ^ comment.line
+  ) -> int # nested boundary
+#                           ^ meta.function.signature - meta.group.parameters - meta.annotation.type
+#      ^ meta.annotation.type support.type
+#          ^ comment.line
+    1 # nested boundary
+#   ^ constant.numeric - meta.annotation.type
+#     ^ comment.line
+  end # nested boundary
+#     ^ comment.line
+end # nested boundary
+#   ^ comment.line
+# nested:return:tuple/shape/tuple:module=False:comments=False
+
+def apply(
+  &block: (
+    int
+#   ^ meta.annotation.type support.type
+  ) -> int
+#         ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#      ^ meta.annotation.type support.type
+) -> [
+#     ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+  int,
+# ^ meta.annotation.type support.type
+  {
+    child: [
+      int,
+#     ^ meta.annotation.type support.type
+      int
+#     ^ meta.annotation.type support.type
+    ]
+#    ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+  }
+#  ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+]
+#^ meta.function.signature - meta.group.parameters - meta.annotation.type
+  raise "unused"
+# ^ keyword.control.flow - meta.annotation.type - meta.function.signature
+#       ^ string.quoted - meta.annotation.type
+end
+# nested:return:tuple/shape/tuple:module=False:comments=True
+
+def apply( # nested boundary
+#          ^ comment.line
+  &block: ( # nested boundary
+#           ^ comment.line
+    int # nested boundary
+#   ^ meta.annotation.type support.type
+#       ^ comment.line
+  ) -> int # nested boundary
+#                           ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#      ^ meta.annotation.type support.type
+#          ^ comment.line
+) -> [ # nested boundary
+#                       ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#      ^ comment.line
+  int, # nested boundary
+# ^ meta.annotation.type support.type
+#      ^ comment.line
+  { # nested boundary
+#   ^ comment.line
+    child: [ # nested boundary
+#            ^ comment.line
+      int, # nested boundary
+#     ^ meta.annotation.type support.type
+#          ^ comment.line
+      int # nested boundary
+#     ^ meta.annotation.type support.type
+#         ^ comment.line
+    ] # nested boundary
+#                      ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#     ^ comment.line
+  } # nested boundary
+#                    ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#   ^ comment.line
+] # nested boundary
+#                  ^ meta.function.signature - meta.group.parameters - meta.annotation.type
+# ^ comment.line
+  raise "unused" # nested boundary
+# ^ keyword.control.flow - meta.annotation.type - meta.function.signature
+#       ^ string.quoted - meta.annotation.type
+#                ^ comment.line
+end # nested boundary
+#   ^ comment.line
+# nested:return:tuple/shape/tuple:module=True:comments=False
+
+module Nested
+  def self.apply(
+    &block: (
+      int
+#     ^ meta.annotation.type support.type
+    ) -> int
+#           ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#        ^ meta.annotation.type support.type
+  ) -> [
+#       ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+    int,
+#   ^ meta.annotation.type support.type
+    {
+      child: [
+        int,
+#       ^ meta.annotation.type support.type
+        int
+#       ^ meta.annotation.type support.type
+      ]
+#      ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+    }
+#    ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+  ]
+#  ^ meta.function.signature - meta.group.parameters - meta.annotation.type
+    raise "unused"
+#   ^ keyword.control.flow - meta.annotation.type - meta.function.signature
+#         ^ string.quoted - meta.annotation.type
+  end
+end
+# nested:return:tuple/shape/tuple:module=True:comments=True
+
+module Nested # nested boundary
+#             ^ comment.line
+  def self.apply( # nested boundary
+#                 ^ comment.line
+    &block: ( # nested boundary
+#             ^ comment.line
+      int # nested boundary
+#     ^ meta.annotation.type support.type
+#         ^ comment.line
+    ) -> int # nested boundary
+#                             ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#        ^ meta.annotation.type support.type
+#            ^ comment.line
+  ) -> [ # nested boundary
+#                         ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#        ^ comment.line
+    int, # nested boundary
+#   ^ meta.annotation.type support.type
+#        ^ comment.line
+    { # nested boundary
+#     ^ comment.line
+      child: [ # nested boundary
+#              ^ comment.line
+        int, # nested boundary
+#       ^ meta.annotation.type support.type
+#            ^ comment.line
+        int # nested boundary
+#       ^ meta.annotation.type support.type
+#           ^ comment.line
+      ] # nested boundary
+#                        ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#       ^ comment.line
+    } # nested boundary
+#                      ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#     ^ comment.line
+  ] # nested boundary
+#                    ^ meta.function.signature - meta.group.parameters - meta.annotation.type
+#   ^ comment.line
+    raise "unused" # nested boundary
+#   ^ keyword.control.flow - meta.annotation.type - meta.function.signature
+#         ^ string.quoted - meta.annotation.type
+#                  ^ comment.line
+  end # nested boundary
+#     ^ comment.line
+end # nested boundary
+#   ^ comment.line
+# nested:block parameter:shape/tuple/shape:module=False:comments=False
+
+def apply(
+  &block: (
+    {
+      child: [
+        int,
+#       ^ meta.annotation.type support.type
+        {
+          child: int
+#                ^ meta.annotation.type support.type
+        }
+#        ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+      ]
+#      ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+    }
+#    ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+  ) -> int
+#         ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#      ^ meta.annotation.type support.type
+) -> int
+#       ^ meta.function.signature - meta.group.parameters - meta.annotation.type
+#    ^ meta.annotation.type support.type
+  1
+# ^ constant.numeric - meta.annotation.type
+end
+# nested:block parameter:shape/tuple/shape:module=False:comments=True
+
+def apply( # nested boundary
+#          ^ comment.line
+  &block: ( # nested boundary
+#           ^ comment.line
+    { # nested boundary
+#     ^ comment.line
+      child: [ # nested boundary
+#              ^ comment.line
+        int, # nested boundary
+#       ^ meta.annotation.type support.type
+#            ^ comment.line
+        { # nested boundary
+#         ^ comment.line
+          child: int # nested boundary
+#                ^ meta.annotation.type support.type
+#                    ^ comment.line
+        } # nested boundary
+#                          ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#         ^ comment.line
+      ] # nested boundary
+#                        ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#       ^ comment.line
+    } # nested boundary
+#                      ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#     ^ comment.line
+  ) -> int # nested boundary
+#                           ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#      ^ meta.annotation.type support.type
+#          ^ comment.line
+) -> int # nested boundary
+#                         ^ meta.function.signature - meta.group.parameters - meta.annotation.type
+#    ^ meta.annotation.type support.type
+#        ^ comment.line
+  1 # nested boundary
+# ^ constant.numeric - meta.annotation.type
+#   ^ comment.line
+end # nested boundary
+#   ^ comment.line
+# nested:block parameter:shape/tuple/shape:module=True:comments=False
+
+module Nested
+  def self.apply(
+    &block: (
+      {
+        child: [
+          int,
+#         ^ meta.annotation.type support.type
+          {
+            child: int
+#                  ^ meta.annotation.type support.type
+          }
+#          ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+        ]
+#        ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+      }
+#      ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+    ) -> int
+#           ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#        ^ meta.annotation.type support.type
+  ) -> int
+#         ^ meta.function.signature - meta.group.parameters - meta.annotation.type
+#      ^ meta.annotation.type support.type
+    1
+#   ^ constant.numeric - meta.annotation.type
+  end
+end
+# nested:block parameter:shape/tuple/shape:module=True:comments=True
+
+module Nested # nested boundary
+#             ^ comment.line
+  def self.apply( # nested boundary
+#                 ^ comment.line
+    &block: ( # nested boundary
+#             ^ comment.line
+      { # nested boundary
+#       ^ comment.line
+        child: [ # nested boundary
+#                ^ comment.line
+          int, # nested boundary
+#         ^ meta.annotation.type support.type
+#              ^ comment.line
+          { # nested boundary
+#           ^ comment.line
+            child: int # nested boundary
+#                  ^ meta.annotation.type support.type
+#                      ^ comment.line
+          } # nested boundary
+#                            ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#           ^ comment.line
+        ] # nested boundary
+#                          ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#         ^ comment.line
+      } # nested boundary
+#                        ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#       ^ comment.line
+    ) -> int # nested boundary
+#                             ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#        ^ meta.annotation.type support.type
+#            ^ comment.line
+  ) -> int # nested boundary
+#                           ^ meta.function.signature - meta.group.parameters - meta.annotation.type
+#      ^ meta.annotation.type support.type
+#          ^ comment.line
+    1 # nested boundary
+#   ^ constant.numeric - meta.annotation.type
+#     ^ comment.line
+  end # nested boundary
+#     ^ comment.line
+end # nested boundary
+#   ^ comment.line
+# nested:return:shape/tuple/shape:module=False:comments=False
+
+def apply(
+  &block: (
+    int
+#   ^ meta.annotation.type support.type
+  ) -> int
+#         ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#      ^ meta.annotation.type support.type
+) -> {
+#     ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+  child: [
+    int,
+#   ^ meta.annotation.type support.type
+    {
+      child: int
+#            ^ meta.annotation.type support.type
+    }
+#    ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+  ]
+#  ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+}
+#^ meta.function.signature - meta.group.parameters - meta.annotation.type
+  raise "unused"
+# ^ keyword.control.flow - meta.annotation.type - meta.function.signature
+#       ^ string.quoted - meta.annotation.type
+end
+# nested:return:shape/tuple/shape:module=False:comments=True
+
+def apply( # nested boundary
+#          ^ comment.line
+  &block: ( # nested boundary
+#           ^ comment.line
+    int # nested boundary
+#   ^ meta.annotation.type support.type
+#       ^ comment.line
+  ) -> int # nested boundary
+#                           ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#      ^ meta.annotation.type support.type
+#          ^ comment.line
+) -> { # nested boundary
+#                       ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#      ^ comment.line
+  child: [ # nested boundary
+#          ^ comment.line
+    int, # nested boundary
+#   ^ meta.annotation.type support.type
+#        ^ comment.line
+    { # nested boundary
+#     ^ comment.line
+      child: int # nested boundary
+#            ^ meta.annotation.type support.type
+#                ^ comment.line
+    } # nested boundary
+#                      ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#     ^ comment.line
+  ] # nested boundary
+#                    ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#   ^ comment.line
+} # nested boundary
+#                  ^ meta.function.signature - meta.group.parameters - meta.annotation.type
+# ^ comment.line
+  raise "unused" # nested boundary
+# ^ keyword.control.flow - meta.annotation.type - meta.function.signature
+#       ^ string.quoted - meta.annotation.type
+#                ^ comment.line
+end # nested boundary
+#   ^ comment.line
+# nested:return:shape/tuple/shape:module=True:comments=False
+
+module Nested
+  def self.apply(
+    &block: (
+      int
+#     ^ meta.annotation.type support.type
+    ) -> int
+#           ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#        ^ meta.annotation.type support.type
+  ) -> {
+#       ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+    child: [
+      int,
+#     ^ meta.annotation.type support.type
+      {
+        child: int
+#              ^ meta.annotation.type support.type
+      }
+#      ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+    ]
+#    ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+  }
+#  ^ meta.function.signature - meta.group.parameters - meta.annotation.type
+    raise "unused"
+#   ^ keyword.control.flow - meta.annotation.type - meta.function.signature
+#         ^ string.quoted - meta.annotation.type
+  end
+end
+# nested:return:shape/tuple/shape:module=True:comments=True
+
+module Nested # nested boundary
+#             ^ comment.line
+  def self.apply( # nested boundary
+#                 ^ comment.line
+    &block: ( # nested boundary
+#             ^ comment.line
+      int # nested boundary
+#     ^ meta.annotation.type support.type
+#         ^ comment.line
+    ) -> int # nested boundary
+#                             ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#        ^ meta.annotation.type support.type
+#            ^ comment.line
+  ) -> { # nested boundary
+#                         ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#        ^ comment.line
+    child: [ # nested boundary
+#            ^ comment.line
+      int, # nested boundary
+#     ^ meta.annotation.type support.type
+#          ^ comment.line
+      { # nested boundary
+#       ^ comment.line
+        child: int # nested boundary
+#              ^ meta.annotation.type support.type
+#                  ^ comment.line
+      } # nested boundary
+#                        ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#       ^ comment.line
+    ] # nested boundary
+#                      ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#     ^ comment.line
+  } # nested boundary
+#                    ^ meta.function.signature - meta.group.parameters - meta.annotation.type
+#   ^ comment.line
+    raise "unused" # nested boundary
+#   ^ keyword.control.flow - meta.annotation.type - meta.function.signature
+#         ^ string.quoted - meta.annotation.type
+#                  ^ comment.line
+  end # nested boundary
+#     ^ comment.line
+end # nested boundary
+#   ^ comment.line
+# nested:call arguments with blocks:depth=2:comments=False
+
+def identity(value: any) -> any
+  value
+end
+identity(
+  [1].map { |item_1|
+    identity(
+      [1].map { |item_0|
+        (
+          1
+#         ^ constant.numeric - meta.annotation.type
+        )
+#        ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+      }
+#      ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+    )
+#    ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+  }
+#  ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+)
+#^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+# nested:call arguments with blocks:depth=2:comments=True
+
+def identity(value: any) -> any # nested boundary
+#                               ^ comment.line
+  value # nested boundary
+#       ^ comment.line
+end # nested boundary
+#   ^ comment.line
+identity( # nested boundary
+#         ^ comment.line
+  [1].map { |item_1| # nested boundary
+#                    ^ comment.line
+    identity( # nested boundary
+#             ^ comment.line
+      [1].map { |item_0| # nested boundary
+#                        ^ comment.line
+        ( # nested boundary
+#         ^ comment.line
+          1 # nested boundary
+#         ^ constant.numeric - meta.annotation.type
+#           ^ comment.line
+        ) # nested boundary
+#                          ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#         ^ comment.line
+      } # nested boundary
+#                        ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#       ^ comment.line
+    ) # nested boundary
+#                      ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#     ^ comment.line
+  } # nested boundary
+#                    ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#   ^ comment.line
+) # nested boundary
+#                  ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+# ^ comment.line
+# nested:parameter default calls with blocks:depth=2:comments=False
+
+def identity(value: any) -> any
+  value
+end
+def apply(
+  value: any = identity(
+    [1].map { |item_1|
+      identity(
+        [1].map { |item_0|
+          (
+            1
+#           ^ constant.numeric - meta.annotation.type
+          )
+#          ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+        }
+#        ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+      )
+#      ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+    }
+#    ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+  )
+#  ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+) -> int
+#       ^ meta.function.signature - meta.group.parameters - meta.annotation.type
+  1
+# ^ constant.numeric - meta.annotation.type
+end
+# nested:parameter default calls with blocks:depth=2:comments=True
+
+def identity(value: any) -> any # nested boundary
+#                               ^ comment.line
+  value # nested boundary
+#       ^ comment.line
+end # nested boundary
+#   ^ comment.line
+def apply( # nested boundary
+#          ^ comment.line
+  value: any = identity( # nested boundary
+#                        ^ comment.line
+    [1].map { |item_1| # nested boundary
+#                      ^ comment.line
+      identity( # nested boundary
+#               ^ comment.line
+        [1].map { |item_0| # nested boundary
+#                          ^ comment.line
+          ( # nested boundary
+#           ^ comment.line
+            1 # nested boundary
+#           ^ constant.numeric - meta.annotation.type
+#             ^ comment.line
+          ) # nested boundary
+#                            ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#           ^ comment.line
+        } # nested boundary
+#                          ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#         ^ comment.line
+      ) # nested boundary
+#                        ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#       ^ comment.line
+    } # nested boundary
+#                      ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#     ^ comment.line
+  ) # nested boundary
+#                    ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#   ^ comment.line
+) -> int # nested boundary
+#                         ^ meta.function.signature - meta.group.parameters - meta.annotation.type
+#        ^ comment.line
+  1 # nested boundary
+# ^ constant.numeric - meta.annotation.type
+#   ^ comment.line
+end # nested boundary
+#   ^ comment.line
+# nested:call arguments with blocks:depth=3:comments=False
+
+def identity(value: any) -> any
+  value
+end
+identity(
+  [1].map { |item_2|
+    identity(
+      [1].map { |item_1|
+        identity(
+          [1].map { |item_0|
+            (
+              1
+#             ^ constant.numeric - meta.annotation.type
+            )
+#            ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+          }
+#          ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+        )
+#        ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+      }
+#      ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+    )
+#    ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+  }
+#  ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+)
+#^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+# nested:call arguments with blocks:depth=3:comments=True
+
+def identity(value: any) -> any # nested boundary
+#                               ^ comment.line
+  value # nested boundary
+#       ^ comment.line
+end # nested boundary
+#   ^ comment.line
+identity( # nested boundary
+#         ^ comment.line
+  [1].map { |item_2| # nested boundary
+#                    ^ comment.line
+    identity( # nested boundary
+#             ^ comment.line
+      [1].map { |item_1| # nested boundary
+#                        ^ comment.line
+        identity( # nested boundary
+#                 ^ comment.line
+          [1].map { |item_0| # nested boundary
+#                            ^ comment.line
+            ( # nested boundary
+#             ^ comment.line
+              1 # nested boundary
+#             ^ constant.numeric - meta.annotation.type
+#               ^ comment.line
+            ) # nested boundary
+#                              ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#             ^ comment.line
+          } # nested boundary
+#                            ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#           ^ comment.line
+        ) # nested boundary
+#                          ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#         ^ comment.line
+      } # nested boundary
+#                        ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#       ^ comment.line
+    ) # nested boundary
+#                      ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#     ^ comment.line
+  } # nested boundary
+#                    ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#   ^ comment.line
+) # nested boundary
+#                  ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+# ^ comment.line
+# nested:parameter default calls with blocks:depth=3:comments=False
+
+def identity(value: any) -> any
+  value
+end
+def apply(
+  value: any = identity(
+    [1].map { |item_2|
+      identity(
+        [1].map { |item_1|
+          identity(
+            [1].map { |item_0|
+              (
+                1
+#               ^ constant.numeric - meta.annotation.type
+              )
+#              ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+            }
+#            ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+          )
+#          ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+        }
+#        ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+      )
+#      ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+    }
+#    ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+  )
+#  ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+) -> int
+#       ^ meta.function.signature - meta.group.parameters - meta.annotation.type
+  1
+# ^ constant.numeric - meta.annotation.type
+end
+# nested:parameter default calls with blocks:depth=3:comments=True
+
+def identity(value: any) -> any # nested boundary
+#                               ^ comment.line
+  value # nested boundary
+#       ^ comment.line
+end # nested boundary
+#   ^ comment.line
+def apply( # nested boundary
+#          ^ comment.line
+  value: any = identity( # nested boundary
+#                        ^ comment.line
+    [1].map { |item_2| # nested boundary
+#                      ^ comment.line
+      identity( # nested boundary
+#               ^ comment.line
+        [1].map { |item_1| # nested boundary
+#                          ^ comment.line
+          identity( # nested boundary
+#                   ^ comment.line
+            [1].map { |item_0| # nested boundary
+#                              ^ comment.line
+              ( # nested boundary
+#               ^ comment.line
+                1 # nested boundary
+#               ^ constant.numeric - meta.annotation.type
+#                 ^ comment.line
+              ) # nested boundary
+#                                ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#               ^ comment.line
+            } # nested boundary
+#                              ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#             ^ comment.line
+          ) # nested boundary
+#                            ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#           ^ comment.line
+        } # nested boundary
+#                          ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#         ^ comment.line
+      ) # nested boundary
+#                        ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#       ^ comment.line
+    } # nested boundary
+#                      ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#     ^ comment.line
+  ) # nested boundary
+#                    ^ source.vibescript - (meta.function.signature - meta.group.parameters - meta.annotation.type)
+#   ^ comment.line
+) -> int # nested boundary
+#                         ^ meta.function.signature - meta.group.parameters - meta.annotation.type
+#        ^ comment.line
+  1 # nested boundary
+# ^ constant.numeric - meta.annotation.type
+#   ^ comment.line
+end # nested boundary
+#   ^ comment.line

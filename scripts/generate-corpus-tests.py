@@ -18,6 +18,7 @@ from semicolon_cases import semicolon_cases
 from type_inventory import inventory
 from type_cases import cases as type_cases
 from alias_cases import cases as alias_cases
+from nested_cases import cases as nested_cases
 
 
 BUILTINS = set(inventory()["builtins"])
@@ -278,6 +279,12 @@ def main():
                        capture_output=True, text=True, check=True)
     cases.extend(aliases)
     coverage["alias-cases"] = len(aliases)
+    nested = nested_cases()
+    for case in nested:
+        subprocess.run([str(compiler), "check", "--eval", case["source"]], cwd=args.rust_repo,
+                       capture_output=True, text=True, check=True)
+    cases.extend(nested)
+    coverage["nested-delimiter-cases"] = len(nested)
     manifest = {"website_count": len(website), "rust_origins": dict(origins), "coverage": dict(coverage),
                 "compiler": subprocess.check_output([str(compiler), "--version"], text=True).strip(),
                 "rejected": rejected, "cases": cases}

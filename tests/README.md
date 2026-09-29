@@ -67,6 +67,29 @@ Alias names use ordinary identifiers; the language's method-only `?`/`!` suffix
 rule still applies, while `id?` in an annotation is an optional alias type.
 The full corpus audit includes these alias scope/reindent cases too.
 
+## Nested signatures and expressions
+
+`scripts/nested_cases.py` generates 60 compiler-checked cases with independently
+written indentation: method parameter lists containing function types, all pairs
+of nested tuple/shape types, alternating types three levels deep, structured
+return types, and calls and defaults containing nested blocks and parentheses.
+The cases cover outer `)` and `) -> T` closers, inner function-type `) -> T`
+closers, module methods, and trailing comments on every line.
+
+The signature scope survives the complete parameter and return type. Its
+indentation preference reopens the method body only after leaving both the
+parameter list and the nested annotation. Ordinary parenthesis closers use the
+base rule; their text alone cannot distinguish a function type from a method.
+Native assertions check this scope distinction at line ends, and the corpus
+audit requires every generated case to remain byte-for-byte stable on reindent.
+
+```sh
+python3 scripts/nested_cases.py > tests/syntax_test_nested.vibe
+python3 scripts/nested_cases.py --manifest > "$cache/nested-cases.json"
+python3 scripts/run-native-tests.py "$profile" \
+  --manifest "$cache/nested-cases.json" --output "$cache/nested.json"
+```
+
 ## Native scope and reindent checks
 
 Use an isolated Sublime Text profile containing `Packages/Vibescript` linked to
