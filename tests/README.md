@@ -58,6 +58,15 @@ compiler, a bare `nil` field is a hash value; `nil | int` tests nil in a type.
 lexical regression cases include incomplete or invalid expressions to exercise
 fallback; they are separate from the compiler-accepted corpus sample.
 
+`scripts/alias_cases.py` generates compiler-checked aliases with lowercase,
+uppercase, underscore and Unicode names, and uses in local, parameter, return,
+block and qualified annotations. The Python suite checks their source with the
+live compiler when `VIBES` is set. Alias names have no generic parameter list;
+generic method declarations such as `def p<T>` remain prelude-only notation.
+Alias names use ordinary identifiers; the language's method-only `?`/`!` suffix
+rule still applies, while `id?` in an annotation is an optional alias type.
+The full corpus audit includes these alias scope/reindent cases too.
+
 ## Native scope and reindent checks
 
 Use an isolated Sublime Text profile containing `Packages/Vibescript` linked to

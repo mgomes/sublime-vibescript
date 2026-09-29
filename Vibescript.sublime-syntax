@@ -16,10 +16,12 @@ variables:
   builtin_type: '(?:any|array|bool|comparable|duration|enum_type|enum_value|error|float|hash|int|match_data|money|nil|number|range|regex|string|symbol|time|type)\b'
   generic_type: '(?:array|hash|type)\b'
   type_space: '(?:\s|\#[^\n]*(?:\n|$))*'
-  type_name: '(?:(?:{{plain_identifier}}|{{constant}})(?:\.|::))*(?:{{constant}}\b|{{builtin_type}})'
+  type_identifier: '[^\W\d]\w*'
+  type_constant: '(?=[A-Z]){{type_identifier}}'
+  type_name: '{{type_identifier}}(?:(?:\.|::){{type_identifier}})*'
   compound_type_start: '[\[({]'
   type_start: '(?:{{type_name}}|{{compound_type_start}})'
-  annotation_start: '(?:{{type_name}}(?={{type_space}}(?:[<|=;#]|{{optional_type}}|->|$))|{{compound_type_start}})'
+  annotation_start: '(?:{{generic_type}}(?={{type_space}}<(?![=<>]))|{{type_name}}(?={{type_space}}(?:[|=;#]|{{optional_type}}(?!{{type_space}}\()|->|$))|{{compound_type_start}})'
   quoted_field_key: '(?:"(?:\\.|[^"\\])*"|''(?:\\.|[^''\\])*'')'
   shape_field_name: '(?:{{plain_identifier}}|{{constant}})(?:{{optional_type}})?'
   shape_field_key: '(?:{{shape_field_name}}|{{quoted_field_key}})'
@@ -227,10 +229,10 @@ contexts:
     - match: '\bnil\b'
       scope: constant.language.null.vibescript
       set: type-expression-tail
-    - match: '{{constant}}'
+    - match: '{{type_constant}}'
       scope: support.class.vibescript
       set: type-expression-tail
-    - match: '{{plain_identifier}}'
+    - match: '{{type_identifier}}'
       scope: support.type.vibescript
       set: type-expression-tail
     - match: '\['
@@ -287,9 +289,9 @@ contexts:
     - match: '\{'
       scope: punctuation.section.braces.begin.vibescript
       push: type-shape
-    - match: '{{constant}}'
+    - match: '{{type_constant}}'
       scope: support.class.vibescript
-    - match: '{{plain_identifier}}'
+    - match: '{{type_identifier}}'
       scope: support.type.vibescript
 
   type-generics:
@@ -300,6 +302,8 @@ contexts:
     - match: ','
       scope: punctuation.separator.sequence.vibescript
     - include: type-body
+    - match: '(?=\S)'
+      pop: 1
 
   type-tuple:
     - meta_scope: meta.annotation.type.vibescript
@@ -309,6 +313,8 @@ contexts:
     - match: ','
       scope: punctuation.separator.sequence.vibescript
     - include: type-body
+    - match: '(?=\S)'
+      pop: 1
 
   block-type-arguments:
     - meta_scope: meta.annotation.type.vibescript
@@ -318,6 +324,8 @@ contexts:
     - match: ','
       scope: punctuation.separator.sequence.vibescript
     - include: type-body
+    - match: '(?=\S)'
+      pop: 1
 
   type-shape:
     - meta_scope: meta.annotation.type.vibescript
@@ -336,7 +344,7 @@ contexts:
       scope: punctuation.separator.sequence.vibescript
 
   type-alias:
-    - match: '\b(type)\s+({{constant}})\s*(=)'
+    - match: '\b(type)[ \t]+({{type_identifier}})[ \t]*(=)(?!=|~|>)'
       captures:
         1: keyword.declaration.type.vibescript
         2: entity.name.type.vibescript

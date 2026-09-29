@@ -17,6 +17,7 @@ from operators import BINARY_LINE_END, continuation_cases
 from semicolon_cases import semicolon_cases
 from type_inventory import inventory
 from type_cases import cases as type_cases
+from alias_cases import cases as alias_cases
 
 
 BUILTINS = set(inventory()["builtins"])
@@ -271,6 +272,12 @@ def main():
     inventory_cases = type_cases(inventory())
     cases.extend(inventory_cases)
     coverage["type-inventory-cases"] = len(inventory_cases)
+    aliases = alias_cases()
+    for case in aliases:
+        subprocess.run([str(compiler), "check", "--eval", case["source"]], cwd=args.rust_repo,
+                       capture_output=True, text=True, check=True)
+    cases.extend(aliases)
+    coverage["alias-cases"] = len(aliases)
     manifest = {"website_count": len(website), "rust_origins": dict(origins), "coverage": dict(coverage),
                 "compiler": subprocess.check_output([str(compiler), "--version"], text=True).strip(),
                 "rejected": rejected, "cases": cases}
