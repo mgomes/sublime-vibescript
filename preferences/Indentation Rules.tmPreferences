@@ -5,7 +5,7 @@
 	<key>name</key>
 	<string>Indentation Rules</string>
 	<key>scope</key>
-	<string>source.vibescript</string>
+	<string>source.vibescript - string - meta.interpolation - constant.other.symbol.double-quoted - constant.other.symbol.single-quoted</string>
 	<key>settings</key>
 	<dict>
 		<key>decreaseIndentPattern</key>

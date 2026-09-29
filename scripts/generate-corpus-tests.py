@@ -9,6 +9,7 @@ import json
 from pathlib import Path
 import re
 import subprocess
+import sys
 
 from tree_sitter import Language, Parser
 
@@ -22,6 +23,8 @@ from nested_cases import cases as nested_cases
 from layout_cases import cases as layout_cases, required_scopes
 from ternary_cases import cases as ternary_cases
 from call_cases import cases as call_cases
+from literal_audit import LITERALS, literal_bytes, mark_cases
+from literal_cases import cases as literal_cases
 
 
 BUILTINS = set(inventory()["builtins"])
@@ -65,7 +68,7 @@ def normalize_indentation(source, parser):
         if not node.is_named:
             continue
         start, end = node.start_point.row, node.end_point.row
-        if node.type == "string" and start != end:
+        if node.type in ("string", "quoted_symbol", "regex") and start != end:
             protected.update(range(start + 1, end + 1))
         if node.type == "block_comment":
             protected.update(range(start, end + 1))
@@ -102,6 +105,32 @@ def normalize_indentation(source, parser):
                      for row, line in enumerate(lines)) + "\n"
 
 
+def format_preserving_literals(source, parser, compiler, path):
+    """Format code around opaque literal placeholders, then restore exact bytes."""
+    data = source.encode()
+    replacements = []
+    for node, ancestors in walk(parser.parse(data).root_node):
+        if node.type not in LITERALS:
+            continue
+        if any(parent.type in LITERALS for parent in ancestors):
+            continue
+        marker = f'"editor literal {hashlib.sha256(data).hexdigest()} {len(replacements)}"'.encode()
+        if node.type == "quoted_symbol":
+            marker = b":" + marker
+        elif node.type == "regex":
+            continue
+        replacements.append((node.start_byte, node.end_byte, marker, node.text))
+    for start, end, marker, _ in reversed(replacements):
+        data = data[:start] + marker + data[end:]
+    path.write_bytes(data)
+    formatted = subprocess.run([str(compiler), "fmt", str(path)], capture_output=True, check=True).stdout
+    for _, _, marker, original in replacements:
+        if formatted.count(marker) != 1:
+            raise ValueError("Formatter did not preserve a literal placeholder")
+        formatted = formatted.replace(marker, original)
+    return normalize_indentation(formatted.decode(), parser)
+
+
 def expectations(source, parser):
     data = source.encode()
     tree = parser.parse(data)
@@ -133,7 +162,7 @@ def expectations(source, parser):
         if node.type in CONTEXTS:
             context_rows.add(node.start_point.row)
             features["context:" + node.type] += 1
-        if node.type in ("string", "regex") and node.start_point.row != node.end_point.row:
+        if node.type in ("string", "quoted_symbol", "regex") and node.start_point.row != node.end_point.row:
             multiline_string_rows.update(range(node.start_point.row, node.end_point.row))
         if node.type in ("comment", "directive_comment", "block_comment"):
             comment_rows.update(range(node.start_point.row, node.end_point.row + 1))
@@ -201,11 +230,18 @@ def main():
     origins = Counter()
     union_samples = 0
     block_comments = 0
+    multiline_samples = 0
     for entry in entries:
         group = entry["origin"].split(":", 1)[0]
         source = Path(entry["path"]).read_text()
         comment_sample = block_comments < 4 and re.search(r'^=begin\b', source, re.MULTILINE)
-        if (len(source) < 40 and not comment_sample) or len(source) > 6000 or source.count("\n") < 2:
+        literal_sample = False
+        if multiline_samples < 16 and "\n" in source and len(source) <= 6000:
+            try:
+                literal_sample = any(b"\n" in text for _, text in literal_bytes(source, parser))
+            except ValueError:
+                pass
+        if ((len(source) < 40 or source.count("\n") < 2) and not (comment_sample or literal_sample)) or len(source) > 6000:
             continue
         targeted = union_samples < 8 and re.search(r'\{\s*\|[^|\n]*:[^|\n]*\|[^|\n]+\|', source)
         if targeted:
@@ -213,7 +249,8 @@ def main():
             targeted = features["block-union"] > 0
         union_samples += bool(targeted)
         block_comments += bool(comment_sample)
-        targeted = targeted or comment_sample
+        multiline_samples += bool(literal_sample)
+        targeted = targeted or comment_sample or literal_sample
         if not targeted and origins[group] >= (4 if group.endswith((".rs", ".json", ".gz", ".jsonl")) else 1):
             continue
         if not targeted and len(selected) >= args.rust_limit and not group.startswith(("examples/", "corpus/glue/")):
@@ -233,17 +270,26 @@ def main():
                 continue
         path = output / "sources" / f"{index:04}.vibe"
         path.write_text(source)
+        formatting = "original"
         if origin.startswith("rust:"):
-            # Embedded Rust test strings often deliberately omit indentation.
-            formatted = subprocess.run([str(compiler), "fmt", str(path)], capture_output=True, text=True, check=True)
-            source = normalize_indentation(formatted.stdout, parser)
+            # Preserve physical newlines instead of letting fmt escape them.
+            original_literals = literal_bytes(source, parser)
+            if any(b"\n" in text for _, text in original_literals):
+                source = format_preserving_literals(source, parser, compiler, path)
+                if literal_bytes(source, parser) != original_literals:
+                    raise ValueError("Normalization changed literal bytes in " + origin)
+                formatting = "compiler formatting and AST indentation with original literal bytes"
+            else:
+                formatted = subprocess.run([str(compiler), "fmt", str(path)], capture_output=True, text=True, check=True)
+                source = normalize_indentation(formatted.stdout, parser)
+                formatting = "compiler formatting plus AST indentation"
             path.write_text(source)
             subprocess.run([str(compiler), "check", "--eval", source], cwd=cwd,
                            capture_output=True, text=True, check=True)
         assertions, features, context_rows = expectations(source, parser)
         coverage.update(features)
-        cases.append({"name": origin, "path": str(path), "assertions": assertions, "reindent": True,
-                      "formatting": "compiler formatting plus AST indentation" if origin.startswith("rust:") else "original"})
+        cases.append({"name": origin, "path": str(path), "assertions": assertions, "reindent": True, "cwd": str(cwd),
+                      "formatting": formatting})
         (output / "syntax" / f"syntax_test_{index:04}.vibe").write_text(syntax_test(source, assertions, origin))
         lines = source.splitlines()
         for row in context_rows:
@@ -254,7 +300,7 @@ def main():
             comment_assertions, _, _ = expectations(commented, parser)
             comment_path = output / "sources" / f"{index:04}-comments.vibe"
             comment_path.write_text(commented)
-            cases.append({"name": origin + " + trailing comments", "path": str(comment_path),
+            cases.append({"name": origin + " + trailing comments", "path": str(comment_path), "cwd": str(cwd),
                           "assertions": comment_assertions, "reindent": True})
             coverage["trailing-comment-variants"] += 1
         elif checked.returncode == 0:
@@ -302,10 +348,19 @@ def main():
             raise ValueError(f"Unexpected call parse result for {case['name']}: {checked.stdout}{checked.stderr}")
     cases.extend(calls)
     coverage["call-spacing-cases"] = len(calls)
+    literals = literal_cases()
+    for case in literals:
+        subprocess.run([str(compiler), "check", "--eval", case["source"]], cwd=args.rust_repo,
+                       capture_output=True, text=True, check=True)
+    cases.extend(literals)
+    coverage["literal-regressions"] = len(literals)
     layouts = layout_cases()
     cases.extend(layouts)
     coverage["layout-invariance-cases"] = len(layouts)
+    coverage["literal-preservation-cases"] = mark_cases(cases, parser)
     manifest = {"website_count": len(website), "rust_origins": dict(origins), "coverage": dict(coverage),
+                "literal_audit": {"python": sys.executable, "library": str(args.library.resolve()),
+                                  "vibes": str(compiler.resolve()), "cwd": str(args.rust_repo.resolve())},
                 "compiler": subprocess.check_output([str(compiler), "--version"], text=True).strip(),
                 "rejected": rejected, "cases": cases, "required_scopes": required_scopes()}
     for category in ("typed-local", "hash-key", "type", "block-union", "block-parameter", "string", "regex", "comment", "context:block_comment"):

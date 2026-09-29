@@ -5,7 +5,8 @@ import plistlib
 
 
 MAX_DEPTH = 3
-METHOD_SCOPE = "source.vibescript meta.function.signature - meta.group.parameters - meta.annotation.type"
+METHOD_SCOPE = ("source.vibescript meta.function.signature - meta.group.parameters - meta.annotation.type"
+                " - string - meta.interpolation - constant.other.symbol.double-quoted - constant.other.symbol.single-quoted")
 STRING = r'"(?:\\.|[^"\\])*"' + r"|'(?:\\.|[^'\\])*'"
 REGEX = r'''(?<![\w)\]}"/])/(?![\s=/])(?:\\.|\[(?:\\.|[^\]\\])*\]|[^/\\\n])+/[a-z]*'''
 SYMBOL = r':(?:[a-zA-Z_]\w*[!?]?|\[\]=?|<=>|===|\*\*|//|<<|<=|>=|==|!=|&&|\|\||[+*/%<>&|!\-])'

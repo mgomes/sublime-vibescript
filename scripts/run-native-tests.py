@@ -4,6 +4,7 @@
 import argparse
 import json
 from pathlib import Path
+import subprocess
 import time
 import uuid
 
@@ -43,7 +44,16 @@ def main():
     missing = result.get("missing_scopes", [])
     if missing:
         print("Untested scopes: " + ", ".join(missing))
-    return bool(failures or changed or missing)
+    literal_failure = False
+    if args.manifest:
+        manifest = json.loads(args.manifest.read_text())
+        if config := manifest.get("literal_audit"):
+            literal_failure = subprocess.run([
+                config["python"], str(Path(__file__).with_name("literal_audit.py")),
+                "--manifest", str(args.manifest), "--results", str(args.output),
+                "--output", str(args.output.with_suffix(".literals.json")),
+            ]).returncode != 0
+    return bool(failures or changed or missing or literal_failure)
 
 
 if __name__ == "__main__":

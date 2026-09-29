@@ -689,13 +689,33 @@ contexts:
     - match: ''
       pop: 2
 
+  # Retry at the first line boundary, including newlines inside interpolation.
   strings:
+    - match: '(?=["''])'
+      branch_point: quoted-string
+      branch: [inline-string, multiline-string]
+
+  inline-string:
     - match: '"'
       scope: punctuation.definition.string.begin.vibescript
-      push: double-quoted-string
+      set: double-quoted-string
+      with_prototype:
+        - match: '$'
+          fail: quoted-string
     - match: "'"
       scope: punctuation.definition.string.begin.vibescript
-      push: single-quoted-string
+      set: single-quoted-string
+      with_prototype:
+        - match: '$'
+          fail: quoted-string
+
+  multiline-string:
+    - match: '"'
+      scope: punctuation.definition.string.begin.vibescript
+      set: multiline-double-quoted-string
+    - match: "'"
+      scope: punctuation.definition.string.begin.vibescript
+      set: multiline-single-quoted-string
 
   # Any backslashed character is an escape (unknown ones produce the
   # character itself); \x.. and \u.... take hex digits. `\#` keeps a
@@ -712,6 +732,21 @@ contexts:
       scope: punctuation.definition.string.end.vibescript
       pop: 1
 
+  multiline-double-quoted-string:
+    - meta_include_prototype: false
+    - meta_scope: string.quoted.double.vibescript
+    - match: '"(?=[ \t]*$)'
+      scope: punctuation.definition.string.end.vibescript
+      set: double-quoted-string-end
+    - include: double-quoted-string
+
+  # Keep a multiline closing line out of indentation lookback for the next line.
+  double-quoted-string-end:
+    - meta_include_prototype: false
+    - meta_scope: string.quoted.double.vibescript
+    - match: '\n'
+      pop: 1
+
   # Single-quoted strings only recognize \' and \\; every other backslash
   # (and any #{...}) is literal text.
   single-quoted-string:
@@ -721,6 +756,20 @@ contexts:
       scope: constant.character.escape.vibescript
     - match: ''''
       scope: punctuation.definition.string.end.vibescript
+      pop: 1
+
+  multiline-single-quoted-string:
+    - meta_include_prototype: false
+    - meta_scope: string.quoted.single.vibescript
+    - match: "'(?=[ \t]*$)"
+      scope: punctuation.definition.string.end.vibescript
+      set: single-quoted-string-end
+    - include: single-quoted-string
+
+  single-quoted-string-end:
+    - meta_include_prototype: false
+    - meta_scope: string.quoted.single.vibescript
+    - match: '\n'
       pop: 1
 
   # The body re-enters the full expression grammar, so nested strings and
@@ -772,20 +821,30 @@ contexts:
       push: symbol-token
 
   symbol-token:
-    - match: '(?<!:)(:)(")(?:[^"\\]|\\.)*(")'
+    - match: '(?<!:)(:)(")(?:[^"\\\n]|\\.)*(")'
       scope: constant.other.symbol.double-quoted.vibescript
       captures:
         1: punctuation.definition.constant.vibescript
         2: punctuation.definition.constant.begin.vibescript
         3: punctuation.definition.constant.end.vibescript
       pop: 1
-    - match: '(?<!:)(:)('')(?:[^''\\]|\\.)*('')'
+    - match: '(?<!:)(:)('')(?:[^''\\\n]|\\.)*('')'
       scope: constant.other.symbol.single-quoted.vibescript
       captures:
         1: punctuation.definition.constant.vibescript
         2: punctuation.definition.constant.begin.vibescript
         3: punctuation.definition.constant.end.vibescript
       pop: 1
+    - match: '(?<!:)(:)(")'
+      captures:
+        1: punctuation.definition.constant.vibescript
+        2: punctuation.definition.constant.begin.vibescript
+      set: double-quoted-symbol
+    - match: '(?<!:)(:)('')'
+      captures:
+        1: punctuation.definition.constant.vibescript
+        2: punctuation.definition.constant.begin.vibescript
+      set: single-quoted-symbol
     - match: '(?<!:)(:)({{symbol_operator}})'
       scope: constant.other.symbol.operator.vibescript
       captures:
@@ -797,6 +856,40 @@ contexts:
         1: punctuation.definition.constant.vibescript
       pop: 1
     - match: '(?=\S)'
+      pop: 1
+
+  double-quoted-symbol:
+    - meta_include_prototype: false
+    - meta_scope: constant.other.symbol.double-quoted.vibescript
+    - match: '"(?=[ \t]*$)'
+      scope: punctuation.definition.constant.end.vibescript
+      set: double-quoted-symbol-end
+    - match: '\\.'
+    - match: '"'
+      scope: punctuation.definition.constant.end.vibescript
+      pop: 1
+
+  single-quoted-symbol:
+    - meta_include_prototype: false
+    - meta_scope: constant.other.symbol.single-quoted.vibescript
+    - match: "'(?=[ \t]*$)"
+      scope: punctuation.definition.constant.end.vibescript
+      set: single-quoted-symbol-end
+    - match: '\\[''\\]'
+    - match: ''''
+      scope: punctuation.definition.constant.end.vibescript
+      pop: 1
+
+  double-quoted-symbol-end:
+    - meta_include_prototype: false
+    - meta_scope: constant.other.symbol.double-quoted.vibescript
+    - match: '\n'
+      pop: 1
+
+  single-quoted-symbol-end:
+    - meta_include_prototype: false
+    - meta_scope: constant.other.symbol.single-quoted.vibescript
+    - match: '\n'
       pop: 1
 
   # Hash keys and keyword arguments: { name: "alex" }, call(limit: 10)

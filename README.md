@@ -70,6 +70,13 @@ indentation levels. For reliable reindentation, put the closing `end` or `}` of 
 multiline block on its own line. Lines without statement separators retain the
 usual keyword and trailing-delimiter heuristics; these rules are not a formatter.
 
+String and quoted-symbol contents, including interpolation, keep their existing
+whitespace during reindentation. Indentation patterns and automatic bracket
+indentation are disabled in those scopes and regex scopes. Rust v0.80 does not
+support heredocs or multiline regex literals. Put a method signature's closing
+parenthesis on its own line after a multiline default value; literal lines are
+not a reliable indentation baseline for subsequent code.
+
 Regex literals are detected with a heuristic (a `/` that does not follow a
 value and is not followed by a space or `=`), so half-spaced division like
 `a /b` may highlight as a regex. `a / b` and `a/b` highlight correctly.

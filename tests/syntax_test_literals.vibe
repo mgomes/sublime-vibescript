@@ -1,0 +1,874 @@
+# SYNTAX TEST "Packages/Vibescript/Vibescript.sublime-syntax"
+# literal:double:top level
+
+"header
+examples [
+# <- string.quoted.double
+value
+# <- string.quoted.double
+   
+#  ^ string.quoted.double
+	kept tab
+#^ string.quoted.double
+  end
+# ^ string.quoted.double
+) -> bool
+# <- string.quoted.double
+  tail
+# ^ string.quoted.double
+"
+# <- string.quoted.double
+# literal:double:method
+
+def sample -> string
+  "header
+examples [
+# <- string.quoted.double
+value
+# <- string.quoted.double
+   
+#  ^ string.quoted.double
+	kept tab
+#^ string.quoted.double
+  end
+# ^ string.quoted.double
+) -> bool
+# <- string.quoted.double
+  tail
+# ^ string.quoted.double
+"
+# <- string.quoted.double
+end
+sample
+# literal:double:default parameter
+
+def sample(
+  value: string = "header
+examples [
+# <- string.quoted.double
+value
+# <- string.quoted.double
+   
+#  ^ string.quoted.double
+	kept tab
+#^ string.quoted.double
+  end
+# ^ string.quoted.double
+) -> bool
+# <- string.quoted.double
+  tail
+# ^ string.quoted.double
+"
+# <- string.quoted.double
+) -> string
+  value
+end
+sample()
+# literal:double:array
+
+values = ["header
+examples [
+# <- string.quoted.double
+value
+# <- string.quoted.double
+   
+#  ^ string.quoted.double
+	kept tab
+#^ string.quoted.double
+  end
+# ^ string.quoted.double
+) -> bool
+# <- string.quoted.double
+  tail
+# ^ string.quoted.double
+"]
+# <- string.quoted.double
+values[0]
+# literal:double:continuation
+
+value =
+  "header
+examples [
+# <- string.quoted.double
+value
+# <- string.quoted.double
+   
+#  ^ string.quoted.double
+	kept tab
+#^ string.quoted.double
+  end
+# ^ string.quoted.double
+) -> bool
+# <- string.quoted.double
+  tail
+# ^ string.quoted.double
+"
+# <- string.quoted.double
+value
+# literal:double:followed by code
+
+def sample -> string
+  value = "header
+examples [
+# <- string.quoted.double
+value
+# <- string.quoted.double
+   
+#  ^ string.quoted.double
+	kept tab
+#^ string.quoted.double
+  end
+# ^ string.quoted.double
+) -> bool
+# <- string.quoted.double
+  tail
+# ^ string.quoted.double
+"
+# <- string.quoted.double
+  value
+end
+sample
+# literal:single:top level
+
+'header
+examples [
+# <- string.quoted.single
+value
+# <- string.quoted.single
+   
+#  ^ string.quoted.single
+	kept tab
+#^ string.quoted.single
+  end
+# ^ string.quoted.single
+) -> bool
+# <- string.quoted.single
+  tail
+# ^ string.quoted.single
+'
+# <- string.quoted.single
+# literal:single:method
+
+def sample -> string
+  'header
+examples [
+# <- string.quoted.single
+value
+# <- string.quoted.single
+   
+#  ^ string.quoted.single
+	kept tab
+#^ string.quoted.single
+  end
+# ^ string.quoted.single
+) -> bool
+# <- string.quoted.single
+  tail
+# ^ string.quoted.single
+'
+# <- string.quoted.single
+end
+sample
+# literal:single:default parameter
+
+def sample(
+  value: string = 'header
+examples [
+# <- string.quoted.single
+value
+# <- string.quoted.single
+   
+#  ^ string.quoted.single
+	kept tab
+#^ string.quoted.single
+  end
+# ^ string.quoted.single
+) -> bool
+# <- string.quoted.single
+  tail
+# ^ string.quoted.single
+'
+# <- string.quoted.single
+) -> string
+  value
+end
+sample()
+# literal:single:array
+
+values = ['header
+examples [
+# <- string.quoted.single
+value
+# <- string.quoted.single
+   
+#  ^ string.quoted.single
+	kept tab
+#^ string.quoted.single
+  end
+# ^ string.quoted.single
+) -> bool
+# <- string.quoted.single
+  tail
+# ^ string.quoted.single
+']
+# <- string.quoted.single
+values[0]
+# literal:single:continuation
+
+value =
+  'header
+examples [
+# <- string.quoted.single
+value
+# <- string.quoted.single
+   
+#  ^ string.quoted.single
+	kept tab
+#^ string.quoted.single
+  end
+# ^ string.quoted.single
+) -> bool
+# <- string.quoted.single
+  tail
+# ^ string.quoted.single
+'
+# <- string.quoted.single
+value
+# literal:single:followed by code
+
+def sample -> string
+  value = 'header
+examples [
+# <- string.quoted.single
+value
+# <- string.quoted.single
+   
+#  ^ string.quoted.single
+	kept tab
+#^ string.quoted.single
+  end
+# ^ string.quoted.single
+) -> bool
+# <- string.quoted.single
+  tail
+# ^ string.quoted.single
+'
+# <- string.quoted.single
+  value
+end
+sample
+# literal:double symbol:top level
+
+:"header
+examples [
+# <- constant.other.symbol.double-quoted
+value
+# <- constant.other.symbol.double-quoted
+   
+#  ^ constant.other.symbol.double-quoted
+	kept tab
+#^ constant.other.symbol.double-quoted
+  end
+# ^ constant.other.symbol.double-quoted
+) -> bool
+# <- constant.other.symbol.double-quoted
+  tail
+# ^ constant.other.symbol.double-quoted
+"
+# <- constant.other.symbol.double-quoted
+# literal:double symbol:method
+
+def sample -> symbol
+  :"header
+examples [
+# <- constant.other.symbol.double-quoted
+value
+# <- constant.other.symbol.double-quoted
+   
+#  ^ constant.other.symbol.double-quoted
+	kept tab
+#^ constant.other.symbol.double-quoted
+  end
+# ^ constant.other.symbol.double-quoted
+) -> bool
+# <- constant.other.symbol.double-quoted
+  tail
+# ^ constant.other.symbol.double-quoted
+"
+# <- constant.other.symbol.double-quoted
+end
+sample
+# literal:double symbol:default parameter
+
+def sample(
+  value: symbol = :"header
+examples [
+# <- constant.other.symbol.double-quoted
+value
+# <- constant.other.symbol.double-quoted
+   
+#  ^ constant.other.symbol.double-quoted
+	kept tab
+#^ constant.other.symbol.double-quoted
+  end
+# ^ constant.other.symbol.double-quoted
+) -> bool
+# <- constant.other.symbol.double-quoted
+  tail
+# ^ constant.other.symbol.double-quoted
+"
+# <- constant.other.symbol.double-quoted
+) -> symbol
+  value
+end
+sample()
+# literal:double symbol:array
+
+values = [:"header
+examples [
+# <- constant.other.symbol.double-quoted
+value
+# <- constant.other.symbol.double-quoted
+   
+#  ^ constant.other.symbol.double-quoted
+	kept tab
+#^ constant.other.symbol.double-quoted
+  end
+# ^ constant.other.symbol.double-quoted
+) -> bool
+# <- constant.other.symbol.double-quoted
+  tail
+# ^ constant.other.symbol.double-quoted
+"]
+# <- constant.other.symbol.double-quoted
+values[0]
+# literal:double symbol:continuation
+
+value =
+  :"header
+examples [
+# <- constant.other.symbol.double-quoted
+value
+# <- constant.other.symbol.double-quoted
+   
+#  ^ constant.other.symbol.double-quoted
+	kept tab
+#^ constant.other.symbol.double-quoted
+  end
+# ^ constant.other.symbol.double-quoted
+) -> bool
+# <- constant.other.symbol.double-quoted
+  tail
+# ^ constant.other.symbol.double-quoted
+"
+# <- constant.other.symbol.double-quoted
+value
+# literal:double symbol:followed by code
+
+def sample -> symbol
+  value = :"header
+examples [
+# <- constant.other.symbol.double-quoted
+value
+# <- constant.other.symbol.double-quoted
+   
+#  ^ constant.other.symbol.double-quoted
+	kept tab
+#^ constant.other.symbol.double-quoted
+  end
+# ^ constant.other.symbol.double-quoted
+) -> bool
+# <- constant.other.symbol.double-quoted
+  tail
+# ^ constant.other.symbol.double-quoted
+"
+# <- constant.other.symbol.double-quoted
+  value
+end
+sample
+# literal:single symbol:top level
+
+:'header
+examples [
+# <- constant.other.symbol.single-quoted
+value
+# <- constant.other.symbol.single-quoted
+   
+#  ^ constant.other.symbol.single-quoted
+	kept tab
+#^ constant.other.symbol.single-quoted
+  end
+# ^ constant.other.symbol.single-quoted
+) -> bool
+# <- constant.other.symbol.single-quoted
+  tail
+# ^ constant.other.symbol.single-quoted
+'
+# <- constant.other.symbol.single-quoted
+# literal:single symbol:method
+
+def sample -> symbol
+  :'header
+examples [
+# <- constant.other.symbol.single-quoted
+value
+# <- constant.other.symbol.single-quoted
+   
+#  ^ constant.other.symbol.single-quoted
+	kept tab
+#^ constant.other.symbol.single-quoted
+  end
+# ^ constant.other.symbol.single-quoted
+) -> bool
+# <- constant.other.symbol.single-quoted
+  tail
+# ^ constant.other.symbol.single-quoted
+'
+# <- constant.other.symbol.single-quoted
+end
+sample
+# literal:single symbol:default parameter
+
+def sample(
+  value: symbol = :'header
+examples [
+# <- constant.other.symbol.single-quoted
+value
+# <- constant.other.symbol.single-quoted
+   
+#  ^ constant.other.symbol.single-quoted
+	kept tab
+#^ constant.other.symbol.single-quoted
+  end
+# ^ constant.other.symbol.single-quoted
+) -> bool
+# <- constant.other.symbol.single-quoted
+  tail
+# ^ constant.other.symbol.single-quoted
+'
+# <- constant.other.symbol.single-quoted
+) -> symbol
+  value
+end
+sample()
+# literal:single symbol:array
+
+values = [:'header
+examples [
+# <- constant.other.symbol.single-quoted
+value
+# <- constant.other.symbol.single-quoted
+   
+#  ^ constant.other.symbol.single-quoted
+	kept tab
+#^ constant.other.symbol.single-quoted
+  end
+# ^ constant.other.symbol.single-quoted
+) -> bool
+# <- constant.other.symbol.single-quoted
+  tail
+# ^ constant.other.symbol.single-quoted
+']
+# <- constant.other.symbol.single-quoted
+values[0]
+# literal:single symbol:continuation
+
+value =
+  :'header
+examples [
+# <- constant.other.symbol.single-quoted
+value
+# <- constant.other.symbol.single-quoted
+   
+#  ^ constant.other.symbol.single-quoted
+	kept tab
+#^ constant.other.symbol.single-quoted
+  end
+# ^ constant.other.symbol.single-quoted
+) -> bool
+# <- constant.other.symbol.single-quoted
+  tail
+# ^ constant.other.symbol.single-quoted
+'
+# <- constant.other.symbol.single-quoted
+value
+# literal:single symbol:followed by code
+
+def sample -> symbol
+  value = :'header
+examples [
+# <- constant.other.symbol.single-quoted
+value
+# <- constant.other.symbol.single-quoted
+   
+#  ^ constant.other.symbol.single-quoted
+	kept tab
+#^ constant.other.symbol.single-quoted
+  end
+# ^ constant.other.symbol.single-quoted
+) -> bool
+# <- constant.other.symbol.single-quoted
+  tail
+# ^ constant.other.symbol.single-quoted
+'
+# <- constant.other.symbol.single-quoted
+  value
+end
+sample
+# literal:interpolation:top level
+
+"header
+#{[1,
+# <- string.quoted, meta.interpolation
+     2
+#    ^ string.quoted, meta.interpolation
+  ].length}
+# ^ string.quoted, meta.interpolation
+examples [
+# <- string.quoted, meta.interpolation
+tail
+# <- string.quoted, meta.interpolation
+"
+# <- string.quoted, meta.interpolation
+# literal:interpolation:method
+
+def sample -> string
+  "header
+#{[1,
+# <- string.quoted, meta.interpolation
+     2
+#    ^ string.quoted, meta.interpolation
+  ].length}
+# ^ string.quoted, meta.interpolation
+examples [
+# <- string.quoted, meta.interpolation
+tail
+# <- string.quoted, meta.interpolation
+"
+# <- string.quoted, meta.interpolation
+end
+sample
+# literal:interpolation:default parameter
+
+def sample(
+  value: string = "header
+#{[1,
+# <- string.quoted, meta.interpolation
+     2
+#    ^ string.quoted, meta.interpolation
+  ].length}
+# ^ string.quoted, meta.interpolation
+examples [
+# <- string.quoted, meta.interpolation
+tail
+# <- string.quoted, meta.interpolation
+"
+# <- string.quoted, meta.interpolation
+) -> string
+  value
+end
+sample()
+# literal:interpolation:array
+
+values = ["header
+#{[1,
+# <- string.quoted, meta.interpolation
+     2
+#    ^ string.quoted, meta.interpolation
+  ].length}
+# ^ string.quoted, meta.interpolation
+examples [
+# <- string.quoted, meta.interpolation
+tail
+# <- string.quoted, meta.interpolation
+"]
+# <- string.quoted, meta.interpolation
+values[0]
+# literal:interpolation:continuation
+
+value =
+  "header
+#{[1,
+# <- string.quoted, meta.interpolation
+     2
+#    ^ string.quoted, meta.interpolation
+  ].length}
+# ^ string.quoted, meta.interpolation
+examples [
+# <- string.quoted, meta.interpolation
+tail
+# <- string.quoted, meta.interpolation
+"
+# <- string.quoted, meta.interpolation
+value
+# literal:interpolation:followed by code
+
+def sample -> string
+  value = "header
+#{[1,
+# <- string.quoted, meta.interpolation
+     2
+#    ^ string.quoted, meta.interpolation
+  ].length}
+# ^ string.quoted, meta.interpolation
+examples [
+# <- string.quoted, meta.interpolation
+tail
+# <- string.quoted, meta.interpolation
+"
+# <- string.quoted, meta.interpolation
+  value
+end
+sample
+# literal:nested interpolation string:top level
+
+"#{begin
+  text = 'examples [
+# ^ string.quoted, meta.interpolation
+  nested
+# ^ string.quoted, meta.interpolation
+'
+# <- string.quoted, meta.interpolation
+  text
+# ^ string.quoted, meta.interpolation
+end}
+# <- string.quoted, meta.interpolation
+tail"
+# <- string.quoted, meta.interpolation
+# literal:nested interpolation string:method
+
+def sample -> string
+  "#{begin
+  text = 'examples [
+# ^ string.quoted, meta.interpolation
+  nested
+# ^ string.quoted, meta.interpolation
+'
+# <- string.quoted, meta.interpolation
+  text
+# ^ string.quoted, meta.interpolation
+end}
+# <- string.quoted, meta.interpolation
+tail"
+# <- string.quoted, meta.interpolation
+end
+sample
+# literal:nested interpolation string:default parameter
+
+def sample(
+  value: string = "#{begin
+  text = 'examples [
+# ^ string.quoted, meta.interpolation
+  nested
+# ^ string.quoted, meta.interpolation
+'
+# <- string.quoted, meta.interpolation
+  text
+# ^ string.quoted, meta.interpolation
+end}
+# <- string.quoted, meta.interpolation
+tail"
+# <- string.quoted, meta.interpolation
+) -> string
+  value
+end
+sample()
+# literal:nested interpolation string:array
+
+values = ["#{begin
+  text = 'examples [
+# ^ string.quoted, meta.interpolation
+  nested
+# ^ string.quoted, meta.interpolation
+'
+# <- string.quoted, meta.interpolation
+  text
+# ^ string.quoted, meta.interpolation
+end}
+# <- string.quoted, meta.interpolation
+tail"]
+# <- string.quoted, meta.interpolation
+values[0]
+# literal:nested interpolation string:continuation
+
+value =
+  "#{begin
+  text = 'examples [
+# ^ string.quoted, meta.interpolation
+  nested
+# ^ string.quoted, meta.interpolation
+'
+# <- string.quoted, meta.interpolation
+  text
+# ^ string.quoted, meta.interpolation
+end}
+# <- string.quoted, meta.interpolation
+tail"
+# <- string.quoted, meta.interpolation
+value
+# literal:nested interpolation string:followed by code
+
+def sample -> string
+  value = "#{begin
+  text = 'examples [
+# ^ string.quoted, meta.interpolation
+  nested
+# ^ string.quoted, meta.interpolation
+'
+# <- string.quoted, meta.interpolation
+  text
+# ^ string.quoted, meta.interpolation
+end}
+# <- string.quoted, meta.interpolation
+tail"
+# <- string.quoted, meta.interpolation
+  value
+end
+sample
+# literal:inline default:"inline"
+
+def sample value: string = "inline"
+  value
+# ^ source.vibescript - meta.function.signature - string - variable.parameter
+end
+sample()
+# literal:inline default:'inline'
+
+def sample value: string = 'inline'
+  value
+# ^ source.vibescript - meta.function.signature - string - variable.parameter
+end
+sample()
+# literal:inline default:"#{1}"
+
+def sample value: string = "#{1}"
+  value
+# ^ source.vibescript - meta.function.signature - string - variable.parameter
+end
+sample()
+# literal:inline default::"inline"
+
+def sample value: symbol = :"inline"
+  value
+# ^ source.vibescript - meta.function.signature - string - variable.parameter
+end
+sample()
+# literal:inline default::'inline'
+
+def sample value: symbol = :'inline'
+  value
+# ^ source.vibescript - meta.function.signature - string - variable.parameter
+end
+sample()
+# literal:regex:/examples\[/
+
+/examples\[/
+#^ string.regexp
+# literal:regex:/(end|else)/
+
+/(end|else)/
+#^ string.regexp
+# literal:regex:/[a-z#]+/i
+
+/[a-z#]+/i
+#^ string.regexp
+# literal:closing suffix:": # comment
+
+def sample -> string
+  value = "first
+examples [
+# <- string.quoted.double
+  end
+# ^ string.quoted.double
+  closing" # comment
+# ^ string.quoted.double
+  value
+end
+sample
+# literal:closing suffix:":; value
+
+def sample -> string
+  value = "first
+examples [
+# <- string.quoted.double
+  end
+# ^ string.quoted.double
+  closing"; value
+# ^ string.quoted.double
+end
+sample
+# literal:closing suffix:': # comment
+
+def sample -> string
+  value = 'first
+examples [
+# <- string.quoted.single
+  end
+# ^ string.quoted.single
+  closing' # comment
+# ^ string.quoted.single
+  value
+end
+sample
+# literal:closing suffix:':; value
+
+def sample -> string
+  value = 'first
+examples [
+# <- string.quoted.single
+  end
+# ^ string.quoted.single
+  closing'; value
+# ^ string.quoted.single
+end
+sample
+# literal:closing suffix::": # comment
+
+def sample -> symbol
+  value = :"first
+examples [
+# <- constant.other.symbol.double-quoted
+  end
+# ^ constant.other.symbol.double-quoted
+  closing" # comment
+# ^ constant.other.symbol.double-quoted
+  value
+end
+sample
+# literal:closing suffix::":; value
+
+def sample -> symbol
+  value = :"first
+examples [
+# <- constant.other.symbol.double-quoted
+  end
+# ^ constant.other.symbol.double-quoted
+  closing"; value
+# ^ constant.other.symbol.double-quoted
+end
+sample
+# literal:closing suffix::': # comment
+
+def sample -> symbol
+  value = :'first
+examples [
+# <- constant.other.symbol.single-quoted
+  end
+# ^ constant.other.symbol.single-quoted
+  closing' # comment
+# ^ constant.other.symbol.single-quoted
+  value
+end
+sample
+# literal:closing suffix::':; value
+
+def sample -> symbol
+  value = :'first
+examples [
+# <- constant.other.symbol.single-quoted
+  end
+# ^ constant.other.symbol.single-quoted
+  closing'; value
+# ^ constant.other.symbol.single-quoted
+end
+sample

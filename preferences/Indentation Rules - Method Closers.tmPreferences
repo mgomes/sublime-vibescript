@@ -5,7 +5,7 @@
 	<key>name</key>
 	<string>Method Signature Closers</string>
 	<key>scope</key>
-	<string>source.vibescript meta.function.signature - meta.group.parameters - meta.annotation.type</string>
+	<string>source.vibescript meta.function.signature - meta.group.parameters - meta.annotation.type - string - meta.interpolation - constant.other.symbol.double-quoted - constant.other.symbol.single-quoted</string>
 	<key>settings</key>
 	<dict>
 		<key>increaseIndentPattern</key>

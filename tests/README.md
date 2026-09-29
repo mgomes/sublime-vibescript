@@ -137,6 +137,44 @@ python3 scripts/run-native-tests.py "$profile" \
   --manifest "$cache/nested-cases.json" --output "$cache/nested.json"
 ```
 
+## Literal value preservation
+
+`scripts/literal_cases.py` generates 52 compiler-accepted probes: double- and
+single-quoted strings and symbols, interpolation with nested expressions and
+strings, defaults, arrays, method bodies, and regex literals. Literal contents
+include source-like openers and closers, blank lines, spaces and tabs. Native
+probes also cover comments and statements following multiline closing quotes.
+Native assertions verify that all indentation patterns and automatic bracket indentation
+are disabled, with `preserveIndent` enabled throughout the literal and interpolation.
+Rust rejects heredocs and multiline regexes; the Python suite checks that boundary.
+
+The corpus sampler explicitly includes multiline literals. It formats code around
+opaque literal placeholders because the formatter escapes physical newlines; restoring
+the literals and applying AST indentation must preserve their original bytes. The
+audit compares **every** string, quoted-symbol and regex lexeme before and after native reindent,
+including nested strings and complete interpolations. It does this for every
+sampled program containing a multiline literal, even if the ordinary indentation
+expectation passes. The audit independently discovers these programs, so absent
+manifest markers cannot bypass comparison. Missing reindented source or a
+sampled-program parse error fails the check.
+
+`run-native-tests.py` automatically invokes `literal_audit.py` for generated
+corpus manifests and writes a companion `.literals.json` report. Each accepted
+program is checked again with Rust after reindentation. The 52 self-contained
+probes also run in Rust before and after, comparing their runtime results.
+Other corpus programs, including those with host dependencies, use byte comparison
+instead of execution. A deliberately changed string tests that the audit rejects both
+changed bytes and a changed runtime result.
+
+Set `VIBES` and `VIBES_TREE_SITTER` to the compiler and grammar library when
+running the Python suite to include its compiler and preservation-audit checks:
+
+```sh
+python3 scripts/literal_cases.py > tests/syntax_test_literals.vibe
+VIBES="$rust/target/gate/vibes" VIBES_TREE_SITTER="$cache/vibescript.dylib" \
+  "$cache/venv/bin/python" -m unittest discover -s tests
+```
+
 ## Native scope and reindent checks
 
 Use an isolated Sublime Text profile containing `Packages/Vibescript` linked to

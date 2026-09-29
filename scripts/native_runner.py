@@ -93,6 +93,13 @@ def check_case(request, cases, index, results, view, source):
             if not view.match_selector(point, selector):
                 failures.append({"row": row, "column": column, "expected": selector,
                                  "actual": view.scope_name(point)})
+        for row, column, settings in case.get("indentation_assertions", []):
+            point = view.text_point(row, column)
+            for name, expected in settings.items():
+                actual = view.meta_info(name, point)
+                if actual != expected:
+                    failures.append({"row": row, "column": column, "setting": name,
+                                     "expected": expected, "actual": actual})
         comparisons = 0
         covered = set()
         for group in case.get("equal_scopes", []):
@@ -100,7 +107,8 @@ def check_case(request, cases, index, results, view, source):
             failures.extend(group_failures)
             comparisons += count
             covered.update(scopes)
-        result = {"name": case["name"], "assertions": len(case.get("assertions", [])) + comparisons,
+        result = {"name": case["name"], "assertions": len(case.get("assertions", [])) + comparisons
+                  + sum(len(settings) for _, _, settings in case.get("indentation_assertions", [])),
                   "failures": failures}
         if case.get("equal_scopes"):
             result["scope_coverage"] = sorted(covered)
@@ -117,6 +125,8 @@ def check_case(request, cases, index, results, view, source):
             actual = view.substr(sublime.Region(0, view.size()))
             expected = case.get("expected", source)
             result["indent_passed"] = actual == expected
+            if case.get("preserve_literals"):
+                result["literal_source"] = actual
             if actual != expected:
                 result["diff"] = "".join(difflib.unified_diff(
                     expected.splitlines(True), actual.splitlines(True),
