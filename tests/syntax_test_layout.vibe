@@ -7941,3 +7941,6767 @@ enum Color
 Red
 # <- constant.other.enum
 end
+
+# layout:ternary symbols :ok token 0
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok : :error)
+#      ^ keyword.operator.ternary
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ?
+#      ^ keyword.operator.ternary
+ :ok : :error)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? # continued
+#      ^ keyword.operator.ternary
+ :ok : :error)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready
+? :ok : :error)
+# <- keyword.operator.ternary
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok : :error)
+#      ^ keyword.operator.ternary
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ?
+#      ^ keyword.operator.ternary
+ :ok : :error)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? # continued
+#      ^ keyword.operator.ternary
+ :ok : :error)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready
+? :ok : :error)
+# <- keyword.operator.ternary
+
+# layout:ternary symbols :ok token 1
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok : :error)
+#        ^ constant.other.symbol
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok
+#        ^ constant.other.symbol
+ : :error)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok # continued
+#        ^ constant.other.symbol
+ : :error)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ?
+:ok : :error)
+# <- constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok : :error)
+#        ^ constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok
+#        ^ constant.other.symbol
+ : :error)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok # continued
+#        ^ constant.other.symbol
+ : :error)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ?
+:ok : :error)
+# <- constant.other.symbol
+
+# layout:ternary symbols :ok token 2
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok : :error)
+#            ^ punctuation.separator - constant.other.symbol
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok :
+#            ^ punctuation.separator - constant.other.symbol
+ :error)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok : # continued
+#            ^ punctuation.separator - constant.other.symbol
+ :error)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok
+: :error)
+# <- punctuation.separator - constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok : :error)
+#            ^ punctuation.separator - constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok :
+#            ^ punctuation.separator - constant.other.symbol
+ :error)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok : # continued
+#            ^ punctuation.separator - constant.other.symbol
+ :error)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok
+: :error)
+# <- punctuation.separator - constant.other.symbol
+
+# layout:ternary symbols :ok token 3
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok : :error)
+#              ^ constant.other.symbol
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok : :error
+#              ^ constant.other.symbol
+)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok : :error # continued
+#              ^ constant.other.symbol
+)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok :
+:error)
+# <- constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok : :error)
+#              ^ constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok : :error
+#              ^ constant.other.symbol
+)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok : :error # continued
+#              ^ constant.other.symbol
+)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok :
+:error)
+# <- constant.other.symbol
+
+# layout:ternary symbols :save! token 0
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :save! : :valid?)
+#      ^ keyword.operator.ternary
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ?
+#      ^ keyword.operator.ternary
+ :save! : :valid?)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? # continued
+#      ^ keyword.operator.ternary
+ :save! : :valid?)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready
+? :save! : :valid?)
+# <- keyword.operator.ternary
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :save! : :valid?)
+#      ^ keyword.operator.ternary
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ?
+#      ^ keyword.operator.ternary
+ :save! : :valid?)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? # continued
+#      ^ keyword.operator.ternary
+ :save! : :valid?)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready
+? :save! : :valid?)
+# <- keyword.operator.ternary
+
+# layout:ternary symbols :save! token 1
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :save! : :valid?)
+#        ^ constant.other.symbol
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :save!
+#        ^ constant.other.symbol
+ : :valid?)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :save! # continued
+#        ^ constant.other.symbol
+ : :valid?)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ?
+:save! : :valid?)
+# <- constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :save! : :valid?)
+#        ^ constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :save!
+#        ^ constant.other.symbol
+ : :valid?)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :save! # continued
+#        ^ constant.other.symbol
+ : :valid?)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ?
+:save! : :valid?)
+# <- constant.other.symbol
+
+# layout:ternary symbols :save! token 2
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :save! : :valid?)
+#               ^ punctuation.separator - constant.other.symbol
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :save! :
+#               ^ punctuation.separator - constant.other.symbol
+ :valid?)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :save! : # continued
+#               ^ punctuation.separator - constant.other.symbol
+ :valid?)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :save!
+: :valid?)
+# <- punctuation.separator - constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :save! : :valid?)
+#               ^ punctuation.separator - constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :save! :
+#               ^ punctuation.separator - constant.other.symbol
+ :valid?)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :save! : # continued
+#               ^ punctuation.separator - constant.other.symbol
+ :valid?)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :save!
+: :valid?)
+# <- punctuation.separator - constant.other.symbol
+
+# layout:ternary symbols :save! token 3
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :save! : :valid?)
+#                 ^ constant.other.symbol
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :save! : :valid?
+#                 ^ constant.other.symbol
+)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :save! : :valid? # continued
+#                 ^ constant.other.symbol
+)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :save! :
+:valid?)
+# <- constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :save! : :valid?)
+#                 ^ constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :save! : :valid?
+#                 ^ constant.other.symbol
+)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :save! : :valid? # continued
+#                 ^ constant.other.symbol
+)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :save! :
+:valid?)
+# <- constant.other.symbol
+
+# layout:ternary symbols :"ok" token 0
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :"ok" : :'error')
+#      ^ keyword.operator.ternary
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ?
+#      ^ keyword.operator.ternary
+ :"ok" : :'error')
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? # continued
+#      ^ keyword.operator.ternary
+ :"ok" : :'error')
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready
+? :"ok" : :'error')
+# <- keyword.operator.ternary
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :"ok" : :'error')
+#      ^ keyword.operator.ternary
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ?
+#      ^ keyword.operator.ternary
+ :"ok" : :'error')
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? # continued
+#      ^ keyword.operator.ternary
+ :"ok" : :'error')
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready
+? :"ok" : :'error')
+# <- keyword.operator.ternary
+
+# layout:ternary symbols :"ok" token 1
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :"ok" : :'error')
+#        ^ constant.other.symbol
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :"ok"
+#        ^ constant.other.symbol
+ : :'error')
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :"ok" # continued
+#        ^ constant.other.symbol
+ : :'error')
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ?
+:"ok" : :'error')
+# <- constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :"ok" : :'error')
+#        ^ constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :"ok"
+#        ^ constant.other.symbol
+ : :'error')
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :"ok" # continued
+#        ^ constant.other.symbol
+ : :'error')
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ?
+:"ok" : :'error')
+# <- constant.other.symbol
+
+# layout:ternary symbols :"ok" token 2
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :"ok" : :'error')
+#              ^ punctuation.separator - constant.other.symbol
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :"ok" :
+#              ^ punctuation.separator - constant.other.symbol
+ :'error')
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :"ok" : # continued
+#              ^ punctuation.separator - constant.other.symbol
+ :'error')
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :"ok"
+: :'error')
+# <- punctuation.separator - constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :"ok" : :'error')
+#              ^ punctuation.separator - constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :"ok" :
+#              ^ punctuation.separator - constant.other.symbol
+ :'error')
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :"ok" : # continued
+#              ^ punctuation.separator - constant.other.symbol
+ :'error')
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :"ok"
+: :'error')
+# <- punctuation.separator - constant.other.symbol
+
+# layout:ternary symbols :"ok" token 3
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :"ok" : :'error')
+#                ^ constant.other.symbol
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :"ok" : :'error'
+#                ^ constant.other.symbol
+)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :"ok" : :'error' # continued
+#                ^ constant.other.symbol
+)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :"ok" :
+:'error')
+# <- constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :"ok" : :'error')
+#                ^ constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :"ok" : :'error'
+#                ^ constant.other.symbol
+)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :"ok" : :'error' # continued
+#                ^ constant.other.symbol
+)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :"ok" :
+:'error')
+# <- constant.other.symbol
+
+# layout:ternary symbols :+ token 0
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :+ : :error)
+#      ^ keyword.operator.ternary
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ?
+#      ^ keyword.operator.ternary
+ :+ : :error)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? # continued
+#      ^ keyword.operator.ternary
+ :+ : :error)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready
+? :+ : :error)
+# <- keyword.operator.ternary
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :+ : :error)
+#      ^ keyword.operator.ternary
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ?
+#      ^ keyword.operator.ternary
+ :+ : :error)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? # continued
+#      ^ keyword.operator.ternary
+ :+ : :error)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready
+? :+ : :error)
+# <- keyword.operator.ternary
+
+# layout:ternary symbols :+ token 1
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :+ : :error)
+#        ^ constant.other.symbol
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :+
+#        ^ constant.other.symbol
+ : :error)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :+ # continued
+#        ^ constant.other.symbol
+ : :error)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ?
+:+ : :error)
+# <- constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :+ : :error)
+#        ^ constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :+
+#        ^ constant.other.symbol
+ : :error)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :+ # continued
+#        ^ constant.other.symbol
+ : :error)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ?
+:+ : :error)
+# <- constant.other.symbol
+
+# layout:ternary symbols :+ token 2
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :+ : :error)
+#           ^ punctuation.separator - constant.other.symbol
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :+ :
+#           ^ punctuation.separator - constant.other.symbol
+ :error)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :+ : # continued
+#           ^ punctuation.separator - constant.other.symbol
+ :error)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :+
+: :error)
+# <- punctuation.separator - constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :+ : :error)
+#           ^ punctuation.separator - constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :+ :
+#           ^ punctuation.separator - constant.other.symbol
+ :error)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :+ : # continued
+#           ^ punctuation.separator - constant.other.symbol
+ :error)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :+
+: :error)
+# <- punctuation.separator - constant.other.symbol
+
+# layout:ternary symbols :+ token 3
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :+ : :error)
+#             ^ constant.other.symbol
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :+ : :error
+#             ^ constant.other.symbol
+)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :+ : :error # continued
+#             ^ constant.other.symbol
+)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :+ :
+:error)
+# <- constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :+ : :error)
+#             ^ constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :+ : :error
+#             ^ constant.other.symbol
+)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :+ : :error # continued
+#             ^ constant.other.symbol
+)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :+ :
+:error)
+# <- constant.other.symbol
+
+# layout:ternary nested true token 0
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? ready ? :inner : :fallback : :outer)
+#      ^ keyword.operator.ternary
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ?
+#      ^ keyword.operator.ternary
+ ready ? :inner : :fallback : :outer)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? # continued
+#      ^ keyword.operator.ternary
+ ready ? :inner : :fallback : :outer)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready
+? ready ? :inner : :fallback : :outer)
+# <- keyword.operator.ternary
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? ready ? :inner : :fallback : :outer)
+#      ^ keyword.operator.ternary
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ?
+#      ^ keyword.operator.ternary
+ ready ? :inner : :fallback : :outer)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? # continued
+#      ^ keyword.operator.ternary
+ ready ? :inner : :fallback : :outer)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready
+? ready ? :inner : :fallback : :outer)
+# <- keyword.operator.ternary
+
+# layout:ternary nested true token 1
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? ready ? :inner : :fallback : :outer)
+#              ^ keyword.operator.ternary
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? ready ?
+#              ^ keyword.operator.ternary
+ :inner : :fallback : :outer)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? ready ? # continued
+#              ^ keyword.operator.ternary
+ :inner : :fallback : :outer)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? ready
+? :inner : :fallback : :outer)
+# <- keyword.operator.ternary
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? ready ? :inner : :fallback : :outer)
+#              ^ keyword.operator.ternary
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? ready ?
+#              ^ keyword.operator.ternary
+ :inner : :fallback : :outer)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? ready ? # continued
+#              ^ keyword.operator.ternary
+ :inner : :fallback : :outer)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? ready
+? :inner : :fallback : :outer)
+# <- keyword.operator.ternary
+
+# layout:ternary nested true token 2
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? ready ? :inner : :fallback : :outer)
+#                ^ constant.other.symbol
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? ready ? :inner
+#                ^ constant.other.symbol
+ : :fallback : :outer)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? ready ? :inner # continued
+#                ^ constant.other.symbol
+ : :fallback : :outer)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? ready ?
+:inner : :fallback : :outer)
+# <- constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? ready ? :inner : :fallback : :outer)
+#                ^ constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? ready ? :inner
+#                ^ constant.other.symbol
+ : :fallback : :outer)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? ready ? :inner # continued
+#                ^ constant.other.symbol
+ : :fallback : :outer)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? ready ?
+:inner : :fallback : :outer)
+# <- constant.other.symbol
+
+# layout:ternary nested true token 3
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? ready ? :inner : :fallback : :outer)
+#                       ^ punctuation.separator - constant.other.symbol
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? ready ? :inner :
+#                       ^ punctuation.separator - constant.other.symbol
+ :fallback : :outer)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? ready ? :inner : # continued
+#                       ^ punctuation.separator - constant.other.symbol
+ :fallback : :outer)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? ready ? :inner
+: :fallback : :outer)
+# <- punctuation.separator - constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? ready ? :inner : :fallback : :outer)
+#                       ^ punctuation.separator - constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? ready ? :inner :
+#                       ^ punctuation.separator - constant.other.symbol
+ :fallback : :outer)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? ready ? :inner : # continued
+#                       ^ punctuation.separator - constant.other.symbol
+ :fallback : :outer)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? ready ? :inner
+: :fallback : :outer)
+# <- punctuation.separator - constant.other.symbol
+
+# layout:ternary nested true token 4
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? ready ? :inner : :fallback : :outer)
+#                         ^ constant.other.symbol
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? ready ? :inner : :fallback
+#                         ^ constant.other.symbol
+ : :outer)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? ready ? :inner : :fallback # continued
+#                         ^ constant.other.symbol
+ : :outer)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? ready ? :inner :
+:fallback : :outer)
+# <- constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? ready ? :inner : :fallback : :outer)
+#                         ^ constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? ready ? :inner : :fallback
+#                         ^ constant.other.symbol
+ : :outer)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? ready ? :inner : :fallback # continued
+#                         ^ constant.other.symbol
+ : :outer)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? ready ? :inner :
+:fallback : :outer)
+# <- constant.other.symbol
+
+# layout:ternary nested true token 5
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? ready ? :inner : :fallback : :outer)
+#                                   ^ punctuation.separator - constant.other.symbol
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? ready ? :inner : :fallback :
+#                                   ^ punctuation.separator - constant.other.symbol
+ :outer)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? ready ? :inner : :fallback : # continued
+#                                   ^ punctuation.separator - constant.other.symbol
+ :outer)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? ready ? :inner : :fallback
+: :outer)
+# <- punctuation.separator - constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? ready ? :inner : :fallback : :outer)
+#                                   ^ punctuation.separator - constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? ready ? :inner : :fallback :
+#                                   ^ punctuation.separator - constant.other.symbol
+ :outer)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? ready ? :inner : :fallback : # continued
+#                                   ^ punctuation.separator - constant.other.symbol
+ :outer)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? ready ? :inner : :fallback
+: :outer)
+# <- punctuation.separator - constant.other.symbol
+
+# layout:ternary nested true token 6
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? ready ? :inner : :fallback : :outer)
+#                                     ^ constant.other.symbol
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? ready ? :inner : :fallback : :outer
+#                                     ^ constant.other.symbol
+)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? ready ? :inner : :fallback : :outer # continued
+#                                     ^ constant.other.symbol
+)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? ready ? :inner : :fallback :
+:outer)
+# <- constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? ready ? :inner : :fallback : :outer)
+#                                     ^ constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? ready ? :inner : :fallback : :outer
+#                                     ^ constant.other.symbol
+)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? ready ? :inner : :fallback : :outer # continued
+#                                     ^ constant.other.symbol
+)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? ready ? :inner : :fallback :
+:outer)
+# <- constant.other.symbol
+
+# layout:ternary nested false token 0
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :outer : ready ? :inner : :fallback)
+#      ^ keyword.operator.ternary
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ?
+#      ^ keyword.operator.ternary
+ :outer : ready ? :inner : :fallback)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? # continued
+#      ^ keyword.operator.ternary
+ :outer : ready ? :inner : :fallback)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready
+? :outer : ready ? :inner : :fallback)
+# <- keyword.operator.ternary
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :outer : ready ? :inner : :fallback)
+#      ^ keyword.operator.ternary
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ?
+#      ^ keyword.operator.ternary
+ :outer : ready ? :inner : :fallback)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? # continued
+#      ^ keyword.operator.ternary
+ :outer : ready ? :inner : :fallback)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready
+? :outer : ready ? :inner : :fallback)
+# <- keyword.operator.ternary
+
+# layout:ternary nested false token 1
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :outer : ready ? :inner : :fallback)
+#        ^ constant.other.symbol
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :outer
+#        ^ constant.other.symbol
+ : ready ? :inner : :fallback)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :outer # continued
+#        ^ constant.other.symbol
+ : ready ? :inner : :fallback)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ?
+:outer : ready ? :inner : :fallback)
+# <- constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :outer : ready ? :inner : :fallback)
+#        ^ constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :outer
+#        ^ constant.other.symbol
+ : ready ? :inner : :fallback)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :outer # continued
+#        ^ constant.other.symbol
+ : ready ? :inner : :fallback)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ?
+:outer : ready ? :inner : :fallback)
+# <- constant.other.symbol
+
+# layout:ternary nested false token 2
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :outer : ready ? :inner : :fallback)
+#               ^ punctuation.separator - constant.other.symbol
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :outer :
+#               ^ punctuation.separator - constant.other.symbol
+ ready ? :inner : :fallback)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :outer : # continued
+#               ^ punctuation.separator - constant.other.symbol
+ ready ? :inner : :fallback)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :outer
+: ready ? :inner : :fallback)
+# <- punctuation.separator - constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :outer : ready ? :inner : :fallback)
+#               ^ punctuation.separator - constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :outer :
+#               ^ punctuation.separator - constant.other.symbol
+ ready ? :inner : :fallback)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :outer : # continued
+#               ^ punctuation.separator - constant.other.symbol
+ ready ? :inner : :fallback)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :outer
+: ready ? :inner : :fallback)
+# <- punctuation.separator - constant.other.symbol
+
+# layout:ternary nested false token 3
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :outer : ready ? :inner : :fallback)
+#                       ^ keyword.operator.ternary
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :outer : ready ?
+#                       ^ keyword.operator.ternary
+ :inner : :fallback)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :outer : ready ? # continued
+#                       ^ keyword.operator.ternary
+ :inner : :fallback)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :outer : ready
+? :inner : :fallback)
+# <- keyword.operator.ternary
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :outer : ready ? :inner : :fallback)
+#                       ^ keyword.operator.ternary
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :outer : ready ?
+#                       ^ keyword.operator.ternary
+ :inner : :fallback)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :outer : ready ? # continued
+#                       ^ keyword.operator.ternary
+ :inner : :fallback)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :outer : ready
+? :inner : :fallback)
+# <- keyword.operator.ternary
+
+# layout:ternary nested false token 4
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :outer : ready ? :inner : :fallback)
+#                         ^ constant.other.symbol
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :outer : ready ? :inner
+#                         ^ constant.other.symbol
+ : :fallback)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :outer : ready ? :inner # continued
+#                         ^ constant.other.symbol
+ : :fallback)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :outer : ready ?
+:inner : :fallback)
+# <- constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :outer : ready ? :inner : :fallback)
+#                         ^ constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :outer : ready ? :inner
+#                         ^ constant.other.symbol
+ : :fallback)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :outer : ready ? :inner # continued
+#                         ^ constant.other.symbol
+ : :fallback)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :outer : ready ?
+:inner : :fallback)
+# <- constant.other.symbol
+
+# layout:ternary nested false token 5
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :outer : ready ? :inner : :fallback)
+#                                ^ punctuation.separator - constant.other.symbol
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :outer : ready ? :inner :
+#                                ^ punctuation.separator - constant.other.symbol
+ :fallback)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :outer : ready ? :inner : # continued
+#                                ^ punctuation.separator - constant.other.symbol
+ :fallback)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :outer : ready ? :inner
+: :fallback)
+# <- punctuation.separator - constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :outer : ready ? :inner : :fallback)
+#                                ^ punctuation.separator - constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :outer : ready ? :inner :
+#                                ^ punctuation.separator - constant.other.symbol
+ :fallback)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :outer : ready ? :inner : # continued
+#                                ^ punctuation.separator - constant.other.symbol
+ :fallback)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :outer : ready ? :inner
+: :fallback)
+# <- punctuation.separator - constant.other.symbol
+
+# layout:ternary nested false token 6
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :outer : ready ? :inner : :fallback)
+#                                  ^ constant.other.symbol
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :outer : ready ? :inner : :fallback
+#                                  ^ constant.other.symbol
+)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :outer : ready ? :inner : :fallback # continued
+#                                  ^ constant.other.symbol
+)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :outer : ready ? :inner :
+:fallback)
+# <- constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :outer : ready ? :inner : :fallback)
+#                                  ^ constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :outer : ready ? :inner : :fallback
+#                                  ^ constant.other.symbol
+)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :outer : ready ? :inner : :fallback # continued
+#                                  ^ constant.other.symbol
+)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :outer : ready ? :inner :
+:fallback)
+# <- constant.other.symbol
+
+# layout:ternary grouped branches token 0
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? (ready ? :one : :two) : (ready ? :three : :four))
+#      ^ keyword.operator.ternary
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ?
+#      ^ keyword.operator.ternary
+ (ready ? :one : :two) : (ready ? :three : :four))
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? # continued
+#      ^ keyword.operator.ternary
+ (ready ? :one : :two) : (ready ? :three : :four))
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready
+? (ready ? :one : :two) : (ready ? :three : :four))
+# <- keyword.operator.ternary
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? (ready ? :one : :two) : (ready ? :three : :four))
+#      ^ keyword.operator.ternary
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ?
+#      ^ keyword.operator.ternary
+ (ready ? :one : :two) : (ready ? :three : :four))
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? # continued
+#      ^ keyword.operator.ternary
+ (ready ? :one : :two) : (ready ? :three : :four))
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready
+? (ready ? :one : :two) : (ready ? :three : :four))
+# <- keyword.operator.ternary
+
+# layout:ternary grouped branches token 1
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? (ready ? :one : :two) : (ready ? :three : :four))
+#               ^ keyword.operator.ternary
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? (ready ?
+#               ^ keyword.operator.ternary
+ :one : :two) : (ready ? :three : :four))
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? (ready ? # continued
+#               ^ keyword.operator.ternary
+ :one : :two) : (ready ? :three : :four))
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? (ready
+? :one : :two) : (ready ? :three : :four))
+# <- keyword.operator.ternary
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? (ready ? :one : :two) : (ready ? :three : :four))
+#               ^ keyword.operator.ternary
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? (ready ?
+#               ^ keyword.operator.ternary
+ :one : :two) : (ready ? :three : :four))
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? (ready ? # continued
+#               ^ keyword.operator.ternary
+ :one : :two) : (ready ? :three : :four))
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? (ready
+? :one : :two) : (ready ? :three : :four))
+# <- keyword.operator.ternary
+
+# layout:ternary grouped branches token 2
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? (ready ? :one : :two) : (ready ? :three : :four))
+#                 ^ constant.other.symbol
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? (ready ? :one
+#                 ^ constant.other.symbol
+ : :two) : (ready ? :three : :four))
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? (ready ? :one # continued
+#                 ^ constant.other.symbol
+ : :two) : (ready ? :three : :four))
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? (ready ?
+:one : :two) : (ready ? :three : :four))
+# <- constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? (ready ? :one : :two) : (ready ? :three : :four))
+#                 ^ constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? (ready ? :one
+#                 ^ constant.other.symbol
+ : :two) : (ready ? :three : :four))
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? (ready ? :one # continued
+#                 ^ constant.other.symbol
+ : :two) : (ready ? :three : :four))
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? (ready ?
+:one : :two) : (ready ? :three : :four))
+# <- constant.other.symbol
+
+# layout:ternary grouped branches token 3
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? (ready ? :one : :two) : (ready ? :three : :four))
+#                      ^ punctuation.separator - constant.other.symbol
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? (ready ? :one :
+#                      ^ punctuation.separator - constant.other.symbol
+ :two) : (ready ? :three : :four))
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? (ready ? :one : # continued
+#                      ^ punctuation.separator - constant.other.symbol
+ :two) : (ready ? :three : :four))
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? (ready ? :one
+: :two) : (ready ? :three : :four))
+# <- punctuation.separator - constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? (ready ? :one : :two) : (ready ? :three : :four))
+#                      ^ punctuation.separator - constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? (ready ? :one :
+#                      ^ punctuation.separator - constant.other.symbol
+ :two) : (ready ? :three : :four))
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? (ready ? :one : # continued
+#                      ^ punctuation.separator - constant.other.symbol
+ :two) : (ready ? :three : :four))
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? (ready ? :one
+: :two) : (ready ? :three : :four))
+# <- punctuation.separator - constant.other.symbol
+
+# layout:ternary grouped branches token 4
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? (ready ? :one : :two) : (ready ? :three : :four))
+#                        ^ constant.other.symbol
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? (ready ? :one : :two
+#                        ^ constant.other.symbol
+) : (ready ? :three : :four))
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? (ready ? :one : :two # continued
+#                        ^ constant.other.symbol
+) : (ready ? :three : :four))
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? (ready ? :one :
+:two) : (ready ? :three : :four))
+# <- constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? (ready ? :one : :two) : (ready ? :three : :four))
+#                        ^ constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? (ready ? :one : :two
+#                        ^ constant.other.symbol
+) : (ready ? :three : :four))
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? (ready ? :one : :two # continued
+#                        ^ constant.other.symbol
+) : (ready ? :three : :four))
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? (ready ? :one :
+:two) : (ready ? :three : :four))
+# <- constant.other.symbol
+
+# layout:ternary grouped branches token 5
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? (ready ? :one : :two) : (ready ? :three : :four))
+#                              ^ punctuation.separator - constant.other.symbol
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? (ready ? :one : :two) :
+#                              ^ punctuation.separator - constant.other.symbol
+ (ready ? :three : :four))
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? (ready ? :one : :two) : # continued
+#                              ^ punctuation.separator - constant.other.symbol
+ (ready ? :three : :four))
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? (ready ? :one : :two)
+: (ready ? :three : :four))
+# <- punctuation.separator - constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? (ready ? :one : :two) : (ready ? :three : :four))
+#                              ^ punctuation.separator - constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? (ready ? :one : :two) :
+#                              ^ punctuation.separator - constant.other.symbol
+ (ready ? :three : :four))
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? (ready ? :one : :two) : # continued
+#                              ^ punctuation.separator - constant.other.symbol
+ (ready ? :three : :four))
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? (ready ? :one : :two)
+: (ready ? :three : :four))
+# <- punctuation.separator - constant.other.symbol
+
+# layout:ternary grouped branches token 6
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? (ready ? :one : :two) : (ready ? :three : :four))
+#                                       ^ keyword.operator.ternary
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? (ready ? :one : :two) : (ready ?
+#                                       ^ keyword.operator.ternary
+ :three : :four))
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? (ready ? :one : :two) : (ready ? # continued
+#                                       ^ keyword.operator.ternary
+ :three : :four))
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? (ready ? :one : :two) : (ready
+? :three : :four))
+# <- keyword.operator.ternary
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? (ready ? :one : :two) : (ready ? :three : :four))
+#                                       ^ keyword.operator.ternary
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? (ready ? :one : :two) : (ready ?
+#                                       ^ keyword.operator.ternary
+ :three : :four))
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? (ready ? :one : :two) : (ready ? # continued
+#                                       ^ keyword.operator.ternary
+ :three : :four))
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? (ready ? :one : :two) : (ready
+? :three : :four))
+# <- keyword.operator.ternary
+
+# layout:ternary grouped branches token 7
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? (ready ? :one : :two) : (ready ? :three : :four))
+#                                         ^ constant.other.symbol
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? (ready ? :one : :two) : (ready ? :three
+#                                         ^ constant.other.symbol
+ : :four))
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? (ready ? :one : :two) : (ready ? :three # continued
+#                                         ^ constant.other.symbol
+ : :four))
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? (ready ? :one : :two) : (ready ?
+:three : :four))
+# <- constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? (ready ? :one : :two) : (ready ? :three : :four))
+#                                         ^ constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? (ready ? :one : :two) : (ready ? :three
+#                                         ^ constant.other.symbol
+ : :four))
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? (ready ? :one : :two) : (ready ? :three # continued
+#                                         ^ constant.other.symbol
+ : :four))
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? (ready ? :one : :two) : (ready ?
+:three : :four))
+# <- constant.other.symbol
+
+# layout:ternary grouped branches token 8
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? (ready ? :one : :two) : (ready ? :three : :four))
+#                                                ^ punctuation.separator - constant.other.symbol
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? (ready ? :one : :two) : (ready ? :three :
+#                                                ^ punctuation.separator - constant.other.symbol
+ :four))
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? (ready ? :one : :two) : (ready ? :three : # continued
+#                                                ^ punctuation.separator - constant.other.symbol
+ :four))
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? (ready ? :one : :two) : (ready ? :three
+: :four))
+# <- punctuation.separator - constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? (ready ? :one : :two) : (ready ? :three : :four))
+#                                                ^ punctuation.separator - constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? (ready ? :one : :two) : (ready ? :three :
+#                                                ^ punctuation.separator - constant.other.symbol
+ :four))
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? (ready ? :one : :two) : (ready ? :three : # continued
+#                                                ^ punctuation.separator - constant.other.symbol
+ :four))
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? (ready ? :one : :two) : (ready ? :three
+: :four))
+# <- punctuation.separator - constant.other.symbol
+
+# layout:ternary grouped branches token 9
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? (ready ? :one : :two) : (ready ? :three : :four))
+#                                                  ^ constant.other.symbol
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? (ready ? :one : :two) : (ready ? :three : :four
+#                                                  ^ constant.other.symbol
+))
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? (ready ? :one : :two) : (ready ? :three : :four # continued
+#                                                  ^ constant.other.symbol
+))
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? (ready ? :one : :two) : (ready ? :three :
+:four))
+# <- constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? (ready ? :one : :two) : (ready ? :three : :four))
+#                                                  ^ constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? (ready ? :one : :two) : (ready ? :three : :four
+#                                                  ^ constant.other.symbol
+))
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? (ready ? :one : :two) : (ready ? :three : :four # continued
+#                                                  ^ constant.other.symbol
+))
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? (ready ? :one : :two) : (ready ? :three :
+:four))
+# <- constant.other.symbol
+
+# layout:ternary binary operands token 0
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :one == :two : :three != :four)
+#      ^ keyword.operator.ternary
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ?
+#      ^ keyword.operator.ternary
+ :one == :two : :three != :four)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? # continued
+#      ^ keyword.operator.ternary
+ :one == :two : :three != :four)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready
+? :one == :two : :three != :four)
+# <- keyword.operator.ternary
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :one == :two : :three != :four)
+#      ^ keyword.operator.ternary
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ?
+#      ^ keyword.operator.ternary
+ :one == :two : :three != :four)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? # continued
+#      ^ keyword.operator.ternary
+ :one == :two : :three != :four)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready
+? :one == :two : :three != :four)
+# <- keyword.operator.ternary
+
+# layout:ternary binary operands token 1
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :one == :two : :three != :four)
+#        ^ constant.other.symbol
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :one
+#        ^ constant.other.symbol
+ == :two : :three != :four)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :one # continued
+#        ^ constant.other.symbol
+ == :two : :three != :four)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ?
+:one == :two : :three != :four)
+# <- constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :one == :two : :three != :four)
+#        ^ constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :one
+#        ^ constant.other.symbol
+ == :two : :three != :four)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :one # continued
+#        ^ constant.other.symbol
+ == :two : :three != :four)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ?
+:one == :two : :three != :four)
+# <- constant.other.symbol
+
+# layout:ternary binary operands token 2
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :one == :two : :three != :four)
+#                ^ constant.other.symbol
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :one == :two
+#                ^ constant.other.symbol
+ : :three != :four)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :one == :two # continued
+#                ^ constant.other.symbol
+ : :three != :four)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :one ==
+:two : :three != :four)
+# <- constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :one == :two : :three != :four)
+#                ^ constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :one == :two
+#                ^ constant.other.symbol
+ : :three != :four)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :one == :two # continued
+#                ^ constant.other.symbol
+ : :three != :four)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :one ==
+:two : :three != :four)
+# <- constant.other.symbol
+
+# layout:ternary binary operands token 3
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :one == :two : :three != :four)
+#                     ^ punctuation.separator - constant.other.symbol
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :one == :two :
+#                     ^ punctuation.separator - constant.other.symbol
+ :three != :four)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :one == :two : # continued
+#                     ^ punctuation.separator - constant.other.symbol
+ :three != :four)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :one == :two
+: :three != :four)
+# <- punctuation.separator - constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :one == :two : :three != :four)
+#                     ^ punctuation.separator - constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :one == :two :
+#                     ^ punctuation.separator - constant.other.symbol
+ :three != :four)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :one == :two : # continued
+#                     ^ punctuation.separator - constant.other.symbol
+ :three != :four)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :one == :two
+: :three != :four)
+# <- punctuation.separator - constant.other.symbol
+
+# layout:ternary binary operands token 4
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :one == :two : :three != :four)
+#                       ^ constant.other.symbol
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :one == :two : :three
+#                       ^ constant.other.symbol
+ != :four)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :one == :two : :three # continued
+#                       ^ constant.other.symbol
+ != :four)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :one == :two :
+:three != :four)
+# <- constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :one == :two : :three != :four)
+#                       ^ constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :one == :two : :three
+#                       ^ constant.other.symbol
+ != :four)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :one == :two : :three # continued
+#                       ^ constant.other.symbol
+ != :four)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :one == :two :
+:three != :four)
+# <- constant.other.symbol
+
+# layout:ternary binary operands token 5
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :one == :two : :three != :four)
+#                                 ^ constant.other.symbol
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :one == :two : :three != :four
+#                                 ^ constant.other.symbol
+)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :one == :two : :three != :four # continued
+#                                 ^ constant.other.symbol
+)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :one == :two : :three !=
+:four)
+# <- constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :one == :two : :three != :four)
+#                                 ^ constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :one == :two : :three != :four
+#                                 ^ constant.other.symbol
+)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :one == :two : :three != :four # continued
+#                                 ^ constant.other.symbol
+)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :one == :two : :three !=
+:four)
+# <- constant.other.symbol
+
+# layout:ternary unary operand token 0
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? ![:one].empty? : ![:two].empty?)
+#      ^ keyword.operator.ternary
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ?
+#      ^ keyword.operator.ternary
+ ![:one].empty? : ![:two].empty?)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? # continued
+#      ^ keyword.operator.ternary
+ ![:one].empty? : ![:two].empty?)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready
+? ![:one].empty? : ![:two].empty?)
+# <- keyword.operator.ternary
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? ![:one].empty? : ![:two].empty?)
+#      ^ keyword.operator.ternary
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ?
+#      ^ keyword.operator.ternary
+ ![:one].empty? : ![:two].empty?)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? # continued
+#      ^ keyword.operator.ternary
+ ![:one].empty? : ![:two].empty?)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready
+? ![:one].empty? : ![:two].empty?)
+# <- keyword.operator.ternary
+
+# layout:ternary unary operand token 1
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? ![:one].empty? : ![:two].empty?)
+#          ^ constant.other.symbol
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? ![:one
+#          ^ constant.other.symbol
+].empty? : ![:two].empty?)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? ![:one # continued
+#          ^ constant.other.symbol
+].empty? : ![:two].empty?)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? ![
+:one].empty? : ![:two].empty?)
+# <- constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? ![:one].empty? : ![:two].empty?)
+#          ^ constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? ![:one
+#          ^ constant.other.symbol
+].empty? : ![:two].empty?)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? ![:one # continued
+#          ^ constant.other.symbol
+].empty? : ![:two].empty?)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? ![
+:one].empty? : ![:two].empty?)
+# <- constant.other.symbol
+
+# layout:ternary unary operand token 2
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? ![:one].empty? : ![:two].empty?)
+#                       ^ punctuation.separator - constant.other.symbol
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? ![:one].empty? :
+#                       ^ punctuation.separator - constant.other.symbol
+ ![:two].empty?)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? ![:one].empty? : # continued
+#                       ^ punctuation.separator - constant.other.symbol
+ ![:two].empty?)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? ![:one].empty?
+: ![:two].empty?)
+# <- punctuation.separator - constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? ![:one].empty? : ![:two].empty?)
+#                       ^ punctuation.separator - constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? ![:one].empty? :
+#                       ^ punctuation.separator - constant.other.symbol
+ ![:two].empty?)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? ![:one].empty? : # continued
+#                       ^ punctuation.separator - constant.other.symbol
+ ![:two].empty?)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? ![:one].empty?
+: ![:two].empty?)
+# <- punctuation.separator - constant.other.symbol
+
+# layout:ternary unary operand token 3
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? ![:one].empty? : ![:two].empty?)
+#                           ^ constant.other.symbol
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? ![:one].empty? : ![:two
+#                           ^ constant.other.symbol
+].empty?)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? ![:one].empty? : ![:two # continued
+#                           ^ constant.other.symbol
+].empty?)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? ![:one].empty? : ![
+:two].empty?)
+# <- constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? ![:one].empty? : ![:two].empty?)
+#                           ^ constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? ![:one].empty? : ![:two
+#                           ^ constant.other.symbol
+].empty?)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? ![:one].empty? : ![:two # continued
+#                           ^ constant.other.symbol
+].empty?)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? ![:one].empty? : ![
+:two].empty?)
+# <- constant.other.symbol
+
+# layout:ternary qualified constants token 0
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? Codes::OK : Codes::ERROR)
+#      ^ keyword.operator.ternary
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ?
+#      ^ keyword.operator.ternary
+ Codes::OK : Codes::ERROR)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? # continued
+#      ^ keyword.operator.ternary
+ Codes::OK : Codes::ERROR)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready
+? Codes::OK : Codes::ERROR)
+# <- keyword.operator.ternary
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? Codes::OK : Codes::ERROR)
+#      ^ keyword.operator.ternary
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ?
+#      ^ keyword.operator.ternary
+ Codes::OK : Codes::ERROR)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? # continued
+#      ^ keyword.operator.ternary
+ Codes::OK : Codes::ERROR)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready
+? Codes::OK : Codes::ERROR)
+# <- keyword.operator.ternary
+
+# layout:ternary qualified constants token 1
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? Codes::OK : Codes::ERROR)
+#        ^ support.class
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? Codes
+#        ^ support.class
+::OK : Codes::ERROR)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? Codes # continued
+#        ^ support.class
+::OK : Codes::ERROR)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ?
+Codes::OK : Codes::ERROR)
+# <- support.class
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? Codes::OK : Codes::ERROR)
+#        ^ support.class
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? Codes
+#        ^ support.class
+::OK : Codes::ERROR)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? Codes # continued
+#        ^ support.class
+::OK : Codes::ERROR)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ?
+Codes::OK : Codes::ERROR)
+# <- support.class
+
+# layout:ternary qualified constants token 2
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? Codes::OK : Codes::ERROR)
+#             ^ punctuation.accessor.double-colon
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? Codes::
+#             ^ punctuation.accessor.double-colon
+OK : Codes::ERROR)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? Codes:: # continued
+#             ^ punctuation.accessor.double-colon
+OK : Codes::ERROR)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? Codes
+::OK : Codes::ERROR)
+# <- punctuation.accessor.double-colon
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? Codes::OK : Codes::ERROR)
+#             ^ punctuation.accessor.double-colon
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? Codes::
+#             ^ punctuation.accessor.double-colon
+OK : Codes::ERROR)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? Codes:: # continued
+#             ^ punctuation.accessor.double-colon
+OK : Codes::ERROR)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? Codes
+::OK : Codes::ERROR)
+# <- punctuation.accessor.double-colon
+
+# layout:ternary qualified constants token 3
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? Codes::OK : Codes::ERROR)
+#               ^ support.class
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? Codes::OK
+#               ^ support.class
+ : Codes::ERROR)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? Codes::OK # continued
+#               ^ support.class
+ : Codes::ERROR)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? Codes::
+OK : Codes::ERROR)
+# <- support.class
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? Codes::OK : Codes::ERROR)
+#               ^ support.class
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? Codes::OK
+#               ^ support.class
+ : Codes::ERROR)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? Codes::OK # continued
+#               ^ support.class
+ : Codes::ERROR)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? Codes::
+OK : Codes::ERROR)
+# <- support.class
+
+# layout:ternary qualified constants token 4
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? Codes::OK : Codes::ERROR)
+#                  ^ punctuation.separator - constant.other.symbol
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? Codes::OK :
+#                  ^ punctuation.separator - constant.other.symbol
+ Codes::ERROR)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? Codes::OK : # continued
+#                  ^ punctuation.separator - constant.other.symbol
+ Codes::ERROR)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? Codes::OK
+: Codes::ERROR)
+# <- punctuation.separator - constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? Codes::OK : Codes::ERROR)
+#                  ^ punctuation.separator - constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? Codes::OK :
+#                  ^ punctuation.separator - constant.other.symbol
+ Codes::ERROR)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? Codes::OK : # continued
+#                  ^ punctuation.separator - constant.other.symbol
+ Codes::ERROR)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? Codes::OK
+: Codes::ERROR)
+# <- punctuation.separator - constant.other.symbol
+
+# layout:ternary qualified constants token 5
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? Codes::OK : Codes::ERROR)
+#                    ^ support.class
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? Codes::OK : Codes
+#                    ^ support.class
+::ERROR)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? Codes::OK : Codes # continued
+#                    ^ support.class
+::ERROR)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? Codes::OK :
+Codes::ERROR)
+# <- support.class
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? Codes::OK : Codes::ERROR)
+#                    ^ support.class
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? Codes::OK : Codes
+#                    ^ support.class
+::ERROR)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? Codes::OK : Codes # continued
+#                    ^ support.class
+::ERROR)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? Codes::OK :
+Codes::ERROR)
+# <- support.class
+
+# layout:ternary qualified constants token 6
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? Codes::OK : Codes::ERROR)
+#                         ^ punctuation.accessor.double-colon
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? Codes::OK : Codes::
+#                         ^ punctuation.accessor.double-colon
+ERROR)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? Codes::OK : Codes:: # continued
+#                         ^ punctuation.accessor.double-colon
+ERROR)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? Codes::OK : Codes
+::ERROR)
+# <- punctuation.accessor.double-colon
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? Codes::OK : Codes::ERROR)
+#                         ^ punctuation.accessor.double-colon
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? Codes::OK : Codes::
+#                         ^ punctuation.accessor.double-colon
+ERROR)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? Codes::OK : Codes:: # continued
+#                         ^ punctuation.accessor.double-colon
+ERROR)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? Codes::OK : Codes
+::ERROR)
+# <- punctuation.accessor.double-colon
+
+# layout:ternary qualified constants token 7
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? Codes::OK : Codes::ERROR)
+#                           ^ support.class
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? Codes::OK : Codes::ERROR
+#                           ^ support.class
+)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? Codes::OK : Codes::ERROR # continued
+#                           ^ support.class
+)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? Codes::OK : Codes::
+ERROR)
+# <- support.class
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? Codes::OK : Codes::ERROR)
+#                           ^ support.class
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? Codes::OK : Codes::ERROR
+#                           ^ support.class
+)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? Codes::OK : Codes::ERROR # continued
+#                           ^ support.class
+)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? Codes::OK : Codes::
+ERROR)
+# <- support.class
+
+# layout:ternary constant and symbol token 0
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? Codes::OK : :error)
+#      ^ keyword.operator.ternary
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ?
+#      ^ keyword.operator.ternary
+ Codes::OK : :error)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? # continued
+#      ^ keyword.operator.ternary
+ Codes::OK : :error)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready
+? Codes::OK : :error)
+# <- keyword.operator.ternary
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? Codes::OK : :error)
+#      ^ keyword.operator.ternary
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ?
+#      ^ keyword.operator.ternary
+ Codes::OK : :error)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? # continued
+#      ^ keyword.operator.ternary
+ Codes::OK : :error)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready
+? Codes::OK : :error)
+# <- keyword.operator.ternary
+
+# layout:ternary constant and symbol token 1
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? Codes::OK : :error)
+#        ^ support.class
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? Codes
+#        ^ support.class
+::OK : :error)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? Codes # continued
+#        ^ support.class
+::OK : :error)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ?
+Codes::OK : :error)
+# <- support.class
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? Codes::OK : :error)
+#        ^ support.class
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? Codes
+#        ^ support.class
+::OK : :error)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? Codes # continued
+#        ^ support.class
+::OK : :error)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ?
+Codes::OK : :error)
+# <- support.class
+
+# layout:ternary constant and symbol token 2
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? Codes::OK : :error)
+#             ^ punctuation.accessor.double-colon
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? Codes::
+#             ^ punctuation.accessor.double-colon
+OK : :error)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? Codes:: # continued
+#             ^ punctuation.accessor.double-colon
+OK : :error)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? Codes
+::OK : :error)
+# <- punctuation.accessor.double-colon
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? Codes::OK : :error)
+#             ^ punctuation.accessor.double-colon
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? Codes::
+#             ^ punctuation.accessor.double-colon
+OK : :error)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? Codes:: # continued
+#             ^ punctuation.accessor.double-colon
+OK : :error)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? Codes
+::OK : :error)
+# <- punctuation.accessor.double-colon
+
+# layout:ternary constant and symbol token 3
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? Codes::OK : :error)
+#               ^ support.class
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? Codes::OK
+#               ^ support.class
+ : :error)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? Codes::OK # continued
+#               ^ support.class
+ : :error)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? Codes::
+OK : :error)
+# <- support.class
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? Codes::OK : :error)
+#               ^ support.class
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? Codes::OK
+#               ^ support.class
+ : :error)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? Codes::OK # continued
+#               ^ support.class
+ : :error)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? Codes::
+OK : :error)
+# <- support.class
+
+# layout:ternary constant and symbol token 4
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? Codes::OK : :error)
+#                  ^ punctuation.separator - constant.other.symbol
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? Codes::OK :
+#                  ^ punctuation.separator - constant.other.symbol
+ :error)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? Codes::OK : # continued
+#                  ^ punctuation.separator - constant.other.symbol
+ :error)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? Codes::OK
+: :error)
+# <- punctuation.separator - constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? Codes::OK : :error)
+#                  ^ punctuation.separator - constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? Codes::OK :
+#                  ^ punctuation.separator - constant.other.symbol
+ :error)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? Codes::OK : # continued
+#                  ^ punctuation.separator - constant.other.symbol
+ :error)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? Codes::OK
+: :error)
+# <- punctuation.separator - constant.other.symbol
+
+# layout:ternary constant and symbol token 5
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? Codes::OK : :error)
+#                    ^ constant.other.symbol
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? Codes::OK : :error
+#                    ^ constant.other.symbol
+)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? Codes::OK : :error # continued
+#                    ^ constant.other.symbol
+)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? Codes::OK :
+:error)
+# <- constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? Codes::OK : :error)
+#                    ^ constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? Codes::OK : :error
+#                    ^ constant.other.symbol
+)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? Codes::OK : :error # continued
+#                    ^ constant.other.symbol
+)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? Codes::OK :
+:error)
+# <- constant.other.symbol
+
+# layout:ternary symbol and constant token 0
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok : Codes::ERROR)
+#      ^ keyword.operator.ternary
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ?
+#      ^ keyword.operator.ternary
+ :ok : Codes::ERROR)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? # continued
+#      ^ keyword.operator.ternary
+ :ok : Codes::ERROR)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready
+? :ok : Codes::ERROR)
+# <- keyword.operator.ternary
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok : Codes::ERROR)
+#      ^ keyword.operator.ternary
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ?
+#      ^ keyword.operator.ternary
+ :ok : Codes::ERROR)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? # continued
+#      ^ keyword.operator.ternary
+ :ok : Codes::ERROR)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready
+? :ok : Codes::ERROR)
+# <- keyword.operator.ternary
+
+# layout:ternary symbol and constant token 1
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok : Codes::ERROR)
+#        ^ constant.other.symbol
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok
+#        ^ constant.other.symbol
+ : Codes::ERROR)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok # continued
+#        ^ constant.other.symbol
+ : Codes::ERROR)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ?
+:ok : Codes::ERROR)
+# <- constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok : Codes::ERROR)
+#        ^ constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok
+#        ^ constant.other.symbol
+ : Codes::ERROR)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok # continued
+#        ^ constant.other.symbol
+ : Codes::ERROR)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ?
+:ok : Codes::ERROR)
+# <- constant.other.symbol
+
+# layout:ternary symbol and constant token 2
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok : Codes::ERROR)
+#            ^ punctuation.separator - constant.other.symbol
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok :
+#            ^ punctuation.separator - constant.other.symbol
+ Codes::ERROR)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok : # continued
+#            ^ punctuation.separator - constant.other.symbol
+ Codes::ERROR)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok
+: Codes::ERROR)
+# <- punctuation.separator - constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok : Codes::ERROR)
+#            ^ punctuation.separator - constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok :
+#            ^ punctuation.separator - constant.other.symbol
+ Codes::ERROR)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok : # continued
+#            ^ punctuation.separator - constant.other.symbol
+ Codes::ERROR)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok
+: Codes::ERROR)
+# <- punctuation.separator - constant.other.symbol
+
+# layout:ternary symbol and constant token 3
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok : Codes::ERROR)
+#              ^ support.class
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok : Codes
+#              ^ support.class
+::ERROR)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok : Codes # continued
+#              ^ support.class
+::ERROR)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok :
+Codes::ERROR)
+# <- support.class
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok : Codes::ERROR)
+#              ^ support.class
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok : Codes
+#              ^ support.class
+::ERROR)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok : Codes # continued
+#              ^ support.class
+::ERROR)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok :
+Codes::ERROR)
+# <- support.class
+
+# layout:ternary symbol and constant token 4
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok : Codes::ERROR)
+#                   ^ punctuation.accessor.double-colon
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok : Codes::
+#                   ^ punctuation.accessor.double-colon
+ERROR)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok : Codes:: # continued
+#                   ^ punctuation.accessor.double-colon
+ERROR)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok : Codes
+::ERROR)
+# <- punctuation.accessor.double-colon
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok : Codes::ERROR)
+#                   ^ punctuation.accessor.double-colon
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok : Codes::
+#                   ^ punctuation.accessor.double-colon
+ERROR)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok : Codes:: # continued
+#                   ^ punctuation.accessor.double-colon
+ERROR)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok : Codes
+::ERROR)
+# <- punctuation.accessor.double-colon
+
+# layout:ternary symbol and constant token 5
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok : Codes::ERROR)
+#                     ^ support.class
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok : Codes::ERROR
+#                     ^ support.class
+)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok : Codes::ERROR # continued
+#                     ^ support.class
+)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok : Codes::
+ERROR)
+# <- support.class
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok : Codes::ERROR)
+#                     ^ support.class
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok : Codes::ERROR
+#                     ^ support.class
+)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok : Codes::ERROR # continued
+#                     ^ support.class
+)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok : Codes::
+ERROR)
+# <- support.class
+
+# layout:ternary hash key after ternary token 0
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+{value: ready ? :ok : :error, next: :next}
+#             ^ keyword.operator.ternary
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+{value: ready ?
+#             ^ keyword.operator.ternary
+ :ok : :error, next: :next}
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+{value: ready ? # continued
+#             ^ keyword.operator.ternary
+ :ok : :error, next: :next}
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+{value: ready
+? :ok : :error, next: :next}
+# <- keyword.operator.ternary
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+{value: ready ? :ok : :error, next: :next}
+#             ^ keyword.operator.ternary
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+{value: ready ?
+#             ^ keyword.operator.ternary
+ :ok : :error, next: :next}
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+{value: ready ? # continued
+#             ^ keyword.operator.ternary
+ :ok : :error, next: :next}
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+{value: ready
+? :ok : :error, next: :next}
+# <- keyword.operator.ternary
+
+# layout:ternary hash key after ternary token 1
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+{value: ready ? :ok : :error, next: :next}
+#               ^ constant.other.symbol
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+{value: ready ? :ok
+#               ^ constant.other.symbol
+ : :error, next: :next}
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+{value: ready ? :ok # continued
+#               ^ constant.other.symbol
+ : :error, next: :next}
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+{value: ready ?
+:ok : :error, next: :next}
+# <- constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+{value: ready ? :ok : :error, next: :next}
+#               ^ constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+{value: ready ? :ok
+#               ^ constant.other.symbol
+ : :error, next: :next}
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+{value: ready ? :ok # continued
+#               ^ constant.other.symbol
+ : :error, next: :next}
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+{value: ready ?
+:ok : :error, next: :next}
+# <- constant.other.symbol
+
+# layout:ternary hash key after ternary token 2
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+{value: ready ? :ok : :error, next: :next}
+#                   ^ punctuation.separator - constant.other.symbol
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+{value: ready ? :ok :
+#                   ^ punctuation.separator - constant.other.symbol
+ :error, next: :next}
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+{value: ready ? :ok : # continued
+#                   ^ punctuation.separator - constant.other.symbol
+ :error, next: :next}
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+{value: ready ? :ok
+: :error, next: :next}
+# <- punctuation.separator - constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+{value: ready ? :ok : :error, next: :next}
+#                   ^ punctuation.separator - constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+{value: ready ? :ok :
+#                   ^ punctuation.separator - constant.other.symbol
+ :error, next: :next}
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+{value: ready ? :ok : # continued
+#                   ^ punctuation.separator - constant.other.symbol
+ :error, next: :next}
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+{value: ready ? :ok
+: :error, next: :next}
+# <- punctuation.separator - constant.other.symbol
+
+# layout:ternary hash key after ternary token 3
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+{value: ready ? :ok : :error, next: :next}
+#                     ^ constant.other.symbol
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+{value: ready ? :ok : :error
+#                     ^ constant.other.symbol
+, next: :next}
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+{value: ready ? :ok : :error # continued
+#                     ^ constant.other.symbol
+, next: :next}
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+{value: ready ? :ok :
+:error, next: :next}
+# <- constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+{value: ready ? :ok : :error, next: :next}
+#                     ^ constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+{value: ready ? :ok : :error
+#                     ^ constant.other.symbol
+, next: :next}
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+{value: ready ? :ok : :error # continued
+#                     ^ constant.other.symbol
+, next: :next}
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+{value: ready ? :ok :
+:error, next: :next}
+# <- constant.other.symbol
+
+# layout:ternary hash key after ternary token 4
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+{value: ready ? :ok : :error, next: :next}
+#                             ^ constant.other.symbol
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+{value: ready ? :ok : :error, next
+#                             ^ constant.other.symbol
+: :next}
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+{value: ready ? :ok : :error, next # continued
+#                             ^ constant.other.symbol
+: :next}
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+{value: ready ? :ok : :error,
+next: :next}
+# <- constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+{value: ready ? :ok : :error, next: :next}
+#                             ^ constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+{value: ready ? :ok : :error, next
+#                             ^ constant.other.symbol
+: :next}
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+{value: ready ? :ok : :error, next # continued
+#                             ^ constant.other.symbol
+: :next}
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+{value: ready ? :ok : :error,
+next: :next}
+# <- constant.other.symbol
+
+# layout:ternary hash key after ternary token 5
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+{value: ready ? :ok : :error, next: :next}
+#                                 ^ punctuation.definition.constant
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+{value: ready ? :ok : :error, next:
+#                                 ^ punctuation.definition.constant
+ :next}
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+{value: ready ? :ok : :error, next: # continued
+#                                 ^ punctuation.definition.constant
+ :next}
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+{value: ready ? :ok : :error, next
+: :next}
+# <- punctuation.definition.constant
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+{value: ready ? :ok : :error, next: :next}
+#                                 ^ punctuation.definition.constant
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+{value: ready ? :ok : :error, next:
+#                                 ^ punctuation.definition.constant
+ :next}
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+{value: ready ? :ok : :error, next: # continued
+#                                 ^ punctuation.definition.constant
+ :next}
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+{value: ready ? :ok : :error, next
+: :next}
+# <- punctuation.definition.constant
+
+# layout:ternary hash key after ternary token 6
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+{value: ready ? :ok : :error, next: :next}
+#                                   ^ constant.other.symbol
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+{value: ready ? :ok : :error, next: :next
+#                                   ^ constant.other.symbol
+}
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+{value: ready ? :ok : :error, next: :next # continued
+#                                   ^ constant.other.symbol
+}
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+{value: ready ? :ok : :error, next:
+:next}
+# <- constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+{value: ready ? :ok : :error, next: :next}
+#                                   ^ constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+{value: ready ? :ok : :error, next: :next
+#                                   ^ constant.other.symbol
+}
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+{value: ready ? :ok : :error, next: :next # continued
+#                                   ^ constant.other.symbol
+}
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+{value: ready ? :ok : :error, next:
+:next}
+# <- constant.other.symbol
+
+# layout:ternary hash in true branch token 0
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? {next: :ok} : :error)
+#      ^ keyword.operator.ternary
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ?
+#      ^ keyword.operator.ternary
+ {next: :ok} : :error)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? # continued
+#      ^ keyword.operator.ternary
+ {next: :ok} : :error)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready
+? {next: :ok} : :error)
+# <- keyword.operator.ternary
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? {next: :ok} : :error)
+#      ^ keyword.operator.ternary
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ?
+#      ^ keyword.operator.ternary
+ {next: :ok} : :error)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? # continued
+#      ^ keyword.operator.ternary
+ {next: :ok} : :error)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready
+? {next: :ok} : :error)
+# <- keyword.operator.ternary
+
+# layout:ternary hash in true branch token 1
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? {next: :ok} : :error)
+#         ^ constant.other.symbol
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? {next
+#         ^ constant.other.symbol
+: :ok} : :error)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? {next # continued
+#         ^ constant.other.symbol
+: :ok} : :error)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? {
+next: :ok} : :error)
+# <- constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? {next: :ok} : :error)
+#         ^ constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? {next
+#         ^ constant.other.symbol
+: :ok} : :error)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? {next # continued
+#         ^ constant.other.symbol
+: :ok} : :error)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? {
+next: :ok} : :error)
+# <- constant.other.symbol
+
+# layout:ternary hash in true branch token 2
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? {next: :ok} : :error)
+#             ^ punctuation.definition.constant
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? {next:
+#             ^ punctuation.definition.constant
+ :ok} : :error)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? {next: # continued
+#             ^ punctuation.definition.constant
+ :ok} : :error)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? {next
+: :ok} : :error)
+# <- punctuation.definition.constant
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? {next: :ok} : :error)
+#             ^ punctuation.definition.constant
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? {next:
+#             ^ punctuation.definition.constant
+ :ok} : :error)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? {next: # continued
+#             ^ punctuation.definition.constant
+ :ok} : :error)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? {next
+: :ok} : :error)
+# <- punctuation.definition.constant
+
+# layout:ternary hash in true branch token 3
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? {next: :ok} : :error)
+#               ^ constant.other.symbol
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? {next: :ok
+#               ^ constant.other.symbol
+} : :error)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? {next: :ok # continued
+#               ^ constant.other.symbol
+} : :error)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? {next:
+:ok} : :error)
+# <- constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? {next: :ok} : :error)
+#               ^ constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? {next: :ok
+#               ^ constant.other.symbol
+} : :error)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? {next: :ok # continued
+#               ^ constant.other.symbol
+} : :error)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? {next:
+:ok} : :error)
+# <- constant.other.symbol
+
+# layout:ternary hash in true branch token 4
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? {next: :ok} : :error)
+#                    ^ punctuation.separator - constant.other.symbol
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? {next: :ok} :
+#                    ^ punctuation.separator - constant.other.symbol
+ :error)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? {next: :ok} : # continued
+#                    ^ punctuation.separator - constant.other.symbol
+ :error)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? {next: :ok}
+: :error)
+# <- punctuation.separator - constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? {next: :ok} : :error)
+#                    ^ punctuation.separator - constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? {next: :ok} :
+#                    ^ punctuation.separator - constant.other.symbol
+ :error)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? {next: :ok} : # continued
+#                    ^ punctuation.separator - constant.other.symbol
+ :error)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? {next: :ok}
+: :error)
+# <- punctuation.separator - constant.other.symbol
+
+# layout:ternary hash in true branch token 5
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? {next: :ok} : :error)
+#                      ^ constant.other.symbol
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? {next: :ok} : :error
+#                      ^ constant.other.symbol
+)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? {next: :ok} : :error # continued
+#                      ^ constant.other.symbol
+)
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? {next: :ok} :
+:error)
+# <- constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? {next: :ok} : :error)
+#                      ^ constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? {next: :ok} : :error
+#                      ^ constant.other.symbol
+)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? {next: :ok} : :error # continued
+#                      ^ constant.other.symbol
+)
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? {next: :ok} :
+:error)
+# <- constant.other.symbol
+
+# layout:ternary hash in false branch token 0
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok : {next: :error})
+#      ^ keyword.operator.ternary
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ?
+#      ^ keyword.operator.ternary
+ :ok : {next: :error})
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? # continued
+#      ^ keyword.operator.ternary
+ :ok : {next: :error})
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready
+? :ok : {next: :error})
+# <- keyword.operator.ternary
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok : {next: :error})
+#      ^ keyword.operator.ternary
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ?
+#      ^ keyword.operator.ternary
+ :ok : {next: :error})
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? # continued
+#      ^ keyword.operator.ternary
+ :ok : {next: :error})
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready
+? :ok : {next: :error})
+# <- keyword.operator.ternary
+
+# layout:ternary hash in false branch token 1
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok : {next: :error})
+#        ^ constant.other.symbol
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok
+#        ^ constant.other.symbol
+ : {next: :error})
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok # continued
+#        ^ constant.other.symbol
+ : {next: :error})
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ?
+:ok : {next: :error})
+# <- constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok : {next: :error})
+#        ^ constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok
+#        ^ constant.other.symbol
+ : {next: :error})
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok # continued
+#        ^ constant.other.symbol
+ : {next: :error})
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ?
+:ok : {next: :error})
+# <- constant.other.symbol
+
+# layout:ternary hash in false branch token 2
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok : {next: :error})
+#            ^ punctuation.separator - constant.other.symbol
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok :
+#            ^ punctuation.separator - constant.other.symbol
+ {next: :error})
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok : # continued
+#            ^ punctuation.separator - constant.other.symbol
+ {next: :error})
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok
+: {next: :error})
+# <- punctuation.separator - constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok : {next: :error})
+#            ^ punctuation.separator - constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok :
+#            ^ punctuation.separator - constant.other.symbol
+ {next: :error})
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok : # continued
+#            ^ punctuation.separator - constant.other.symbol
+ {next: :error})
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok
+: {next: :error})
+# <- punctuation.separator - constant.other.symbol
+
+# layout:ternary hash in false branch token 3
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok : {next: :error})
+#               ^ constant.other.symbol
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok : {next
+#               ^ constant.other.symbol
+: :error})
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok : {next # continued
+#               ^ constant.other.symbol
+: :error})
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok : {
+next: :error})
+# <- constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok : {next: :error})
+#               ^ constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok : {next
+#               ^ constant.other.symbol
+: :error})
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok : {next # continued
+#               ^ constant.other.symbol
+: :error})
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok : {
+next: :error})
+# <- constant.other.symbol
+
+# layout:ternary hash in false branch token 4
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok : {next: :error})
+#                   ^ punctuation.definition.constant
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok : {next:
+#                   ^ punctuation.definition.constant
+ :error})
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok : {next: # continued
+#                   ^ punctuation.definition.constant
+ :error})
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok : {next
+: :error})
+# <- punctuation.definition.constant
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok : {next: :error})
+#                   ^ punctuation.definition.constant
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok : {next:
+#                   ^ punctuation.definition.constant
+ :error})
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok : {next: # continued
+#                   ^ punctuation.definition.constant
+ :error})
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok : {next
+: :error})
+# <- punctuation.definition.constant
+
+# layout:ternary hash in false branch token 5
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok : {next: :error})
+#                     ^ constant.other.symbol
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok : {next: :error
+#                     ^ constant.other.symbol
+})
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok : {next: :error # continued
+#                     ^ constant.other.symbol
+})
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok : {next:
+:error})
+# <- constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok : {next: :error})
+#                     ^ constant.other.symbol
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok : {next: :error
+#                     ^ constant.other.symbol
+})
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok : {next: :error # continued
+#                     ^ constant.other.symbol
+})
+
+0 +
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok : {next:
+:error})
+# <- constant.other.symbol

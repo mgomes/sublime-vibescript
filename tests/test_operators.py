@@ -57,7 +57,7 @@ class OperatorTests(unittest.TestCase):
     def test_symbol_and_method_matchers_agree_with_the_operator_inventory(self):
         for operator in OPERATORS.SYMBOL_OPERATORS | set(OPERATORS.BINARY_OPERATORS):
             with self.subTest(operator=operator):
-                symbol = any(pattern.fullmatch(":" + operator) for pattern, _ in rules("symbols"))
+                symbol = any(pattern.fullmatch(":" + operator) for pattern, _ in rules("symbol-token"))
                 method = any(pattern.fullmatch(operator) for pattern, _ in rules("function-declaration"))
                 self.assertEqual(symbol, operator in OPERATORS.SYMBOL_OPERATORS)
                 self.assertEqual(method, operator in OPERATORS.METHOD_OPERATORS)

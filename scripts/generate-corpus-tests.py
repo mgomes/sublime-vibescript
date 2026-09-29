@@ -20,6 +20,7 @@ from type_cases import cases as type_cases
 from alias_cases import cases as alias_cases
 from nested_cases import cases as nested_cases
 from layout_cases import cases as layout_cases, required_scopes
+from ternary_cases import cases as ternary_cases
 
 
 BUILTINS = set(inventory()["builtins"])
@@ -286,6 +287,12 @@ def main():
                        capture_output=True, text=True, check=True)
     cases.extend(nested)
     coverage["nested-delimiter-cases"] = len(nested)
+    ternaries = ternary_cases()
+    for case in ternaries:
+        subprocess.run([str(compiler), "check", "--eval", case["source"]], cwd=args.rust_repo,
+                       capture_output=True, text=True, check=True)
+    cases.extend(ternaries)
+    coverage["ternary-cases"] = len(ternaries)
     layouts = layout_cases()
     cases.extend(layouts)
     coverage["layout-invariance-cases"] = len(layouts)

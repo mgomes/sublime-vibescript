@@ -17,7 +17,7 @@ fixture covers each complete token. Regenerate it with:
 python3 scripts/operators.py > tests/syntax_test_operators.vibe
 ```
 
-`scripts/layout_cases.py` adds 188 token contexts to the corpus audit. Binary,
+`scripts/layout_cases.py` adds 277 token contexts to the corpus audit. Binary,
 assignment, symbol and method operators come from the same operator inventory.
 The remaining cases cover every keyword spelling and every punctuation and
 literal scope declared by the syntax, with representative values for numeric,
@@ -57,6 +57,10 @@ lines retain the existing indentation heuristics:
 ```sh
 python3 scripts/indentation.py
 ```
+
+`scripts/ternary_cases.py` covers symbol operands, nested ternaries, qualified
+constants and hash labels around ternaries. The same marked tokens feed the
+layout matrix; the complete programs also run through Rust and native reindent.
 
 ## Type inventory
 

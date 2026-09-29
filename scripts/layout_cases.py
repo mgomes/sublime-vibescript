@@ -4,6 +4,7 @@ from pathlib import Path
 import re
 
 from operators import ASSIGNMENT_OPERATORS, BINARY_OPERATORS, METHOD_OPERATORS, SYMBOL_OPERATORS
+from ternary_cases import examples as ternary_examples, PREFIX as TERNARY_PREFIX
 
 
 def required_scopes():
@@ -131,6 +132,10 @@ def inventory():
     add("directive version", "# vibe: ", "0.80", "\n", "constant.numeric.version", breaks=False)
     add("comment marker", "1 ", "#", " comment\n", "punctuation.definition.comment")
     add("enum value", "enum Color\n", "Red", "\nend\n", "constant.other.enum")
+    for name, source, marked_tokens in ternary_examples():
+        for index, (offset, token, scope) in enumerate(marked_tokens):
+            add(f"ternary {name} token {index}", TERNARY_PREFIX + source[:offset], token,
+                source[offset + len(token):] + "\n", scope)
     return tokens
 
 

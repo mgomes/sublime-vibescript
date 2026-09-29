@@ -721,26 +721,36 @@ contexts:
   # quote stays inside the symbol (:'don\'t'). Symbols may also name
   # operators (used by alias_method, retroactive visibility, block-pass).
   symbols:
+    - match: '(?<!:)(?=:["''a-zA-Z_]|:{{symbol_operator}})'
+      push: symbol-token
+
+  symbol-token:
     - match: '(?<!:)(:)(")(?:[^"\\]|\\.)*(")'
       scope: constant.other.symbol.double-quoted.vibescript
       captures:
         1: punctuation.definition.constant.vibescript
         2: punctuation.definition.constant.begin.vibescript
         3: punctuation.definition.constant.end.vibescript
+      pop: 1
     - match: '(?<!:)(:)('')(?:[^''\\]|\\.)*('')'
       scope: constant.other.symbol.single-quoted.vibescript
       captures:
         1: punctuation.definition.constant.vibescript
         2: punctuation.definition.constant.begin.vibescript
         3: punctuation.definition.constant.end.vibescript
+      pop: 1
     - match: '(?<!:)(:)({{symbol_operator}})'
       scope: constant.other.symbol.operator.vibescript
       captures:
         1: punctuation.definition.constant.vibescript
+      pop: 1
     - match: '(?<!:)(:)[a-zA-Z_][a-zA-Z0-9_]*[?!]?'
       scope: constant.other.symbol.vibescript
       captures:
         1: punctuation.definition.constant.vibescript
+      pop: 1
+    - match: '(?=\S)'
+      pop: 1
 
   # Hash keys and keyword arguments: { name: "alex" }, call(limit: 10)
   hash-keys:
@@ -859,19 +869,33 @@ contexts:
       scope: keyword.operator.assignment.vibescript
     - match: '\?'
       scope: keyword.operator.ternary.vibescript
-      push: ternary-value
+      push: [ternary-value, ternary-operand]
     - match: '\.'
       scope: punctuation.accessor.dot.vibescript
 
   ternary-value:
-    - match: ':'
+    - match: ':(?!:)'
       scope: punctuation.separator.vibescript
-      pop: 1
+      set: ternary-operand
     - match: '(?=[)\]}])'
       pop: 1
+    - match: '(?={{continuation}})'
+      push: [ternary-continued-operand, continuation-operator]
+    - match: '(?={{binary_operator}}|!)'
+      push: [ternary-operand, continuation-operator]
     - include: control-keywords
     - match: '{{identifier}}(?=[ \t]*:(?!:))'
     - include: main
+
+  ternary-operand:
+    - match: '(?=:(?!:))'
+      set: symbol-token
+    - match: '(?=\S)'
+      pop: 1
+
+  ternary-continued-operand:
+    - meta_scope: meta.expression.continuation.vibescript
+    - include: ternary-operand
 
   punctuation:
     - match: '[\[\]{}()]'

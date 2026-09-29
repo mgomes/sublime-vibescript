@@ -1,0 +1,835 @@
+# SYNTAX TEST "Packages/Vibescript/Vibescript.sublime-syntax"
+# ternary:symbols :ok
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok : :error)
+#      ^ keyword.operator.ternary
+#        ^ constant.other.symbol
+#         ^ constant.other.symbol
+#          ^ constant.other.symbol
+#            ^ punctuation.separator - constant.other.symbol
+#              ^ constant.other.symbol
+#               ^ constant.other.symbol
+#                ^ constant.other.symbol
+#                 ^ constant.other.symbol
+#                  ^ constant.other.symbol
+#                   ^ constant.other.symbol
+after = :after
+#       ^ constant.other.symbol
+# ternary:symbols :ok # ternary boundary
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok : :error) # ternary boundary
+#      ^ keyword.operator.ternary
+#        ^ constant.other.symbol
+#         ^ constant.other.symbol
+#          ^ constant.other.symbol
+#            ^ punctuation.separator - constant.other.symbol
+#              ^ constant.other.symbol
+#               ^ constant.other.symbol
+#                ^ constant.other.symbol
+#                 ^ constant.other.symbol
+#                  ^ constant.other.symbol
+#                   ^ constant.other.symbol
+after = :after
+#       ^ constant.other.symbol
+# ternary:symbols :save!
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :save! : :valid?)
+#      ^ keyword.operator.ternary
+#        ^ constant.other.symbol
+#         ^ constant.other.symbol
+#          ^ constant.other.symbol
+#           ^ constant.other.symbol
+#            ^ constant.other.symbol
+#             ^ constant.other.symbol
+#               ^ punctuation.separator - constant.other.symbol
+#                 ^ constant.other.symbol
+#                  ^ constant.other.symbol
+#                   ^ constant.other.symbol
+#                    ^ constant.other.symbol
+#                     ^ constant.other.symbol
+#                      ^ constant.other.symbol
+#                       ^ constant.other.symbol
+after = :after
+#       ^ constant.other.symbol
+# ternary:symbols :save! # ternary boundary
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :save! : :valid?) # ternary boundary
+#      ^ keyword.operator.ternary
+#        ^ constant.other.symbol
+#         ^ constant.other.symbol
+#          ^ constant.other.symbol
+#           ^ constant.other.symbol
+#            ^ constant.other.symbol
+#             ^ constant.other.symbol
+#               ^ punctuation.separator - constant.other.symbol
+#                 ^ constant.other.symbol
+#                  ^ constant.other.symbol
+#                   ^ constant.other.symbol
+#                    ^ constant.other.symbol
+#                     ^ constant.other.symbol
+#                      ^ constant.other.symbol
+#                       ^ constant.other.symbol
+after = :after
+#       ^ constant.other.symbol
+# ternary:symbols :"ok"
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :"ok" : :'error')
+#      ^ keyword.operator.ternary
+#        ^ constant.other.symbol
+#         ^ constant.other.symbol
+#          ^ constant.other.symbol
+#           ^ constant.other.symbol
+#            ^ constant.other.symbol
+#              ^ punctuation.separator - constant.other.symbol
+#                ^ constant.other.symbol
+#                 ^ constant.other.symbol
+#                  ^ constant.other.symbol
+#                   ^ constant.other.symbol
+#                    ^ constant.other.symbol
+#                     ^ constant.other.symbol
+#                      ^ constant.other.symbol
+#                       ^ constant.other.symbol
+after = :after
+#       ^ constant.other.symbol
+# ternary:symbols :"ok" # ternary boundary
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :"ok" : :'error') # ternary boundary
+#      ^ keyword.operator.ternary
+#        ^ constant.other.symbol
+#         ^ constant.other.symbol
+#          ^ constant.other.symbol
+#           ^ constant.other.symbol
+#            ^ constant.other.symbol
+#              ^ punctuation.separator - constant.other.symbol
+#                ^ constant.other.symbol
+#                 ^ constant.other.symbol
+#                  ^ constant.other.symbol
+#                   ^ constant.other.symbol
+#                    ^ constant.other.symbol
+#                     ^ constant.other.symbol
+#                      ^ constant.other.symbol
+#                       ^ constant.other.symbol
+after = :after
+#       ^ constant.other.symbol
+# ternary:symbols :+
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :+ : :error)
+#      ^ keyword.operator.ternary
+#        ^ constant.other.symbol
+#         ^ constant.other.symbol
+#           ^ punctuation.separator - constant.other.symbol
+#             ^ constant.other.symbol
+#              ^ constant.other.symbol
+#               ^ constant.other.symbol
+#                ^ constant.other.symbol
+#                 ^ constant.other.symbol
+#                  ^ constant.other.symbol
+after = :after
+#       ^ constant.other.symbol
+# ternary:symbols :+ # ternary boundary
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :+ : :error) # ternary boundary
+#      ^ keyword.operator.ternary
+#        ^ constant.other.symbol
+#         ^ constant.other.symbol
+#           ^ punctuation.separator - constant.other.symbol
+#             ^ constant.other.symbol
+#              ^ constant.other.symbol
+#               ^ constant.other.symbol
+#                ^ constant.other.symbol
+#                 ^ constant.other.symbol
+#                  ^ constant.other.symbol
+after = :after
+#       ^ constant.other.symbol
+# ternary:nested true
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? ready ? :inner : :fallback : :outer)
+#      ^ keyword.operator.ternary
+#              ^ keyword.operator.ternary
+#                ^ constant.other.symbol
+#                 ^ constant.other.symbol
+#                  ^ constant.other.symbol
+#                   ^ constant.other.symbol
+#                    ^ constant.other.symbol
+#                     ^ constant.other.symbol
+#                       ^ punctuation.separator - constant.other.symbol
+#                         ^ constant.other.symbol
+#                          ^ constant.other.symbol
+#                           ^ constant.other.symbol
+#                            ^ constant.other.symbol
+#                             ^ constant.other.symbol
+#                              ^ constant.other.symbol
+#                               ^ constant.other.symbol
+#                                ^ constant.other.symbol
+#                                 ^ constant.other.symbol
+#                                   ^ punctuation.separator - constant.other.symbol
+#                                     ^ constant.other.symbol
+#                                      ^ constant.other.symbol
+#                                       ^ constant.other.symbol
+#                                        ^ constant.other.symbol
+#                                         ^ constant.other.symbol
+#                                          ^ constant.other.symbol
+after = :after
+#       ^ constant.other.symbol
+# ternary:nested true # ternary boundary
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? ready ? :inner : :fallback : :outer) # ternary boundary
+#      ^ keyword.operator.ternary
+#              ^ keyword.operator.ternary
+#                ^ constant.other.symbol
+#                 ^ constant.other.symbol
+#                  ^ constant.other.symbol
+#                   ^ constant.other.symbol
+#                    ^ constant.other.symbol
+#                     ^ constant.other.symbol
+#                       ^ punctuation.separator - constant.other.symbol
+#                         ^ constant.other.symbol
+#                          ^ constant.other.symbol
+#                           ^ constant.other.symbol
+#                            ^ constant.other.symbol
+#                             ^ constant.other.symbol
+#                              ^ constant.other.symbol
+#                               ^ constant.other.symbol
+#                                ^ constant.other.symbol
+#                                 ^ constant.other.symbol
+#                                   ^ punctuation.separator - constant.other.symbol
+#                                     ^ constant.other.symbol
+#                                      ^ constant.other.symbol
+#                                       ^ constant.other.symbol
+#                                        ^ constant.other.symbol
+#                                         ^ constant.other.symbol
+#                                          ^ constant.other.symbol
+after = :after
+#       ^ constant.other.symbol
+# ternary:nested false
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :outer : ready ? :inner : :fallback)
+#      ^ keyword.operator.ternary
+#        ^ constant.other.symbol
+#         ^ constant.other.symbol
+#          ^ constant.other.symbol
+#           ^ constant.other.symbol
+#            ^ constant.other.symbol
+#             ^ constant.other.symbol
+#               ^ punctuation.separator - constant.other.symbol
+#                       ^ keyword.operator.ternary
+#                         ^ constant.other.symbol
+#                          ^ constant.other.symbol
+#                           ^ constant.other.symbol
+#                            ^ constant.other.symbol
+#                             ^ constant.other.symbol
+#                              ^ constant.other.symbol
+#                                ^ punctuation.separator - constant.other.symbol
+#                                  ^ constant.other.symbol
+#                                   ^ constant.other.symbol
+#                                    ^ constant.other.symbol
+#                                     ^ constant.other.symbol
+#                                      ^ constant.other.symbol
+#                                       ^ constant.other.symbol
+#                                        ^ constant.other.symbol
+#                                         ^ constant.other.symbol
+#                                          ^ constant.other.symbol
+after = :after
+#       ^ constant.other.symbol
+# ternary:nested false # ternary boundary
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :outer : ready ? :inner : :fallback) # ternary boundary
+#      ^ keyword.operator.ternary
+#        ^ constant.other.symbol
+#         ^ constant.other.symbol
+#          ^ constant.other.symbol
+#           ^ constant.other.symbol
+#            ^ constant.other.symbol
+#             ^ constant.other.symbol
+#               ^ punctuation.separator - constant.other.symbol
+#                       ^ keyword.operator.ternary
+#                         ^ constant.other.symbol
+#                          ^ constant.other.symbol
+#                           ^ constant.other.symbol
+#                            ^ constant.other.symbol
+#                             ^ constant.other.symbol
+#                              ^ constant.other.symbol
+#                                ^ punctuation.separator - constant.other.symbol
+#                                  ^ constant.other.symbol
+#                                   ^ constant.other.symbol
+#                                    ^ constant.other.symbol
+#                                     ^ constant.other.symbol
+#                                      ^ constant.other.symbol
+#                                       ^ constant.other.symbol
+#                                        ^ constant.other.symbol
+#                                         ^ constant.other.symbol
+#                                          ^ constant.other.symbol
+after = :after
+#       ^ constant.other.symbol
+# ternary:grouped branches
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? (ready ? :one : :two) : (ready ? :three : :four))
+#      ^ keyword.operator.ternary
+#               ^ keyword.operator.ternary
+#                 ^ constant.other.symbol
+#                  ^ constant.other.symbol
+#                   ^ constant.other.symbol
+#                    ^ constant.other.symbol
+#                      ^ punctuation.separator - constant.other.symbol
+#                        ^ constant.other.symbol
+#                         ^ constant.other.symbol
+#                          ^ constant.other.symbol
+#                           ^ constant.other.symbol
+#                              ^ punctuation.separator - constant.other.symbol
+#                                       ^ keyword.operator.ternary
+#                                         ^ constant.other.symbol
+#                                          ^ constant.other.symbol
+#                                           ^ constant.other.symbol
+#                                            ^ constant.other.symbol
+#                                             ^ constant.other.symbol
+#                                              ^ constant.other.symbol
+#                                                ^ punctuation.separator - constant.other.symbol
+#                                                  ^ constant.other.symbol
+#                                                   ^ constant.other.symbol
+#                                                    ^ constant.other.symbol
+#                                                     ^ constant.other.symbol
+#                                                      ^ constant.other.symbol
+after = :after
+#       ^ constant.other.symbol
+# ternary:grouped branches # ternary boundary
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? (ready ? :one : :two) : (ready ? :three : :four)) # ternary boundary
+#      ^ keyword.operator.ternary
+#               ^ keyword.operator.ternary
+#                 ^ constant.other.symbol
+#                  ^ constant.other.symbol
+#                   ^ constant.other.symbol
+#                    ^ constant.other.symbol
+#                      ^ punctuation.separator - constant.other.symbol
+#                        ^ constant.other.symbol
+#                         ^ constant.other.symbol
+#                          ^ constant.other.symbol
+#                           ^ constant.other.symbol
+#                              ^ punctuation.separator - constant.other.symbol
+#                                       ^ keyword.operator.ternary
+#                                         ^ constant.other.symbol
+#                                          ^ constant.other.symbol
+#                                           ^ constant.other.symbol
+#                                            ^ constant.other.symbol
+#                                             ^ constant.other.symbol
+#                                              ^ constant.other.symbol
+#                                                ^ punctuation.separator - constant.other.symbol
+#                                                  ^ constant.other.symbol
+#                                                   ^ constant.other.symbol
+#                                                    ^ constant.other.symbol
+#                                                     ^ constant.other.symbol
+#                                                      ^ constant.other.symbol
+after = :after
+#       ^ constant.other.symbol
+# ternary:binary operands
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :one == :two : :three != :four)
+#      ^ keyword.operator.ternary
+#        ^ constant.other.symbol
+#         ^ constant.other.symbol
+#          ^ constant.other.symbol
+#           ^ constant.other.symbol
+#                ^ constant.other.symbol
+#                 ^ constant.other.symbol
+#                  ^ constant.other.symbol
+#                   ^ constant.other.symbol
+#                     ^ punctuation.separator - constant.other.symbol
+#                       ^ constant.other.symbol
+#                        ^ constant.other.symbol
+#                         ^ constant.other.symbol
+#                          ^ constant.other.symbol
+#                           ^ constant.other.symbol
+#                            ^ constant.other.symbol
+#                                 ^ constant.other.symbol
+#                                  ^ constant.other.symbol
+#                                   ^ constant.other.symbol
+#                                    ^ constant.other.symbol
+#                                     ^ constant.other.symbol
+after = :after
+#       ^ constant.other.symbol
+# ternary:binary operands # ternary boundary
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :one == :two : :three != :four) # ternary boundary
+#      ^ keyword.operator.ternary
+#        ^ constant.other.symbol
+#         ^ constant.other.symbol
+#          ^ constant.other.symbol
+#           ^ constant.other.symbol
+#                ^ constant.other.symbol
+#                 ^ constant.other.symbol
+#                  ^ constant.other.symbol
+#                   ^ constant.other.symbol
+#                     ^ punctuation.separator - constant.other.symbol
+#                       ^ constant.other.symbol
+#                        ^ constant.other.symbol
+#                         ^ constant.other.symbol
+#                          ^ constant.other.symbol
+#                           ^ constant.other.symbol
+#                            ^ constant.other.symbol
+#                                 ^ constant.other.symbol
+#                                  ^ constant.other.symbol
+#                                   ^ constant.other.symbol
+#                                    ^ constant.other.symbol
+#                                     ^ constant.other.symbol
+after = :after
+#       ^ constant.other.symbol
+# ternary:unary operand
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? ![:one].empty? : ![:two].empty?)
+#      ^ keyword.operator.ternary
+#          ^ constant.other.symbol
+#           ^ constant.other.symbol
+#            ^ constant.other.symbol
+#             ^ constant.other.symbol
+#                       ^ punctuation.separator - constant.other.symbol
+#                           ^ constant.other.symbol
+#                            ^ constant.other.symbol
+#                             ^ constant.other.symbol
+#                              ^ constant.other.symbol
+after = :after
+#       ^ constant.other.symbol
+# ternary:unary operand # ternary boundary
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? ![:one].empty? : ![:two].empty?) # ternary boundary
+#      ^ keyword.operator.ternary
+#          ^ constant.other.symbol
+#           ^ constant.other.symbol
+#            ^ constant.other.symbol
+#             ^ constant.other.symbol
+#                       ^ punctuation.separator - constant.other.symbol
+#                           ^ constant.other.symbol
+#                            ^ constant.other.symbol
+#                             ^ constant.other.symbol
+#                              ^ constant.other.symbol
+after = :after
+#       ^ constant.other.symbol
+# ternary:qualified constants
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? Codes::OK : Codes::ERROR)
+#      ^ keyword.operator.ternary
+#        ^ support.class
+#         ^ support.class
+#          ^ support.class
+#           ^ support.class
+#            ^ support.class
+#             ^ punctuation.accessor.double-colon
+#              ^ punctuation.accessor.double-colon
+#               ^ support.class
+#                ^ support.class
+#                  ^ punctuation.separator - constant.other.symbol
+#                    ^ support.class
+#                     ^ support.class
+#                      ^ support.class
+#                       ^ support.class
+#                        ^ support.class
+#                         ^ punctuation.accessor.double-colon
+#                          ^ punctuation.accessor.double-colon
+#                           ^ support.class
+#                            ^ support.class
+#                             ^ support.class
+#                              ^ support.class
+#                               ^ support.class
+after = :after
+#       ^ constant.other.symbol
+# ternary:qualified constants # ternary boundary
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? Codes::OK : Codes::ERROR) # ternary boundary
+#      ^ keyword.operator.ternary
+#        ^ support.class
+#         ^ support.class
+#          ^ support.class
+#           ^ support.class
+#            ^ support.class
+#             ^ punctuation.accessor.double-colon
+#              ^ punctuation.accessor.double-colon
+#               ^ support.class
+#                ^ support.class
+#                  ^ punctuation.separator - constant.other.symbol
+#                    ^ support.class
+#                     ^ support.class
+#                      ^ support.class
+#                       ^ support.class
+#                        ^ support.class
+#                         ^ punctuation.accessor.double-colon
+#                          ^ punctuation.accessor.double-colon
+#                           ^ support.class
+#                            ^ support.class
+#                             ^ support.class
+#                              ^ support.class
+#                               ^ support.class
+after = :after
+#       ^ constant.other.symbol
+# ternary:constant and symbol
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? Codes::OK : :error)
+#      ^ keyword.operator.ternary
+#        ^ support.class
+#         ^ support.class
+#          ^ support.class
+#           ^ support.class
+#            ^ support.class
+#             ^ punctuation.accessor.double-colon
+#              ^ punctuation.accessor.double-colon
+#               ^ support.class
+#                ^ support.class
+#                  ^ punctuation.separator - constant.other.symbol
+#                    ^ constant.other.symbol
+#                     ^ constant.other.symbol
+#                      ^ constant.other.symbol
+#                       ^ constant.other.symbol
+#                        ^ constant.other.symbol
+#                         ^ constant.other.symbol
+after = :after
+#       ^ constant.other.symbol
+# ternary:constant and symbol # ternary boundary
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? Codes::OK : :error) # ternary boundary
+#      ^ keyword.operator.ternary
+#        ^ support.class
+#         ^ support.class
+#          ^ support.class
+#           ^ support.class
+#            ^ support.class
+#             ^ punctuation.accessor.double-colon
+#              ^ punctuation.accessor.double-colon
+#               ^ support.class
+#                ^ support.class
+#                  ^ punctuation.separator - constant.other.symbol
+#                    ^ constant.other.symbol
+#                     ^ constant.other.symbol
+#                      ^ constant.other.symbol
+#                       ^ constant.other.symbol
+#                        ^ constant.other.symbol
+#                         ^ constant.other.symbol
+after = :after
+#       ^ constant.other.symbol
+# ternary:symbol and constant
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok : Codes::ERROR)
+#      ^ keyword.operator.ternary
+#        ^ constant.other.symbol
+#         ^ constant.other.symbol
+#          ^ constant.other.symbol
+#            ^ punctuation.separator - constant.other.symbol
+#              ^ support.class
+#               ^ support.class
+#                ^ support.class
+#                 ^ support.class
+#                  ^ support.class
+#                   ^ punctuation.accessor.double-colon
+#                    ^ punctuation.accessor.double-colon
+#                     ^ support.class
+#                      ^ support.class
+#                       ^ support.class
+#                        ^ support.class
+#                         ^ support.class
+after = :after
+#       ^ constant.other.symbol
+# ternary:symbol and constant # ternary boundary
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok : Codes::ERROR) # ternary boundary
+#      ^ keyword.operator.ternary
+#        ^ constant.other.symbol
+#         ^ constant.other.symbol
+#          ^ constant.other.symbol
+#            ^ punctuation.separator - constant.other.symbol
+#              ^ support.class
+#               ^ support.class
+#                ^ support.class
+#                 ^ support.class
+#                  ^ support.class
+#                   ^ punctuation.accessor.double-colon
+#                    ^ punctuation.accessor.double-colon
+#                     ^ support.class
+#                      ^ support.class
+#                       ^ support.class
+#                        ^ support.class
+#                         ^ support.class
+after = :after
+#       ^ constant.other.symbol
+# ternary:hash key after ternary
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+{value: ready ? :ok : :error, next: :next}
+#             ^ keyword.operator.ternary
+#               ^ constant.other.symbol
+#                ^ constant.other.symbol
+#                 ^ constant.other.symbol
+#                   ^ punctuation.separator - constant.other.symbol
+#                     ^ constant.other.symbol
+#                      ^ constant.other.symbol
+#                       ^ constant.other.symbol
+#                        ^ constant.other.symbol
+#                         ^ constant.other.symbol
+#                          ^ constant.other.symbol
+#                             ^ constant.other.symbol
+#                              ^ constant.other.symbol
+#                               ^ constant.other.symbol
+#                                ^ constant.other.symbol
+#                                 ^ punctuation.definition.constant
+#                                   ^ constant.other.symbol
+#                                    ^ constant.other.symbol
+#                                     ^ constant.other.symbol
+#                                      ^ constant.other.symbol
+#                                       ^ constant.other.symbol
+after = :after
+#       ^ constant.other.symbol
+# ternary:hash key after ternary # ternary boundary
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+{value: ready ? :ok : :error, next: :next} # ternary boundary
+#             ^ keyword.operator.ternary
+#               ^ constant.other.symbol
+#                ^ constant.other.symbol
+#                 ^ constant.other.symbol
+#                   ^ punctuation.separator - constant.other.symbol
+#                     ^ constant.other.symbol
+#                      ^ constant.other.symbol
+#                       ^ constant.other.symbol
+#                        ^ constant.other.symbol
+#                         ^ constant.other.symbol
+#                          ^ constant.other.symbol
+#                             ^ constant.other.symbol
+#                              ^ constant.other.symbol
+#                               ^ constant.other.symbol
+#                                ^ constant.other.symbol
+#                                 ^ punctuation.definition.constant
+#                                   ^ constant.other.symbol
+#                                    ^ constant.other.symbol
+#                                     ^ constant.other.symbol
+#                                      ^ constant.other.symbol
+#                                       ^ constant.other.symbol
+after = :after
+#       ^ constant.other.symbol
+# ternary:hash in true branch
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? {next: :ok} : :error)
+#      ^ keyword.operator.ternary
+#         ^ constant.other.symbol
+#          ^ constant.other.symbol
+#           ^ constant.other.symbol
+#            ^ constant.other.symbol
+#             ^ punctuation.definition.constant
+#               ^ constant.other.symbol
+#                ^ constant.other.symbol
+#                 ^ constant.other.symbol
+#                    ^ punctuation.separator - constant.other.symbol
+#                      ^ constant.other.symbol
+#                       ^ constant.other.symbol
+#                        ^ constant.other.symbol
+#                         ^ constant.other.symbol
+#                          ^ constant.other.symbol
+#                           ^ constant.other.symbol
+after = :after
+#       ^ constant.other.symbol
+# ternary:hash in true branch # ternary boundary
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? {next: :ok} : :error) # ternary boundary
+#      ^ keyword.operator.ternary
+#         ^ constant.other.symbol
+#          ^ constant.other.symbol
+#           ^ constant.other.symbol
+#            ^ constant.other.symbol
+#             ^ punctuation.definition.constant
+#               ^ constant.other.symbol
+#                ^ constant.other.symbol
+#                 ^ constant.other.symbol
+#                    ^ punctuation.separator - constant.other.symbol
+#                      ^ constant.other.symbol
+#                       ^ constant.other.symbol
+#                        ^ constant.other.symbol
+#                         ^ constant.other.symbol
+#                          ^ constant.other.symbol
+#                           ^ constant.other.symbol
+after = :after
+#       ^ constant.other.symbol
+# ternary:hash in false branch
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok : {next: :error})
+#      ^ keyword.operator.ternary
+#        ^ constant.other.symbol
+#         ^ constant.other.symbol
+#          ^ constant.other.symbol
+#            ^ punctuation.separator - constant.other.symbol
+#               ^ constant.other.symbol
+#                ^ constant.other.symbol
+#                 ^ constant.other.symbol
+#                  ^ constant.other.symbol
+#                   ^ punctuation.definition.constant
+#                     ^ constant.other.symbol
+#                      ^ constant.other.symbol
+#                       ^ constant.other.symbol
+#                        ^ constant.other.symbol
+#                         ^ constant.other.symbol
+#                          ^ constant.other.symbol
+after = :after
+#       ^ constant.other.symbol
+# ternary:hash in false branch # ternary boundary
+
+ready = true
+module Codes
+  OK = 1
+  ERROR = 2
+end
+(ready ? :ok : {next: :error}) # ternary boundary
+#      ^ keyword.operator.ternary
+#        ^ constant.other.symbol
+#         ^ constant.other.symbol
+#          ^ constant.other.symbol
+#            ^ punctuation.separator - constant.other.symbol
+#               ^ constant.other.symbol
+#                ^ constant.other.symbol
+#                 ^ constant.other.symbol
+#                  ^ constant.other.symbol
+#                   ^ punctuation.definition.constant
+#                     ^ constant.other.symbol
+#                      ^ constant.other.symbol
+#                       ^ constant.other.symbol
+#                        ^ constant.other.symbol
+#                         ^ constant.other.symbol
+#                          ^ constant.other.symbol
+after = :after
+#       ^ constant.other.symbol
