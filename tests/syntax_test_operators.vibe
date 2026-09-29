@@ -450,7 +450,7 @@ end
 def sample
   value = (
     9 +
-#     ^ keyword.operator
+#     ^ keyword.operator.arithmetic
       2
 #     ^ meta.expression.continuation
   )
@@ -462,7 +462,7 @@ end
 def sample
   value = (
     9 + # continued
-#     ^ keyword.operator
+#     ^ keyword.operator.arithmetic
       2
 #     ^ meta.expression.continuation
   )
@@ -475,7 +475,7 @@ def sample
   value = (
     0 +
       9 +
-#       ^ keyword.operator
+#       ^ keyword.operator.arithmetic
         2
 #       ^ meta.expression.continuation
   )
@@ -488,7 +488,7 @@ def sample
   value = (
     0 + # continued
       9 + # continued
-#       ^ keyword.operator
+#       ^ keyword.operator.arithmetic
         2
 #       ^ meta.expression.continuation
   )
@@ -500,7 +500,7 @@ end
 def sample
   value = (
     9 -
-#     ^ keyword.operator
+#     ^ keyword.operator.arithmetic
       2
 #     ^ meta.expression.continuation
   )
@@ -512,7 +512,7 @@ end
 def sample
   value = (
     9 - # continued
-#     ^ keyword.operator
+#     ^ keyword.operator.arithmetic
       2
 #     ^ meta.expression.continuation
   )
@@ -525,7 +525,7 @@ def sample
   value = (
     0 +
       9 -
-#       ^ keyword.operator
+#       ^ keyword.operator.arithmetic
         2
 #       ^ meta.expression.continuation
   )
@@ -538,7 +538,7 @@ def sample
   value = (
     0 + # continued
       9 - # continued
-#       ^ keyword.operator
+#       ^ keyword.operator.arithmetic
         2
 #       ^ meta.expression.continuation
   )
@@ -550,7 +550,7 @@ end
 def sample
   value = (
     9 *
-#     ^ keyword.operator
+#     ^ keyword.operator.arithmetic
       2
 #     ^ meta.expression.continuation
   )
@@ -562,7 +562,7 @@ end
 def sample
   value = (
     9 * # continued
-#     ^ keyword.operator
+#     ^ keyword.operator.arithmetic
       2
 #     ^ meta.expression.continuation
   )
@@ -575,7 +575,7 @@ def sample
   value = (
     0 +
       9 *
-#       ^ keyword.operator
+#       ^ keyword.operator.arithmetic
         2
 #       ^ meta.expression.continuation
   )
@@ -588,7 +588,7 @@ def sample
   value = (
     0 + # continued
       9 * # continued
-#       ^ keyword.operator
+#       ^ keyword.operator.arithmetic
         2
 #       ^ meta.expression.continuation
   )
@@ -600,8 +600,8 @@ end
 def sample
   value = (
     9 **
-#     ^ keyword.operator
-#      ^ keyword.operator
+#     ^ keyword.operator.arithmetic
+#      ^ keyword.operator.arithmetic
       2
 #     ^ meta.expression.continuation
   )
@@ -613,8 +613,8 @@ end
 def sample
   value = (
     9 ** # continued
-#     ^ keyword.operator
-#      ^ keyword.operator
+#     ^ keyword.operator.arithmetic
+#      ^ keyword.operator.arithmetic
       2
 #     ^ meta.expression.continuation
   )
@@ -627,8 +627,8 @@ def sample
   value = (
     0 +
       9 **
-#       ^ keyword.operator
-#        ^ keyword.operator
+#       ^ keyword.operator.arithmetic
+#        ^ keyword.operator.arithmetic
         2
 #       ^ meta.expression.continuation
   )
@@ -641,8 +641,8 @@ def sample
   value = (
     0 + # continued
       9 ** # continued
-#       ^ keyword.operator
-#        ^ keyword.operator
+#       ^ keyword.operator.arithmetic
+#        ^ keyword.operator.arithmetic
         2
 #       ^ meta.expression.continuation
   )
@@ -654,7 +654,7 @@ end
 def sample
   value = (
     9 /
-#     ^ keyword.operator
+#     ^ keyword.operator.arithmetic
       2
 #     ^ meta.expression.continuation
   )
@@ -666,7 +666,7 @@ end
 def sample
   value = (
     9 / # continued
-#     ^ keyword.operator
+#     ^ keyword.operator.arithmetic
       2
 #     ^ meta.expression.continuation
   )
@@ -679,7 +679,7 @@ def sample
   value = (
     0 +
       9 /
-#       ^ keyword.operator
+#       ^ keyword.operator.arithmetic
         2
 #       ^ meta.expression.continuation
   )
@@ -692,7 +692,7 @@ def sample
   value = (
     0 + # continued
       9 / # continued
-#       ^ keyword.operator
+#       ^ keyword.operator.arithmetic
         2
 #       ^ meta.expression.continuation
   )
@@ -704,8 +704,8 @@ end
 def sample
   value = (
     9 //
-#     ^ keyword.operator
-#      ^ keyword.operator
+#     ^ keyword.operator.arithmetic
+#      ^ keyword.operator.arithmetic
       2
 #     ^ meta.expression.continuation
   )
@@ -717,8 +717,8 @@ end
 def sample
   value = (
     9 // # continued
-#     ^ keyword.operator
-#      ^ keyword.operator
+#     ^ keyword.operator.arithmetic
+#      ^ keyword.operator.arithmetic
       2
 #     ^ meta.expression.continuation
   )
@@ -731,8 +731,8 @@ def sample
   value = (
     0 +
       9 //
-#       ^ keyword.operator
-#        ^ keyword.operator
+#       ^ keyword.operator.arithmetic
+#        ^ keyword.operator.arithmetic
         2
 #       ^ meta.expression.continuation
   )
@@ -745,8 +745,8 @@ def sample
   value = (
     0 + # continued
       9 // # continued
-#       ^ keyword.operator
-#        ^ keyword.operator
+#       ^ keyword.operator.arithmetic
+#        ^ keyword.operator.arithmetic
         2
 #       ^ meta.expression.continuation
   )
@@ -758,7 +758,7 @@ end
 def sample
   value = (
     9 %
-#     ^ keyword.operator
+#     ^ keyword.operator.arithmetic
       2
 #     ^ meta.expression.continuation
   )
@@ -770,7 +770,7 @@ end
 def sample
   value = (
     9 % # continued
-#     ^ keyword.operator
+#     ^ keyword.operator.arithmetic
       2
 #     ^ meta.expression.continuation
   )
@@ -783,7 +783,7 @@ def sample
   value = (
     0 +
       9 %
-#       ^ keyword.operator
+#       ^ keyword.operator.arithmetic
         2
 #       ^ meta.expression.continuation
   )
@@ -796,7 +796,7 @@ def sample
   value = (
     0 + # continued
       9 % # continued
-#       ^ keyword.operator
+#       ^ keyword.operator.arithmetic
         2
 #       ^ meta.expression.continuation
   )
@@ -808,8 +808,8 @@ end
 def sample
   value = (
     9 ==
-#     ^ keyword.operator
-#      ^ keyword.operator
+#     ^ keyword.operator.comparison
+#      ^ keyword.operator.comparison
       2
 #     ^ meta.expression.continuation
   )
@@ -821,8 +821,8 @@ end
 def sample
   value = (
     9 == # continued
-#     ^ keyword.operator
-#      ^ keyword.operator
+#     ^ keyword.operator.comparison
+#      ^ keyword.operator.comparison
       2
 #     ^ meta.expression.continuation
   )
@@ -835,8 +835,8 @@ def sample
   value = (
     0 +
       9 ==
-#       ^ keyword.operator
-#        ^ keyword.operator
+#       ^ keyword.operator.comparison
+#        ^ keyword.operator.comparison
         2
 #       ^ meta.expression.continuation
   )
@@ -849,8 +849,8 @@ def sample
   value = (
     0 + # continued
       9 == # continued
-#       ^ keyword.operator
-#        ^ keyword.operator
+#       ^ keyword.operator.comparison
+#        ^ keyword.operator.comparison
         2
 #       ^ meta.expression.continuation
   )
@@ -862,9 +862,9 @@ end
 def sample
   value = (
     9 ===
-#     ^ keyword.operator
-#      ^ keyword.operator
-#       ^ keyword.operator
+#     ^ keyword.operator.comparison
+#      ^ keyword.operator.comparison
+#       ^ keyword.operator.comparison
       2
 #     ^ meta.expression.continuation
   )
@@ -876,9 +876,9 @@ end
 def sample
   value = (
     9 === # continued
-#     ^ keyword.operator
-#      ^ keyword.operator
-#       ^ keyword.operator
+#     ^ keyword.operator.comparison
+#      ^ keyword.operator.comparison
+#       ^ keyword.operator.comparison
       2
 #     ^ meta.expression.continuation
   )
@@ -891,9 +891,9 @@ def sample
   value = (
     0 +
       9 ===
-#       ^ keyword.operator
-#        ^ keyword.operator
-#         ^ keyword.operator
+#       ^ keyword.operator.comparison
+#        ^ keyword.operator.comparison
+#         ^ keyword.operator.comparison
         2
 #       ^ meta.expression.continuation
   )
@@ -906,9 +906,9 @@ def sample
   value = (
     0 + # continued
       9 === # continued
-#       ^ keyword.operator
-#        ^ keyword.operator
-#         ^ keyword.operator
+#       ^ keyword.operator.comparison
+#        ^ keyword.operator.comparison
+#         ^ keyword.operator.comparison
         2
 #       ^ meta.expression.continuation
   )
@@ -920,8 +920,8 @@ end
 def sample
   value = (
     9 !=
-#     ^ keyword.operator
-#      ^ keyword.operator
+#     ^ keyword.operator.comparison
+#      ^ keyword.operator.comparison
       2
 #     ^ meta.expression.continuation
   )
@@ -933,8 +933,8 @@ end
 def sample
   value = (
     9 != # continued
-#     ^ keyword.operator
-#      ^ keyword.operator
+#     ^ keyword.operator.comparison
+#      ^ keyword.operator.comparison
       2
 #     ^ meta.expression.continuation
   )
@@ -947,8 +947,8 @@ def sample
   value = (
     0 +
       9 !=
-#       ^ keyword.operator
-#        ^ keyword.operator
+#       ^ keyword.operator.comparison
+#        ^ keyword.operator.comparison
         2
 #       ^ meta.expression.continuation
   )
@@ -961,8 +961,8 @@ def sample
   value = (
     0 + # continued
       9 != # continued
-#       ^ keyword.operator
-#        ^ keyword.operator
+#       ^ keyword.operator.comparison
+#        ^ keyword.operator.comparison
         2
 #       ^ meta.expression.continuation
   )
@@ -974,7 +974,7 @@ end
 def sample
   value = (
     9 <
-#     ^ keyword.operator
+#     ^ keyword.operator.comparison
       2
 #     ^ meta.expression.continuation
   )
@@ -986,7 +986,7 @@ end
 def sample
   value = (
     9 < # continued
-#     ^ keyword.operator
+#     ^ keyword.operator.comparison
       2
 #     ^ meta.expression.continuation
   )
@@ -999,7 +999,7 @@ def sample
   value = (
     0 +
       9 <
-#       ^ keyword.operator
+#       ^ keyword.operator.comparison
         2
 #       ^ meta.expression.continuation
   )
@@ -1012,7 +1012,7 @@ def sample
   value = (
     0 + # continued
       9 < # continued
-#       ^ keyword.operator
+#       ^ keyword.operator.comparison
         2
 #       ^ meta.expression.continuation
   )
@@ -1024,8 +1024,8 @@ end
 def sample
   value = (
     9 <=
-#     ^ keyword.operator
-#      ^ keyword.operator
+#     ^ keyword.operator.comparison
+#      ^ keyword.operator.comparison
       2
 #     ^ meta.expression.continuation
   )
@@ -1037,8 +1037,8 @@ end
 def sample
   value = (
     9 <= # continued
-#     ^ keyword.operator
-#      ^ keyword.operator
+#     ^ keyword.operator.comparison
+#      ^ keyword.operator.comparison
       2
 #     ^ meta.expression.continuation
   )
@@ -1051,8 +1051,8 @@ def sample
   value = (
     0 +
       9 <=
-#       ^ keyword.operator
-#        ^ keyword.operator
+#       ^ keyword.operator.comparison
+#        ^ keyword.operator.comparison
         2
 #       ^ meta.expression.continuation
   )
@@ -1065,8 +1065,8 @@ def sample
   value = (
     0 + # continued
       9 <= # continued
-#       ^ keyword.operator
-#        ^ keyword.operator
+#       ^ keyword.operator.comparison
+#        ^ keyword.operator.comparison
         2
 #       ^ meta.expression.continuation
   )
@@ -1078,7 +1078,7 @@ end
 def sample
   value = (
     9 >
-#     ^ keyword.operator
+#     ^ keyword.operator.comparison
       2
 #     ^ meta.expression.continuation
   )
@@ -1090,7 +1090,7 @@ end
 def sample
   value = (
     9 > # continued
-#     ^ keyword.operator
+#     ^ keyword.operator.comparison
       2
 #     ^ meta.expression.continuation
   )
@@ -1103,7 +1103,7 @@ def sample
   value = (
     0 +
       9 >
-#       ^ keyword.operator
+#       ^ keyword.operator.comparison
         2
 #       ^ meta.expression.continuation
   )
@@ -1116,7 +1116,7 @@ def sample
   value = (
     0 + # continued
       9 > # continued
-#       ^ keyword.operator
+#       ^ keyword.operator.comparison
         2
 #       ^ meta.expression.continuation
   )
@@ -1128,8 +1128,8 @@ end
 def sample
   value = (
     9 >=
-#     ^ keyword.operator
-#      ^ keyword.operator
+#     ^ keyword.operator.comparison
+#      ^ keyword.operator.comparison
       2
 #     ^ meta.expression.continuation
   )
@@ -1141,8 +1141,8 @@ end
 def sample
   value = (
     9 >= # continued
-#     ^ keyword.operator
-#      ^ keyword.operator
+#     ^ keyword.operator.comparison
+#      ^ keyword.operator.comparison
       2
 #     ^ meta.expression.continuation
   )
@@ -1155,8 +1155,8 @@ def sample
   value = (
     0 +
       9 >=
-#       ^ keyword.operator
-#        ^ keyword.operator
+#       ^ keyword.operator.comparison
+#        ^ keyword.operator.comparison
         2
 #       ^ meta.expression.continuation
   )
@@ -1169,8 +1169,8 @@ def sample
   value = (
     0 + # continued
       9 >= # continued
-#       ^ keyword.operator
-#        ^ keyword.operator
+#       ^ keyword.operator.comparison
+#        ^ keyword.operator.comparison
         2
 #       ^ meta.expression.continuation
   )
@@ -1182,9 +1182,9 @@ end
 def sample
   value = (
     9 <=>
-#     ^ keyword.operator
-#      ^ keyword.operator
-#       ^ keyword.operator
+#     ^ keyword.operator.comparison
+#      ^ keyword.operator.comparison
+#       ^ keyword.operator.comparison
       2
 #     ^ meta.expression.continuation
   )
@@ -1196,9 +1196,9 @@ end
 def sample
   value = (
     9 <=> # continued
-#     ^ keyword.operator
-#      ^ keyword.operator
-#       ^ keyword.operator
+#     ^ keyword.operator.comparison
+#      ^ keyword.operator.comparison
+#       ^ keyword.operator.comparison
       2
 #     ^ meta.expression.continuation
   )
@@ -1211,9 +1211,9 @@ def sample
   value = (
     0 +
       9 <=>
-#       ^ keyword.operator
-#        ^ keyword.operator
-#         ^ keyword.operator
+#       ^ keyword.operator.comparison
+#        ^ keyword.operator.comparison
+#         ^ keyword.operator.comparison
         2
 #       ^ meta.expression.continuation
   )
@@ -1226,9 +1226,9 @@ def sample
   value = (
     0 + # continued
       9 <=> # continued
-#       ^ keyword.operator
-#        ^ keyword.operator
-#         ^ keyword.operator
+#       ^ keyword.operator.comparison
+#        ^ keyword.operator.comparison
+#         ^ keyword.operator.comparison
         2
 #       ^ meta.expression.continuation
   )
@@ -1240,8 +1240,8 @@ end
 def sample
   value = (
     "abc" =~
-#         ^ keyword.operator
-#          ^ keyword.operator
+#         ^ keyword.operator.match
+#          ^ keyword.operator.match
       /a/
 #     ^ meta.expression.continuation
   )
@@ -1253,8 +1253,8 @@ end
 def sample
   value = (
     "abc" =~ # continued
-#         ^ keyword.operator
-#          ^ keyword.operator
+#         ^ keyword.operator.match
+#          ^ keyword.operator.match
       /a/
 #     ^ meta.expression.continuation
   )
@@ -1267,8 +1267,8 @@ def sample
   value = (
     "" +
       "abc" =~
-#           ^ keyword.operator
-#            ^ keyword.operator
+#           ^ keyword.operator.match
+#            ^ keyword.operator.match
         /a/
 #       ^ meta.expression.continuation
   )
@@ -1281,8 +1281,8 @@ def sample
   value = (
     "" + # continued
       "abc" =~ # continued
-#           ^ keyword.operator
-#            ^ keyword.operator
+#           ^ keyword.operator.match
+#            ^ keyword.operator.match
         /a/
 #       ^ meta.expression.continuation
   )
@@ -1294,8 +1294,8 @@ end
 def sample
   value = (
     "abc" !~
-#         ^ keyword.operator
-#          ^ keyword.operator
+#         ^ keyword.operator.match
+#          ^ keyword.operator.match
       /a/
 #     ^ meta.expression.continuation
   )
@@ -1307,8 +1307,8 @@ end
 def sample
   value = (
     "abc" !~ # continued
-#         ^ keyword.operator
-#          ^ keyword.operator
+#         ^ keyword.operator.match
+#          ^ keyword.operator.match
       /a/
 #     ^ meta.expression.continuation
   )
@@ -1321,8 +1321,8 @@ def sample
   value = (
     "" +
       "abc" !~
-#           ^ keyword.operator
-#            ^ keyword.operator
+#           ^ keyword.operator.match
+#            ^ keyword.operator.match
         /a/
 #       ^ meta.expression.continuation
   )
@@ -1335,8 +1335,8 @@ def sample
   value = (
     "" + # continued
       "abc" !~ # continued
-#           ^ keyword.operator
-#            ^ keyword.operator
+#           ^ keyword.operator.match
+#            ^ keyword.operator.match
         /a/
 #       ^ meta.expression.continuation
   )
@@ -1348,8 +1348,8 @@ end
 def sample
   value = (
     true &&
-#        ^ keyword.operator
-#         ^ keyword.operator
+#        ^ keyword.operator.logical
+#         ^ keyword.operator.logical
       false
 #     ^ meta.expression.continuation
   )
@@ -1361,8 +1361,8 @@ end
 def sample
   value = (
     true && # continued
-#        ^ keyword.operator
-#         ^ keyword.operator
+#        ^ keyword.operator.logical
+#         ^ keyword.operator.logical
       false
 #     ^ meta.expression.continuation
   )
@@ -1375,8 +1375,8 @@ def sample
   value = (
     false ||
       true &&
-#          ^ keyword.operator
-#           ^ keyword.operator
+#          ^ keyword.operator.logical
+#           ^ keyword.operator.logical
         false
 #       ^ meta.expression.continuation
   )
@@ -1389,8 +1389,8 @@ def sample
   value = (
     false || # continued
       true && # continued
-#          ^ keyword.operator
-#           ^ keyword.operator
+#          ^ keyword.operator.logical
+#           ^ keyword.operator.logical
         false
 #       ^ meta.expression.continuation
   )
@@ -1402,8 +1402,8 @@ end
 def sample
   value = (
     true ||
-#        ^ keyword.operator
-#         ^ keyword.operator
+#        ^ keyword.operator.logical
+#         ^ keyword.operator.logical
       false
 #     ^ meta.expression.continuation
   )
@@ -1415,8 +1415,8 @@ end
 def sample
   value = (
     true || # continued
-#        ^ keyword.operator
-#         ^ keyword.operator
+#        ^ keyword.operator.logical
+#         ^ keyword.operator.logical
       false
 #     ^ meta.expression.continuation
   )
@@ -1429,8 +1429,8 @@ def sample
   value = (
     false ||
       true ||
-#          ^ keyword.operator
-#           ^ keyword.operator
+#          ^ keyword.operator.logical
+#           ^ keyword.operator.logical
         false
 #       ^ meta.expression.continuation
   )
@@ -1443,8 +1443,8 @@ def sample
   value = (
     false || # continued
       true || # continued
-#          ^ keyword.operator
-#           ^ keyword.operator
+#          ^ keyword.operator.logical
+#           ^ keyword.operator.logical
         false
 #       ^ meta.expression.continuation
   )
@@ -1456,8 +1456,8 @@ end
 def sample
   value = (
     [1] <<
-#       ^ keyword.operator
-#        ^ keyword.operator
+#       ^ keyword.operator.bitwise
+#        ^ keyword.operator.bitwise
       2
 #     ^ meta.expression.continuation
   )
@@ -1469,8 +1469,8 @@ end
 def sample
   value = (
     [1] << # continued
-#       ^ keyword.operator
-#        ^ keyword.operator
+#       ^ keyword.operator.bitwise
+#        ^ keyword.operator.bitwise
       2
 #     ^ meta.expression.continuation
   )
@@ -1483,8 +1483,8 @@ def sample
   value = (
     [] +
       [1] <<
-#         ^ keyword.operator
-#          ^ keyword.operator
+#         ^ keyword.operator.bitwise
+#          ^ keyword.operator.bitwise
         2
 #       ^ meta.expression.continuation
   )
@@ -1497,8 +1497,8 @@ def sample
   value = (
     [] + # continued
       [1] << # continued
-#         ^ keyword.operator
-#          ^ keyword.operator
+#         ^ keyword.operator.bitwise
+#          ^ keyword.operator.bitwise
         2
 #       ^ meta.expression.continuation
   )
@@ -1510,7 +1510,7 @@ end
 def sample
   value = (
     [1, 2] &
-#          ^ keyword.operator
+#          ^ keyword.operator.bitwise
       [2, 3]
 #     ^ meta.expression.continuation
   )
@@ -1522,7 +1522,7 @@ end
 def sample
   value = (
     [1, 2] & # continued
-#          ^ keyword.operator
+#          ^ keyword.operator.bitwise
       [2, 3]
 #     ^ meta.expression.continuation
   )
@@ -1535,7 +1535,7 @@ def sample
   value = (
     [] +
       [1, 2] &
-#            ^ keyword.operator
+#            ^ keyword.operator.bitwise
         [2, 3]
 #       ^ meta.expression.continuation
   )
@@ -1548,7 +1548,7 @@ def sample
   value = (
     [] + # continued
       [1, 2] & # continued
-#            ^ keyword.operator
+#            ^ keyword.operator.bitwise
         [2, 3]
 #       ^ meta.expression.continuation
   )
@@ -1560,8 +1560,8 @@ end
 def sample
   value = (
     1 ..
-#     ^ keyword.operator
-#      ^ keyword.operator
+#     ^ keyword.operator.range
+#      ^ keyword.operator.range
       3
 #     ^ meta.expression.continuation
   )
@@ -1573,8 +1573,8 @@ end
 def sample
   value = (
     1 .. # continued
-#     ^ keyword.operator
-#      ^ keyword.operator
+#     ^ keyword.operator.range
+#      ^ keyword.operator.range
       3
 #     ^ meta.expression.continuation
   )
@@ -1587,8 +1587,8 @@ def sample
   value = (
     0 +
       1 ..
-#       ^ keyword.operator
-#        ^ keyword.operator
+#       ^ keyword.operator.range
+#        ^ keyword.operator.range
         3
 #       ^ meta.expression.continuation
   )
@@ -1601,8 +1601,8 @@ def sample
   value = (
     0 + # continued
       1 .. # continued
-#       ^ keyword.operator
-#        ^ keyword.operator
+#       ^ keyword.operator.range
+#        ^ keyword.operator.range
         3
 #       ^ meta.expression.continuation
   )
@@ -1614,9 +1614,9 @@ end
 def sample
   value = (
     1 ...
-#     ^ keyword.operator
-#      ^ keyword.operator
-#       ^ keyword.operator
+#     ^ keyword.operator.range
+#      ^ keyword.operator.range
+#       ^ keyword.operator.range
       3
 #     ^ meta.expression.continuation
   )
@@ -1628,9 +1628,9 @@ end
 def sample
   value = (
     1 ... # continued
-#     ^ keyword.operator
-#      ^ keyword.operator
-#       ^ keyword.operator
+#     ^ keyword.operator.range
+#      ^ keyword.operator.range
+#       ^ keyword.operator.range
       3
 #     ^ meta.expression.continuation
   )
@@ -1643,9 +1643,9 @@ def sample
   value = (
     0 +
       1 ...
-#       ^ keyword.operator
-#        ^ keyword.operator
-#         ^ keyword.operator
+#       ^ keyword.operator.range
+#        ^ keyword.operator.range
+#         ^ keyword.operator.range
         3
 #       ^ meta.expression.continuation
   )
@@ -1658,9 +1658,9 @@ def sample
   value = (
     0 + # continued
       1 ... # continued
-#       ^ keyword.operator
-#        ^ keyword.operator
-#         ^ keyword.operator
+#       ^ keyword.operator.range
+#        ^ keyword.operator.range
+#         ^ keyword.operator.range
         3
 #       ^ meta.expression.continuation
   )

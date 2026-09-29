@@ -40,7 +40,10 @@ def main():
     changed = sum(test.get("indent_passed") is False for test in tests)
     print(f"{len(tests)} files; {assertions} scope assertions; {failures} failures; {changed} indentation changes")
     print(f"Results: {args.output}")
-    return bool(failures or changed)
+    missing = result.get("missing_scopes", [])
+    if missing:
+        print("Untested scopes: " + ", ".join(missing))
+    return bool(failures or changed or missing)
 
 
 if __name__ == "__main__":

@@ -19,6 +19,7 @@ from type_inventory import inventory
 from type_cases import cases as type_cases
 from alias_cases import cases as alias_cases
 from nested_cases import cases as nested_cases
+from layout_cases import cases as layout_cases, required_scopes
 
 
 BUILTINS = set(inventory()["builtins"])
@@ -285,9 +286,12 @@ def main():
                        capture_output=True, text=True, check=True)
     cases.extend(nested)
     coverage["nested-delimiter-cases"] = len(nested)
+    layouts = layout_cases()
+    cases.extend(layouts)
+    coverage["layout-invariance-cases"] = len(layouts)
     manifest = {"website_count": len(website), "rust_origins": dict(origins), "coverage": dict(coverage),
                 "compiler": subprocess.check_output([str(compiler), "--version"], text=True).strip(),
-                "rejected": rejected, "cases": cases}
+                "rejected": rejected, "cases": cases, "required_scopes": required_scopes()}
     for category in ("typed-local", "hash-key", "type", "block-union", "block-parameter", "string", "regex", "comment", "context:block_comment"):
         if not coverage[category]:
             raise ValueError("No coverage for " + category)

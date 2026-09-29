@@ -1467,3 +1467,57 @@ def run -> { head: int?, matrix: array<array<int>>, replaced: array<int>, tail: 
 #                                          ^ comment
   }
 end
+# rust:corpus/glue/inventory_join/inventory_join.vibe
+
+type Stock = { available: int, warehouse: string }
+#                         ^ meta.annotation.type support.type
+#                                         ^ meta.annotation.type support.type
+type Order = { sku: string, quantity: int }
+#                   ^ meta.annotation.type support.type
+#                                     ^ meta.annotation.type support.type
+def fulfillable(orders: array<Order>, stock: hash<string, Stock>) -> array<string>
+#   ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#               ^ variable.parameter
+#                       ^ meta.annotation.type support.type
+#                             ^ meta.annotation.type support.class
+#                                     ^ variable.parameter
+#                                            ^ meta.annotation.type support.type
+#                                                 ^ meta.annotation.type support.type
+#                                                         ^ meta.annotation.type support.class
+#                                                                    ^ meta.annotation.type support.type
+#                                                                          ^ meta.annotation.type support.type
+  orders.filter_map { |order|
+# ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#        ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                     ^ punctuation.separator.block-parameters.begin
+#                      ^ variable.parameter
+#                           ^ punctuation.separator.block-parameters.end
+    item = stock[order["sku"]]
+#   ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#          ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                       ^ string.quoted.double
+    if item != nil && item["available"] >= order["quantity"]
+#      ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                     ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                           ^ string.quoted.double
+#                                          ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#                                                 ^ string.quoted.double
+      order["sku"]
+#     ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+#            ^ string.quoted.double
+    else
+      nil
+    end
+  }
+end
+# rust:examples/checker_diff/builtins.rs:882
+
+(begin
+  raise "boom"
+#        ^ string.quoted.double
+rescue => e
+#         ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+  e
+# ^ source.vibescript - meta.annotation.type - meta.block.parameters - string - comment
+end)

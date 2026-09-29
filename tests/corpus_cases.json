@@ -1177,6 +1177,51 @@
         [33, 14, "source.vibescript - meta.annotation.type - meta.block.parameters - string - comment"],
         [33, 43, "comment"]
       ]
+    },
+    {
+      "name": "rust:corpus/glue/inventory_join/inventory_join.vibe",
+      "source": "type Stock = { available: int, warehouse: string }\ntype Order = { sku: string, quantity: int }\ndef fulfillable(orders: array<Order>, stock: hash<string, Stock>) -> array<string>\n  orders.filter_map { |order|\n    item = stock[order[\"sku\"]]\n    if item != nil && item[\"available\"] >= order[\"quantity\"]\n      order[\"sku\"]\n    else\n      nil\n    end\n  }\nend\n",
+      "assertions": [
+        [0, 26, "meta.annotation.type support.type"],
+        [0, 42, "meta.annotation.type support.type"],
+        [1, 20, "meta.annotation.type support.type"],
+        [1, 38, "meta.annotation.type support.type"],
+        [2, 4, "source.vibescript - meta.annotation.type - meta.block.parameters - string - comment"],
+        [2, 16, "variable.parameter"],
+        [2, 24, "meta.annotation.type support.type"],
+        [2, 30, "meta.annotation.type support.class"],
+        [2, 38, "variable.parameter"],
+        [2, 45, "meta.annotation.type support.type"],
+        [2, 50, "meta.annotation.type support.type"],
+        [2, 58, "meta.annotation.type support.class"],
+        [2, 69, "meta.annotation.type support.type"],
+        [2, 75, "meta.annotation.type support.type"],
+        [3, 2, "source.vibescript - meta.annotation.type - meta.block.parameters - string - comment"],
+        [3, 9, "source.vibescript - meta.annotation.type - meta.block.parameters - string - comment"],
+        [3, 22, "punctuation.separator.block-parameters.begin"],
+        [3, 23, "variable.parameter"],
+        [3, 28, "punctuation.separator.block-parameters.end"],
+        [4, 4, "source.vibescript - meta.annotation.type - meta.block.parameters - string - comment"],
+        [4, 11, "source.vibescript - meta.annotation.type - meta.block.parameters - string - comment"],
+        [4, 17, "source.vibescript - meta.annotation.type - meta.block.parameters - string - comment"],
+        [4, 24, "string.quoted.double"],
+        [5, 7, "source.vibescript - meta.annotation.type - meta.block.parameters - string - comment"],
+        [5, 22, "source.vibescript - meta.annotation.type - meta.block.parameters - string - comment"],
+        [5, 28, "string.quoted.double"],
+        [5, 43, "source.vibescript - meta.annotation.type - meta.block.parameters - string - comment"],
+        [5, 50, "string.quoted.double"],
+        [6, 6, "source.vibescript - meta.annotation.type - meta.block.parameters - string - comment"],
+        [6, 13, "string.quoted.double"]
+      ]
+    },
+    {
+      "name": "rust:examples/checker_diff/builtins.rs:882",
+      "source": "(begin\n  raise \"boom\"\nrescue => e\n  e\nend)\n",
+      "assertions": [
+        [1, 9, "string.quoted.double"],
+        [2, 10, "source.vibescript - meta.annotation.type - meta.block.parameters - string - comment"],
+        [3, 2, "source.vibescript - meta.annotation.type - meta.block.parameters - string - comment"]
+      ]
     }
   ]
 }

@@ -28,15 +28,18 @@ def run_request(request):
                     tests[resource] = {"assertions": count, "failures": failures}
             write_result(request, {"tests": tests})
         else:
-            cases = json.loads(Path(request["manifest"]).read_text())["cases"]
-            run_case(request, cases, 0, [])
+            manifest = json.loads(Path(request["manifest"]).read_text())
+            request["required_scopes"] = manifest.get("required_scopes", [])
+            run_case(request, manifest["cases"], 0, [])
     except Exception:
         write_result(request, {"error": traceback.format_exc()})
 
 
 def run_case(request, cases, index, results):
     if index == len(cases):
-        write_result(request, {"cases": results})
+        covered = {scope for result in results for scope in result.get("scope_coverage", [])}
+        missing = sorted(set(request.get("required_scopes", [])) - covered)
+        write_result(request, {"cases": results, "missing_scopes": missing})
         return
     window = sublime.active_window()
     if window is None:
@@ -55,6 +58,30 @@ def run_case(request, cases, index, results):
     sublime.set_timeout(lambda: check_case(request, cases, index, results, view, source), 10)
 
 
+def compare_scope_group(view, group):
+    """Compare every token character, ignoring only the continuation meta scope."""
+    failures, covered, expected = [], set(), None
+    comparisons = 0
+    for location in group["locations"]:
+        row, column = location["position"]
+        start = view.text_point(row, column)
+        token = group["token"]
+        if view.substr(sublime.Region(start, start + len(token))) != token:
+            raise ValueError("Scope comparison points outside " + repr(token))
+        scopes = [[scope for scope in view.scope_name(start + offset).split()
+                   if scope != "meta.expression.continuation.vibescript"]
+                  for offset in range(len(token))]
+        covered.update(scope for stack in scopes for scope in stack)
+        if expected is None:
+            expected = scopes
+        else:
+            comparisons += len(token)
+            if scopes != expected:
+                failures.append({"token": token, "layout": location["layout"],
+                                 "row": row, "column": column, "expected": expected, "actual": scopes})
+    return failures, comparisons, covered
+
+
 def check_case(request, cases, index, results, view, source):
     try:
         case = cases[index]
@@ -65,8 +92,17 @@ def check_case(request, cases, index, results, view, source):
             if not view.match_selector(point, selector):
                 failures.append({"row": row, "column": column, "expected": selector,
                                  "actual": view.scope_name(point)})
-        result = {"name": case["name"], "assertions": len(case.get("assertions", [])),
+        comparisons = 0
+        covered = set()
+        for group in case.get("equal_scopes", []):
+            group_failures, count, scopes = compare_scope_group(view, group)
+            failures.extend(group_failures)
+            comparisons += count
+            covered.update(scopes)
+        result = {"name": case["name"], "assertions": len(case.get("assertions", [])) + comparisons,
                   "failures": failures}
+        if case.get("equal_scopes"):
+            result["scope_coverage"] = sorted(covered)
         if case.get("debug"):
             result["metadata"] = []
             for line in view.lines(sublime.Region(0, view.size())):

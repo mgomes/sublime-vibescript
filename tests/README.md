@@ -17,6 +17,34 @@ fixture covers each complete token. Regenerate it with:
 python3 scripts/operators.py > tests/syntax_test_operators.vibe
 ```
 
+`scripts/layout_cases.py` adds 188 token contexts to the corpus audit. Binary,
+assignment, symbol and method operators come from the same operator inventory.
+The remaining cases cover every keyword spelling and every punctuation and
+literal scope declared by the syntax, with representative values for numeric,
+string, symbol and regex token classes. Missing scope coverage fails the audit.
+
+Each case compares every character's complete scope stack across inline,
+trailing, leading and existing-continuation layouts, including trailing comments
+and operators extending an existing continuation. Only
+`meta.expression.continuation.vibescript` is removed before comparison. The
+checked-in syntax fixture also asserts the token's category in each layout.
+The curated corpus retains block and rescue expressions that exercise incremental
+reindentation when multiline labels fall back to ordinary expressions.
+
+These are lexical editor probes, including partial constructs, rather than
+compiler-accepted programs. Whitespace cannot split a string/regex/symbol token
+or move a directive outside its comment. Line-sensitive declaration units
+(`module Name`, `alias old new`, `type Name =`, `def name(`, `) ->` and
+`&block: (`) stay intact: splitting them changes the Rust parser's reading.
+The Python suite separately checks the newly supported line breaks with Rust.
+
+```sh
+python3 scripts/layout_cases.py --syntax > tests/syntax_test_layout.vibe
+python3 scripts/layout_cases.py > "$cache/layout-cases.json"
+python3 scripts/run-native-tests.py "$profile" \
+  --manifest "$cache/layout-cases.json" --output "$cache/layout.json"
+```
+
 `scripts/indentation.py` generates the bounded opener/closer pattern rather than
 maintaining an expanded regex by hand. `scripts/semicolon_cases.py` enumerates
 mixed `if`, `while`, `def` and brace-block nesting through three levels, both

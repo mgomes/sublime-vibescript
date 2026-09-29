@@ -56,7 +56,7 @@ def continuation_cases():
                     row = 2
                     column = 4 + len(left) + 1
                 assertions = [
-                    [row, column + offset, "keyword.operator"] for offset in range(len(operator))
+                    [row, column + offset, f"keyword.operator.{category}"] for offset in range(len(operator))
                 ]
                 assertions.append([row + 1, len(lines[row + 1]) - len(right), "meta.expression.continuation"])
                 assertions.append([len(lines) - 2, 2, "source.vibescript - meta.expression.continuation"])

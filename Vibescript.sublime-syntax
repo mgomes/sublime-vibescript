@@ -60,7 +60,6 @@ contexts:
     - include: numbers
     - include: symbols
     - include: regexps
-    - include: brace-block-parameters
     - include: variables
     - include: calls
     - include: constants
@@ -106,7 +105,7 @@ contexts:
     - match: '\b(private|public|protected)(?=\s+(?:def|property|getter|setter)\b)'
       scope: keyword.declaration.visibility.vibescript
     # Retroactive visibility: bare `private` or `public :name, :"quoted", :+`.
-    - match: '\b(private|public|protected)\b(?=\s*$|\s+:)'
+    - match: '\b(private|public|protected)\b(?=[ \t]*(?:#.*)?$|\s+:)'
       scope: keyword.declaration.visibility.vibescript
     - match: '\b(def)\b'
       scope: keyword.declaration.function.vibescript
@@ -114,7 +113,7 @@ contexts:
     - match: '\b(class)\b'
       scope: keyword.declaration.class.vibescript
       push: class-declaration
-    - match: '\b(enum)\b(?=\s+[A-Za-z_])'
+    - match: '\b(enum)\b(?=\s+[A-Za-z_]|[ \t]*(?:#.*)?$)'
       scope: keyword.declaration.enum.vibescript
       push: enum-declaration
 
@@ -183,16 +182,36 @@ contexts:
       push: parameters
     - match: '(->)'
       scope: punctuation.separator.annotation.return-type.vibescript
-      push: type-expression
+      set: [function-signature-end, type-expression]
     - match: $\n?
       pop: 1
     - match: '(?=\S)'
       pop: 1
 
+  function-signature-end:
+    - meta_scope: meta.function.signature.vibescript
+    - match: ''
+      pop: 1
+
   bare-parameters:
     - match: '(?=->)|$'
       pop: 1
+    - match: ':'
+      scope: punctuation.separator.annotation.type.vibescript
+      set: [bare-parameter-end, type-expression]
     - include: parameters
+
+  bare-parameter-end:
+    - match: ','
+      scope: punctuation.separator.parameter.vibescript
+      set: bare-parameters
+    - match: '='
+      scope: keyword.operator.assignment.vibescript
+      push: parameter-default
+    - match: '(?=->)'
+      pop: 1
+    - match: ''
+      pop: 2
 
   parameters:
     - match: '\*\*|\*|&'
@@ -225,7 +244,7 @@ contexts:
 
   type-expression:
     - meta_scope: meta.annotation.type.vibescript
-    - match: '(?=[,)=};])|$'
+    - match: '(?=[,)=};])'
       pop: 1
     - match: '\bnil\b'
       scope: constant.language.null.vibescript
@@ -264,7 +283,15 @@ contexts:
     - match: '::|\.'
       scope: punctuation.accessor.vibescript
       set: type-expression
-    - match: '(?=\S)|$'
+    - match: '$'
+      set: type-expression-next-line
+    - match: '(?=\S)'
+      pop: 1
+
+  type-expression-next-line:
+    - match: '(?=[ \t]*(?:<|\||\?|->|::|\.))'
+      set: type-expression-tail
+    - match: '(?=[ \t]*\S)'
       pop: 1
 
   type-body:
@@ -350,11 +377,7 @@ contexts:
         1: keyword.declaration.type.vibescript
         2: entity.name.type.vibescript
         3: keyword.operator.assignment.vibescript
-      push:
-        - meta_scope: meta.annotation.type.vibescript
-        - match: '(?=;)|$'
-          pop: 1
-        - include: type-body
+      push: type-expression
 
   typed-local:
     - match: '^\s*(@{1,2}[A-Za-z_][a-zA-Z0-9_]*)(:)'
@@ -536,13 +559,21 @@ contexts:
   member-declaration:
     - match: ':'
       scope: punctuation.separator.annotation.type.vibescript
-      push: type-expression
+      set: [member-declaration-end, type-expression]
     - meta_scope: meta.declaration.member.vibescript
     - match: '{{identifier}}'
       scope: variable.other.member.vibescript
     - match: ','
       scope: punctuation.separator.sequence.vibescript
     - match: $\n?
+      pop: 1
+
+  member-declaration-end:
+    - meta_scope: meta.declaration.member.vibescript
+    - match: ','
+      scope: punctuation.separator.sequence.vibescript
+      set: member-declaration
+    - match: ''
       pop: 1
 
   control-keywords:
@@ -564,9 +595,12 @@ contexts:
       scope: variable.language.self.vibescript
 
   brace-block-parameters:
-    - match: '(?<=\{|\{ )\|'
+    - match: '\|'
       scope: punctuation.separator.block-parameters.begin.vibescript
-      push: block-parameter-list
+      set: block-parameter-list
+    - include: line-hash-key
+    - match: '(?=\S)'
+      pop: 1
 
   block-parameter-list:
     - match: ':'
@@ -580,8 +614,6 @@ contexts:
       scope: variable.parameter.vibescript
     - match: ','
       scope: punctuation.separator.parameter.vibescript
-    - match: $\n?
-      pop: 1
 
   block-parameter-type:
     - meta_scope: meta.annotation.type.vibescript
@@ -652,7 +684,7 @@ contexts:
     - meta_scope: meta.interpolation.vibescript
     - match: '\{'
       scope: punctuation.section.braces.begin.vibescript
-      push: interpolation-braces
+      push: [interpolation-braces, brace-block-parameters]
     - match: '\}'
       scope: punctuation.section.interpolation.end.vibescript
       pop: 1
@@ -661,7 +693,7 @@ contexts:
   interpolation-braces:
     - match: '\{'
       scope: punctuation.section.braces.begin.vibescript
-      push: interpolation-braces
+      push: [interpolation-braces, brace-block-parameters]
     - match: '\}'
       scope: punctuation.section.braces.end.vibescript
       pop: 1
@@ -757,14 +789,12 @@ contexts:
       scope: variable.other.member.vibescript
 
   calls:
-    - match: '(&\.)({{identifier}})'
-      captures:
-        1: punctuation.accessor.safe-navigation.vibescript
-        2: variable.function.vibescript
-    - match: '(\.)({{identifier}})'
-      captures:
-        1: punctuation.accessor.dot.vibescript
-        2: variable.function.vibescript
+    - match: '&\.'
+      scope: punctuation.accessor.safe-navigation.vibescript
+      push: member-name
+    - match: '\.(?!\.)'
+      scope: punctuation.accessor.dot.vibescript
+      push: member-name
     - match: '\b{{identifier}}(?=\s*\()'
       scope: variable.function.vibescript
     - match: '\b{{identifier}}(?=\s*\{)'
@@ -774,6 +804,13 @@ contexts:
     # keyword, matching the external scanner's COMMAND_START rules.
     - match: '\b{{identifier}}(?=[ \t]+(?!(?:{{trailing_keyword}})\b)[\w"''@])'
       scope: variable.function.vibescript
+
+  member-name:
+    - match: '{{identifier}}'
+      scope: variable.function.vibescript
+      pop: 1
+    - match: '(?=\S)'
+      pop: 1
 
   constants:
     - match: '{{constant}}'
@@ -785,9 +822,17 @@ contexts:
     - match: '\b[a-z_][a-zA-Z0-9_]*(?:[?!](?!=))?'
 
   operators:
-    - match: '{{continuation}}'
-      scope: keyword.operator.vibescript
-      push: expression-continuation-start
+    - match: '(?={{continuation}})'
+      push: [expression-continuation-start, continuation-operator]
+    - include: operator-tokens
+
+  continuation-operator:
+    - meta_include_prototype: false
+    - include: operator-tokens
+    - match: ''
+      pop: 1
+
+  operator-tokens:
     - match: '{{augmented_assignment_operator}}'
       scope: keyword.operator.assignment.augmented.vibescript
     # Hash-rocket literals are gone from the language; the only remaining
@@ -814,8 +859,19 @@ contexts:
       scope: keyword.operator.assignment.vibescript
     - match: '\?'
       scope: keyword.operator.ternary.vibescript
+      push: ternary-value
     - match: '\.'
       scope: punctuation.accessor.dot.vibescript
+
+  ternary-value:
+    - match: ':'
+      scope: punctuation.separator.vibescript
+      pop: 1
+    - match: '(?=[)\]}])'
+      pop: 1
+    - include: control-keywords
+    - match: '{{identifier}}(?=[ \t]*:(?!:))'
+    - include: main
 
   punctuation:
     - match: '[\[\]{}()]'
@@ -828,11 +884,7 @@ contexts:
   expression-groups:
     - match: '\('
       scope: punctuation.section.brackets.vibescript
-      push:
-        - match: '\)'
-          scope: punctuation.section.brackets.vibescript
-          pop: 1
-        - include: main
+      push: [parenthesized-expression, expression-item-start]
     - match: '\['
       scope: punctuation.section.brackets.vibescript
       push:
@@ -842,18 +894,56 @@ contexts:
         - include: main
     - match: '\{'
       scope: punctuation.section.brackets.vibescript
-      push: expression-braces
+      push: [expression-braces, brace-block-parameters]
+
+  parenthesized-expression:
+    - match: '\)'
+      scope: punctuation.section.brackets.vibescript
+      pop: 1
+    - match: ','
+      scope: punctuation.separator.vibescript
+      push: expression-item-start
+    - include: main
+
+  expression-item-start:
+    - include: line-hash-key
+    - match: '(?=\S)'
+      pop: 1
 
   expression-brace-open:
     - match: '\{'
       scope: punctuation.section.brackets.vibescript
-      set: expression-braces
+      set: [expression-braces, brace-block-parameters]
 
   expression-braces:
     - match: '\}'
       scope: punctuation.section.brackets.vibescript
       pop: 1
+    - match: ','
+      scope: punctuation.separator.vibescript
+      push: expression-item-start
     - include: main
+
+  line-hash-key:
+    - match: '(?={{identifier}}[ \t]*(?:#.*)?$)'
+      branch_point: line-hash-key
+      branch: [line-hash-key-name, line-hash-key-expression]
+
+  line-hash-key-name:
+    - match: '{{identifier}}'
+      scope: constant.other.symbol.vibescript
+      set: line-hash-key-colon
+
+  line-hash-key-colon:
+    - match: ':(?!:)'
+      scope: punctuation.definition.constant.vibescript
+      pop: 2
+    - match: '(?=\S)'
+      fail: line-hash-key
+
+  line-hash-key-expression:
+    - match: ''
+      pop: 2
 
   expression-continuation-start:
     - meta_scope: meta.expression.continuation.vibescript
@@ -862,9 +952,8 @@ contexts:
 
   expression-continuation:
     - meta_scope: meta.expression.continuation.vibescript
-    - match: '{{continuation}}'
-      scope: keyword.operator.vibescript
-      set: expression-continuation-start
-    - match: '$\n?'
+    - match: '(?={{continuation}})'
+      set: [expression-continuation-start, continuation-operator]
+    - match: '(?=[)\]}])|$\n?'
       pop: 1
     - include: main
